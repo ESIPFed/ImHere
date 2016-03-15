@@ -1,0 +1,14 @@
+
+.img { display:block; margin-left: auto; margin-right: auto; }
+
+@media screen and (max-width: 980px) {
+   .center { display:none; text-align:center; }
+   p { font-size: 52px; font-family: Arial; }
+  li { font-size: 48px; font-family: Arial; }
+}
+
+@media screen and (min-width: 981px) {
+   .center { text-align:center; }
+   p { font-size: 20px; font-family: Arial }
+}
+

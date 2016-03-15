@@ -1,0 +1,1301 @@
+01-06-2016_10:45:16,,
+01-06-2016_11:37:42,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_12:27:35,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_12:27:38,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_12:27:52,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_12:35:09,,
+01-06-2016_12:35:17,,
+01-06-2016_12:36:09,,
+01-06-2016_12:36:12,,
+01-06-2016_12:40:33,Christopher Beltz,cbeltz@uwyo.edu
+01-06-2016_12:40:51,Christopher Beltz,cbeltz@uwyo.edu
+01-06-2016_12:40:55,Christopher Beltz,cbeltz@uwyo.edu
+01-06-2016_12:41:03,Christopher Beltz,cbeltz@uwyo.edu
+01-06-2016_12:41:18,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_12:41:20,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_12:53:34,Peter Fox,pfox@cs.rpi.edu
+01-06-2016_12:53:37,Peter Fox,pfox@cs.rpi.edu
+01-06-2016_01:02:06,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_01:02:16,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_01:02:18,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_01:02:23,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_01:02:31,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_01:11:46,,
+01-06-2016_01:14:53,,
+01-06-2016_01:15:00,,
+01-06-2016_01:15:08,,
+01-06-2016_01:15:12,,
+01-06-2016_01:15:16,,
+01-06-2016_01:17:42,John Relph,John.Relph@noaa.gov
+01-06-2016_01:17:47,John Relph,John.Relph@noaa.gov
+01-06-2016_01:17:54,John Relph,John.Relph@noaa.gov
+01-06-2016_01:25:26,Kevin Browne,infomgr@ucnrs.org
+01-06-2016_01:25:31,Kevin Browne,infomgr@ucnrs.org
+01-06-2016_01:25:45,Kevin Browne,infomgr@ucnrs.org
+01-06-2016_01:25:58,,
+01-06-2016_01:26:03,,
+01-06-2016_01:28:02,John Relph,John.Relph@noaa.gov
+01-06-2016_01:28:06,John Relph,John.Relph@noaa.gov
+01-06-2016_01:28:36,,
+01-06-2016_01:35:04,Fei Hu,fhu@gmu.edu
+01-06-2016_01:35:12,Fei Hu,fhu@gmu.edu
+01-06-2016_01:35:38,Fei Hu,fhu@gmu.edu
+01-06-2016_01:36:35,Alison Adams,alison.adams@uvm.edu
+01-06-2016_01:36:41,Alison Adams,alison.adams@uvm.edu
+01-06-2016_01:36:47,Alison Adams,alison.adams@uvm.edu
+01-06-2016_01:37:49,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_01:40:36,Christopher Beltz,cbeltz@uwyo.edu
+01-06-2016_01:40:39,Bill Teng,dragonabs1@gmail.com
+01-06-2016_01:40:46,Bill Teng,dragonabs1@gmail.com
+01-06-2016_01:41:17,Christopher Beltz,cbeltz@uwyo.edu
+01-06-2016_01:41:23,Christopher Beltz,cbeltz@uwyo.edu
+01-06-2016_01:49:47,Christopher Beltz,cbeltz@uwyo.edu
+01-06-2016_01:51:50,Kevin Browne,infomgr@ucnrs.org
+01-06-2016_01:51:59,Kevin Browne,infomgr@ucnrs.org
+01-06-2016_01:52:18,Kevin Browne,infomgr@ucnrs.org
+01-06-2016_01:52:48,,
+01-06-2016_01:53:01,,
+01-06-2016_01:53:10,,
+01-06-2016_01:54:43,Christopher Beltz,cbeltz@uwyo.edu
+01-06-2016_01:54:53,,
+01-06-2016_01:54:59,,
+01-06-2016_01:55:06,,
+01-06-2016_01:55:10,,
+01-06-2016_01:55:14,,
+01-06-2016_01:55:15,,
+01-06-2016_01:55:51,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_01:55:59,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_01:56:02,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_01:56:05,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_01:56:24,Chung-Yi Hou,hou@illinois.edu
+01-06-2016_01:56:54,Fei Hu,fhu@gmu.edu
+01-06-2016_01:57:05,Tamara Ledley,Tamara_Ledley@terc.edu
+01-06-2016_01:57:10,Tamara Ledley,Tamara_Ledley@terc.edu
+01-06-2016_01:57:26,Fei Hu,fhu@gmu.edu
+01-06-2016_02:01:33,Tamara Ledley,Tamara_Ledley@terc.edu
+01-06-2016_02:01:41,Alison Adams,alison.adams@uvm.edu
+01-06-2016_02:01:44,Tamara Ledley,Tamara_Ledley@terc.edu
+01-06-2016_02:01:44,Alison Adams,alison.adams@uvm.edu
+01-06-2016_02:01:51,Nancy Ritchey,nancy.ritchey@noaa.gov
+01-06-2016_02:01:56,Nancy Ritchey,nancy.ritchey@noaa.gov
+01-06-2016_02:02:03,Nancy Ritchey,nancy.ritchey@noaa.gov
+01-06-2016_02:02:10,Nancy Ritchey,nancy.ritchey@noaa.gov
+01-06-2016_02:02:28,John Evans,john.evans@gst.com
+01-06-2016_02:02:32,John Evans,john.evans@gst.com
+01-06-2016_02:02:35,Chung-Yi Hou,hou@illinois.edu
+01-06-2016_02:02:38,Chung-Yi Hou,hou@illinois.edu
+01-06-2016_02:02:47,John Evans,john.evans@gst.com
+01-06-2016_02:02:54,John Evans,john.evans@gst.com
+01-06-2016_02:02:58,John Evans,john.evans@gst.com
+01-06-2016_02:04:02,,
+01-06-2016_02:04:22,Ted Habermann,thabermann@hdfgroup.org
+01-06-2016_02:04:30,Ted Habermann,thabermann@hdfgroup.org
+01-06-2016_02:06:08,,
+01-06-2016_02:06:32,John Kusterer,john.m.kusterer@nasa.gov
+01-06-2016_02:06:38,John Kusterer,john.m.kusterer@nasa.gov
+01-06-2016_02:07:37,John Relph,John.Relph@noaa.gov
+01-06-2016_02:07:42,John Relph,John.Relph@noaa.gov
+01-06-2016_02:10:05,,
+01-06-2016_02:10:15,Ken Casey,Kenneth.Casey@noaa.gov
+01-06-2016_02:10:19,Ken Casey,Kenneth.Casey@noaa.gov
+01-06-2016_02:10:25,Ken Casey,Kenneth.Casey@noaa.gov
+01-06-2016_02:10:36,Tom Narock,tnarock@marymount.edu
+01-06-2016_02:10:39,Tom Narock,tnarock@marymount.edu
+01-06-2016_02:10:44,Tom Narock,tnarock@marymount.edu
+01-06-2016_02:12:00,Dan Keyes,dankeyes@esipfed.org
+01-06-2016_02:12:02,Dan Keyes,dankeyes@esipfed.org
+01-06-2016_02:12:07,Dan Keyes,dankeyes@esipfed.org
+01-06-2016_02:12:17,Dan Keyes,dankeyes@esipfed.org
+
+01-06-2016_02:12:27,Christopher Beltz,cbeltz@uwyo.edu
+01-06-2016_02:12:32,Christopher Beltz,cbeltz@uwyo.edu
+01-06-2016_02:12:36,Christopher Beltz,cbeltz@uwyo.edu
+
+01-06-2016_02:15:59,,
+01-06-2016_02:16:21,,
+01-06-2016_02:16:43,,
+01-06-2016_02:17:33,Sam Silva,samsilva@mit.edu
+01-06-2016_02:17:37,Sam Silva,samsilva@mit.edu
+01-06-2016_02:17:53,Sam Silva,samsilva@mit.edu
+01-06-2016_02:17:58,Sam Silva,samsilva@mit.edu
+01-06-2016_02:18:04,Sam Silva,samsilva@mit.edu
+01-06-2016_02:18:06,Shelley Olds,olds@unavco.org
+01-06-2016_02:18:13,Shelley Olds,olds@unavco.org
+01-06-2016_02:18:20,Shelley Olds,olds@unavco.org
+01-06-2016_02:18:29,,
+01-06-2016_02:18:35,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_02:18:40,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_02:18:44,,
+01-06-2016_02:18:59,Tamara Ledley,Tamara_Ledley@terc.edu
+01-06-2016_02:19:09,Brian Wee,bwee@neoninc.org
+01-06-2016_02:19:13,Brian Wee,bwee@neoninc.org
+
+01-06-2016_02:19:20,Brian Wee,bwee@neoninc.org
+01-06-2016_02:19:27,,
+01-06-2016_02:19:31,Brian Wee,bwee@neoninc.org
+01-06-2016_02:19:37,Brian Wee,bwee@neoninc.org
+01-06-2016_02:19:38,Brian Wee,bwee@neoninc.org
+01-06-2016_02:24:39,Renea Ericson,ericson@kryos.colorado.edu
+01-06-2016_02:32:57,,
+01-06-2016_02:33:12,,
+01-06-2016_02:33:50,Mark Parsons,Parsom3@rpi.edu
+01-06-2016_02:33:57,Mark Parsons,Parsom3@rpi.edu
+01-06-2016_02:34:07,Mark Parsons,Parsom3@rpi.edu
+01-06-2016_02:35:23,,
+01-06-2016_02:35:55,,
+01-06-2016_02:36:37,Erin Robinson,erinrobinson@esipfed.org
+01-06-2016_02:36:46,Erin Robinson,erinrobinson@esipfed.org
+01-06-2016_02:36:50,Erin Robinson,erinrobinson@esipfed.org
+01-06-2016_02:36:52,,
+01-06-2016_02:36:52,Dave Fulker,dfulker@opendap.org
+01-06-2016_02:36:59,Dave Fulker,dfulker@opendap.org
+01-06-2016_02:37:00,Erin Robinson,erinrobinson@esipfed.org
+01-06-2016_02:37:27,,
+01-06-2016_02:39:33,Don Middleton,don@ucar.edu
+01-06-2016_02:39:42,Don Middleton,don@ucar.edu
+01-06-2016_02:39:45,Brian Wee,bwee@neoninc.org
+01-06-2016_02:39:53,Don Middleton,don@ucar.edu
+01-06-2016_02:40:03,Brian Wee,bwee@neoninc.org
+01-06-2016_02:40:33,Byron Peters,byron.v.peters@nasa.gov
+01-06-2016_02:40:39,Byron Peters,byron.v.peters@nasa.gov
+01-06-2016_02:40:42,Rebecca Fowler,rebeccafowler@esipfed.org
+01-06-2016_02:40:46,Rebecca Fowler,rebeccafowler@esipfed.org
+01-06-2016_02:40:47,Byron Peters,byron.v.peters@nasa.gov
+01-06-2016_02:41:04,Byron Peters,byron.v.peters@nasa.gov
+01-06-2016_02:41:06,Byron Peters,byron.v.peters@nasa.gov
+01-06-2016_02:41:10,Peter Fox,pfox@cs.rpi.edu
+01-06-2016_02:41:23,Peter Fox,pfox@cs.rpi.edu
+01-06-2016_02:41:37,Peter Fox,pfox@cs.rpi.edu
+01-06-2016_02:43:22,Jennifer Bosch,Jennifer.bosch@noaa.gov
+01-06-2016_02:43:28,Jennifer Bosch,Jennifer.bosch@noaa.gov
+01-06-2016_02:43:38,Jennifer Bosch,Jennifer.bosch@noaa.gov
+01-06-2016_02:43:43,Denise Hills,dhills@gsa.state.al.us
+01-06-2016_02:43:47,Denise Hills,dhills@gsa.state.al.us
+01-06-2016_02:43:53,Denise Hills,dhills@gsa.state.al.us
+01-06-2016_02:43:58,Jennifer Bosch,Jennifer.bosch@noaa.gov
+01-06-2016_02:45:16,Annie Burgess,annieburgess@esipfed.org
+01-06-2016_02:45:19,Annie Burgess,annieburgess@esipfed.org
+01-06-2016_02:45:25,Annie Burgess,annieburgess@esipfed.org
+
+01-06-2016_02:48:23,Fei Hu,fhu@gmu.edu
+01-06-2016_02:51:03,Fred Katz,fred.katz@noaa.gov
+01-06-2016_02:51:07,Fred Katz,fred.katz@noaa.gov
+01-06-2016_02:51:11,Fred Katz,fred.katz@noaa.gov
+
+01-06-2016_02:52:21,Shannon Rauch,srauch@whoi.edu
+01-06-2016_02:52:26,Shannon Rauch,srauch@whoi.edu
+01-06-2016_02:52:31,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-06-2016_02:52:34,Shannon Rauch,srauch@whoi.edu
+01-06-2016_02:52:39,Shannon Rauch,srauch@whoi.edu
+01-06-2016_02:52:39,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-06-2016_02:53:08,Shannon Rauch,srauch@whoi.edu
+01-06-2016_02:53:08,Shannon Rauch,srauch@whoi.edu
+01-06-2016_02:53:24,,
+01-06-2016_03:01:26,Chung-Yi Hou,hou@illinois.edu
+01-06-2016_03:01:48,Chung-Yi Hou,hou@illinois.edu
+01-06-2016_03:02:43,Brant Priest,brant.priest@noaa.gov
+01-06-2016_03:02:52,Brant Priest,brant.priest@noaa.gov
+01-06-2016_03:10:52,Dan Keyes,dankeyes@esipfed.org
+01-06-2016_03:11:12,Dan Keyes,dankeyes@esipfed.org
+01-06-2016_03:14:51,Douglas Fils,dfils@oceanleadership.org
+01-06-2016_03:14:57,Douglas Fils,dfils@oceanleadership.org
+01-06-2016_03:15:20,Douglas Fils,dfils@oceanleadership.org
+01-06-2016_03:15:28,Douglas Fils,dfils@oceanleadership.org
+01-06-2016_03:15:36,Douglas Fils,dfils@oceanleadership.org
+01-06-2016_03:15:41,Douglas Fils,dfils@oceanleadership.org
+01-06-2016_03:15:45,Douglas Fils,dfils@oceanleadership.org
+01-06-2016_03:15:46,Douglas Fils,dfils@oceanleadership.org
+01-06-2016_03:17:00,Chris Torbert,Ctorbert@usgs.gov
+01-06-2016_03:17:12,Chris Torbert,Ctorbert@usgs.gov
+01-06-2016_03:17:21,Chris Torbert,Ctorbert@usgs.gov
+01-06-2016_03:32:27,Denise Hills,dhills@gsa.state.al.us
+01-06-2016_03:32:54,,
+01-06-2016_03:33:07,Peter Fox,pfox@cs.rpi.edu
+01-06-2016_03:33:54,,
+01-06-2016_03:34:01,,
+01-06-2016_03:39:00,Rafael Ameller,rafael@stormcenter.com
+01-06-2016_03:39:06,Rafael Ameller,rafael@stormcenter.com
+01-06-2016_03:39:17,Rafael Ameller,rafael@stormcenter.com
+01-06-2016_03:56:44,John Relph,John.Relph@noaa.gov
+01-06-2016_04:02:06,Jonathan Blythe,jonathan.blythe@boem.gov
+01-06-2016_04:04:27,Sean Griffin,George.E.Vanhentenryck@nga.mil
+01-06-2016_04:04:36,Sean Griffin,George.E.Vanhentenryck@nga.mil
+01-06-2016_04:04:45,Sean Griffin,George.E.Vanhentenryck@nga.mil
+01-06-2016_04:05:47,John Relph,John.Relph@noaa.gov
+01-06-2016_04:05:51,John Relph,John.Relph@noaa.gov
+01-06-2016_04:10:59,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_04:15:23,Jennifer Bosch,Jennifer.bosch@noaa.gov
+01-06-2016_04:15:44,Jennifer Bosch,Jennifer.bosch@noaa.gov
+01-06-2016_04:15:51,John Relph,John.Relph@noaa.gov
+01-06-2016_04:16:00,John Relph,John.Relph@noaa.gov
+01-06-2016_04:18:59,Tamara Ledley,Tamara_Ledley@terc.edu
+01-06-2016_04:19:34,Tamara Ledley,Tamara_Ledley@terc.edu
+01-06-2016_04:19:55,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-06-2016_04:19:59,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-06-2016_04:22:11,Derrick Snowden,derrick.snowden@noaa.gov
+01-06-2016_04:22:16,Derrick Snowden,derrick.snowden@noaa.gov
+01-06-2016_04:22:21,Derrick Snowden,derrick.snowden@noaa.gov
+01-06-2016_04:25:55,Don Middleton,don@ucar.edu
+01-06-2016_04:33:00,Steve Young,frazmo@gmail.com
+01-06-2016_04:33:05,Steve Young,frazmo@gmail.com
+01-06-2016_04:33:18,Steve Young,frazmo@gmail.com
+01-06-2016_04:36:02,Chung-Yi Hou,hou@illinois.edu
+01-06-2016_04:37:22,Dan Keyes,dankeyes@esipfed.org
+
+
+01-06-2016_04:38:21,Dan Keyes,dankeyes@esipfed.org
+01-06-2016_04:38:54,Dave Fulker,dfulker@opendap.org
+01-06-2016_04:39:25,Dave Fulker,dfulker@opendap.org
+01-06-2016_04:45:29,Erin Robinson,erinrobinson@esipfed.org
+01-06-2016_04:45:48,Erin Robinson,erinrobinson@esipfed.org
+01-06-2016_04:47:54,Jonathan Blythe,jonathan.blythe@boem.gov
+01-06-2016_04:53:27,Fei Hu,fhu@gmu.edu
+01-06-2016_04:53:31,Fei Hu,fhu@gmu.edu
+01-06-2016_05:05:29,,
+01-06-2016_05:06:00,,
+01-06-2016_05:06:07,,
+01-06-2016_05:06:16,,
+01-06-2016_05:10:06,Lewis McCulloch,lewis.mcculloch@noaa.gov
+01-06-2016_05:10:08,Lewis McCulloch,lewis.mcculloch@noaa.gov
+01-06-2016_05:10:13,Lewis McCulloch,lewis.mcculloch@noaa.gov
+01-06-2016_05:10:21,Lewis McCulloch,lewis.mcculloch@noaa.gov
+01-06-2016_05:27:27,Douglas Fils,dfils@oceanleadership.org
+01-06-2016_06:15:22,John Relph,John.Relph@noaa.gov
+01-06-2016_06:15:26,John Relph,John.Relph@noaa.gov
+01-06-2016_06:15:48,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-06-2016_06:19:42,,
+01-06-2016_06:29:44,John Relph,John.Relph@noaa.gov
+01-06-2016_06:31:40,Erin Robinson,erinrobinson@esipfed.org
+01-06-2016_06:36:16,Jennifer Wei,jennifer.c.wei@nasa.gov
+01-06-2016_06:36:23,Jennifer Wei,jennifer.c.wei@nasa.gov
+01-06-2016_06:36:40,Jennifer Wei,jennifer.c.wei@nasa.gov
+01-06-2016_06:36:49,Jennifer Wei,jennifer.c.wei@nasa.gov
+01-06-2016_06:37:01,Jennifer Wei,jennifer.c.wei@nasa.gov
+01-06-2016_06:38:35,Dave Fulker,dfulker@opendap.org
+01-06-2016_06:38:43,Dave Fulker,dfulker@opendap.org
+01-06-2016_06:38:59,Chung-Yi Hou,hou@illinois.edu
+01-06-2016_06:40:35,John Relph,John.Relph@noaa.gov
+01-06-2016_06:54:48,Christopher Beltz,cbeltz@uwyo.edu
+01-06-2016_06:54:52,Christopher Beltz,cbeltz@uwyo.edu
+01-06-2016_06:54:57,Christopher Beltz,cbeltz@uwyo.edu
+01-06-2016_06:55:05,Christopher Beltz,cbeltz@uwyo.edu
+01-06-2016_06:55:25,Patrick Purcell,patrick.purcell@nasa.gov
+01-06-2016_06:55:32,Patrick Purcell,patrick.purcell@nasa.gov
+01-06-2016_06:55:43,Patrick Purcell,patrick.purcell@nasa.gov
+01-06-2016_06:57:15,,
+01-06-2016_06:57:29,,
+01-06-2016_06:58:42,Robert Ferraro ,robert.ferraro@jpl.nasa.gov
+01-06-2016_06:58:55,Robert Ferraro ,robert.ferraro@jpl.nasa.gov
+01-06-2016_06:59:11,Robert Ferraro ,robert.ferraro@jpl.nasa.gov
+01-06-2016_06:59:17,Robert Ferraro ,robert.ferraro@jpl.nasa.gov
+01-06-2016_07:00:48,John Relph,John.Relph@noaa.gov
+01-06-2016_07:01:09,John Relph,John.Relph@noaa.gov
+01-06-2016_07:01:17,John Relph,John.Relph@noaa.gov
+
+01-06-2016_07:01:32,Sam Silva,samsilva@mit.edu
+01-06-2016_07:02:01,Chung-Yi Hou,hou@illinois.edu
+01-06-2016_07:02:04,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_07:02:11,Sam Silva,samsilva@mit.edu
+01-06-2016_07:02:11,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_07:02:21,Shannon Rauch,srauch@whoi.edu
+01-06-2016_07:02:41,Douglas Fils,dfils@oceanleadership.org
+01-06-2016_07:02:45,,
+01-06-2016_07:02:49,Douglas Fils,dfils@oceanleadership.org
+01-06-2016_07:02:49,,
+01-06-2016_07:03:00,Douglas Fils,dfils@oceanleadership.org
+01-06-2016_07:03:02,,
+01-06-2016_07:03:08,Nancy Ritchey,nancy.ritchey@noaa.gov
+01-06-2016_07:03:09,Shannon Rauch,srauch@whoi.edu
+01-06-2016_07:03:12,Douglas Fils,dfils@oceanleadership.org
+01-06-2016_07:03:14,,
+01-06-2016_07:03:18,Douglas Fils,dfils@oceanleadership.org
+01-06-2016_07:03:30,,
+01-06-2016_07:04:40,,
+01-06-2016_07:04:45,Ted Habermann,thabermann@hdfgroup.org
+01-06-2016_07:04:46,Rebecca Koskela,rkoskela@unm.edu
+01-06-2016_07:04:48,Tom Ryan,Thomas.Ryan@noaa.gov
+01-06-2016_07:04:51,Ted Habermann,thabermann@hdfgroup.org
+01-06-2016_07:04:51,Rebecca Koskela,rkoskela@unm.edu
+01-06-2016_07:04:56,Tom Ryan,Thomas.Ryan@noaa.gov
+01-06-2016_07:04:59,Ted Habermann,thabermann@hdfgroup.org
+01-06-2016_07:05:02,Rebecca Koskela,rkoskela@unm.edu
+01-06-2016_07:05:11,Tom Ryan,Thomas.Ryan@noaa.gov
+01-06-2016_07:05:30,Rebecca Koskela,rkoskela@unm.edu
+01-06-2016_07:05:46,,
+01-06-2016_07:05:59,Kevin Browne,infomgr@ucnrs.org
+01-06-2016_07:06:01,,
+01-06-2016_07:06:46,Roshani Dangi,roshani.dangi@nasa.gov
+01-06-2016_07:06:56,Roshani Dangi,roshani.dangi@nasa.gov
+01-06-2016_07:07:38,Deann Miller,deann.miller@nsidc.org
+01-06-2016_07:07:46,Deann Miller,deann.miller@nsidc.org
+01-06-2016_07:07:57,,
+01-06-2016_07:08:04,Deann Miller,deann.miller@nsidc.org
+01-06-2016_07:08:05,Sean Griffin,George.E.Vanhentenryck@nga.mil
+01-06-2016_07:08:19,Sean Griffin,George.E.Vanhentenryck@nga.mil
+01-06-2016_07:10:35,Don Middleton,don@ucar.edu
+01-06-2016_07:10:49,Don Middleton,don@ucar.edu
+01-06-2016_07:11:31,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-06-2016_07:11:37,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-06-2016_07:11:45,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-06-2016_07:11:53,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-06-2016_07:15:29,John Evans,john.evans@gst.com
+01-06-2016_07:15:37,John Evans,john.evans@gst.com
+01-06-2016_07:15:43,John Evans,john.evans@gst.com
+01-06-2016_07:15:52,John Evans,john.evans@gst.com
+01-06-2016_07:15:58,John Evans,john.evans@gst.com
+01-06-2016_07:16:04,John Evans,john.evans@gst.com
+01-06-2016_07:16:08,John Evans,john.evans@gst.com
+01-06-2016_07:16:11,Byron Peters,byron.v.peters@nasa.gov
+01-06-2016_07:16:13,John Evans,john.evans@gst.com
+01-06-2016_07:16:23,Byron Peters,byron.v.peters@nasa.gov
+01-06-2016_07:16:54,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-06-2016_07:17:02,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-06-2016_07:17:25,Richard Eckman,Richard.s.eckman@nasa.gov
+01-06-2016_07:17:28,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-06-2016_07:17:31,Richard Eckman,Richard.s.eckman@nasa.gov
+01-06-2016_07:18:11,Steve Young,frazmo@gmail.com
+01-06-2016_07:18:25,Steve Young,frazmo@gmail.com
+01-06-2016_07:18:37,Stephen Richard,steve.richard@azgs.az.gov
+01-06-2016_07:18:40,Pamela Mlynczak,pamela.e.mlynczak@nasa.gov
+01-06-2016_07:18:47,Stephen Richard,steve.richard@azgs.az.gov
+01-06-2016_07:18:48,Pamela Mlynczak,pamela.e.mlynczak@nasa.gov
+01-06-2016_07:19:00,Pamela Mlynczak,pamela.e.mlynczak@nasa.gov
+01-06-2016_07:19:01,Stephen Richard,steve.richard@azgs.az.gov
+01-06-2016_07:19:03,Stephen Richard,steve.richard@azgs.az.gov
+01-06-2016_07:19:03,,
+01-06-2016_07:19:08,Derrick Snowden,derrick.snowden@noaa.gov
+01-06-2016_07:19:14,Derrick Snowden,derrick.snowden@noaa.gov
+01-06-2016_07:20:41,,
+01-06-2016_07:22:28,,
+01-06-2016_07:22:41,,
+01-06-2016_07:22:45,,
+01-06-2016_07:22:52,,
+01-06-2016_07:22:57,,
+01-06-2016_07:22:58,Tom Ryan,Thomas.Ryan@noaa.gov
+01-06-2016_07:23:29,,
+01-06-2016_07:23:40,Tom Ryan,Thomas.Ryan@noaa.gov
+
+01-06-2016_07:24:34,Fei Hu,fhu@gmu.edu
+01-06-2016_07:24:57,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-06-2016_07:25:05,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-06-2016_07:25:12,Tom Ryan,Thomas.Ryan@noaa.gov
+01-06-2016_07:25:14,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-06-2016_07:25:24,Tom Ryan,Thomas.Ryan@noaa.gov
+01-06-2016_07:25:34,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-06-2016_07:25:35,Tom Ryan,Thomas.Ryan@noaa.gov
+01-06-2016_07:25:45,Tom Ryan,Thomas.Ryan@noaa.gov
+01-06-2016_07:27:32,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-06-2016_07:27:39,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-06-2016_07:27:49,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-06-2016_07:28:20,Kevin O'Brien,kevin.m.o'brien@noaa.gov
+01-06-2016_07:28:29,Kevin O'Brien,kevin.m.o'brien@noaa.gov
+01-06-2016_07:28:34,Kevin O'Brien,kevin.m.o'brien@noaa.gov
+01-06-2016_07:28:43,Kevin O'Brien,kevin.m.o'brien@noaa.gov
+01-06-2016_07:28:58,Kevin O'Brien,kevin.m.o'brien@noaa.gov
+01-06-2016_07:30:01,Cyndy Chandler,cchandler@whoi.edu
+01-06-2016_07:30:04,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-06-2016_07:30:08,Cyndy Chandler,cchandler@whoi.edu
+01-06-2016_07:30:16,Cyndy Chandler,cchandler@whoi.edu
+01-06-2016_07:30:57,Peter Fox,pfox@cs.rpi.edu
+01-06-2016_07:33:44,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-06-2016_07:33:55,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-06-2016_07:34:01,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-06-2016_07:41:42,Barbara DeShong,deshongb1@netscape.net
+01-06-2016_07:41:46,Barbara DeShong,deshongb1@netscape.net
+01-06-2016_07:42:01,Barbara DeShong,deshongb1@netscape.net
+01-06-2016_07:42:11,Hampapuram Ramapriyan,Hampapuram.Ramapriyan@ssaihq.com
+01-06-2016_07:42:21,Hampapuram Ramapriyan,Hampapuram.Ramapriyan@ssaihq.com
+01-06-2016_07:42:49,Barbara DeShong,deshongb1@netscape.net
+01-06-2016_07:45:58,Tom Narock,tnarock@marymount.edu
+01-06-2016_07:46:13,Tom Narock,tnarock@marymount.edu
+01-06-2016_07:46:19,Tom Narock,tnarock@marymount.edu
+01-06-2016_07:46:25,Dan Keyes,dankeyes@esipfed.org
+01-06-2016_07:46:27,Tom Narock,tnarock@marymount.edu
+01-06-2016_07:46:30,Dan Keyes,dankeyes@esipfed.org
+01-06-2016_07:47:05,Dan Keyes,dankeyes@esipfed.org
+01-06-2016_07:47:09,Dan Keyes,dankeyes@esipfed.org
+01-06-2016_07:47:15,Dan Keyes,dankeyes@esipfed.org
+01-06-2016_07:48:16,Dave Fulker,dfulker@opendap.org
+01-06-2016_07:50:07,Tom Ryan,Thomas.Ryan@noaa.gov
+01-06-2016_07:51:12,John Relph,John.Relph@noaa.gov
+01-06-2016_07:58:40,Rafael Ameller,rafael@stormcenter.com
+01-06-2016_07:59:15,Rafael Ameller,rafael@stormcenter.com
+01-06-2016_07:59:18,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-06-2016_08:14:14,Kevin Browne,infomgr@ucnrs.org
+01-06-2016_08:15:32,,
+01-06-2016_08:16:28,,
+01-06-2016_08:16:34,,
+01-06-2016_08:16:51,,
+01-06-2016_08:16:57,,
+01-06-2016_08:17:06,,
+01-06-2016_08:17:08,,
+01-06-2016_08:27:16,Cyndy Chandler,cchandler@whoi.edu
+01-06-2016_08:27:21,Cyndy Chandler,cchandler@whoi.edu
+01-06-2016_08:27:32,Cyndy Chandler,cchandler@whoi.edu
+01-06-2016_08:28:04,Pamela Mlynczak,pamela.e.mlynczak@nasa.gov
+
+01-06-2016_08:33:50,John Kusterer,john.m.kusterer@nasa.gov
+01-06-2016_08:33:58,Jonathan Blythe,jonathan.blythe@boem.gov
+
+01-06-2016_08:34:13,Helen Conover,hconover@itsc.uah.edu
+01-06-2016_08:34:34,Jonathan Blythe,jonathan.blythe@boem.gov
+01-06-2016_08:35:19,Jonathan Blythe,jonathan.blythe@boem.gov
+01-06-2016_08:38:04,,
+01-06-2016_08:51:21,,
+01-06-2016_08:52:56,Christopher Beltz,cbeltz@uwyo.edu
+01-06-2016_08:53:03,Fei Hu,fhu@gmu.edu
+01-06-2016_08:53:35,John Relph,John.Relph@noaa.gov
+01-06-2016_08:53:38,John Relph,John.Relph@noaa.gov
+01-06-2016_08:54:48,,
+01-06-2016_08:54:52,,
+01-06-2016_08:55:08,John Evans,john.evans@gst.com
+01-06-2016_08:55:25,John Evans,john.evans@gst.com
+01-06-2016_08:55:36,John Evans,john.evans@gst.com
+01-06-2016_08:56:18,Ted Habermann,thabermann@hdfgroup.org
+01-06-2016_08:56:21,Shannon Rauch,srauch@whoi.edu
+01-06-2016_08:56:23,Ted Habermann,thabermann@hdfgroup.org
+01-06-2016_08:56:26,Shannon Rauch,srauch@whoi.edu
+01-06-2016_08:56:29,Ted Habermann,thabermann@hdfgroup.org
+01-06-2016_08:56:30,Shannon Rauch,srauch@whoi.edu
+01-06-2016_08:56:31,Shannon Rauch,srauch@whoi.edu
+01-06-2016_08:57:08,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_08:57:10,Ted Habermann,thabermann@hdfgroup.org
+01-06-2016_08:57:16,Stephen Richard,steve.richard@azgs.az.gov
+01-06-2016_08:57:23,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_08:57:28,Nancy Ritchey,nancy.ritchey@noaa.gov
+01-06-2016_08:57:28,Stephen Richard,steve.richard@azgs.az.gov
+01-06-2016_08:57:30,,
+01-06-2016_08:57:37,Stephen Richard,steve.richard@azgs.az.gov
+01-06-2016_08:57:44,Pamela Mlynczak,pamela.e.mlynczak@nasa.gov
+01-06-2016_08:57:44,Nancy Ritchey,nancy.ritchey@noaa.gov
+01-06-2016_08:57:51,Stephen Richard,steve.richard@azgs.az.gov
+01-06-2016_08:57:58,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_08:58:09,Cyndy Chandler,cchandler@whoi.edu
+01-06-2016_08:58:15,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-06-2016_08:58:18,Cyndy Chandler,cchandler@whoi.edu
+01-06-2016_08:58:23,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+
+
+01-06-2016_08:59:10,Barbara DeShong,deshongb1@netscape.net
+01-06-2016_08:59:25,Barbara DeShong,deshongb1@netscape.net
+01-06-2016_09:01:12,Steve Young,frazmo@gmail.com
+01-06-2016_09:01:21,Steve Young,frazmo@gmail.com
+01-06-2016_09:01:26,Steve Young,frazmo@gmail.com
+01-06-2016_09:01:32,Steve Young,frazmo@gmail.com
+01-06-2016_09:01:40,Steve Young,frazmo@gmail.com
+01-06-2016_09:01:43,Cyndy Chandler,cchandler@whoi.edu
+01-06-2016_09:01:45,Steve Young,frazmo@gmail.com
+
+01-06-2016_09:01:49,Steve Young,frazmo@gmail.com
+01-06-2016_09:01:52,Steve Young,frazmo@gmail.com
+01-06-2016_09:01:55,Steve Young,frazmo@gmail.com
+01-06-2016_09:02:01,Steve Young,frazmo@gmail.com
+01-06-2016_09:02:16,Dave Fulker,dfulker@opendap.org
+01-06-2016_09:02:32,Dave Fulker,dfulker@opendap.org
+01-06-2016_09:05:06,Audrey Mickle,amickle@whoi.edu
+01-06-2016_09:05:11,Audrey Mickle,amickle@whoi.edu
+01-06-2016_09:05:21,Audrey Mickle,amickle@whoi.edu
+01-06-2016_09:05:37,Rebecca Fowler,rebeccafowler@esipfed.org
+01-06-2016_09:05:53,Richard Eckman,Richard.s.eckman@nasa.gov
+01-06-2016_09:06:04,Bill Teng,dragonabs1@gmail.com
+01-06-2016_09:06:11,Bill Teng,dragonabs1@gmail.com
+01-06-2016_09:06:15,Rafael Ameller,rafael@stormcenter.com
+01-06-2016_09:06:30,Jonathan Blythe,jonathan.blythe@boem.gov
+01-06-2016_09:06:37,Bill Teng,dragonabs1@gmail.com
+01-06-2016_09:06:39,Jonathan Blythe,jonathan.blythe@boem.gov
+01-06-2016_09:06:39,Patrick Purcell,patrick.purcell@nasa.gov
+01-06-2016_09:06:49,John Kusterer,John.m.kusterer@nasa.gov
+01-06-2016_09:06:52,John Kusterer,John.m.kusterer@nasa.gov
+01-06-2016_09:06:53,Patrick Purcell,patrick.purcell@nasa.gov
+01-06-2016_09:07:40,Barbara DeShong,deshongb1@netscape.net
+01-06-2016_09:08:59,,
+01-06-2016_09:09:08,,
+01-06-2016_09:09:55,,
+01-06-2016_09:12:15,Jeff Arnfield,jeff.arnfield@noaa.gov
+01-06-2016_09:12:19,Jeff Arnfield,jeff.arnfield@noaa.gov
+01-06-2016_09:12:29,Jeff Arnfield,jeff.arnfield@noaa.gov
+01-06-2016_09:12:55,,
+01-06-2016_09:17:12,,
+01-06-2016_09:18:10,Peter Fox,pfox@cs.rpi.edu
+01-06-2016_09:18:13,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-06-2016_09:18:18,Peter Fox,pfox@cs.rpi.edu
+01-06-2016_09:18:18,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-06-2016_09:18:27,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-06-2016_09:18:34,Peter Fox,pfox@cs.rpi.edu
+01-06-2016_09:22:20,Chris Torbert,Ctorbert@usgs.gov
+01-06-2016_09:22:31,Chris Torbert,Ctorbert@usgs.gov
+01-06-2016_09:23:43,Chris Torbert,Ctorbert@usgs.gov
+01-06-2016_09:23:44,Chris Torbert,Ctorbert@usgs.gov
+01-06-2016_09:25:16,Fei Hu,fhu@gmu.edu
+01-06-2016_09:28:21,Robert Ferraro ,robert.ferraro@jpl.nasa.gov
+01-06-2016_09:28:22,,
+01-06-2016_09:29:16,Rebecca Fowler,rebeccafowler@esipfed.org
+01-06-2016_09:29:24,Rebecca Fowler,rebeccafowler@esipfed.org
+01-06-2016_09:32:23,Denise Hills,dhills@gsa.state.al.us
+01-06-2016_09:32:30,Denise Hills,dhills@gsa.state.al.us
+01-06-2016_09:32:36,Denise Hills,dhills@gsa.state.al.us
+01-06-2016_09:36:43,Nancy Ritchey,nancy.ritchey@noaa.gov
+01-06-2016_09:36:49,Nancy Ritchey,nancy.ritchey@noaa.gov
+01-06-2016_09:37:00,Deann Miller,deann.miller@nsidc.org
+01-06-2016_09:37:32,Deann Miller,deann.miller@nsidc.org
+01-06-2016_09:37:37,Deann Miller,deann.miller@nsidc.org
+01-06-2016_09:37:48,Robert Ferraro ,robert.ferraro@jpl.nasa.gov
+
+01-06-2016_09:38:34,Deann Miller,deann.miller@nsidc.org
+01-06-2016_10:24:19,Dan Keyes,dankeyes@esipfed.org
+01-06-2016_10:24:25,Dan Keyes,dankeyes@esipfed.org
+01-06-2016_10:24:41,Dan Keyes,dankeyes@esipfed.org
+01-06-2016_10:24:45,Dan Keyes,dankeyes@esipfed.org
+01-06-2016_10:27:31,Rafael Ameller,rafael@stormcenter.com
+01-06-2016_10:35:17,,
+01-06-2016_10:36:54,,
+01-06-2016_10:37:22,Ruth Duerr,ruth.duerr@ronininstitute.org
+01-06-2016_10:38:01,Ruth Duerr,ruth.duerr@ronininstitute.org
+01-06-2016_10:38:09,Dan Keyes,dankeyes@esipfed.org
+01-06-2016_10:38:18,Dan Keyes,dankeyes@esipfed.org
+01-06-2016_10:38:26,Ruth Duerr,ruth.duerr@ronininstitute.org
+01-06-2016_10:39:30,,
+01-06-2016_10:41:08,Pamela Mlynczak,pamela.e.mlynczak@nasa.gov
+01-06-2016_10:45:27,Tom Narock,tnarock@marymount.edu
+01-06-2016_10:45:31,Tom Narock,tnarock@marymount.edu
+01-06-2016_11:52:56,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-07-2016_01:12:44,Dan Keyes,dankeyes@esipfed.org
+01-07-2016_01:32:55,Chung-Yi Hou,hou@illinois.edu
+01-07-2016_01:33:01,Chung-Yi Hou,hou@illinois.edu
+01-07-2016_01:33:08,Chung-Yi Hou,hou@illinois.edu
+01-07-2016_02:18:10,Peter Fox,pfox@cs.rpi.edu
+01-07-2016_02:18:16,Peter Fox,pfox@cs.rpi.edu
+01-07-2016_02:18:28,Peter Fox,pfox@cs.rpi.edu
+01-07-2016_02:51:55,Renea Ericson,ericson@kryos.colorado.edu
+01-07-2016_02:52:00,Renea Ericson,ericson@kryos.colorado.edu
+01-07-2016_02:52:07,Renea Ericson,ericson@kryos.colorado.edu
+01-07-2016_02:52:09,Renea Ericson,ericson@kryos.colorado.edu
+01-07-2016_03:09:39,Rebecca Fowler,rebeccafowler@esipfed.org
+01-07-2016_05:10:10,Denise Hills,dhills@gsa.state.al.us
+01-07-2016_05:10:14,Denise Hills,dhills@gsa.state.al.us
+01-07-2016_11:53:47,Tamara Ledley,Tamara_Ledley@terc.edu
+01-07-2016_12:37:35,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-07-2016_12:37:42,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-07-2016_01:03:49,Kevin Browne,infomgr@ucnrs.org
+01-07-2016_01:03:55,Kevin Browne,infomgr@ucnrs.org
+01-07-2016_01:04:05,Kevin Browne,infomgr@ucnrs.org
+01-07-2016_01:11:28,,
+01-07-2016_01:16:23,Ted Habermann,thabermann@hdfgroup.org
+01-07-2016_01:16:27,Ted Habermann,thabermann@hdfgroup.org
+01-07-2016_01:16:32,Ted Habermann,thabermann@hdfgroup.org
+01-07-2016_01:44:56,Cyndy Chandler,cchandler@whoi.edu
+01-07-2016_01:45:04,Cyndy Chandler,cchandler@whoi.edu
+01-07-2016_01:45:10,Cyndy Chandler,cchandler@whoi.edu
+01-07-2016_01:45:17,Cyndy Chandler,cchandler@whoi.edu
+01-07-2016_01:45:22,Rebecca Fowler,rebeccafowler@esipfed.org
+01-07-2016_01:45:27,Rebecca Fowler,rebeccafowler@esipfed.org
+01-07-2016_01:53:57,John Relph,John.Relph@noaa.gov
+01-07-2016_01:54:39,John Relph,John.Relph@noaa.gov
+01-07-2016_01:54:43,John Relph,John.Relph@noaa.gov
+01-07-2016_02:04:58,Dan Keyes,dankeyes@esipfed.org
+01-07-2016_02:05:10,Dan Keyes,dankeyes@esipfed.org
+01-07-2016_02:05:18,Dan Keyes,dankeyes@esipfed.org
+01-07-2016_02:05:22,Dan Keyes,dankeyes@esipfed.org
+01-07-2016_02:49:28,Audrey Mickle,amickle@whoi.edu
+01-07-2016_02:49:34,Audrey Mickle,amickle@whoi.edu
+01-07-2016_02:49:51,Audrey Mickle,amickle@whoi.edu
+01-07-2016_03:10:04,Steve Young,frazmo@gmail.com
+01-07-2016_03:10:09,Steve Young,frazmo@gmail.com
+01-07-2016_03:10:28,Steve Young,frazmo@gmail.com
+01-07-2016_03:10:32,Steve Young,frazmo@gmail.com
+01-07-2016_03:11:11,Steve Young,frazmo@gmail.com
+01-07-2016_03:20:06,Renea Ericson,ericson@kryos.colorado.edu
+01-07-2016_03:29:22,Kevin Browne,infomgr@ucnrs.org
+01-07-2016_03:29:30,Beth Stetzler,beth.stetzler@nasa.gov
+01-07-2016_03:29:40,Beth Stetzler,beth.stetzler@nasa.gov
+01-07-2016_03:30:04,Beth Stetzler,beth.stetzler@nasa.gov
+01-07-2016_03:48:07,Lewis McCulloch,lewis.mcculloch@noaa.gov
+01-07-2016_03:48:20,Lewis McCulloch,lewis.mcculloch@noaa.gov
+01-07-2016_03:57:43,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-07-2016_03:57:48,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-07-2016_03:57:54,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-07-2016_03:57:59,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-07-2016_04:00:22,John Relph,John.Relph@noaa.gov
+01-07-2016_04:00:26,John Relph,John.Relph@noaa.gov
+01-07-2016_04:01:27,Steve Young,frazmo@gmail.com
+01-07-2016_04:01:33,Steve Young,frazmo@gmail.com
+01-07-2016_04:01:39,Steve Young,frazmo@gmail.com
+01-07-2016_04:01:41,Steve Young,frazmo@gmail.com
+01-07-2016_04:02:06,Renea Ericson,ericson@kryos.colorado.edu
+01-07-2016_04:02:14,Renea Ericson,ericson@kryos.colorado.edu
+01-07-2016_04:02:19,Renea Ericson,ericson@kryos.colorado.edu
+01-07-2016_04:03:51,Dave Fulker,dfulker@opendap.org
+01-07-2016_04:04:22,Dave Fulker,dfulker@opendap.org
+01-07-2016_04:06:36,Beth Stetzler,beth.stetzler@nasa.gov
+01-07-2016_04:07:21,Sean Griffin,George.E.Vanhentenryck@nga.mil
+01-07-2016_04:07:34,Sean Griffin,George.E.Vanhentenryck@nga.mil
+01-07-2016_04:08:35,Shannon Rauch,srauch@whoi.edu
+01-07-2016_04:08:42,Shannon Rauch,srauch@whoi.edu
+01-07-2016_04:08:46,Shannon Rauch,srauch@whoi.edu
+01-07-2016_04:08:50,Shannon Rauch,srauch@whoi.edu
+01-07-2016_04:08:51,Shannon Rauch,srauch@whoi.edu
+01-07-2016_04:09:10,Janine Aquino,janine@ucar.edu
+01-07-2016_04:09:16,Janine Aquino,janine@ucar.edu
+01-07-2016_04:09:27,Janine Aquino,janine@ucar.edu
+01-07-2016_04:12:30,Denise Hills,dhills@gsa.state.al.us
+01-07-2016_04:12:37,Denise Hills,dhills@gsa.state.al.us
+01-07-2016_04:18:39,Don Middleton,don@ucar.edu
+01-07-2016_04:18:47,Don Middleton,don@ucar.edu
+01-07-2016_04:19:05,Don Middleton,don@ucar.edu
+01-07-2016_04:19:16,Don Middleton,don@ucar.edu
+01-07-2016_04:19:22,Janine Aquino,janine@ucar.edu
+01-07-2016_04:24:01,Tamara Ledley,Tamara_Ledley@terc.edu
+01-07-2016_04:24:06,Tamara Ledley,Tamara_Ledley@terc.edu
+01-07-2016_04:24:43,John Kusterer,john.m.kusterer@nasa.gov
+01-07-2016_04:26:51,Rebecca Fowler,rebeccafowler@esipfed.org
+01-07-2016_04:26:57,Rebecca Fowler,rebeccafowler@esipfed.org
+01-07-2016_04:29:33,Beth Stetzler,beth.stetzler@nasa.gov
+01-07-2016_04:41:59,Cyndy Chandler,cchandler@whoi.edu
+01-07-2016_04:42:04,Cyndy Chandler,cchandler@whoi.edu
+01-07-2016_04:43:50,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-07-2016_04:43:57,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-07-2016_04:56:17,Tom Narock,tnarock@marymount.edu
+01-07-2016_04:56:22,Tom Narock,tnarock@marymount.edu
+01-07-2016_04:56:29,Tom Narock,tnarock@marymount.edu
+01-07-2016_04:56:47,Tom Narock,tnarock@marymount.edu
+01-07-2016_04:57:08,Chung-Yi Hou,hou@illinois.edu
+01-07-2016_04:59:34,Derrick Snowden,derrick.snowden@noaa.gov
+01-07-2016_04:59:42,Derrick Snowden,derrick.snowden@noaa.gov
+01-07-2016_05:00:17,,
+01-07-2016_05:00:23,,
+01-07-2016_05:03:57,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-07-2016_05:04:01,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-07-2016_05:04:24,,
+01-07-2016_05:04:44,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-07-2016_05:04:51,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-07-2016_05:04:53,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-07-2016_05:04:56,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-07-2016_05:04:59,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-07-2016_05:13:36,,
+01-07-2016_05:13:43,,
+01-07-2016_05:14:25,Hampapuram Ramapriyan,Hampapuram.Ramapriyan@ssaihq.com
+01-07-2016_05:15:34,Pamela Mlynczak,pamela.e.mlynczak@nasa.gov
+01-07-2016_05:15:41,Pamela Mlynczak,pamela.e.mlynczak@nasa.gov
+01-07-2016_05:22:09,Beth Stetzler,beth.stetzler@nasa.gov
+01-07-2016_05:22:35,Beth Stetzler,beth.stetzler@nasa.gov
+01-07-2016_05:25:37,Jeff Arnfield,jeff.arnfield@noaa.gov
+01-07-2016_05:25:50,Jeff Arnfield,jeff.arnfield@noaa.gov
+01-07-2016_05:28:04,John Relph,John.Relph@noaa.gov
+01-07-2016_06:33:38,Shannon Rauch,srauch@whoi.edu
+01-07-2016_06:46:23,John Relph,John.Relph@noaa.gov
+01-07-2016_06:46:35,John Relph,John.Relph@noaa.gov
+
+01-07-2016_06:54:04,Christopher Beltz,cbeltz@uwyo.edu
+01-07-2016_06:54:24,Christopher Beltz,cbeltz@uwyo.edu
+
+01-07-2016_06:54:42,Janine Aquino,janine@ucar.edu
+01-07-2016_06:55:31,Renea Ericson,ericson@kryos.colorado.edu
+01-07-2016_06:55:47,Renea Ericson,ericson@kryos.colorado.edu
+01-07-2016_06:55:52,Renea Ericson,ericson@kryos.colorado.edu
+01-07-2016_06:57:02,Renea Ericson,ericson@kryos.colorado.edu
+01-07-2016_06:57:04,Denise Hills,dhills@gsa.state.al.us
+01-07-2016_06:57:08,Denise Hills,dhills@gsa.state.al.us
+01-07-2016_06:57:43,,
+01-07-2016_06:57:50,,
+01-07-2016_06:58:43,Beth Stetzler,beth.stetzler@nasa.gov
+01-07-2016_06:58:54,Beth Stetzler,beth.stetzler@nasa.gov
+01-07-2016_06:59:07,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-07-2016_06:59:13,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-07-2016_06:59:19,Shannon Rauch,srauch@whoi.edu
+01-07-2016_06:59:22,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-07-2016_06:59:23,Shannon Rauch,srauch@whoi.edu
+01-07-2016_06:59:25,Jonathan Blythe,jonathan.blythe@boem.gov
+01-07-2016_06:59:26,Shannon Rauch,srauch@whoi.edu
+01-07-2016_06:59:27,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-07-2016_07:00:11,Derrick Snowden,derrick.snowden@noaa.gov
+01-07-2016_07:00:17,Derrick Snowden,derrick.snowden@noaa.gov
+01-07-2016_07:00:34,Cyndy Chandler,cchandler@whoi.edu
+01-07-2016_07:00:36,Rebecca Koskela,rkoskela@unm.edu
+01-07-2016_07:00:45,Cyndy Chandler,cchandler@whoi.edu
+01-07-2016_07:00:46,Rebecca Koskela,rkoskela@unm.edu
+01-07-2016_07:00:52,Rebecca Koskela,rkoskela@unm.edu
+01-07-2016_07:00:53,,
+01-07-2016_07:00:54,Brian Wee,bwee@neoninc.org
+01-07-2016_07:01:04,Brian Wee,bwee@neoninc.org
+01-07-2016_07:01:09,,
+01-07-2016_07:01:10,Cyndy Chandler,cchandler@whoi.edu
+01-07-2016_07:01:20,Hampapuram Ramapriyan,Hampapuram.Ramapriyan@ssaihq.com
+01-07-2016_07:01:29,Cyndy Chandler,cchandler@whoi.edu
+01-07-2016_07:02:03,Cyndy Chandler,cchandler@whoi.edu
+01-07-2016_07:02:08,Cyndy Chandler,cchandler@whoi.edu
+01-07-2016_07:02:19,Cyndy Chandler,cchandler@whoi.edu
+01-07-2016_07:02:29,Pamela Mlynczak,pamela.e.mlynczak@nasa.gov
+01-07-2016_07:02:36,Janine Aquino,janine@ucar.edu
+01-07-2016_07:02:36,Roshani Dangi,roshani.dangi@nasa.gov
+01-07-2016_07:02:43,Pamela Mlynczak,pamela.e.mlynczak@nasa.gov
+01-07-2016_07:03:13,Stephen Richard,steve.richard@azgs.az.gov
+01-07-2016_07:03:19,Stephen Richard,steve.richard@azgs.az.gov
+01-07-2016_07:03:30,Stephen Richard,steve.richard@azgs.az.gov
+01-07-2016_07:04:01,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-07-2016_07:04:08,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-07-2016_07:05:29,Audrey Mickle,amickle@whoi.edu
+01-07-2016_07:05:35,Audrey Mickle,amickle@whoi.edu
+01-07-2016_07:05:37,Erin Robinson,erinrobinson@esipfed.org
+01-07-2016_07:07:03,Rafael Ameller,rafael@stormcenter.com
+01-07-2016_07:07:06,Deann Miller,deann.miller@nsidc.org
+01-07-2016_07:07:14,Rafael Ameller,rafael@stormcenter.com
+01-07-2016_07:08:41,Steve Young,frazmo@gmail.com
+01-07-2016_07:08:46,Steve Young,frazmo@gmail.com
+01-07-2016_07:08:50,Steve Young,frazmo@gmail.com
+01-07-2016_07:08:53,Steve Young,frazmo@gmail.com
+01-07-2016_07:08:56,Steve Young,frazmo@gmail.com
+01-07-2016_07:10:14,Erin Robinson,erinrobinson@esipfed.org
+01-07-2016_07:10:27,Erin Robinson,erinrobinson@esipfed.org
+01-07-2016_07:10:39,Erin Robinson,erinrobinson@esipfed.org
+01-07-2016_07:10:44,Erin Robinson,erinrobinson@esipfed.org
+01-07-2016_07:10:46,Jeff Arnfield,jeff.arnfield@noaa.gov
+01-07-2016_07:10:49,Erin Robinson,erinrobinson@esipfed.org
+01-07-2016_07:10:54,Jeff Arnfield,jeff.arnfield@noaa.gov
+
+
+
+01-07-2016_07:12:20,Barbara DeShong,deshongb1@netscape.net
+01-07-2016_07:12:30,Robert Ferraro ,robert.ferraro@jpl.nasa.gov
+01-07-2016_07:12:39,Robert Ferraro ,robert.ferraro@jpl.nasa.gov
+01-07-2016_07:12:48,Robert Ferraro ,robert.ferraro@jpl.nasa.gov
+01-07-2016_07:12:55,Robert Ferraro ,robert.ferraro@jpl.nasa.gov
+01-07-2016_07:13:19,Robert Ferraro ,robert.ferraro@jpl.nasa.gov
+01-07-2016_07:17:05,Christopher Beltz,cbeltz@uwyo.edu
+01-07-2016_07:17:11,Christopher Beltz,cbeltz@uwyo.edu
+01-07-2016_07:18:00,Beth Stetzler,beth.stetzler@nasa.gov
+01-07-2016_07:18:22,Beth Stetzler,beth.stetzler@nasa.gov
+01-07-2016_07:18:23,,
+01-07-2016_07:18:33,Beth Stetzler,beth.stetzler@nasa.gov
+
+01-07-2016_07:19:41,Christopher Beltz,cbeltz@uwyo.edu
+01-07-2016_07:21:05,Dave Fulker,dfulker@opendap.org
+01-07-2016_07:21:20,Dave Fulker,dfulker@opendap.org
+01-07-2016_07:21:36,Dave Fulker,dfulker@opendap.org
+01-07-2016_07:26:49,Sam Silva,samsilva@mit.edu
+01-07-2016_07:27:13,Byron Peters,byron.v.peters@nasa.gov
+01-07-2016_07:27:27,Byron Peters,byron.v.peters@nasa.gov
+01-07-2016_07:27:48,Anna Milan,anna.milan@noaa.gov
+01-07-2016_07:27:50,Anna Milan,anna.milan@noaa.gov
+01-07-2016_07:27:54,Sam Silva,samsilva@mit.edu
+01-07-2016_07:29:21,Tamara Ledley,Tamara_Ledley@terc.edu
+01-07-2016_07:29:28,Tamara Ledley,Tamara_Ledley@terc.edu
+01-07-2016_07:29:49,Tamara Ledley,Tamara_Ledley@terc.edu
+01-07-2016_07:29:51,Sean Griffin,George.E.Vanhentenryck@nga.mil
+
+01-07-2016_07:30:16,Sam Silva,samsilva@mit.edu
+01-07-2016_07:30:27,Bill Teng,dragonabs1@gmail.com
+01-07-2016_07:37:54,Dan Keyes,dankeyes@esipfed.org
+01-07-2016_07:37:57,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-07-2016_07:38:16,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-07-2016_07:40:25,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-07-2016_07:40:30,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-07-2016_07:58:14,,
+01-07-2016_07:58:32,,
+01-07-2016_07:58:39,,
+01-07-2016_07:58:42,,
+01-07-2016_08:03:00,Rebecca Fowler,rebeccafowler@esipfed.org
+
+
+01-07-2016_08:11:16,Bruce Caron,bruce@tnms.org
+01-07-2016_08:11:22,Bruce Caron,bruce@tnms.org
+01-07-2016_08:11:33,Bruce Caron,bruce@tnms.org
+01-07-2016_08:11:43,Bruce Caron,bruce@tnms.org
+01-07-2016_08:17:59,John Relph,John.Relph@noaa.gov
+01-07-2016_08:18:46,Don Middleton,don@ucar.edu
+01-07-2016_08:18:53,Don Middleton,don@ucar.edu
+01-07-2016_08:24:06,Christopher Beltz,cbeltz@uwyo.edu
+01-07-2016_08:25:18,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-07-2016_08:25:29,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-07-2016_08:26:34,Kevin Browne,infomgr@ucnrs.org
+01-07-2016_08:26:43,Kevin Browne,infomgr@ucnrs.org
+01-07-2016_08:33:20,Christopher Beltz,cbeltz@uwyo.edu
+01-07-2016_08:37:26,Cyndy Chandler,cchandler@whoi.edu
+01-07-2016_08:37:30,Cyndy Chandler,cchandler@whoi.edu
+01-07-2016_08:37:48,Cyndy Chandler,cchandler@whoi.edu
+01-07-2016_08:37:54,Cyndy Chandler,cchandler@whoi.edu
+01-07-2016_08:39:50,,
+01-07-2016_08:39:52,,
+01-07-2016_08:39:59,,
+01-07-2016_08:40:17,Shannon Rauch,srauch@whoi.edu
+01-07-2016_08:40:21,Shannon Rauch,srauch@whoi.edu
+01-07-2016_08:40:27,Shannon Rauch,srauch@whoi.edu
+01-07-2016_08:40:29,Shannon Rauch,srauch@whoi.edu
+
+01-07-2016_08:42:57,Chung-Yi Hou,hou@illinois.edu
+01-07-2016_08:46:45,Barbara DeShong,deshongb1@netscape.net
+01-07-2016_08:47:01,Barbara DeShong,deshongb1@netscape.net
+01-07-2016_08:48:09,John Relph,John.Relph@noaa.gov
+01-07-2016_08:48:13,John Relph,John.Relph@noaa.gov
+01-07-2016_08:50:57,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-07-2016_08:51:03,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-07-2016_08:51:08,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-07-2016_08:52:06,Beth Stetzler,beth.stetzler@nasa.gov
+01-07-2016_08:52:36,Beth Stetzler,beth.stetzler@nasa.gov
+01-07-2016_08:54:36,Helen Conover,hconover@itsc.uah.edu
+01-07-2016_08:54:40,Christopher Beltz,cbeltz@uwyo.edu
+01-07-2016_08:54:45,Helen Conover,hconover@itsc.uah.edu
+01-07-2016_08:54:47,Christopher Beltz,cbeltz@uwyo.edu
+01-07-2016_08:54:56,Helen Conover,hconover@itsc.uah.edu
+01-07-2016_08:55:54,Denise Hills,dhills@gsa.state.al.us
+01-07-2016_08:56:02,Denise Hills,dhills@gsa.state.al.us
+01-07-2016_08:57:25,Pamela Mlynczak,pamela.e.mlynczak@nasa.gov
+01-07-2016_08:57:56,Renea Ericson,ericson@kryos.colorado.edu
+01-07-2016_09:00:55,,
+01-07-2016_09:01:39,Janine Aquino,janine@ucar.edu
+01-07-2016_09:02:33,Jenny Fox,jenny.fox@noaa.gov
+01-07-2016_09:02:41,Jenny Fox,jenny.fox@noaa.gov
+01-07-2016_09:02:52,Jenny Fox,jenny.fox@noaa.gov
+01-07-2016_09:02:55,Tamara Ledley,Tamara_Ledley@terc.edu
+01-07-2016_09:03:01,Tamara Ledley,Tamara_Ledley@terc.edu
+01-07-2016_09:03:14,Tamara Ledley,Tamara_Ledley@terc.edu
+01-07-2016_09:03:21,Hampapuram Ramapriyan,Hampapuram.Ramapriyan@ssaihq.com
+01-07-2016_09:03:43,Tamara Ledley,Tamara_Ledley@terc.edu
+01-07-2016_09:03:56,Peter Fox,pfox@cs.rpi.edu
+01-07-2016_09:04:05,Peter Fox,pfox@cs.rpi.edu
+01-07-2016_09:04:14,Peter Fox,pfox@cs.rpi.edu
+01-07-2016_09:06:05,Rebecca Fowler,rebeccafowler@esipfed.org
+01-07-2016_09:06:13,Rebecca Fowler,rebeccafowler@esipfed.org
+01-07-2016_09:08:35,Bill Teng,dragonabs1@gmail.com
+01-07-2016_09:08:45,Bill Teng,dragonabs1@gmail.com
+01-07-2016_09:09:33,Peter Fox,pfox@cs.rpi.edu
+01-07-2016_09:14:38,,
+01-07-2016_09:14:38,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-07-2016_09:14:43,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-07-2016_09:14:44,,
+01-07-2016_09:14:47,Christopher Lynnes,christopher.s.lynnes@nasa.gov
+01-07-2016_09:14:48,,
+01-07-2016_09:14:50,John Kusterer,john.m.kusterer@nasa.gov
+01-07-2016_09:14:55,Christopher Lynnes,christopher.s.lynnes@nasa.gov
+01-07-2016_09:14:55,John Kusterer,john.m.kusterer@nasa.gov
+01-07-2016_09:14:56,,
+01-07-2016_09:14:56,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-07-2016_09:14:56,,
+01-07-2016_09:15:00,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-07-2016_09:15:01,Christopher Lynnes,christopher.s.lynnes@nasa.gov
+01-07-2016_09:15:05,,
+01-07-2016_09:15:05,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-07-2016_09:15:21,,
+01-07-2016_09:15:22,Christopher Lynnes,christopher.s.lynnes@nasa.gov
+01-07-2016_09:15:22,,
+01-07-2016_09:15:52,John Relph,John.Relph@noaa.gov
+01-07-2016_09:15:58,John Relph,John.Relph@noaa.gov
+01-07-2016_09:16:02,Steve Young,frazmo@gmail.com
+01-07-2016_09:16:08,Steve Young,frazmo@gmail.com
+01-07-2016_09:16:15,Steve Young,frazmo@gmail.com
+01-07-2016_09:16:23,Steve Young,frazmo@gmail.com
+01-07-2016_09:16:25,Steve Young,frazmo@gmail.com
+01-07-2016_09:16:26,Steve Young,frazmo@gmail.com
+01-07-2016_09:16:35,Dan Keyes,dankeyes@esipfed.org
+01-07-2016_09:17:01,Dan Keyes,dankeyes@esipfed.org
+01-07-2016_09:17:21,Nancy Ritchey,nancy.ritchey@noaa.gov
+01-07-2016_09:17:33,Nancy Ritchey,nancy.ritchey@noaa.gov
+01-07-2016_09:17:38,Nancy Ritchey,nancy.ritchey@noaa.gov
+
+01-07-2016_09:18:00,Dan Keyes,dankeyes@esipfed.org
+
+01-07-2016_09:20:41,Dan Keyes,dankeyes@esipfed.org
+01-07-2016_09:20:59,Rebecca Koskela,rkoskela@unm.edu
+01-07-2016_09:21:13,Rebecca Koskela,rkoskela@unm.edu
+01-07-2016_09:21:24,Rebecca Koskela,rkoskela@unm.edu
+01-07-2016_09:21:46,Rebecca Koskela,rkoskela@unm.edu
+01-07-2016_09:22:00,Rafael Ameller,rafael@stormcenter.com
+01-07-2016_09:22:11,Rebecca Koskela,rkoskela@unm.edu
+01-07-2016_09:22:35,Rebecca Koskela,rkoskela@unm.edu
+01-07-2016_09:22:37,Dan Keyes,dankeyes@esipfed.org
+01-07-2016_09:22:39,Rafael Ameller,rafael@stormcenter.com
+01-07-2016_09:22:41,Dan Keyes,dankeyes@esipfed.org
+01-07-2016_09:23:06,Rebecca Koskela,rkoskela@unm.edu
+01-07-2016_09:23:17,Rafael Ameller,rafael@stormcenter.com
+01-07-2016_09:23:18,Dan Keyes,dankeyes@esipfed.org
+01-07-2016_09:23:31,Rebecca Koskela,rkoskela@unm.edu
+01-07-2016_09:27:18,Barbara DeShong,deshongb1@netscape.net
+01-07-2016_09:27:26,Barbara DeShong,deshongb1@netscape.net
+01-07-2016_09:27:38,Barbara DeShong,deshongb1@netscape.net
+01-07-2016_09:28:11,Bhaskar Ramachandran,bhaskar.ramachandran@nasa.gov
+01-07-2016_09:28:16,Bhaskar Ramachandran,bhaskar.ramachandran@nasa.gov
+01-07-2016_09:28:37,Audrey Mickle,amickle@whoi.edu
+01-07-2016_09:28:38,Bhaskar Ramachandran,bhaskar.ramachandran@nasa.gov
+01-07-2016_09:28:46,Audrey Mickle,amickle@whoi.edu
+01-07-2016_09:28:51,Audrey Mickle,amickle@whoi.edu
+01-07-2016_09:29:01,Rafael Ameller,rafael@stormcenter.com
+01-07-2016_09:31:12,,
+01-07-2016_09:31:20,,
+01-07-2016_09:31:45,,
+01-07-2016_09:32:07,,
+01-07-2016_09:32:15,,
+01-07-2016_09:32:22,,
+01-07-2016_09:32:35,,
+01-07-2016_09:32:48,,
+01-07-2016_09:33:09,,
+01-07-2016_09:33:17,Jeff Arnfield,jeff.arnfield@noaa.gov
+01-07-2016_09:33:24,Jeff Arnfield,jeff.arnfield@noaa.gov
+01-07-2016_09:36:49,,
+01-07-2016_09:36:58,,
+01-07-2016_09:43:11,Rafael Ameller,rafael@stormcenter.com
+01-07-2016_09:48:31,David Kendig,dkendig@gst.com
+01-07-2016_09:48:37,David Kendig,dkendig@gst.com
+01-07-2016_09:48:44,Dan Keyes,dankeyes@esipfed.org
+01-07-2016_09:53:51,,
+01-07-2016_09:56:38,Peter Fox,pfox@cs.rpi.edu
+01-07-2016_09:56:47,Peter Fox,pfox@cs.rpi.edu
+01-07-2016_10:02:57,Rich Signell,rsignell@gmail.com
+01-07-2016_10:03:05,Rich Signell,rsignell@gmail.com
+01-07-2016_10:03:16,Rich Signell,rsignell@usgs.gov
+01-07-2016_10:03:19,Rich Signell,rsignell@usgs.gov
+01-07-2016_10:03:26,Rich Signell,rsignell@usgs.gov
+01-07-2016_10:08:01,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-07-2016_10:09:43,Peter Fox,pfox@cs.rpi.edu
+01-07-2016_10:11:55,,
+01-07-2016_10:12:06,,
+01-07-2016_10:12:09,,
+01-07-2016_10:12:22,,
+01-07-2016_10:12:27,,
+01-07-2016_10:12:42,,
+01-07-2016_10:12:48,,
+01-07-2016_10:16:51,Peter Fox,pfox@cs.rpi.edu
+01-07-2016_10:17:16,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-07-2016_10:17:20,Tyler Stevens,Tyler.B.Stevens@nasa.gov
+01-07-2016_10:17:38,,
+01-07-2016_10:18:08,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-07-2016_10:29:42,Tamara Ledley,Tamara_Ledley@terc.edu
+01-07-2016_10:31:24,John Relph,John.Relph@noaa.gov
+01-07-2016_10:57:14,Dave Fulker,dfulker@opendap.org
+01-07-2016_11:58:22,Brian Wee,bwee@neoninc.org
+01-08-2016_03:16:32,Renea Ericson,ericson@kryos.colorado.edu
+01-08-2016_03:58:54,,
+01-08-2016_03:59:04,,
+01-08-2016_04:14:55,,
+01-08-2016_11:01:22,Bhaskar Ramachandran,bhaskar.ramachandran@nasa.gov
+01-08-2016_11:01:30,Bhaskar Ramachandran,bhaskar.ramachandran@nasa.gov
+01-08-2016_11:01:46,Bhaskar Ramachandran,bhaskar.ramachandran@nasa.gov
+01-08-2016_11:03:33,Bhaskar Ramachandran,br_gsfc@nasa.gov
+01-08-2016_11:03:41,Bhaskar Ramachandran,br_gsfc@nasa.gov
+01-08-2016_12:25:32,Don Middleton,don@ucar.edu
+01-08-2016_12:25:44,Don Middleton,don@ucar.edu
+01-08-2016_12:25:50,Don Middleton,don@ucar.edu
+01-08-2016_12:26:03,Don Middleton,don@ucar.edu
+01-08-2016_12:26:18,Don Middleton,don@ucar.edu
+01-08-2016_12:26:37,Don Middleton,don@ucar.edu
+01-08-2016_12:40:26,Janine Aquino,janine@ucar.edu
+01-08-2016_12:50:22,Don Middleton,don@ucar.edu
+01-08-2016_12:53:16,Don Middleton,don@ucar.edu
+01-08-2016_12:53:19,Don Middleton,don@ucar.edu
+01-08-2016_01:05:08,Pamela Mlynczak,pamela.e.mlynczak@nasa.gov
+01-08-2016_01:05:39,Pamela Mlynczak,pamela.e.mlynczak@nasa.gov
+01-08-2016_01:06:00,Denise Hills,dhills@gsa.state.al.us
+01-08-2016_01:06:05,Denise Hills,dhills@gsa.state.al.us
+01-08-2016_01:06:10,Denise Hills,dhills@gsa.state.al.us
+01-08-2016_01:06:18,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_01:06:27,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_01:06:32,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_01:06:41,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_01:06:58,Don Middleton,don@ucar.edu
+01-08-2016_01:07:05,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_01:07:06,Don Middleton,don@ucar.edu
+01-08-2016_01:07:13,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_01:07:19,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_01:07:21,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_01:07:23,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_01:07:43,Don Middleton,don@ucar.edu
+01-08-2016_01:16:26,Ted Habermann,thabermann@hdfgroup.org
+01-08-2016_01:16:32,Ted Habermann,thabermann@hdfgroup.org
+01-08-2016_01:16:37,Ted Habermann,thabermann@hdfgroup.org
+01-08-2016_01:21:07,Dan Keyes,dankeyes@esipfed.org
+01-08-2016_01:21:19,Dan Keyes,dankeyes@esipfed.org
+01-08-2016_01:21:30,Dan Keyes,dankeyes@esipfed.org
+01-08-2016_01:23:46,Jeff Arnfield,jeff.arnfield@noaa.gov
+01-08-2016_01:30:18,Audrey Mickle,amickle@whoi.edu
+01-08-2016_01:30:35,Audrey Mickle,amickle@whoi.edu
+01-08-2016_01:36:55,,
+01-08-2016_01:37:20,,
+01-08-2016_01:45:47,Don Middleton,don@ucar.edu
+01-08-2016_01:45:53,Chung-Yi Hou,hou@illinois.edu
+01-08-2016_01:46:00,Chung-Yi Hou,hou@illinois.edu
+01-08-2016_01:46:05,Chung-Yi Hou,hou@illinois.edu
+
+01-08-2016_01:49:10,Bruce Caron,bruce@tnms.org
+01-08-2016_01:51:01,Christopher Beltz,cbeltz@uwyo.edu
+01-08-2016_01:51:07,Christopher Beltz,cbeltz@uwyo.edu
+01-08-2016_01:51:20,Christopher Beltz,cbeltz@uwyo.edu
+01-08-2016_01:51:44,Christopher Beltz,cbeltz@uwyo.edu
+
+01-08-2016_01:53:41,Beth Stetzler,beth.stetzler@nasa.gov
+01-08-2016_01:57:05,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-08-2016_01:57:10,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-08-2016_01:57:15,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-08-2016_01:57:29,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+
+
+01-08-2016_02:02:00,Fei Hu,fhu@gmu.edu
+01-08-2016_02:02:18,Bhaskar Ramachandran,bhaskar.ramachandran@nasa.gov
+01-08-2016_02:02:23,Bhaskar Ramachandran,bhaskar.ramachandran@nasa.gov
+01-08-2016_02:02:45,Bhaskar Ramachandran,bhaskar.ramachandran@nasa.gov
+01-08-2016_02:07:09,,
+01-08-2016_02:07:26,,
+01-08-2016_02:08:36,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_02:08:49,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_02:09:02,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_02:09:10,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_02:10:37,John Relph,John.Relph@noaa.gov
+01-08-2016_02:10:40,John Relph,John.Relph@noaa.gov
+01-08-2016_02:11:08,Steve Young,frazmo@gmail.com
+01-08-2016_02:11:15,Steve Young,frazmo@gmail.com
+01-08-2016_02:11:21,Steve Young,frazmo@gmail.com
+01-08-2016_02:11:23,Steve Young,frazmo@gmail.com
+01-08-2016_02:11:38,John Relph,John.Relph@noaa.gov
+01-08-2016_02:12:10,Fei Hu,fhu@gmu.edu
+01-08-2016_02:15:22,Janine Aquino,janine@ucar.edu
+01-08-2016_02:17:16,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-08-2016_02:18:31,Jeff Arnfield,jeff.arnfield@noaa.gov
+01-08-2016_02:18:37,Jeff Arnfield,jeff.arnfield@noaa.gov
+01-08-2016_02:19:03,Pamela Mlynczak,pamela.e.mlynczak@nasa.gov
+01-08-2016_02:19:58,Shannon Rauch,srauch@whoi.edu
+01-08-2016_02:20:07,Shannon Rauch,srauch@whoi.edu
+01-08-2016_02:20:10,Shannon Rauch,srauch@whoi.edu
+01-08-2016_02:20:30,Denise Hills,dhills@gsa.state.al.us
+01-08-2016_02:20:34,Denise Hills,dhills@gsa.state.al.us
+01-08-2016_02:20:46,,
+01-08-2016_02:22:23,,
+01-08-2016_02:22:33,,
+01-08-2016_02:22:42,,
+01-08-2016_02:22:46,Beth Stetzler,beth.stetzler@nasa.gov
+01-08-2016_02:23:01,,
+01-08-2016_02:23:04,,
+01-08-2016_02:23:50,Ted Habermann,thabermann@hdfgroup.org
+01-08-2016_02:23:56,Ted Habermann,thabermann@hdfgroup.org
+01-08-2016_02:24:11,,
+01-08-2016_02:24:27,John Relph,John.Relph@noaa.gov
+01-08-2016_02:24:42,,
+01-08-2016_02:24:59,,
+01-08-2016_02:25:56,Renea Ericson,ericson@kryos.colorado.edu
+01-08-2016_02:26:06,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-08-2016_02:26:17,Renea Ericson,ericson@kryos.colorado.edu
+01-08-2016_02:26:17,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-08-2016_02:26:35,Sean Griffin,George.E.Vanhentenryck@nga.mil
+01-08-2016_02:26:43,Sean Griffin,George.E.Vanhentenryck@nga.mil
+01-08-2016_02:26:54,Sean Griffin,George.E.Vanhentenryck@nga.mil
+
+01-08-2016_02:32:44,Byron Peters,byron.v.peters@nasa.gov
+01-08-2016_02:32:55,Byron Peters,byron.v.peters@nasa.gov
+01-08-2016_02:33:12,Byron Peters,byron.v.peters@nasa.gov
+01-08-2016_02:33:19,Byron Peters,byron.v.peters@nasa.gov
+01-08-2016_02:33:21,Byron Peters,byron.v.peters@nasa.gov
+01-08-2016_02:33:47,Janine Aquino,janine@ucar.edu
+01-08-2016_02:41:53,Stephen Richard,steve.richard@azgs.az.gov
+01-08-2016_02:42:06,Stephen Richard,steve.richard@azgs.az.gov
+01-08-2016_02:44:26,Stephen Richard,steve.richard@azgs.az.gov
+01-08-2016_02:44:30,Stephen Richard,steve.richard@azgs.az.gov
+01-08-2016_02:46:38,Robert Ferraro ,robert.ferraro@jpl.nasa.gov
+01-08-2016_02:46:52,Robert Ferraro ,robert.ferraro@jpl.nasa.gov
+01-08-2016_02:47:42,Rebecca Koskela,rkoskela@unm.edu
+01-08-2016_02:47:55,Rebecca Koskela,rkoskela@unm.edu
+01-08-2016_02:48:04,Rebecca Koskela,rkoskela@unm.edu
+
+01-08-2016_02:50:01,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_02:50:13,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_02:50:23,Cyndy Chandler,cchandler@whoi.edu
+
+01-08-2016_02:50:32,Barbara DeShong,deshongb1@netscape.net
+01-08-2016_02:50:50,Barbara DeShong,deshongb1@netscape.net
+
+
+01-08-2016_02:53:30,Don Middleton,don@ucar.edu
+01-08-2016_03:02:33,Robert Ferraro ,robert.ferraro@jpl.nasa.gov
+01-08-2016_03:02:45,Robert Ferraro ,robert.ferraro@jpl.nasa.gov
+01-08-2016_03:04:05,Brian Wee,bwee@neoninc.org
+01-08-2016_03:04:17,Brian Wee,bwee@neoninc.org
+01-08-2016_03:04:28,Brian Wee,bwee@neoninc.org
+01-08-2016_03:08:19,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_03:08:28,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_03:11:33,Peter Fox,pfox@cs.rpi.edu
+01-08-2016_03:11:43,Peter Fox,pfox@cs.rpi.edu
+01-08-2016_03:11:58,Peter Fox,pfox@cs.rpi.edu
+01-08-2016_03:12:52,Erin Robinson,erinrobinson@esipfed.org
+01-08-2016_03:13:05,Erin Robinson,erinrobinson@esipfed.org
+01-08-2016_03:13:07,Peter Fox,pfox@cs.rpi.edu
+01-08-2016_03:13:12,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-08-2016_03:13:13,Erin Robinson,erinrobinson@esipfed.org
+01-08-2016_03:13:18,Erin Robinson,erinrobinson@esipfed.org
+01-08-2016_03:13:19,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-08-2016_03:13:22,Erin Robinson,erinrobinson@esipfed.org
+01-08-2016_03:13:23,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-08-2016_03:13:27,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-08-2016_03:13:31,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-08-2016_03:13:34,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-08-2016_03:15:35,Audrey Mickle,amickle@whoi.edu
+01-08-2016_03:15:43,Audrey Mickle,amickle@whoi.edu
+01-08-2016_03:15:52,Audrey Mickle,amickle@whoi.edu
+01-08-2016_03:19:28,Brian Wee,bwee@neoninc.org
+01-08-2016_03:19:35,Brian Wee,bwee@neoninc.org
+01-08-2016_03:22:56,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-08-2016_03:22:59,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-08-2016_03:23:04,Tom Narock,tnarock@marymount.edu
+01-08-2016_03:23:09,Tom Narock,tnarock@marymount.edu
+01-08-2016_03:23:15,Tom Narock,tnarock@marymount.edu
+01-08-2016_03:25:52,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_03:26:21,Kevin Browne,infomgr@ucnrs.org
+01-08-2016_03:35:05,Renea Ericson,ericson@kryos.colorado.edu
+01-08-2016_03:37:37,Renea Ericson,ericson@kryos.colorado.edu
+01-08-2016_03:41:11,Audrey Mickle,amickle@whoi.edu
+01-08-2016_03:42:46,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_03:42:58,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_03:43:05,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_03:43:10,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_03:43:16,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_03:43:20,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_03:43:24,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_03:43:32,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_03:43:36,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_03:43:38,Christopher Beltz,cbeltz@uwyo.edu
+01-08-2016_03:46:02,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_03:46:23,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_03:46:29,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_03:47:34,John Relph,John.Relph@noaa.gov
+01-08-2016_03:47:41,John Relph,John.Relph@noaa.gov
+01-08-2016_03:47:47,Renea Ericson,ericson@kryos.colorado.edu
+01-08-2016_03:48:06,Renea Ericson,ericson@kryos.colorado.edu
+01-08-2016_03:48:26,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_03:48:56,,
+01-08-2016_03:49:05,Barbara DeShong,deshongb1@netscape.net
+01-08-2016_03:49:16,Barbara DeShong,deshongb1@netscape.net
+01-08-2016_03:49:26,Barbara DeShong,deshongb1@netscape.net
+01-08-2016_03:49:56,Renea Ericson,ericson@kryos.colorado.edu
+01-08-2016_03:50:58,Pamela Mlynczak,pamela.e.mlynczak@nasa.gov
+01-08-2016_03:53:14,Douglas Fils,dfils@oceanleadership.org
+01-08-2016_03:53:26,Douglas Fils,dfils@oceanleadership.org
+01-08-2016_03:53:36,Douglas Fils,dfils@oceanleadership.org
+01-08-2016_03:53:40,Douglas Fils,dfils@oceanleadership.org
+01-08-2016_03:56:55,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_03:57:04,Pamela Mlynczak,pamela.e.mlynczak@nasa.gov
+01-08-2016_03:59:24,Peter Fox,pfox@cs.rpi.edu
+01-08-2016_04:02:02,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-08-2016_04:02:04,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-08-2016_04:02:07,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-08-2016_04:02:33,,
+01-08-2016_04:03:03,Sam Silva,samsilva@mit.edu
+01-08-2016_04:03:21,,
+01-08-2016_04:06:03,Kevin Browne,infomgr@ucnrs.org
+01-08-2016_04:06:08,Kevin Browne,infomgr@ucnrs.org
+01-08-2016_04:06:09,Sean Griffin,George.E.Vanhentenryck@nga.mil
+01-08-2016_04:06:13,Sean Griffin,George.E.Vanhentenryck@nga.mil
+01-08-2016_04:06:18,Sean Griffin,George.E.Vanhentenryck@nga.mil
+01-08-2016_04:06:47,Chung-Yi Hou,hou@illinois.edu
+01-08-2016_04:06:53,Chung-Yi Hou,hou@illinois.edu
+01-08-2016_04:07:37,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_04:07:41,Amy FitzGerrell,amy.fitzgerrell@nsidc.org
+01-08-2016_04:07:48,Amy FitzGerrell,amy.fitzgerrell@nsidc.org
+
+01-08-2016_04:08:52,Deann Miller,deann.miller@nsidc.org
+01-08-2016_04:10:03,Stephen Richard,steve.richard@azgs.az.gov
+01-08-2016_04:10:07,Stephen Richard,steve.richard@azgs.az.gov
+01-08-2016_04:10:16,Stephen Richard,steve.richard@azgs.az.gov
+01-08-2016_04:10:23,Peter Fox,pfox@cs.rpi.edu
+01-08-2016_04:10:30,Peter Fox,pfox@cs.rpi.edu
+01-08-2016_04:10:34,Peter Fox,pfox@cs.rpi.edu
+01-08-2016_04:10:39,Peter Fox,pfox@cs.rpi.edu
+01-08-2016_04:10:46,Peter Fox,pfox@cs.rpi.edu
+01-08-2016_04:10:52,Peter Fox,pfox@cs.rpi.edu
+01-08-2016_04:10:57,Peter Fox,pfox@cs.rpi.edu
+01-08-2016_04:11:31,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-08-2016_04:11:39,Jennifer Bosch,jennifer.bosch@noaa.gov
+01-08-2016_04:15:37,Steve Young,frazmo@gmail.com
+01-08-2016_04:15:42,Steve Young,frazmo@gmail.com
+01-08-2016_04:15:49,Steve Young,frazmo@gmail.com
+01-08-2016_04:16:04,Steve Young,frazmo@gmail.com
+01-08-2016_04:16:06,Steve Young,frazmo@gmail.com
+01-08-2016_04:16:39,Brian Wee,bwee@neoninc.org
+01-08-2016_04:16:52,Brian Wee,bwee@neoninc.org
+01-08-2016_04:22:16,Byron Peters,byron.v.peters@nasa.gov
+01-08-2016_04:22:37,Byron Peters,byron.v.peters@nasa.gov
+01-08-2016_04:22:43,Byron Peters,byron.v.peters@nasa.gov
+01-08-2016_04:22:46,Byron Peters,byron.v.peters@nasa.gov
+01-08-2016_04:24:02,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-08-2016_04:24:11,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-08-2016_04:31:12,Robert Ferraro ,robert.ferraro@jpl.nasa.gov
+01-08-2016_04:31:23,Robert Ferraro ,robert.ferraro@jpl.nasa.gov
+01-08-2016_04:31:32,Robert Ferraro ,robert.ferraro@jpl.nasa.gov
+01-08-2016_04:40:10,Jeff Arnfield,jeff.arnfield@noaa.gov
+01-08-2016_04:40:16,Jeff Arnfield,jeff.arnfield@noaa.gov
+01-08-2016_04:46:24,Christopher Beltz,cbeltz@uwyo.edu
+01-08-2016_04:48:23,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-08-2016_04:48:29,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-08-2016_04:48:36,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-08-2016_04:52:04,John Relph,John.Relph@noaa.gov
+01-08-2016_04:55:05,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_04:55:12,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_04:55:20,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_04:57:59,Amy FitzGerrell,amy.fitzgerrell@nsidc.org
+
+01-08-2016_05:04:15,Rebecca Koskela,rkoskela@unm.edu
+01-08-2016_05:10:48,John Relph,John.Relph@noaa.gov
+01-08-2016_05:11:15,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_05:11:39,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_05:11:42,Ajay Krishnan Subramaniam,ajay.krishnan@noaa.gov
+01-08-2016_05:16:45,Stephen Richard,steve.richard@azgs.az.gov
+01-08-2016_05:16:49,Stephen Richard,steve.richard@azgs.az.gov
+01-08-2016_05:17:25,Byron Peters,byron.v.peters@nasa.gov
+
+01-08-2016_05:23:17,Beth Stetzler,beth.stetzler@nasa.gov
+01-08-2016_05:23:32,Beth Stetzler,beth.stetzler@nasa.gov
+01-08-2016_05:25:07,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-08-2016_05:29:28,Brian Wee,bwee@neoninc.org
+01-08-2016_05:29:31,Brian Wee,bwee@neoninc.org
+01-08-2016_05:29:38,Ted Habermann,thabermann@hdfgroup.org
+01-08-2016_05:29:44,Ted Habermann,thabermann@hdfgroup.org
+01-08-2016_05:35:29,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_05:35:34,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_05:35:51,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_05:36:08,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_05:36:13,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_05:42:37,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-08-2016_05:42:45,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-08-2016_05:42:52,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_05:42:56,Cyndy Chandler,cchandler@whoi.edu
+01-08-2016_05:57:54,Audrey Mickle,amickle@whoi.edu
+01-08-2016_06:01:21,Don Middleton,don@ucar.edu
+01-08-2016_06:02:40,Christopher Beltz,cbeltz@uwyo.edu
+01-08-2016_06:29:34,Peter Fox,pfox@cs.rpi.edu
+01-08-2016_06:29:42,Peter Fox,pfox@cs.rpi.edu
+01-08-2016_06:35:04,Stephen Richard,steve.richard@azgs.az.gov
+01-08-2016_07:01:30,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-08-2016_07:01:37,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-08-2016_07:01:47,Bhaskar Ramachandran,bhaskar.ramachandran@nasa.gov
+01-08-2016_07:01:47,,
+01-08-2016_07:01:56,,
+01-08-2016_07:01:56,Bhaskar Ramachandran,bhaskar.ramachandran@nasa.gov
+01-08-2016_07:02:06,,
+01-08-2016_07:03:31,Shannon Rauch,srauch@whoi.edu
+01-08-2016_07:03:35,Shannon Rauch,srauch@whoi.edu
+01-08-2016_07:03:41,Shannon Rauch,srauch@whoi.edu
+01-08-2016_07:03:45,Shannon Rauch,srauch@whoi.edu
+01-08-2016_07:03:47,Shannon Rauch,srauch@whoi.edu
+
+01-08-2016_07:06:44,Beth Stetzler,beth.stetzler@nasa.gov
+01-08-2016_07:08:15,,
+01-08-2016_07:09:47,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-08-2016_07:09:58,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-08-2016_07:10:08,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-08-2016_07:10:12,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-08-2016_07:10:16,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-08-2016_07:10:22,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-08-2016_07:10:25,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-08-2016_07:10:31,Jeffrey Campbell,jeffrey.campbell@ars.usda.gov
+01-08-2016_07:10:46,Audrey Mickle,amickle@whoi.edu
+01-08-2016_07:10:53,Audrey Mickle,amickle@whoi.edu
+01-08-2016_07:12:46,Byron Peters,byron.v.peters@nasa.gov
+01-08-2016_07:12:59,Byron Peters,byron.v.peters@nasa.gov
+01-08-2016_07:13:06,Byron Peters,byron.v.peters@nasa.gov
+01-08-2016_07:13:20,Byron Peters,byron.v.peters@nasa.gov
+01-08-2016_07:13:26,Byron Peters,byron.v.peters@nasa.gov
+01-08-2016_07:18:47,Audrey Mickle,amickle@whoi.edu
+01-08-2016_07:25:38,Jeff Arnfield,jeff.arnfield@noaa.gov
+01-08-2016_07:25:44,Jeff Arnfield,jeff.arnfield@noaa.gov
+01-08-2016_07:26:25,Chung-Yi Hou,hou@illinois.edu
+01-08-2016_07:39:46,Cynthia Parr,Cynthia.Parr@ars.usda.gov
+01-08-2016_07:55:12,Steve Young,frazmo@gmail.com
+01-08-2016_07:55:20,Steve Young,frazmo@gmail.com
+01-08-2016_07:55:27,Steve Young,frazmo@gmail.com
+01-08-2016_07:55:37,Steve Young,frazmo@gmail.com
+01-08-2016_07:55:44,Steve Young,frazmo@gmail.com
+01-08-2016_09:59:54,,
+01-08-2016_09:59:55,,
