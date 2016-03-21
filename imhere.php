@@ -1,11 +1,17 @@
 <?php 
-
+  # ------------------------------------------------------------
+  # In an attempt to follow what's going on in this code, I need to add a bunch of formatting and comments. DK.
+  # ------------------------------------------------------------
+  
   # include needed functions
   include 'checkin.php'; 
   include 'readCSV.php';
   include 'attendeeLog.php';
   include 'currentSessions.php';
 
+  # ------------------------------------------------------------
+  # Define variables
+  
   # log file and schedule
   $log = './logs/imhere_log.txt';
   $schedule = './logs/schedule.csv';
@@ -14,7 +20,8 @@
   date_default_timezone_set('UTC');
   $date = date("m-d-Y_h:i:s");
 
-  # html setup
+    # ------------------------------------------------------------
+# html setup
   echo "<!DOCTYPE html>\n";
   echo "<html>\n";
   echo "  <head>\n";
@@ -29,6 +36,8 @@
   $heading = "<p class=\"center\">ESIP Winter Meeting 2016</p>\n";
   $sessionIn = "<p style=\"font-style:italic\">Not Checked-In To A Session</p>";
   $checkInHead = "<p style=\"font-weight:bold\">You Are Currently Checked-In To:</p>";
+
+  # ------------------------------------------------------------
 
   # check for GET variables
   if ( isset($_GET['name']) && isset($_GET['email']) ) {
@@ -47,10 +56,20 @@
 
   }
 
-  # if we have name and email then print them along with the sessions
+  # ------------------------------------------------------------
+  # Display sponsor logo
   echo "<img class=\"img\" src=\"images/sloan_logo.png\"><br/>";
+
+  # ------------------------------------------------------------
+  # Display application name
   echo "<p class=\"center\">ImHere Check In System</p>";
+
+  # ------------------------------------------------------------
+  # Display event name
   echo $heading;
+
+  # ------------------------------------------------------------
+  # if we have name and email then print them along with the sessions
   if ( isset($name) && isset($email) ) {
 
      # try to set a cookie for this user to expire in 7 days
