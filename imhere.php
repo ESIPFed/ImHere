@@ -3,22 +3,14 @@
   # In an attempt to follow what's going on in this code, I need to add a bunch of formatting and comments. DK.
   # ------------------------------------------------------------
   
+  # include the config file
+  include 'config.php';
+
   # include needed functions
   include 'checkin.php'; 
   include 'readCSV.php';
   include 'attendeeLog.php';
   include 'currentSessions.php';
-
-  # ------------------------------------------------------------
-  # Define variables
-  
-  # log file and schedule
-  $log = './logs/imhere_log.txt';
-  $schedule = './logs/schedule.csv';
-
-  # timezone and time
-  date_default_timezone_set('UTC');
-  $date = date("m-d-Y_h:i:s");
 
     # ------------------------------------------------------------
 # html setup
@@ -128,7 +120,7 @@
      }
 
      # write results to file
-     $fh = fopen($log, 'a') or die("can't open file");
+     $fh = fopen($imhere_log, 'a') or die("can't open file");
      fwrite($fh, "$log_line\n");
      fclose($fh);
 

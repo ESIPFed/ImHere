@@ -1,11 +1,7 @@
 <?php 
 
-  # log files
-  $log = './logs/beacon_log.txt';
-
-  # timezone and time
-  date_default_timezone_set('UTC');
-  $date = date("m-d-Y_h:i:s");
+  # read the config file
+  include 'config.php';
 
   # get the POST data
   $pdata = file_get_contents('php://input');
@@ -20,7 +16,7 @@
   #}
 
   # write results to file
-  $fh = fopen($log, 'a') or die("can't open file");
+  $fh = fopen($beacon_log, 'a') or die("can't open file");
   fwrite($fh, "$log_line\n");
   fclose($fh);
 

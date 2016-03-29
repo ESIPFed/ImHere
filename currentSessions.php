@@ -17,9 +17,12 @@
 
   function getCurrentSessions( $sessionArray ) {
 
+    # include the config file
+    include 'config.php';
+
     # timezone and time
-    date_default_timezone_set('America/New_York');
-    $date = date("m/d/y_H:i");
+    date_default_timezone_set($schedule_timezone);
+    $date = date($schedule_format);
 
     # split date and time into parts
     $parts = explode("_", $date);

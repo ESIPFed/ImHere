@@ -1,11 +1,12 @@
 <?php
 
-  $pwd = 'PASSWORD';
+  # read the config file
+  include 'config.php';
 
   if ( isset($_POST['pwd']) ) { 
     if ( isset($_FILES['schedule']) && ($_POST['pwd']==$pwd) ) {
 
-      $newFile = '/var/www/html/sloan/logs/schedule.csv';
+      $newFile = $schedule;
       $tmpFile = $_FILES['schedule']['tmp_name'];
       move_uploaded_file($tmpFile, $newFile);
       echo "<h2 stye=\text-align:center\">Success: File Uploaded</h2><br/>";

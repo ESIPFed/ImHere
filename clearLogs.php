@@ -1,24 +1,18 @@
 <?php
 
-  $pwd = 'PASSWORD';
+  # read the config file
+  include 'config.php';
 
   if ( isset($_POST['pwd']) ) { 
     if ( ($_POST['pwd']==$pwd) ) {
 
-      $dir = '/var/www/html/sloan/logs/';
-
-      $log1 = $dir . 'attendees.txt';
-      $log2 = $dir . 'beacon_log.txt';
-      $log3 = $dir . 'checkedIn.txt';
-      $log4 = $dir . 'imhere_log.txt';
-
-      $handle = fopen($log1, "w");
+      $handle = fopen($attendees_log, "w");
       fclose($handle);
-      $handle = fopen($log2, "w");
+      $handle = fopen($beacon_log, "w");
       fclose($handle);
-      $handle = fopen($log3, "w");
+      $handle = fopen($checkIn_log, "w");
       fclose($handle);
-      $handle = fopen($log4, "w");
+      $handle = fopen($imhere_log, "w");
       fclose($handle);
 
       chmod($log1, 0664);

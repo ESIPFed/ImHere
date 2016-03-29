@@ -1,17 +1,13 @@
 <?php 
 
+  # include the config file
+  include 'config.php';
+
   # include the needed functions
   include 'checkin.php';
   include 'attendeeLog.php';
   include 'readCSV.php';
   include 'topics.php';
-
-  # log file 
-  $attendees_log = './logs/attendees.txt';
-
-  # timezone and time
-  date_default_timezone_set('UTC');
-  $date = date("m-d-Y_h:i:s");
 
   # setup html
   echo "<!DOCTYPE>\n";
