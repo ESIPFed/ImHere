@@ -5,8 +5,10 @@
 
    function isDiscoverable($name, $email) {
 
+     include 'config.php';
+
      $result = '';
-     $handle = fopen("./logs/checkedIn.txt", "r");
+     $handle = fopen($checkIn_log, "r");
      if ($handle) {
        while (($line = fgets($handle)) !== false) {
           $line = trim($line);
@@ -36,8 +38,10 @@
 
    function readCheckInLog($name, $email) {
 
+      include 'config.php';
+
       $result = '';
-      $handle = fopen("./logs/checkedIn.txt", "r");
+      $handle = fopen($checkIn_log, "r");
       if ($handle) {
         while (($line = fgets($handle)) !== false) {
           $line = trim($line);
