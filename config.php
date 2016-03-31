@@ -4,6 +4,10 @@
   ## configuration variables are set here and then
   ## imported elsewhere
 
+  # server location
+  # production server host by Tom at Marymount
+  $server = 'http://38.118.61.102/sloan/';
+
   # log files
   $log_dir = '/var/www/html/sloan/logs/';
   $attendees_log = $log_dir . 'attendees.txt';

@@ -2,8 +2,7 @@
 
   ob_start();
 
-  # log files
-  $log = './logs/checkedIn.txt';
+  include 'config.php';
 
   # check for GET variables
   if ( isset($_GET['name']) && isset($_GET['email']) && isset($_GET['locate']) && isset($_GET['checkin']) ) {
@@ -14,7 +13,7 @@
      $checkin = $_GET['checkin'];
      if ( $checkin == 0 ) {
 
-       $url = "http://38.118.61.102/sloan/imhere.php";
+       $url = $server . "imhere.php";
 
        # unset the cookie if present
        if ( isset($_COOKIE['esip']) ) {
@@ -23,11 +22,11 @@
        }
 
      } else {
-       $url = "http://38.118.61.102/sloan/imhere.php?name=$name&email=$email";
+       $url = $server . "imhere.php?name=$name&email=$email";
      }
 
      # write results to file
-     $fh = fopen($log, 'a') or die("can't open file: $log");
+     $fh = fopen($checkIn_log, 'a') or die("can't open file: $checkIn_log");
      fwrite($fh, "$name:$email:$locate:$checkin\n");
      fclose($fh);
 
