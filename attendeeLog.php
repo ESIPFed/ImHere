@@ -1,12 +1,19 @@
 <?php
 
+# DK changes 3/31: Include config.php in a couple of places; set relative rather than static addresses in fopen commands
+
    # attendee log format
    # name:email:session:status (1 checked in, 0 checked out):time
 
+#----------------------------------------------------------------
+# Find last line in attendees.txt that matches email address; return line in $session
    function getAttendeesByEmail($email) {
 
+# include the config file
+  include 'config.php';
+	
      $session = '';
-     $handle = fopen("./logs/attendees.txt", "r");
+     $handle = fopen($attendees_log, "r");
      if ($handle) {
        while (($line = fgets($handle)) !== false) {
          $line = trim($line);
@@ -15,11 +22,13 @@
          if ( ($email == $logemail) ) { $session = $line; }
        }
        fclose($handle);
-     } else { die("Couldn't open attendees.txt"); }
+     } else { die("Couldn't open file: $attendees_log"); }
      return $session;
 
    }
 
+#----------------------------------------------------------------
+# Build an array of session attendees as name,email,:,status
    function getAttendees($session) {
 
      $result = array();
@@ -35,10 +44,16 @@
  
    }
 
-   function readAttendeeLog($s) {
+ #----------------------------------------------------------------
+ # Find all lines in attendees.txt that match $s (the name of a session); return lines in an array
+  function readAttendeeLog($s) {
 
+# include the config file
+  include 'config.php';
+	
       $result = array();
-      $handle = fopen("./logs/attendees.txt", "r");
+
+     $handle = fopen($attendees_log, "r");
       if ($handle) {
         while (($line = fgets($handle)) !== false) {
           $line = trim($line);
@@ -48,6 +63,6 @@
           if ( ($s == $logSession) ) { $result[] = $line; } 
         }
         fclose($handle);
-      } else { die("Couldn't open attendees.txt"); }
+      } else { die("Couldn't open file... $attendees_log"); }
       return $result;
    } 
