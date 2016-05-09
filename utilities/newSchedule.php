@@ -1,14 +1,14 @@
 <?php
 
   # read the config file
-  include 'config.php';
+  include '../config.php';
 
   if ( isset($_POST['pwd']) ) { 
     if ( isset($_FILES['schedule']) && ($_POST['pwd']==$pwd) ) {
 
       $newFile = $schedule;
       $tmpFile = $_FILES['schedule']['tmp_name'];
-      move_uploaded_file($tmpFile, $newFile);
+      $r = move_uploaded_file($tmpFile, $newFile);
       echo "<h2 stye=\text-align:center\">Success: File Uploaded</h2><br/>";
 
       # convert newlines
@@ -31,7 +31,6 @@
       fclose($file);
 
     } else {
-
       if ($_POST['pwd'] != $pwd) { 
         echo "<h2 style=\"text-align:center;color:red\">ERROR: Password is incorrect</h2><br/>"; 
       }

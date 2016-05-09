@@ -1,6 +1,8 @@
 <?php 
-
-function getInterests ($person, $email) {
+/* Find attendee in registration file; Look for check marks and associate them with interests from hard-coded list below
+*/
+function getInterests ($person, $email, $event_logs) {
+#	echo "Topics.php getInterests: $person, $email, $event_logs<br>"; # For debug purposes
 
   # entry, email, full name, job title
   $topics = array(
@@ -30,12 +32,12 @@ function getInterests ($person, $email) {
    '28'  => 'Visualization',
    '29'  => 'Web Services');
 
-  # file to use
-  $file = './logs/registration.csv';
+  include 'config.php';
+  $file = $log_dir . $event_logs . '/' . 'registration.csv';
+# echo "Topics.php getInterests: file = $file<br>"; # For debug purposes
 
   # read the attendee data
   $results = readCSV( $file );
-
   $interests = array();
   foreach( $results as $s ) { 
     $i = 0;

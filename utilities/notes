@@ -1,0 +1,180 @@
+/* --------------------------------------------------------------------------------------------------- 
+	Last thing we're doing:
+	
+		Display user profile
+	
+  Things left to do:
+	Force email entered to be all lower-case
+	Test system for functionality in different time zones
+	Make this macbook available as web server
+	Modify new schedule upload and new attendee upload to be event-aware
+	New utility to update event-list file (or just edit the file on the server)?
+	Remove 7-day cookie expiration?
+	Add a hidden, user-entered date variable that overrides current date, for testing purposes?
+
+	List Currently Running Sessions page:
+		Fix time problem which occurs after x pm displaying Currently Running Sessions
+		Add List All Attendees function (with maybe a search) to Other Actions
+		Add List Recommended Collaborators function (only if Interface flag - Yes)
+		Add start & end times to currently running session display (Maybe not enough real estate?)
+
+	List Currently Running Events page:
+		Check for password when checking in to an event
+
+	Interface with ResearchBit Recommendation system:
+		Post to Recommendation System (only if Interface flag = Yes)...
+			When user checks in to or out of an event (in updateCheckIn.php);
+			When user clicks "View recommended collaborators at this event";
+			When user checks in to or out of a session;
+			When user clicks "View recommended collaborators in this session";
+			When user clicks on another attendees name to view their profile.
+		Perhaps...
+			We don't want ResearchBit system to try to keep track of who is where when. 
+			Duplication of what ImHere is doing. 
+			Could result in discrepancies if a post from ImHere to RB fails.
+			Instead, we send list of currently checked-in attendees (event or session) and let RB pick from just those.
+*/
+
+/* --------------------------------------------------------------------------------------------------- 
+   To reset the system (remove name & email, delete the cookie) do one of the following...
+   		Click "Reset Name & Email" on the events list page
+   		Type "reset" at the name prompt
+   		Execute program imhere/reset.php  (Can be run from the browser address bar)
+*/
+
+/* --------------------------------------------------------------------------------------------------- 
+   List of program files...
+   
+	- imhere.php - Control program for the ImHere Check In system
+
+	- config.php - Sets up lots of configuration variabls used throughout the system
+
+	- attendeeLog.php
+		Functions:
+			get AttendeesByEmail - Determine the session this attendee is currently checked in to 
+			getAttendees - Build an array of session attendees as name,email,:,status
+			readAttendeeLog -  Find all lines in attendees.txt that match this session
+
+	- attendees.php
+		If $check='in' - Check attendee in to a SESSION; check them out of whatever they were in before
+		If $check='out' - Check attendee out of a SESSION
+		If $check='' - List attendees in a SESSION
+
+	- updateCheckIn.php
+		Logs who checks in/out of the EVENT by updating checkedIn.txt
+		Posts check in/check out to Recommendation System if Interface flag is set
+
+	- readCSV.php - Returns an array of lines from $schedule, and from event_list.csv
+
+	- topics.php - Find attendee in registration file; Look for check marks and associate them with hard-coded interests
+
+	- checkin.php
+	
+	- currentSessions.php
+	
+	- profile.php
+	
+	- reset.php - Reset name & email GET variables, delete the ESIP cookie, reload imhere.php
+	
+	- stylesheet.css - CSS file
+*/
+
+/* --------------------------------------------------------------------------------------------------- 
+   List of utility files...
+     
+	- newAttendees.php - Upload new/edited registration.csv file
+	- newSchedule.php - Upload new/edited schedule.csv file
+	- clearLogs.php
+	- beacon.php - Not used
+*/
+
+/* --------------------------------------------------------------------------------------------------- 
+   List of log files...
+  
+	Global:
+		event_list.csv
+			List of events
+			Format: 1st line is a header line, then:
+			start date,end date,event name,log file directory,time zone,password,Recommendation System interface flag (Yes/No)
+		checkedIn.txt
+			Logs who checks in/out of the event
+			Format: name:email:public(1)/private(0)flag:in(1)/out(0)status:event
+		imhere_log.txt
+			Purpose - ???
+			Format: date/time,name,email,event
+			A line is written to this file every time someone:
+				Submits a name & email;
+				Checks in to an event;
+				Checks in to a session;
+				Checks out of a session;
+				Clicks List Attendees;
+				Reloads/refreshes the page.
+	Event Specific:
+	  	schedule.csv
+	  		Format: date,start time,end time,session name
+		registration.csv
+	  		Format: 
+	  			Header line; then
+	  			Line number,email,name (first last),Job title,Company/organization*/			
+		attendees.txt
+	 		Logs who checks in/out of sessions
+	  		Format: name,email,session,status (1 chked in, 0 chked out),time
+	  
+*/
+
+/* --------------------------------------------------------------------------------------------------- 
+   List of functions...
+	Name					Resides in			Called by
+	 
+  	isCheckedIn				checkIn.php			imhere.php					Pull in(1)out(0) status from checkedIn.txt for this attendee
+  	readCheckInLog			checkIn.php			checkIn.php/isCheckedIn		Pull last line in checkedIn.txt that matches $name & $email
+  	
+	get AttendeesByEmail	attendeeLog.php		imhere.php					Determine the session this attendee is currently checked in to 
+	getAttendees			attendeeLog.php						Build an array of session attendees as name,email,:,status
+	readAttendeeLog			attendeeLog.php						Find all lines in attendees.txt that match this session
+  	isDiscoverable			checkIn.php			attendees.php
+*/
+
+/* --------------------------------------------------------------------------------------------------- 
+  List of variables...
+
+   From config.php:
+  	 $log_dir 			= '/var/www/html/sloan/logs/';
+  	 $attendees_log 	= $log_dir . 'attendees.txt';
+  	 $beacon_log 		= $log_dir . 'beacon_log.txt';
+  	 $checkedIn_log		= $log_dir . 'checkedIn.txt';
+  	 $imhere_log 		= $log_dir . 'imhere_log.txt';
+  	 $schedule 			= $log_dir . 'schedule.csv';
+  	 $date 				= date("m-d-Y_H:i:s");
+  	 $schedule_timezone	= 'America/New_York';
+  	 $schedule_format 	= 'm/d/y_H:i';
+  	 $pwd 				= 'ESIP2016!';
+
+  As they are encountered herein:
+  	$space			"&nbsp;"
+  	$tab			Five x $space
+  	$sessionIn		Name of the session the attendee is checked in to
+  	$checkInHead	"Currently checked in to:" or "Last checked in to:"
+  	$name			Attendee name
+  	$email			Attendee email
+  	$log_line		Date, name, email written to log file $imhere_log'
+  	$cvalue			Cookie Value - what we get from performing $_COOKIE["esip"]
+  	$parts			Cookie Parts, from explode(":", $cvalue)
+  	$cookie_name	When writting new cookie, = "esip"
+  	$cookie_value	When writting new cookie, = "$name:$email"
+  	$checkedIn		Checked in to the event? From isCheckedIn($name, $email)
+  	$sessions		Array of all lines from $schedule - Format is date, start time, end time, session name
+  	$cSessions		Array of session names currently running
+  	$line			Last line in $attendees that matches this $email
+  	$lineParts		$line formatted into an array
+  	$currentSession	Last session attendee checked-in to
+  	$currentStatus	Status assoc w/ $currentSession (1=checked-in; 0=checked-out)
+  	$checkout		Link to attendees.php checkout-of-this-session routine
+  	$counter		Number to diplay in front of a currently running session
+  	$s				Name of a currently running session
+  	$checkin		Link to attendees.php checkin-to-this-session routine
+  	$participants	Link to attendees.php list attendees routine
+  	$url			Link to updateCheckIn.php checkout-of-this-event routine
+  	$fh				File handle when writing log_line (date,name,email) to $imhere_log
+  	$action
+*/

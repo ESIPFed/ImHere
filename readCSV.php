@@ -3,7 +3,6 @@
    function readCSV( $file ) {
 
      $result = array();
-
      $i = 0;
      $csvFile = file($file);
      foreach ($csvFile as $line) {

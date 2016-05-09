@@ -1,5 +1,13 @@
 <?php 
 
+/*	Get here from imhere.php...
+		One of three routines can be performed once we're here:
+		If $check='in' - Check attendee in to a session; check them out of whatever they were in before
+		If $check='out' - Check attendee out of a session
+		If $check='' - List attendees in a session
+	We're also (going to) post to the Recommendation System here
+*/
+
   # include the config file
   include 'config.php';
 
@@ -16,6 +24,7 @@
   echo "    <link rel=\"stylesheet\" href=\"stylesheet.css\">\n";
   echo "    <title>ImHere Attendees</title>";
   echo "  </head>\n";
+  echo "  <body style=\"background-color:darkseagreen;\">\n";
   echo "  <body>\n";
 
   # look for GET variables
@@ -23,12 +32,15 @@
   if ( isset($_GET['email']) ) { $email = $_GET['email']; } else { $email = ''; }
   if ( isset($_GET['session']) ) { $session = $_GET['session']; } else { $session = ''; }
   if ( isset($_GET['check']) ) { $check = $_GET['check']; } else { $check = ''; }
+  if ( isset($_GET['event']) ) { $event = $_GET['event']; } else { $event = ''; }
+  if ( isset($_GET['event_logs']) ) { $event_logs = $_GET['event_logs']; } else { $event_logs = ''; }
+  if ( isset($_GET['attendees_log']) ) { $attendees_log = $_GET['attendees_log']; } else { $attendees_log = 'Not_Supposed_to_Happen'; }
 
   # open the attendee log file
   $log = fopen($attendees_log, 'a');
 
   # return link
-  $returnLink = "<p><a href=\"imhere.php?name=$name&email=$email\">Return to Check-In Menu</a></p>";
+  $returnLink = "<p><a href=\"imhere.php?name=$name&email=$email&event=$event\">Return to Check-In Menu</a></p>";
 
 #---------------------------------------------------------------------------------------------------
   # check in
@@ -38,21 +50,24 @@
     # if yes then automatically check them out
 
     # check if this person is checked in to a session
-    $line = getAttendeesByEmail($email);
+    $line = getAttendeesByEmail($email, $attendees_log); # Determine the session this attendee is currently checked in to 
     if ( $line != '' ) {
       $lineParts = explode(",", $line);
       $currentSession = $lineParts[2];
       $currentStatus = $lineParts[3];
-      if ( $currentStatus ) {
+      if ( $currentStatus ) { # If currently checked in to a session, check them out
         $line = $name . ',' . $email . ',' . $currentSession . ',0,' . $date . "\n";
         fwrite($log, $line);
+# Post check out to recommendation system here:
+
       }
     }
 
     echo "<p>You have been Checked In to: $session</p>";
     echo "$returnLink";
     $line = "$name,$email,$session,1,$date\n";
-    fwrite($log, $line);
+    fwrite($log, $line); # Check them in to this session
+# Post check in to recommendation system here:
 
   }
 
@@ -64,6 +79,8 @@
     echo "$returnLink";
     $line = "$name,$email,$session,0,$date\n";
     fwrite($log, $line);
+# Post check out to recommendation system here:
+
 
   }
 
@@ -76,7 +93,7 @@
   # list attendees in a session
   if ( $check == '' ) {
 
-    $attendees = getAttendees($session);
+    $attendees = getAttendees($session, $attendees_log);
     echo "<p>Currently Checked-In Attendees</p>";
     foreach ($attendees as $key => $value) { 
 
@@ -86,19 +103,20 @@
        $value = $pp[1];
 
        # find out if this person is discoverable
-       $discover = isDiscoverable($key, $email);
+       $discover = isDiscoverable($key, $email); #in checkIn.php
        $parts = explode(":", $discover);
        $discover = $parts[2];
-
        # if discover is 1 then the person is ok to list
        # if discover is 0 then the person is not discoverable by others
   
        if ($discover) {
        
          # look for this person's interests
-         $interests = getInterests($key,$email);
+#		echo "Attendees.php event_logs = $event_logs<br>"; # For debug purposes
+         $interests = getInterests($key,$email,$event_logs);
          if ( sizeof($interests) > 0 ) { 
-           $line = "<p><a href=\"profile.php?name=$key&email=$email\">$key</a></p>";
+#		echo "<br>Attendees.php: Ready to go...<br>"; # For debug purposes
+           $line = "<p><a href=\"profile.php?name=$key&email=$email&event_logs=$event_logs\">$key</a></p>";
          } else {
            $line = "<p>$key</p>";
          }

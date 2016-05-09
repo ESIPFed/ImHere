@@ -1,33 +1,32 @@
 <?php
 
-  ## Config file for variables used throughout ImHere
-  ## configuration variables are set here and then
-  ## imported elsewhere
+## Config file for variables used throughout ImHere
 
-  # server location
-  # production server host by Tom at Marymount
-  $server = 'http://38.118.61.102/sloan/';
+# Define server and log file locations
 
-  # log files
-  $log_dir = '/var/www/html/sloan/logs/';
-  $attendees_log = $log_dir . 'attendees.txt';
-  $beacon_log = $log_dir . 'beacon_log.txt';
-  $checkIn_log = $log_dir . 'checkedIn.txt';
+  $server = 'http://38.118.61.102/imhere/';	  # production server host by Tom at Marymount
+  $log_dir = '/var/www/html/imhere/logs/';
+ 
+# Insert the following to run this on Dan's local server
+#  $server = 'http://10.0.0.9/imhere/';	# Dan's local server (funky cookies here?)
+#  $server = 'http://localhost/imhere/';	# Dan's local server (but this doesn't work for remote devices)
+#  $server = 'http://dansmacbook.local/imhere/';	# The only thing working as of 4/22...
+
+# Works on Dan's local server, but won't this work on th production server as well?:
+#  $log_dir = './logs/';
+
+  $checkedIn_log = $log_dir . 'checkedIn.txt';
   $imhere_log = $log_dir . 'imhere_log.txt';
+  $event_list = $log_dir . 'event_list.csv';
 
-  # schedule file
-  $schedule = $log_dir . 'schedule.csv';
+$schedule = $log_dir . 'event_list.csv';
 
-  # timezone and time for log files (H indicates 24 time format)
+# Timezone and time for log files (H indicates 24 time format)
   date_default_timezone_set('UTC');
   $date = date("m-d-Y_H:i:s");
-
-  # timezone and time format for uploaded schedule file
-  # this may change depending upon where the meeting is held
-  $schedule_timezone = 'America/New_York';
   $schedule_format = 'm/d/y_H:i';
 
-  # password for online uploading
+# Password for online uploading of new/updated event lists, sessions schedules, and attendee lists
   $pwd = 'ESIP2016!';
 
 ?>

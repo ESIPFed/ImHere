@@ -1,277 +1,343 @@
 <?php 
-
-/*  Dan's changes to-date:
-	  	Remove Sloan sponsor logo
-	  	Display header lines even on mobile devices (see stylesheet.css)
-		Change event name $heading to "ESIP telecons"
-		Add bold format to display of application name and event name 
-		Change verbiage to "Not Checked In" ($sessionIn) and "You Last Checked In To:" ($checkInHead)
-		Removed extra blank line above "Currently Running Sessions:"
-		Changed verbiage related to public/private event check in
+/* 
+	05/01 - Added text to enter name/email screen
+	05/02 - Fixed problem opening files in an event that has been deleted/renamed in event_list.csv
+	05/04 - Added load of $schedule_timezone in line 151
+	05/04 - Added $schedule_timezone as argument to function getCurrentSessions line 256
 */
+# --------------------------------------------------------------------------------------------------------------------
+# Control program for the ImHere Check In system
+# See ./utilities/notes for (some) documentation
 
-/*  Changes we want to make:
-		Remove 7-day cookie expiration?
-		Display start & end time of currently running sessions
-		Add a hidden, user-entered date variable that overrides current date, for testing purposes
-*/
-
-/*	Big change coming up: Incorporate logic for multiple events (ESIP Telecons, Winter Meeting, etc.):
-		New file in root dir listing all events with event name, password, start & end dates, timezone
-		Check into an event same as we do sessions
-			If currently checked in to an event…
-				Display name of event checked in to
-				Proceed with session check in logic
-			If not checked in to an event…
-				List currently running events, with start & end dates
-				Have options to check in, and List Attendees
-				Other Actions: Log out of everything (remove name & email, cookie)
-		Set variable $event to indicate the event we're processing
-		Keep separate schedule file, attendee file, and log files for each event
-		$log_dir = '$event/logs/';	Something like that
-*/
-
-// ----------------------------------------------------------- 
-/* List of log files...
-  
-	attendees.txt
- 		Logs who checks in/out of sessions
-  		Format: name,email,session,status (1 chked in, 0 chked out),time
-	checkedIn.txt
-		Logs who checks in/out of the event
-		Format: name:email:in/out status (1=in, 0=out):public/private flag (1=public, 0=private)
-	imhere_log.txt
-		Purpose - ???
-		Format: date/time,name,email
-		A line is written to this file every time someone:
-			Submits a name & email;
-			Checks in to an event;
-			Checks in to a session;
-			Checks out of a session;
-			Clicks List Attendees;
-			Reloads/refreshes the page.
-  	Schedule.csv
-  		Format: date,start time,end time,session name
-	Registration.csv
-  		Format: 
-  			Header line; then
-  			Line number,email,name (first last),Job title,Company/organization
-*/			
-  
-// ------------------------------------------------------------ 
-/* List of program files (extension .php)...
-	- imhere.php - This file
-	- config.php - Sets up lots of configuration variabls used throughout the system
-	- attendeeLog.php
-		Functions:
-			get AttendeesByEmail - Determine the session this attendee is currently checked in to 
-			getAttendees - Build an array of session attendees as name,email,:,status
-			readAttendeeLog -  Find all lines in attendees.txt that match this session
-	- readCSV.php - Returns an array of lines from $schedule
-	- attendees.php
-	- beacon.php
-	- checkin.php
-	- clearLogs.php
-	- currentSessions.php
-	- profile.php
-	- newAttendees.php
-	- newSchedule.php
-	- topics.php
-	- updateCheckIn.php  
-	- stylesheet.css - CSS file
-*/
-// ------------------------------------------------------------
-/*  List of variables...
-
-   From config.php:
-  	 $log_dir 			= '/var/www/html/sloan/logs/';
-  	 $attendees_log 	= $log_dir . 'attendees.txt';
-  	 $beacon_log 		= $log_dir . 'beacon_log.txt';
-  	 $checkIn_log 		= $log_dir . 'checkedIn.txt';
-  	 $imhere_log 		= $log_dir . 'imhere_log.txt';
-  	 $schedule 			= $log_dir . 'schedule.csv';
-  	 $date 				= date("m-d-Y_H:i:s");
-  	 $schedule_timezone	= 'America/New_York';
-  	 $schedule_format 	= 'm/d/y_H:i';
-  	 $pwd 				= 'ESIP2016!';
-
-  As they are encountered herein:
-  	$space			"&nbsp;"
-  	$tab			Five x $space
-  	$heading		ESIP Winter Meeting 2016 or ESIP Telecons
-  	$sessionIn		Name of the session the attendee is checked in to
-  	$checkInHead	"Currently checked in to: or "Last checked in to:
-  	$name			Attendee name
-  	$email			Attendee email
-  	$log_line		Date, name, email written to log file $imhere_log'
-  	$cvalue			Cookie Value - what we get from performing $_COOKIE["esip"]
-  	$parts			Cookie Parts, from explode(":", $cvalue)
-  	$cookie_name	When writting new cookie, = "esip"
-  	$cookie_value	When writting new cookie, = "$name:$email"
-  	$checkedIn		Checked in to the event? From isCheckedIn($name, $email)
-  	$sessions		Array of all lines from $schedule - Format is date, start time, end time, session name
-  	$cSessions		Array of session names currently running
-  	$line			Last line in $attendees that matches this $email
-  	$lineParts		$line formatted into an array
-  	$currentSession	Last session attendee checked-in to
-  	$currentStatus	Status assoc w/ $currentSession (1=checked-in; 0=checked-out)
-  	$checkout		Link to attendees.php checkout-of-this-session routine
-  	$counter		Number to diplay in front of a currently running session
-  	$s				Name of a currently running session
-  	$checkin		Link to attendees.php checkin-to-this-session routine
-  	$participants	Link to attendees.php list attendees routine
-  	$url			Link to updateCheckIn.php checkout-of-this-event routine
-  	$fh				File handle when writing log_line (date,name,email) to $imhere_log
-  	$action
-*/
-
-# ------------------------------------------------------------
 # include the config file
   include 'config.php';
-# ------------------------------------------------------------
+#
 # include needed functions
   include 'checkin.php'; 
-  include 'readCSV.php';			# returns an array of lines from 'schedule.csv'
+  include 'readCSV.php';
   include 'attendeeLog.php';
   include 'currentSessions.php';
-# ------------------------------------------------------------
+  include 'currentEvents.php';
+#
 # html setup
   echo "<!DOCTYPE html>\n";
   echo "<html>\n";
   echo "  <head>\n";
   echo "    <link rel=\"stylesheet\" href=\"stylesheet.css\">\n";
   echo "    <title>Session Check In</title>\n";
-  echo "  </head>\n";
-  echo "  <body>\n";
 
-  # return heading
+  echo "<style>
+	a:link {color: mediumblue;}
+	a:visited {color: mediumblue;}
+	a:hover {color: blue;}
+	a:active {color: mediumblue;}
+	</style>";
+
+  echo "  </head>\n";
+
+  echo "  <body style=\"background-color:darkseagreen;\">\n";
+#  echo "  <body style=\"background-color:skyblue;\">\n";
+#  echo "  <body style=\"background-color:lightblue;\">\n";
+#  echo "  <body style=\"background-color:cadetblue;\">\n";
+#  echo "  <body style=\"background-color:tan;\">\n";
+#
+# set some display variables
   $space = "&nbsp;";
   $tab = $space . $space . $space . $space . $space;
-  $heading = "<p class=\"center\" style=\"font-weight:bold\">ESIP Telecons</p>\n"; # was ESIP Winter Meeting 2016
-  $sessionIn = "<p style=\"font-style:italic\">Not Checked-In</p>";				# was Not Checked-In To A Session
-  $checkInHead = "<p style=\"font-weight:bold\">You Last Checked In To:</p>";	# was You Are Currently Checked-In To:
+#
+# --------------------------------------------------------------------------------------------------------------------
+
+ # Start painting the screen
+
+  # Display sponsor logo
+  #  echo "<img class=\"img\" src=\"images/sloan_logo.png\"><br/>";
+  #  echo "<img class=\"img\" src=\"images/sloan_small.png\"><br/>";
+  #
+  # Display application name
+  #  echo "<p class=\"center\" style=\"font-weight:bold\">ImHere Event Check In System</p>";
 
 # ------------------------------------------------------------
-# Try to find a name and email...
-# Check for GET variables
-  if ( isset($_GET['name']) && isset($_GET['email']) ) {
+# Look for name & email in GET variables first, then in a cookie...
+
+	# Check for GET variables
+	 $event=""; # Set event default
+	 if ( isset($_GET['name']) && isset($_GET['email']) ) {
      $name = $_GET['name'];
      $email = $_GET['email'];
-     $log_line = "$date,$name,$email";
-  } else { 
-# no GET variables try looking for the esip cookie
+     if (isset($_GET['event'])) {
+          $event = $_GET['event'];
+     }
+     $log_line = "$date,$name,$email,$event";
+     #echo "GET variables found: $name, $email, $event <br>"; # For debug purposes
+
+  } else { # no GET variables try looking for the esip cookie
      if (isset($_COOKIE["esip"])) {
        $cvalue = $_COOKIE["esip"];
        $parts = explode(":", $cvalue);
        $name = $parts[0];
        $email = $parts[1];
-       $event = $parts[2];	# DK
+       $event = $parts[2];
+       #echo "Cookie 1 found: $name, $email, $event <br>"; # For debug purposes
      }
   }
-  # ------------------------------------------------------------
-  # Display sponsor logo
-  #  echo "<img class=\"img\" src=\"images/sloan_logo.png\"><br/>";
-  #  echo "<img class=\"img\" src=\"images/sloan_small.png\"><br/>";
-  # ------------------------------------------------------------
-  # Display application name
-  echo "<p class=\"center\" style=\"font-weight:bold\">ImHere Check In System</p>";
-  # ------------------------------------------------------------
-  # Display event name
-  echo $heading;
-  # ------------------------------------------------------------
-  # If we have a name and email,
-  # and if this person has checked in to the event,
-  # then display the session they're currently checked in to
-  
+# ------------------------------------------------------------
+# If we have a name and email...
+
   if ( isset($name) && isset($email) ) {	# If we have a name and email...
   
+	# Look for secret RESET option in GET variable...
+	#echo "Name 1: $name<br>"; # For debug purposes
+  	if ($name == "reset" || $name == "Reset") {   	# Unset the cookie; Set the return URL to imhere.php with no GET variables
+
+     if (isset($_COOKIE["esip"])) {
+       $cvalue = $_COOKIE["esip"];
+       $parts = explode(":", $cvalue);
+       $cname = $parts[0];
+       $cemail = $parts[1];
+       $cevent = $parts[2];
+       #echo "Cookie 2 found: $cname, $cemail, $cevent<br>"; # For debug purposes
+	   unset($_COOKIE['esip']);
+       setcookie('esip', false, time()-3600, '/');
+       }
+	# Update the file checkedIn.txt
+     $fh = fopen($checkedIn_log, 'a') or die("can't open file: $checkIn_log");
+
+# Should we be using cname and cemail here???
+#echo "Name 2: $name<br>";
+#echo "cName: $cname<br>";
+     fwrite($fh, "$name:$email:0:0:$event\n");
+     fclose($fh);
+
+	# Set the return URL to imhere.php with no GET variables
+	$url = $server . "imhere.php"; # Load imhere.php with no GET variables
+	echo "<p>System reset, click <a href=\"$url\">here</a></p>\n";
+
+    # ------------------------------------------------------------
+     }	else	{	# Not processing a reset...
+
      # try to set a cookie for this user to expire in 7 days
      if ( !isset($_COOKIE["esip"]) ) {
        $cookie_name = "esip";
-       $cookie_value = "$name:$email";
+       $cookie_value = "$name:$email:$event";
        setcookie($cookie_name, $cookie_value, time()+(86400*7), "/"); 
      }
+# ------------------------------------------------------------
+# Display the user's name and email
+#    echo "<p class=\"center\" style=\"font-weight:bold\">$name ($email)</p>\n";
 
-     $checkedIn = isCheckedIn($name, $email);
-     if ( $checkedIn ) {	# has this person checked into the event?
+# ======================================================================================================
+# ======================================================================================================
+# ======================================================================================================
+#																									||||
+#																									||||
+# See if this person has checked in to an event...
+     $checkedIn = isCheckedIn($name, $email); # (In checkin.php)
 
-       $sessions = readCSV($schedule);	# returns an array of lines from $schedule
-       $cSessions = getCurrentSessions($sessions);	# returns an array of sessions currently running
-       echo "$checkInHead"; # "Currently checked in to:"
+# If we ARE checked in, then see if the event checked in to can be found in the event_list file
+	 if ( $checkedIn != '' ) {
+	 #echo "ImHere.php Line 135 - Event: $checkedIn<br>"; # For debug purposes
+ 	
+# Find the line in event_list.csv that matches $event, pull log directory name, timezone, & interface flag
+	 $event = $checkedIn;
+     $event_logs = '';
+     $handle = fopen($event_list,"r");
+       if ($handle) {
+         while (($line = fgets($handle)) !== false) {
+         $line = trim($line);
+         $parts = explode(",", $line);
+         $line_event = $parts[2];
+         if ( ($line_event == $event) ) { 
+         	$event_logs = $parts[3];
+         	$schedule_timezone = $parts[4];
+         	$recommendation_interface = $parts[6]; }
+       }
+       fclose($handle);
+     } else { die("Couldn't open file: $event_list"); }
+
+# Point log files to an event-specific directory; check that the log files exist
+	 $attendees_log = $log_dir . $event_logs . '/' . 'attendees.txt';
+	 #echo "$attendees_log<br>";
+     $handle = fopen($attendees_log, "r");
+     if ($handle) { fclose($handle); }
+     else { $checkedIn = ''; } # Missing file - reset the checkedIn flag
+
+	 $schedule = $log_dir . $event_logs . '/' . 'schedule.csv';
+	 #echo "$schedule<br>";
+     $handle = fopen($schedule, "r");
+     if ($handle) { fclose($handle); }
+     else { $checkedIn = ''; } # Missing file - reset the checkedIn flag
+}     
+
+# If not checked in to an event (or event no longer exists in event_list.csv)...
+
+     if ( $checkedIn == '' ) {	# If not checked in to an event...
+
+  # Display application name
+  echo "<p class=\"center\" style=\"font-weight:bold; color:crimson\">ImHere<br>";
+  echo "<class=\"center\" style=\"font-weight:bold; color:crimson\">Event Check In System</p>";
+
+#       echo "<p class=\"center\" style=\"font-weight:bold\">$name ($email)</p>\n";
+       $url = "updateCheckIn.php?name=$name&email=$email&checkin=1";
        
-       # Display session this attendee is currently checked in to and offer to "Check Out"
-       $line = getAttendeesByEmail($email);	# read $attendees; return last line in the file that matches $email
+  # Display a list of currently running events
+       $allEvents = readCSV($event_list);	# returns an array of all lines from $event_list
+#	   $s = sizeof($allEvents);  # For debug purposes
+#	   echo "Size of allEvents: $s<br>"; # For debug purposes
+       $cEvents = getCurrentEvents($allEvents);	# returns an array of events currently running
+#	   $s = sizeof($cEvents);  # For debug purposes
+#	   echo "Size of cEvents: $s<br>"; # For debug purposes
+       echo "<p style=\"font-weight:bold\">Currently Running Event(s):</p>\n";
+
+   # Select from the list and check 'em in
+       $counter = 1;
+       foreach($cEvents as $s) {		# cEvents is an array of event names currently running
+      
+       $public = "<a href=\"$url&event=$s&locate=1\">Public Check In</a>";
+       $private = "<a href=\"$url&event=$s&locate=0\">Private Check In</a>";
+
+       # Display the counter and the event name, then public & private check in links
+         echo "<p>$counter. $s <br/> $space $space $space $public $space $space $private</p>\n";
+         $counter++;
+       }
+       	if ($counter == 1) {
+       	echo "None";
+       	}
+  	
+#       echo "<p><br>\"Public Check In\" allows others to locate you and view your profile</p>\n";
+#       echo "<p>\"Private Check In\" will prevent others from locating you and viewing your profile</p>\n";
+       echo "<p><br>\"Public Check In\" allows others to locate you and view your profile;";
+       echo "<br>\"Private Check In\" will prevent others from locating you and viewing your profile.</p>\n";
        
-       if ( $line != '' ) {		    
+  # ------------------------------------------------------------
+	   # Display Other Actions
+       echo "<p style=\"font-weight:bold\"><br>Other Actions:<p>\n";
+
+	   # Display the user's name and email
+       echo "<p> $space $space View profile: <br>$space $space $space $space $name ($email)</p>\n";
+
+       # Set up & display link to "Back to name/email entry"
+       echo "<p>$space $space <a href=\"reset.php\">Reset Name & Email</a></p>\n";
+
+  # ------------------------------------------------------------
+
+  	}	else	{
+#																									||||
+#																									||||
+# ======================================================================================================
+# ======================================================================================================
+# ======================================================================================================
+# We ARE checked in to an event... 
+ 	
+# Find the line in event_list.csv that matches $event, pull the log directory name
+/* We moved this up above 5/2/16...
+     $event_logs = '';
+     $handle = fopen($event_list,"r");
+       if ($handle) {
+         while (($line = fgets($handle)) !== false) {
+         $line = trim($line);
+         $parts = explode(",", $line);
+         $line_event = $parts[2];
+         if ( ($line_event == $event) ) { 
+         	$event_logs = $parts[3];
+         	$recommendation_interface = $parts[6]; }
+       }
+       fclose($handle);
+     } else { die("Couldn't open file: $event_list"); }
+
+# Point log files to a directroy specific to this event
+	 $schedule = $log_dir . $event_logs . '/' . 'schedule.csv';
+	 $attendees_log = $log_dir . $event_logs . '/' . 'attendees.txt';
+*/
+
+	 echo "<p class=\"center\" style=\"font-weight:bold; color:crimson\">$event<br>Check In System</p>\n"; # Display event name
+	 echo "<p style=\"font-weight:bold\">Last Session Check In:</p>";
+
+       $sessions = readCSV($schedule);	# returns an array of all lines from $schedule
+       $cSessions = getCurrentSessions($sessions, $schedule_timezone);	# returns an array of sessions currently running
+       
+       $line = getAttendeesByEmail($email, $attendees_log);	# in attendeeLog.php, read $attendees, return last line in the file that matches $email
+       if ( $line != '' ) { # Display session this attendee is currently checked in to and offer to "Check Out"
          $lineParts = explode(",", $line);
          $currentSession = $lineParts[2];	# Last session attendee checked-in to
          $currentStatus = $lineParts[3]; # 1=checked-in; 0=checked-out
-         if ( $currentStatus ) {	# if this person still checked in to this session
-            $checkout = "<a href=\"attendees.php?name=$name&email=$email&session=$currentSession&check=out\">Check Out</a>";
-            echo "<p>$currentSession $tab $checkout</p>";
+         echo "<p style=\"font-weight:normal\">$currentSession <br> $space $space";
+         if ( $currentStatus ) {	# if still checked in to this session
+            $checkout = "<a href=\"attendees.php?name=$name&email=$email&session=$currentSession&check=out&event=$event&event_logs=$event_logs&attendees_log=$attendees_log\">Check Out</a>";
+            echo "$checkout</p>";
          } else {
-            echo "$sessionIn";
+            echo "(Checked out)</p>";
          }
-       } else { echo "$sessionIn"; }
-
+       } else { echo "<p style=\"font-style:normal\">$space $space None</p>"; }
   # ------------------------------------------------------------
   # Display Currently Running Sessions
-#       echo "<br /><p style=\"font-weight:bold\">Currently Running Sessions:</p>\n";
        echo "<p style=\"font-weight:bold\">Currently Running Sessions:</p>\n";
        $counter = 1;
-       
+	   #echo "attendees_log: $attendees_log<br>"; # For debug purposes
        foreach($cSessions as $s) {		# cSessions is an array of session names currently running
       
 		# Set up link to Check In to this session
-         $checkin = "<a href=\"attendees.php?name=$name&email=$email&session=$s&check=in\">Check In</a>";
-		# Set up link to Check Out of this session
-         #$checkout = "<a href=\"attendees.php?name=$name&email=$email&session=$s&check=out\">Check Out</a>";
+         $checkin = "<a href=\"attendees.php?name=$name&email=$email&session=$s&check=in&event=$event&event_logs=$event_logs&attendees_log=$attendees_log\">Check In</a>";
 		# Set up link to List Attendees in this session
-         $participants = "<a href=\"attendees.php?name=$name&email=$email&session=$s\">List Attendees</a>";
+         $participants = "<a href=\"attendees.php?name=$name&email=$email&session=$s&event=$event&event_logs=$event_logs&attendees_log=$attendees_log\">List Attendees</a>";
 
        # Display the counter and the session name
          echo "<p>$counter. $s 
          <br/> 
-         $space $space $checkin $tab $participants</p>\n"; # Display links to Check In and List Attendees
+         $space $space $checkin $tab $participants</p>\n";
          $counter++;
        }
+       	if ($counter == 1) {
+		echo "<p>$space $space None</p>";
+       	}
   # ------------------------------------------------------------
 	   # Display Other Actions
-       echo "<br/>\n";
-       echo "<p style=\"font-weight:bold\">Other Actions<p>\n";
-       
+#       echo "<br/>\n";
+       echo "<p style=\"font-weight:bold\">Other Actions:<p>\n";
+
+       echo "<p>$space $space List Event Attendees</p>\n";
+
+       # Link to Recommendation System only if flag in event_list file = Yes:
+       if ($recommendation_interface == "Yes") {
+       	   echo "<p>$space $space List Recommended Collaborators</p>\n"; 
+       	   }
+
        # Set up & display link to "check-out-of-this-event" routine in updateCheckIn.php 
-       $url = "updateCheckIn.php?name=$name&email=$email&checkin=0&locate=0";
-       echo "<p><a href=\"$url\">Check Out Of This Event</a></p>\n";
-     } else {
+       $url = "updateCheckIn.php?name=$name&email=$email&checkin=0&locate=0&event=$event";
+	   #echo "URL prior to checkout: $url";       # For degug purposes
+       echo "<p>$space $space <a href=\"$url\">Check Out Of This Event</a></p>\n";
 
+	   # Display the user's name and email
+       echo "<p> $space $space View profile: <br>$space $space $space $space $name ($email)</p>\n";
   # ------------------------------------------------------------
-  # Not checked in to the event
-       $url = "updateCheckIn.php?name=$name&email=$email&checkin=1";
-       echo "<p>$name you are not yet checked into the event.</p>\n";
-       echo "<p><a href=\"$url&locate=1\">Check In</a> $tab or $tab <a href=\"$url&locate=0\">Private Check In</a></p>\n";
-
-       echo "<p style=\"font-weight:bold\">Check In allows others to locate you at this event</p>\n";
-       echo "Private Check In will prevent others from locating you</p>\n";
-     }
-
-   # ------------------------------------------------------------
    # Write log_line (date,name,email) to $imhere_log
      $fh = fopen($imhere_log, 'a') or die("can't open this file: $imhere_log");
      fwrite($fh, "$log_line\n");
      fclose($fh);
-  } else {
-    # ------------------------------------------------------------
-    # No Name or email - make 'em enter it here:
+
+     } # END of ELSE: We ARE checked in
+   # ------------------------------------------------------------
+  } # END of ELSE: Not processing a RESET
+   # ------------------------------------------------------------
+  
+    } else {	# No $name or $email - make 'em enter it here:
+  echo "<p class=\"center\" style=\"font-weight:bold; color:crimson\">ImHere<br>";
+  echo "<class=\"center\" style=\"font-weight:bold; color:crimson\">Event Check In System</p>";
      $action = htmlspecialchars($_SERVER["PHP_SELF"]);
      echo "<form method=\"GET\" action=\"$action\">\n";
      echo "  Name: <input type=\"text\" name=\"name\" >\n";
      echo "$tab Email: <input type=\"text\" name=\"email\" >\n";  
      echo "$tab <input type=\"submit\">\n";
+
+echo "<p>Enter your name and email address. ";
+echo "Some systems attempt to auto-capitalize when you enter your address. ";
+echo "Please verify that the capitalization is correct in your address.</p>";
+
+
      echo "</form>\n";
-  }
-  # ------------------------------------------------------------
-  # close out the html
+	  }
+    # ------------------------------------------------------------
+  
+   # close out the html
   echo "  </body>\n";
   echo "</html>\n";
   

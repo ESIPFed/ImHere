@@ -1,14 +1,14 @@
 <?php
 
-   # check in log format
-   # name:email:discoverable by others:checked out
+   # check in log format: name:email:public(1)/private(0)flag:in(1)/out(0)status:eventID
 
+# --------------------------------------------------------------------------------------------------- 
    function isDiscoverable($name, $email) {
 
      include 'config.php';
 
      $result = '';
-     $handle = fopen($checkIn_log, "r");
+     $handle = fopen($checkedIn_log, "r");
      if ($handle) {
        while (($line = fgets($handle)) !== false) {
           $line = trim($line);
@@ -23,25 +23,32 @@
  
    }
 
+# --------------------------------------------------------------------------------------------------- 
+# Find in(1)out(0) status from checkedIn.txt for this attendee
    function isCheckedIn($name, $email) {
 
-     $result = 0;
-     $line = readCheckInLog($name, $email);
+#     $result = 0; # Default to not-checked-in
+     $result = ''; # Default to not-checked-in
+     $line = readCheckInLog($name, $email); # Find last line in checkedIn.txt that matches $name & $email
      if ( $line != '' ) { 
        $parts = explode(":", $line);
        $checkedIn = $parts[3];
-       if ( $checkedIn == 1 ) { $result = 1; }
+       $event = $parts[4];
+#       if ( $checkedIn == 1 and $event != '' ) { $result = 1; }
+       if ( $checkedIn == 1 and $event != '' ) { $result = $event; }
      }
      return $result;
  
    }
+# --------------------------------------------------------------------------------------------------- 
+# Find last line in checkedIn.txt that matches $name & $email
 
    function readCheckInLog($name, $email) {
 
       include 'config.php';
 
       $result = '';
-      $handle = fopen($checkIn_log, "r");
+      $handle = fopen($checkedIn_log, "r");
       if ($handle) {
         while (($line = fgets($handle)) !== false) {
           $line = trim($line);

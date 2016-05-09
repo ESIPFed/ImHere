@@ -1,15 +1,19 @@
 
 .img { display:block; margin-left: auto; margin-right: auto; }
 
+/* -----------------------------------*/
+/* For mobile devices (small screens) */
+
 @media screen and (max-width: 980px) {
    .center { text-align:center; }
+/*   .center { display:none; text-align:center; } Use this if don't wan't application name to display on smaller screens */
 
-/* Replace previous line with this if don't wan't header info to display on smaller screens */
-/*   .center { display:none; text-align:center; } */
-
-   p { font-size: 52px; font-family: Arial; }
+   p { font-size: 48px; font-family: Arial; }
   li { font-size: 48px; font-family: Arial; }
 }
+
+/* -------------------------------------*/
+/* For laptops/desktops (large screens) */
 
 @media screen and (min-width: 981px) {
    .center { text-align:center; }

@@ -16,9 +16,10 @@
   # look for GET variables
   if ( isset($_GET['name']) ) { $name = $_GET['name']; } else { $name = ''; }
   if ( isset($_GET['email']) ) { $email = $_GET['email']; } else { $email = ''; }
+  if ( isset($_GET['event_logs']) ) { $event_logs = $_GET['event_logs']; } else { $event_logs = ''; }
 
   # look for this person's interests
-  $interests = getInterests($name,$email);
+  $interests = getInterests($name,$email,$event_logs);
   $size = sizeof($interests);
   echo "<p>Name: $name</p>";
   echo "<p>Affiliation: $interests[0]</p>";

@@ -6,11 +6,12 @@
    # name:email:session:status (1 checked in, 0 checked out):time
 
 #----------------------------------------------------------------
-# Find last line in attendees.txt that matches email address; return line in $session
-   function getAttendeesByEmail($email) {
+   function getAttendeesByEmail($email, $attendees_log) {	# Find last line in attendees.txt that matches email address; return line in $session
 
 # include the config file
   include 'config.php';
+
+#echo "In getAttendeesByEmail, attendees_log = $attendees_log<br>";	# For debug purposes
 	
      $session = '';
      $handle = fopen($attendees_log, "r");
@@ -19,20 +20,20 @@
          $line = trim($line);
          $parts = explode(",", $line);
          $logemail = $parts[1];
-         if ( ($email == $logemail) ) { $session = $line; }
+#echo "logemail = $logemail<br>";	# For debug purposes
+         if ( ($logemail == $email) ) { $session = $line; }
        }
        fclose($handle);
-     } else { die("Couldn't open file: $attendees_log"); }
+     } else { die("In AttendedeLog.php, couldn't open file: $attendees_log"); }
      return $session;
 
    }
 
 #----------------------------------------------------------------
-# Build an array of session attendees as name,email,:,status
-   function getAttendees($session) {
+   function getAttendees($session, $attendees_log) {	# Build an array of session attendees as name,email,:,status
 
      $result = array();
-     $line = readAttendeeLog($session);
+     $line = readAttendeeLog($session, $attendees_log);
      foreach($line as $value) {
        $parts = explode(",", $value);
        $name = $parts[0];
@@ -45,8 +46,7 @@
    }
 
  #----------------------------------------------------------------
- # Find all lines in attendees.txt that match $s (the name of a session); return lines in an array
-  function readAttendeeLog($s) {
+  function readAttendeeLog($s, $attendees_log) {	# Find all lines in attendees.txt that match $s (the name of a session); return lines in an array
 
 # include the config file
   include 'config.php';

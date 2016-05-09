@@ -741,3 +741,78 @@ Steve Young,frazmo@gmail.com,ESIP and the Semantic Web: Progress and Planning,1,
 Stephen Richard,steve.richard@azgs.az.gov,Earth Science Data Analytics - Analytics requirements?,0,01-08-2016_09:24:30
 ,,ESIP and the Semantic Web: Progress and Planning,0,01-08-2016_09:59:54
 ,,ESIP and the Semantic Web: Progress and Planning,1,01-08-2016_09:59:54
+Dan Keyes,dankeyes@esipfed.org,State of the Federation ,0,03-31-2016_14:20:05
+Dan Keyes,dankeyes@esipfed.org,Today's 3rd Telecon,1,03-31-2016_14:36:27
+Dan Keyes,dankeyes@esipfed.org,Today's 3rd Telecon,0,03-31-2016_14:36:33
+Dan Keyes,dankeyes@esipfed.org,ESIP Staff Team Call,1,03-31-2016_14:36:33
+Dan Keyes,dankeyes@esipfed.org,ESIP Staff Team Call,0,03-31-2016_14:38:20
+Dan Keyes,dankeyes@esipfed.org,Products ,1,03-31-2016_14:42:27
+Dan Keyes,dankeyes@esipfed.org,Products ,0,03-31-2016_14:42:30
+Dan Keyes,dankeyes@esipfed.org,Products ,1,03-31-2016_14:42:30
+Dan Keyes,dankeyes@esipfed.org,Products ,0,03-31-2016_14:42:55
+Dan Keyes,dankeyes@esipfed.org,Visioneers,1,03-31-2016_14:42:55
+Dan Keyes,dankeyes@esipfed.org,Visioneers,0,03-31-2016_16:33:17
+Annie Keyes,localann1@danielkeyes.com,ESIP Staff Team Call,1,03-31-2016_16:33:47
+Danno,Danimal@danielkeyes.com,Toolmatch,1,03-31-2016_16:38:32
+Dan Keyes,dankeyes@esipfed.org,Today's Important Telecon,1,04-01-2016_17:45:12
+Dan Keyes,dankeyes@esipfed.org,Today's Important Telecon,0,04-01-2016_18:12:48
+Dan Keyes,dankeyes@esipfed.org,ESIP Staff Team Call,1,04-01-2016_18:12:48
+Dan Keyes,Dankeyes@esipfed.org,Today's Important Telecon,1,04-01-2016_22:25:56
+Dan Keyes,Dankeyes@esipfed.org,Today's Important Telecon,0,04-01-2016_22:36:58
+Danno,danimal@danielkeyes.com,Today's Important Telecon,1,04-01-2016_23:23:25
+Danno,danimal@danielkeyes.com,Today's Important Telecon,0,04-02-2016_11:57:28
+Danno,danimal@danielkeyes.com,Toolmatch,1,04-02-2016_11:57:32
+Dan Keyes,dankeyes@esipfed.org,ESIP Staff Team Call,0,04-03-2016_13:12:56
+Dan Keyes,danimal@danielkeyes.com,Toolmatch,0,04-03-2016_13:18:10
+Dan Keyes,danimal@danielkeyes.com,Today's Important Telecon,1,04-03-2016_13:19:15
+Dan Keyes,danimal@danielkeyes.com,Today's Important Telecon,0,04-03-2016_18:29:17
+Frank Furter,ff@ff.com,Today's Important Telecon,1,04-03-2016_18:34:30
+Frank Furter,ff@ff.com,Today's Important Telecon,0,04-03-2016_18:39:29
+Dan Keyes,danimal@danielkeyes.com,Toolmatch,1,04-06-2016_11:05:47
+Frank Furter,ff@ff.com,Toolmatch,1,04-06-2016_13:18:23
+Frank Furter,ff@ff.com,Toolmatch,0,04-06-2016_13:30:06
+Ham Burgher,hamburgher@danielkeyes.com,Today's Important Telecon,1,04-06-2016_13:31:44
+Ham Burgher,hamburgher@danielkeyes.com,Today's Important Telecon,0,04-06-2016_13:32:08
+Mustard N. Ketchup,mustard@danielkeyes.com,Today's Important Telecon,1,04-06-2016_13:33:37
+Bill Bradley,60minutes@dk.com,Today's Important Telecon,1,04-07-2016_11:10:35
+Bill Bradley,60minutes@dk.com,Today's Important Telecon,0,04-07-2016_11:10:42
+Bill Bradley,60minutes@dk.com,Github 101,1,04-07-2016_11:10:49
+Bill Bradley,60minutes@dk.com,Github 101,0,04-07-2016_11:19:20
+Dan Keyes,localmail@danielkeyes.com,Visioneers,1,04-07-2016_11:28:41
+Dan Keyes,dankeyes@esipfed.org,Today's Important Telecon,1,04-07-2016_12:17:59
+Dan Keyes,dankeyes@esipfed.org,Today's Important Telecon,0,04-07-2016_12:18:55
+Dan Keyes,Dankeyes@esipfed.org,Github 101,1,04-07-2016_12:19:03
+Dan Keyes,Dankeyes@esipfed.org,Github 101,0,04-07-2016_12:20:30
+Dan Keyes,dankeyes@esipfed.org,Visioneers,1,04-07-2016_12:21:35
+Dan Keyes,dankeyes@esipfed.org,Visioneers,0,04-07-2016_12:48:35
+Dan Keyes,dankeyes@esipfed.org,Today's Important Telecon,1,04-07-2016_16:09:04
+Dan Keyes,dankeyes@esipfed.org,Today's Important Telecon,0,04-07-2016_20:03:40
+Annie Keyes,localann1@danielkeyes.com,ESIP Staff Team Call,0,04-11-2016_15:04:39
+Annie Keyes,localann1@danielkeyes.com,ESIP 101,1,04-17-2016_07:52:19
+Annie Keyes,localann1@danielkeyes.com,ESIP 101,0,04-17-2016_07:52:34
+Annie Keyes,localann1@danielkeyes.com,Plenary - The Value of Big Data,1,04-17-2016_07:52:34
+Annie Keyes,localann1@danielkeyes.com,Plenary - The Value of Big Data,0,04-19-2016_14:52:44
+Annie Keyes,localann1@danielkeyes.com,Curation of Virtual Data Collections,1,04-19-2016_14:52:44
+Dan Keyes,dankeyes@esipfed.org,ESIP 101,1,04-19-2016_16:11:25
+Dan Keyes,dankeyes@esipfed.org,ESIP 101,0,04-20-2016_20:19:17
+Dan Keyes,dankeyes@esipfed.org,Plenary - The Value of Big Data,1,04-20-2016_20:19:17
+Dan Keyes,dankeyes@esipfed.org,Plenary - The Value of Big Data,0,04-20-2016_22:39:49
+Dan Keyes,dankeyes@esipfed.org,Curation of Virtual Data Collections,1,04-20-2016_22:39:49
+Dan Keyes,dankeyes@esipfed.org,Curation of Virtual Data Collections,0,04-20-2016_22:49:22
+Dan Keyes,dankeyes@esipfed.org,Emerging Big Data Tech for Geoscience,1,04-20-2016_22:49:22
+Dan Keyes,dankeyes@esipfed.org,Emerging Big Data Tech for Geoscience,0,04-21-2016_12:52:29
+Dan Keyes,dankeyes@esipfed.org,Global Change Info for Informed Decisions,1,04-21-2016_12:52:32
+Dan Keyes,dankeyes@esipfed.org,Global Change Info for Informed Decisions,0,04-21-2016_12:52:47
+Dan Keyes,dankeyes@esipfed.org,Global Change Info for Informed Decisions,1,04-21-2016_12:52:58
+Dan Keyes,dankeyes@esipfed.org,Global Change Info for Informed Decisions,0,04-22-2016_11:25:06
+Dan Keyes,Dankeyes@esipfed.org,Plenary - The Value of Big Data,1,04-24-2016_11:55:20
+Dan Keyes,Dankeyes@esipfed.org,Plenary - The Value of Big Data,0,04-24-2016_12:10:30
+Dan Keyes,dankeyes@esipfed.org,ESIP 101,1,04-24-2016_12:56:36
+Dan Keyes,dankeyes@esipfed.org,ESIP 101,0,04-24-2016_12:56:43
+Dan Keyes,dankeyes@esipfed.org,Plenary - The Value of Big Data,1,04-24-2016_12:56:43
+Dan Keyes,dankeyes@esipfed.org,Plenary - The Value of Big Data,0,04-24-2016_12:56:47
+Dan Keyes,dankeyes@esipfed.org,Emerging Big Data Tech for Geoscience,1,04-24-2016_12:56:47
+Dan Keyes,dankeyes@esipfed.org,Emerging Big Data Tech for Geoscience,0,04-24-2016_12:56:51
+Dan Keyes,Dankeyes@esipfed.org,Emerging Big Data Tech for Geoscience,1,04-24-2016_18:28:56
+Annie Keyes,localann1@danielkeyes.com,Curation of Virtual Data Collections,0,04-25-2016_12:28:19
+Erin Robinson,erinrobinson@esipfed.org,Framework for Comparing Data Containers,0,04-26-2016_23:04:21
