@@ -1,20 +1,8 @@
 /* --------------------------------------------------------------------------------------------------- 
-  Last thing we're doing:
+	Last thing we're doing:
 	
 		Display user profile
 	
-  Significant changes to Tom's version:
-		Accomodate multiple events
-			New event_list.csv file;
-			Move log files to event-specific directories;
-			Require password to log in to events (under development);
-			Add Recommendation System Interface flag for events not interfacing with ResearchBit
-		New "Other Actions":
-			View Profile (of current user - under development)
-			List Event Attendees (under development)
-			List Recommended Collaborators (under development)
-			Add reset routine to reset name & email, delete cookies
-
   Things left to do:
 	Force email entered to be all lower-case
 	Test system for functionality in different time zones
@@ -40,6 +28,11 @@
 			When user checks in to or out of a session;
 			When user clicks "View recommended collaborators in this session";
 			When user clicks on another attendees name to view their profile.
+		Perhaps...
+			We don't want ResearchBit system to try to keep track of who is where when. 
+			Duplication of what ImHere is doing. 
+			Could result in discrepancies if a post from ImHere to RB fails.
+			Instead, we send list of currently checked-in attendees (event or session) and let RB pick from just those.
 */
 
 /* --------------------------------------------------------------------------------------------------- 
@@ -125,7 +118,7 @@
 	  			Line number,email,name (first last),Job title,Company/organization*/			
 		attendees.txt
 	 		Logs who checks in/out of sessions
-	  		Format: name,email,session,status (1 chked in, 0 chked out),date_time
+	  		Format: name,email,session,status (1 chked in, 0 chked out),time
 	  
 */
 

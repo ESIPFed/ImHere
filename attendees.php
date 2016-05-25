@@ -35,8 +35,10 @@
   if ( isset($_GET['event']) ) { $event = $_GET['event']; } else { $event = ''; }
   if ( isset($_GET['event_logs']) ) { $event_logs = $_GET['event_logs']; } else { $event_logs = ''; }
   if ( isset($_GET['attendees_log']) ) { $attendees_log = $_GET['attendees_log']; } else { $attendees_log = 'Not_Supposed_to_Happen'; }
+  if ( isset($_GET['recommendation_interface']) ) { $recommendation_interface = $_GET['recommendation_interface']; } else { $recommendation_interface = 'Not_Supposed_to_Happen'; }
 
   # open the attendee log file
+# Should watch for errors here. If permissions on the file have changed (like when I download to my Mac) we're don't get any warning.
   $log = fopen($attendees_log, 'a');
 
   # return link
@@ -58,16 +60,23 @@
       if ( $currentStatus ) { # If currently checked in to a session, check them out
         $line = $name . ',' . $email . ',' . $currentSession . ',0,' . $date . "\n";
         fwrite($log, $line);
-# Post check out to recommendation system here:
 
+# Post check out of recommendation system here:
+	if ( $recommendation_interface ) {
+	# Do it here	
+		}
       }
     }
+
+# Post check in to recommendation system here:
+	if ( $recommendation_interface ) {
+	# Do it here	
+		}
 
     echo "<p>You have been Checked In to: $session</p>";
     echo "$returnLink";
     $line = "$name,$email,$session,1,$date\n";
     fwrite($log, $line); # Check them in to this session
-# Post check in to recommendation system here:
 
   }
 
@@ -75,12 +84,15 @@
   # check out
   if ( $check == 'out' ) {
 
+# Post check out of recommendation system here:
+	if ( $recommendation_interface ) {
+	# Do it here	
+		}
+
     echo "<p>You have been Checked Out of: $session</p>";
     echo "$returnLink";
     $line = "$name,$email,$session,0,$date\n";
     fwrite($log, $line);
-# Post check out to recommendation system here:
-
 
   }
 
@@ -95,8 +107,9 @@
 
     $attendees = getAttendees($session, $attendees_log);
     echo "<p>Currently Checked-In Attendees</p>";
-    foreach ($attendees as $key => $value) { 
 
+    # For each attendee in the session...
+    foreach ($attendees as $key => $value) { 
        # split value into email 
        $pp = explode(":", $value);
        $email = $pp[0];
@@ -110,21 +123,27 @@
        # if discover is 0 then the person is not discoverable by others
   
        if ($discover) {
-       
-         # look for this person's interests
+
+# Check for ResearchBit interface flag; If YES pull info from there; else get it from RegOnline interests export
+	if ( $recommendation_interface ) {
+           $line = "<p><a href=\"viewProfile.php?name=$key&email=$email&event=$event\">$key</a></p>";
+		}
+	
+	else { # Look for this person's interests in the RegOnline export data
+
 #		echo "Attendees.php event_logs = $event_logs<br>"; # For debug purposes
-         $interests = getInterests($key,$email,$event_logs);
+         $interests = getInterests($key,$email,$event_logs); # in topics.php
          if ( sizeof($interests) > 0 ) { 
 #		echo "<br>Attendees.php: Ready to go...<br>"; # For debug purposes
            $line = "<p><a href=\"profile.php?name=$key&email=$email&event_logs=$event_logs\">$key</a></p>";
          } else {
            $line = "<p>$key</p>";
          }
-         if ( $value == 1 ) { echo $line; } 
-   
-       }
+		} # End no recommendation interface
+         if ( $value == 1 ) { echo $line; }
+       } # End if discover...
+    } # End for each...
 
-    }
     echo "<br/>$returnLink";
 
   }

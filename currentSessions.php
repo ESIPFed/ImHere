@@ -1,19 +1,22 @@
 <?php 
 
 # 05/04 - Addded $schedule_timezone as getCurrentSesions function argument
+# 05/17 - Added check for null session date (means it's running every day)
 
   function inRange($month, $day, $year, $sessionDate, $startTime, $endTime, $time) {
  
     $parts = explode("/", $sessionDate);
 
     $match = 0;
-    if ( ($month == $parts[0]) && ($day == $parts[1]) && ($year == $parts[2]) ) { 
+
+#    if ( ($month == $parts[0]) && ($day == $parts[1]) && ($year == $parts[2]) ) { 
+ if (($sessionDate == '') || ( ($month == $parts[0]) && ($day == $parts[1]) && ($year == $parts[2]) )) { 
       $startTimestamp = strtotime($startTime);
       $endTimestamp = strtotime($endTime);
       $currentTimestamp = strtotime($time);
       if (($currentTimestamp >= $startTimestamp) && ($currentTimestamp <= $endTimestamp)) { $match = 1; }
     }
-    return $match;
+     return $match;
 
   }
 
@@ -23,8 +26,12 @@
     include 'config.php';
 
     # timezone and time
-    date_default_timezone_set($schedule_timezone);
-    $date = date($schedule_format);
+    if ( $GLOBALS['spoofedDate'] != '' ) {
+      $date = $GLOBALS['spoofedDate'];
+    } else {
+      date_default_timezone_set($schedule_timezone);
+      $date = date($schedule_format);
+    }
 #	echo "$schedule_timezone<br>"; # For debug purposes
 #	echo "$date<br>"; # For debug purposes
     # split date and time into parts
@@ -37,7 +44,7 @@
 
     # get the size of the array
     $s = sizeof($sessionArray);
-	#echo "$s<br>"; # For debug purposes
+#	echo "$s<br>"; # For debug purposes
 
     # loop over all the sessions in the schedule
     $results = array();
@@ -46,7 +53,7 @@
       $startTime = $sessionArray[$i][1];
       $endTime = $sessionArray[$i][2];
       $name = $sessionArray[$i][3];
-	  #echo "$name $tab $sessionDate $tab $startTime $tab $endTime<br>"; # For debug purposes
+#	  echo "$name $tab $sessionDate $tab $startTime $tab $endTime<br>"; # For debug purposes
       $match = inRange($month, $day, $year, $sessionDate, $startTime, $endTime, $time);
       if ($match) { $results[] = $name; }
     }

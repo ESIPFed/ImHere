@@ -7,7 +7,7 @@
 */
 # --------------------------------------------------------------------------------------------------------------------
 # Control program for the ImHere Check In system
-# See ./utilities/notes for (some) documentation
+# See ./utilities/notes.txt for (some) documentation
 
 # include the config file
   include 'config.php';
@@ -58,6 +58,10 @@
 
 # ------------------------------------------------------------
 # Look for name & email in GET variables first, then in a cookie...
+
+        # Check for spoofed date
+        $GLOBALS['spoofedDate'] = '';
+        if ( isset($_GET['spoofedDate']) ) { $GLOBALS['spoofedDate'] = $_GET['spoofedDate']; }
 
 	# Check for GET variables
 	 $event=""; # Set event default
@@ -119,7 +123,12 @@
      if ( !isset($_COOKIE["esip"]) ) {
        $cookie_name = "esip";
        $cookie_value = "$name:$email:$event";
-       setcookie($cookie_name, $cookie_value, time()+(86400*7), "/"); 
+       # the cookie spec requires an expiration date
+       # also, php's implementation of cookies will auto expire a cookie if 
+       # the date is too far into the future
+       # to have a "non-expiring" cookie and still conform to the spec
+       # we'll set an expiration date of 10 years
+       setcookie($cookie_name, $cookie_value, time()+(10*365*24*60*60), "/"); 
      }
 # ------------------------------------------------------------
 # Display the user's name and email
@@ -176,8 +185,8 @@
   echo "<p class=\"center\" style=\"font-weight:bold; color:crimson\">ImHere<br>";
   echo "<class=\"center\" style=\"font-weight:bold; color:crimson\">Event Check In System</p>";
 
-#       echo "<p class=\"center\" style=\"font-weight:bold\">$name ($email)</p>\n";
-       $url = "updateCheckIn.php?name=$name&email=$email&checkin=1";
+       $d = $GLOBALS['spoofedDate'];
+       $url = "updateCheckIn.php?spoofedDate=$d&name=$name&email=$email&checkin=1";
        
   # Display a list of currently running events
        $allEvents = readCSV($event_list);	# returns an array of all lines from $event_list
@@ -190,32 +199,37 @@
 
    # Select from the list and check 'em in
        $counter = 1;
+	   $displayFlag = 0;
        foreach($cEvents as $s) {		# cEvents is an array of event names currently running
       
+	if ($s == "ESIP Telecons") {
+	   $public = "<a href=\"$url&event=$s&locate=1\">Check In</a>";
+       $private = ""; }
+	else {
+	   $displayFlag = 1;
        $public = "<a href=\"$url&event=$s&locate=1\">Public Check In</a>";
-       $private = "<a href=\"$url&event=$s&locate=0\">Private Check In</a>";
+       $private = "<a href=\"$url&event=$s&locate=0\">Private Check In</a>"; }
 
        # Display the counter and the event name, then public & private check in links
          echo "<p>$counter. $s <br/> $space $space $space $public $space $space $private</p>\n";
          $counter++;
        }
-       	if ($counter == 1) {
-       	echo "None";
-       	}
+       	if ($counter == 1) { echo "None"; }
   	
-#       echo "<p><br>\"Public Check In\" allows others to locate you and view your profile</p>\n";
-#       echo "<p>\"Private Check In\" will prevent others from locating you and viewing your profile</p>\n";
-       echo "<p><br>\"Public Check In\" allows others to locate you and view your profile;";
-       echo "<br>\"Private Check In\" will prevent others from locating you and viewing your profile.</p>\n";
-       
+	if ($displayFlag) {
+	   echo "<p><br>\"Public Check In\" allows others to locate you and view your profile;";
+       echo "<br>\"Private Check In\" will prevent others from locating you and viewing your profile.</p>\n"; }
+
   # ------------------------------------------------------------
 	   # Display Other Actions
        echo "<p style=\"font-weight:bold\"><br>Other Actions:<p>\n";
 
-	   # Display the user's name and email
-       echo "<p> $space $space View profile: <br>$space $space $space $space $name ($email)</p>\n";
+	   # View profile
+       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event\">View Profile:</a>";
+       echo "<p> $space $space $url<br>";
+	   echo "$space $space $space $space $name ($email)</p>\n";
 
-       # Set up & display link to "Back to name/email entry"
+       # Reset name & email
        echo "<p>$space $space <a href=\"reset.php\">Reset Name & Email</a></p>\n";
 
   # ------------------------------------------------------------
@@ -262,7 +276,7 @@
          $currentStatus = $lineParts[3]; # 1=checked-in; 0=checked-out
          echo "<p style=\"font-weight:normal\">$currentSession <br> $space $space";
          if ( $currentStatus ) {	# if still checked in to this session
-            $checkout = "<a href=\"attendees.php?name=$name&email=$email&session=$currentSession&check=out&event=$event&event_logs=$event_logs&attendees_log=$attendees_log\">Check Out</a>";
+            $checkout = "<a href=\"attendees.php?name=$name&email=$email&session=$currentSession&check=out&event=$event&event_logs=$event_logs&attendees_log=$attendees_log&recommendation_interface=$recommendation_interface\">Check Out</a>";
             echo "$checkout</p>";
          } else {
             echo "(Checked out)</p>";
@@ -276,11 +290,11 @@
        foreach($cSessions as $s) {		# cSessions is an array of session names currently running
       
 		# Set up link to Check In to this session
-         $checkin = "<a href=\"attendees.php?name=$name&email=$email&session=$s&check=in&event=$event&event_logs=$event_logs&attendees_log=$attendees_log\">Check In</a>";
+         $checkin = "<a href=\"attendees.php?name=$name&email=$email&session=$s&check=in&event=$event&event_logs=$event_logs&attendees_log=$attendees_log&recommendation_interface=$recommendation_interface\">Check In</a>";
 		# Set up link to List Attendees in this session
-         $participants = "<a href=\"attendees.php?name=$name&email=$email&session=$s&event=$event&event_logs=$event_logs&attendees_log=$attendees_log\">List Attendees</a>";
+         $participants = "<a href=\"attendees.php?name=$name&email=$email&session=$s&event=$event&event_logs=$event_logs&attendees_log=$attendees_log&recommendation_interface=$recommendation_interface\">List Attendees</a>";
 
-       # Display the counter and the session name
+        # Display the counter and the session name
          echo "<p>$counter. $s 
          <br/> 
          $space $space $checkin $tab $participants</p>\n";
@@ -296,18 +310,49 @@
 
        echo "<p>$space $space List Event Attendees</p>\n";
 
+
+
+
+
+
+
+
+
+
+
+
        # Link to Recommendation System only if flag in event_list file = Yes:
        if ($recommendation_interface == "Yes") {
-       	   echo "<p>$space $space List Recommended Collaborators</p>\n"; 
+	       $url = "<a href=\"viewRecommendations.php?name=$name&email=$email&event=$event\">List Recommended Collaborators</a>";
+	       echo "<p> $space $space $url</p>\n";
        	   }
 
-       # Set up & display link to "check-out-of-this-event" routine in updateCheckIn.php 
-       $url = "updateCheckIn.php?name=$name&email=$email&checkin=0&locate=0&event=$event";
+
+
+
+
+
+
+
+
+
+
+
+
+
+       # Check-out-of-this-event (in updateCheckIn.php) 
+       $d = $GLOBALS['spoofedDate'];
+       $url = "updateCheckIn.php?spoofedDate=$d&name=$name&email=$email&checkin=0&locate=0&event=$event";
 	   #echo "URL prior to checkout: $url";       # For degug purposes
        echo "<p>$space $space <a href=\"$url\">Check Out Of This Event</a></p>\n";
 
-	   # Display the user's name and email
-       echo "<p> $space $space View profile: <br>$space $space $space $space $name ($email)</p>\n";
+
+	   # View profile
+       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event\">View Profile:</a>";
+       echo "<p> $space $space $url<br>";
+	   echo "$space $space $space $space $name ($email)</p>\n";
+
+       
   # ------------------------------------------------------------
    # Write log_line (date,name,email) to $imhere_log
      $fh = fopen($imhere_log, 'a') or die("can't open this file: $imhere_log");
@@ -324,9 +369,9 @@
   echo "<class=\"center\" style=\"font-weight:bold; color:crimson\">Event Check In System</p>";
      $action = htmlspecialchars($_SERVER["PHP_SELF"]);
      echo "<form method=\"GET\" action=\"$action\">\n";
-     echo "  Name: <input type=\"text\" name=\"name\" >\n";
-     echo "$tab Email: <input type=\"text\" name=\"email\" >\n";  
-     echo "$tab <input type=\"submit\">\n";
+     echo "  <label>Name:</label> <input type=\"text\" name=\"name\" >\n";
+     echo "$tab <br/><label>Email:</label> <input type=\"text\" name=\"email\" >\n";  
+     echo "$tab <br/><br/><input type=\"submit\">\n";
 
 echo "<p>Enter your name and email address. ";
 echo "Some systems attempt to auto-capitalize when you enter your address. ";

@@ -10,6 +10,9 @@
 
    p { font-size: 48px; font-family: Arial; }
   li { font-size: 48px; font-family: Arial; }
+  label { font-size: 48px; font-family: Arial; }
+  input { font-size: 40px; }
+
 }
 
 /* -------------------------------------*/

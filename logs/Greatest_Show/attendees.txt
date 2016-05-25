@@ -19,3 +19,12 @@ Annie Keyes,anniekeyes@esipfed.org,P.T. Barnum Introduction,1,05-03-2016_18:21:5
 Dan Keyes,dankeyes@esipfed.org,Lions and Tigers and Bears Oh My!,0,05-03-2016_19:18:25
 Dan Keyes,dankeyes@esipfed.org,Circus Intro w/Music,1,05-03-2016_19:18:28
 Tom Narock,tom.narock@gmail.com,Circus Intro w/Music,0,05-12-2016_19:25:21
+Dan Keyes,dankeyes@esipfed.org,Circus Intro w/Music,0,05-20-2016_20:03:31
+Dan Keyes,dankeyes@esipfed.org,P.T. Barnum Introduction,1,05-20-2016_20:03:31
+Dan Keyes,dankeyes@esipfed.org,P.T. Barnum Introduction,0,05-20-2016_20:03:35
+Dan Keyes,dankeyes@esipfed.org,Lions and Tigers and Bears Oh My!,1,05-20-2016_20:03:35
+Dan Keyes,dankeyes@esipfed.org,Lions and Tigers and Bears Oh My!,0,05-20-2016_23:14:41
+Dan Keyes,dankeyes@esipfed.org,P.T. Barnum Introduction,1,05-20-2016_23:14:41
+Tom Narock,tnarock@marymount.edu,Grand Finale!,1,05-21-2016_12:32:42
+Dan Keyes,dankeyes@esipfed.org,P.T. Barnum Introduction,0,05-23-2016_12:18:26
+Dan Keyes,dankeyes@esipfed.org,Death-defying High Wire Act,1,05-23-2016_12:18:26

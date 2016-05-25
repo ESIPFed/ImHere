@@ -5,8 +5,13 @@
     include 'config.php';
 
     # timezone and time
-    date_default_timezone_set($schedule_timezone);
-    $date = date($schedule_format);
+    if ( $GLOBALS['spoofedDate'] != '' ) { 
+      $date = $GLOBALS['spoofedDate'];
+    } else {
+      date_default_timezone_set($schedule_timezone);
+      $date = date($schedule_format);
+    }
+
     # Put current date in YYMMDD format
     $parts = explode("_", $date);
     $parts2 = explode("/", $parts[0]);

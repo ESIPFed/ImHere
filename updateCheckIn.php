@@ -10,6 +10,9 @@
 
   $url = $server . "imhere.php"; # In case something goes wrong, Load imhere.php with no GET variables
 
+  # check for spoofed date
+  $sdate = $_GET['spoofedDate'];
+
   # check for GET variables
   if ( isset($_GET['name']) && isset($_GET['email']) && isset($_GET['locate']) && isset($_GET['checkin']) ) {
 
@@ -32,7 +35,7 @@
 # Leave them logged in to the app, but checked out of the event:
 #	   $event='';
 #      $url = $server . "imhere.php?name=$name&email=$email&event=$event"; # Load imhere.php with GET variables
-       $url = $server . "imhere.php?name=$name&email=$email"; # Load imhere.php with GET variables
+       $url = $server . "imhere.php?spoofedDate=$sdate&name=$name&email=$email"; # Load imhere.php with GET variables
 
 #----------------------------------------------------------------------------
 # Check In to this event
@@ -45,26 +48,60 @@
 	     if ( $cevent == "" ) {
 	       $cookie_name = "esip";
 	       $cookie_value = "$name:$email:$event";
-	       setcookie($cookie_name, $cookie_value, time()+(86400*7), "/"); 
+               # the cookie specification doesn't allow cookies that never expire
+               # also, php will automatically expire a cookie if the date is too far in the future
+               # we'll use 10 years as a way to not loose cookies and still comply with the spec
+	       setcookie($cookie_name, $cookie_value, time()+(10*365*24*60*60), "/"); 
 	     }       
      }
-       $url = $server . "imhere.php?name=$name&email=$email&event=$event"; # Load imhere.php with GET variables
+       $url = $server . "imhere.php?spoofedDate=$sdate&name=$name&email=$email&event=$event"; # Load imhere.php with GET variables
      }
 
 #----------------------------------------------------------------------------
 # Update the file checkedIn.txt
-   $fh = fopen($checkedIn_log, 'a') or die("can't open file: $checkedIn_log");
+   $fh = fopen($checkedIn_log, 'a') or die("In updateCheckIn.php, can't open file: $checkedIn_log");
      fwrite($fh, "$name:$email:$locate:$checkin:$event\n");
      fclose($fh);
 
 #----------------------------------------------------------------------------
 # Update the ResearchBit Recommendation System
 # Read the event_list.csv file, find the correct event, pull the recommendation_interface flag
-#       if ($recommendation_interface == "Yes") {
-# This is where we post to the Recommendation System
-# Can maybe do something like we just did updating the checkIn.txt file:
-#     fwrite($fh, "$name:$email:$locate:$checkin:$event\n");
-#       }
+	 $recommendation_interface = "";
+     $handle = fopen($event_list,"r");
+       if ($handle) {
+         while (($line = fgets($handle)) !== false) {
+         $line = trim($line);
+         $parts = explode(",", $line);
+         $line_event = $parts[2];
+         if ( ($line_event == $event) ) { 
+         	$recommendation_interface = $parts[6];
+			$event_number = $parts[7]; }
+       }
+       fclose($handle);
+     }
+     if ($recommendation_interface == "Yes") {
+
+# Post to the Recommendation System
+$nameParts = explode(" ",$name);
+$firstName = $nameParts[0];
+$lastName = $nameParts[1];
+
+/*
+$curl_handle=curl_init();
+#curl_setopt($curl_handle,CURLOPT_URL,"http://54.165.138.137:5000/p/get/?lastname=$lastName&firstname=$firstName&email=$email");
+# API example: curl --data "name=denisehills&email=dhills@gmail.com&check_in=1&public_tag=1&event_id=1" http://54.165.138.137:5000/post/
+curl_setopt($curl_handle,CURLOPT_URL,--data "name=$name&email=$email&check_in=$checkin&public_tag=1&event_id=$event_number" http://54.165.138.137:5000/post/;
+curl_setopt($curl_handle,CURLOPT_CONNECTTIMEOUT,2);
+curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
+$buffer = curl_exec($curl_handle);
+curl_close($curl_handle);
+
+if (empty($buffer))
+{print "ResearchBit returned blank profile.<p>";}
+else
+{print $buffer;}
+*/
+       } # End of Recommendation System post
 
 
 #----------------------------------------------------------------------------

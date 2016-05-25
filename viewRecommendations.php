@@ -1,8 +1,7 @@
 <?php 
 
 /*	This routine called from...
-		imhere.php - For users to view their own profile info
-		attendees.php - For users to view the profile of others
+		imhere.php - For users to see recommendations from ResearchBit
 */
 
   include 'config.php';
@@ -12,7 +11,7 @@
   echo "<html>\n";
   echo "  <head>\n";
   echo "    <link rel=\"stylesheet\" href=\"stylesheet.css\">\n";
-  echo "    <title>Display Attendee Profile</title>";
+  echo "    <title>View Recommendations</title>";
   echo "  </head>\n";
   echo "  <body style=\"background-color:darkseagreen;\">\n";
   echo "  <body>\n";
@@ -35,19 +34,21 @@ $nameParts = explode(" ",$name);
 $firstName = $nameParts[0];
 $lastName = $nameParts[1];
 
-#$curl_handle=curl_init($url = "http://54.165.138.137:5000/p/get/?lastname=$lastName&firstname=$firstName&email=$email");
 $curl_handle=curl_init();
-curl_setopt($curl_handle,CURLOPT_URL,"http://54.165.138.137:5000/p/get/?lastname=$lastName&firstname=$firstName&email=$email");
+
+$abc = "http://54.165.138.137:5000/r/get/?event_id=1&lastname=$lastName&firstname=$firstName&email=$email/recomd.json";
+echo "$abc<br>";
+
+curl_setopt($curl_handle,CURLOPT_URL,"http://54.165.138.137:5000/r/get/?event_id=1&lastname=$lastName&firstname=$firstName&email=$email/recomd.json");
 curl_setopt($curl_handle,CURLOPT_CONNECTTIMEOUT,2);
 curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
 $buffer = curl_exec($curl_handle);
 curl_close($curl_handle);
 
 if (empty($buffer))
-{print "ResearchBit returned blank profile.<p>";}
+{print "ResearchBit returned blank.<p>";}
 else
 {print $buffer;}
-
 
 
 
