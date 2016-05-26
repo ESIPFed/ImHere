@@ -39,7 +39,8 @@
 
   # open the attendee log file
 # Should watch for errors here. If permissions on the file have changed (like when I download to my Mac) we're don't get any warning.
-  $log = fopen($attendees_log, 'a');
+#  $log = fopen($attendees_log, 'a');
+  $log = fopen($attendees_log, 'a') or die("In attendees.php, can't open file: $attendees_log");
 
   # return link
   $returnLink = "<p><a href=\"imhere.php?name=$name&email=$email&event=$event\">Return to Check-In Menu</a></p>";
