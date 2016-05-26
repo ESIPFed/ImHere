@@ -228,7 +228,9 @@
 # We ARE checked in to an event... 
  	
 	 echo "<p class=\"center\" style=\"font-weight:bold; color:crimson\">$event<br>Check In System</p>\n"; # Display event name
-	 echo "<p style=\"font-weight:bold\">Last Session Check In:</p>";
+#	 echo "<p style=\"font-weight:bold\">Last Session Check In:</p>";
+	 if ($event != "ESIP Telecons") { echo "<p style=\"font-weight:bold\">Last Session Check In:</p>"; }
+		else { echo "<p style=\"font-weight:bold\">Last Telecon Check In:</p>"; }
 
        $sessions = readCSV($schedule);	# returns an array of all lines from $schedule
        $cSessions = getCurrentSessions($sessions, $schedule_timezone);	# returns an array of sessions currently running
@@ -248,7 +250,11 @@
        } else { echo "<p style=\"font-style:normal\">$space $space None</p>"; }
   # ------------------------------------------------------------
   # Display Currently Running Sessions
-       echo "<p style=\"font-weight:bold\">Currently Running Sessions:</p>\n";
+
+#       echo "<p style=\"font-weight:bold\">Currently Running Sessions:</p>\n";
+	 if ($event != "ESIP Telecons") { echo "<p style=\"font-weight:bold\">Currently Running Sessions:</p>\n"; }
+		else { echo "<p style=\"font-weight:bold\">Currently Running Telecons:</p>\n"; }
+
        $counter = 1;
 	   #echo "attendees_log: $attendees_log<br>"; # For debug purposes
        foreach($cSessions as $s) {		# cSessions is an array of session names currently running
