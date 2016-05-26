@@ -49,6 +49,7 @@
 
       $result = '';
       $handle = fopen($checkedIn_log, "r");
+#echo "checedkIn_log = $checkedIn_log<br>"; #For debug purposes
       if ($handle) {
         while (($line = fgets($handle)) !== false) {
           $line = trim($line);
@@ -59,6 +60,6 @@
           if ( ($name == $logName) && ($email == $logEmail) ) { $result = $line; } 
         }
         fclose($handle);
-      } else { die("Couldn't open checkedIn.txt"); }
+      } else { die("In checkIn.php, couldn't open checkedIn.txt"); }
       return $result;
    } 
