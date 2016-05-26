@@ -1,11 +1,4 @@
 <?php 
-/* 
-	05/01 - Added text to enter name/email screen
-	05/02 - Fixed problem opening files in an event that has been deleted/renamed in event_list.csv
-	05/04 - Added load of $schedule_timezone in line 151
-	05/04 - Added $schedule_timezone as argument to function getCurrentSessions line 256
-*/
-# --------------------------------------------------------------------------------------------------------------------
 # Control program for the ImHere Check In system
 # See ./utilities/notes.txt for (some) documentation
 
@@ -52,9 +45,6 @@
   # Display sponsor logo
   #  echo "<img class=\"img\" src=\"images/sloan_logo.png\"><br/>";
   #  echo "<img class=\"img\" src=\"images/sloan_small.png\"><br/>";
-  #
-  # Display application name
-  #  echo "<p class=\"center\" style=\"font-weight:bold\">ImHere Event Check In System</p>";
 
 # ------------------------------------------------------------
 # Look for name & email in GET variables first, then in a cookie...
@@ -130,21 +120,16 @@
        # we'll set an expiration date of 10 years
        setcookie($cookie_name, $cookie_value, time()+(10*365*24*60*60), "/"); 
      }
-# ------------------------------------------------------------
-# Display the user's name and email
-#    echo "<p class=\"center\" style=\"font-weight:bold\">$name ($email)</p>\n";
 
 # ======================================================================================================
 # ======================================================================================================
 # ======================================================================================================
-#																									||||
-#																									||||
+
 # See if this person has checked in to an event...
      $checkedIn = isCheckedIn($name, $email); # (In checkin.php)
 
 # If we ARE checked in, then see if the event checked in to can be found in the event_list file
 	 if ( $checkedIn != '' ) {
-	 #echo "ImHere.php Line 135 - Event: $checkedIn<br>"; # For debug purposes
  	
 # Find the line in event_list.csv that matches $event, pull log directory name, timezone, & interface flag
 	 $event = $checkedIn;
@@ -235,34 +220,13 @@
   # ------------------------------------------------------------
 
   	}	else	{
-#																									||||
-#																									||||
+
 # ======================================================================================================
 # ======================================================================================================
 # ======================================================================================================
+
 # We ARE checked in to an event... 
  	
-# Find the line in event_list.csv that matches $event, pull the log directory name
-/* We moved this up above 5/2/16...
-     $event_logs = '';
-     $handle = fopen($event_list,"r");
-       if ($handle) {
-         while (($line = fgets($handle)) !== false) {
-         $line = trim($line);
-         $parts = explode(",", $line);
-         $line_event = $parts[2];
-         if ( ($line_event == $event) ) { 
-         	$event_logs = $parts[3];
-         	$recommendation_interface = $parts[6]; }
-       }
-       fclose($handle);
-     } else { die("Couldn't open file: $event_list"); }
-
-# Point log files to a directroy specific to this event
-	 $schedule = $log_dir . $event_logs . '/' . 'schedule.csv';
-	 $attendees_log = $log_dir . $event_logs . '/' . 'attendees.txt';
-*/
-
 	 echo "<p class=\"center\" style=\"font-weight:bold; color:crimson\">$event<br>Check In System</p>\n"; # Display event name
 	 echo "<p style=\"font-weight:bold\">Last Session Check In:</p>";
 
