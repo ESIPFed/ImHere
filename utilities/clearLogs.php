@@ -6,19 +6,20 @@
   if ( isset($_POST['pwd']) ) { 
     if ( ($_POST['pwd']==$pwd) ) {
 
-      $handle = fopen($attendees_log, "w");
-      fclose($handle);
-#      $handle = fopen($beacon_log, "w");
+# This won't work unless it's made event-specific...
+#      $handle = fopen($attendees_log, "w");
 #      fclose($handle);
-      $handle = fopen($checkIn_log, "w");
+
+	  $aaa =  '../logs/checkedIn.txt';
+      $handle = fopen($aaa, "w");
       fclose($handle);
-      $handle = fopen($imhere_log, "w");
+
+	  $bbb =  '../logs/imhere_log.txt';
+      $handle = fopen($bbb, "w");
       fclose($handle);
 
       chmod($log1, 0664);
       chmod($log2, 0664);
-      chmod($log3, 0664);
-      chmod($log4, 0644);
 
       echo "<h2 stye=\text-align:center\">Success: Logs Cleared</h2><br/>";
 

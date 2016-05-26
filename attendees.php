@@ -38,7 +38,7 @@
   if ( isset($_GET['recommendation_interface']) ) { $recommendation_interface = $_GET['recommendation_interface']; } else { $recommendation_interface = 'Not_Supposed_to_Happen'; }
 
   # open the attendee log file
-# Should watch for errors here. If permissions on the file have changed (like when I download to my Mac) we're don't get any warning.
+# Watch for errors here. If permissions on the file have changed (like when I download to my Mac) we don't get any warning.
 #  $log = fopen($attendees_log, 'a');
   $log = fopen($attendees_log, 'a') or die("In attendees.php, can't open file: $attendees_log");
 
@@ -107,7 +107,7 @@
   if ( $check == '' ) {
 
     $attendees = getAttendees($session, $attendees_log);
-    echo "<p>Currently Checked-In Attendees</p>";
+    echo "<p>$session...<br>Currently Checked-In Attendees:</p>";
 
     # For each attendee in the session...
     foreach ($attendees as $key => $value) { 
@@ -117,7 +117,8 @@
        $value = $pp[1];
 
        # find out if this person is discoverable
-       $discover = isDiscoverable($key, $email); #in checkIn.php
+       $discover = isDiscoverable($key, $email); #in checkin.php
+#echo "$discover<br>";
        $parts = explode(":", $discover);
        $discover = $parts[2];
        # if discover is 1 then the person is ok to list
