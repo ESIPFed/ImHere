@@ -1,15 +1,15 @@
 <?php
 
   # read the config file
-  include 'config.php';
+  include '../config.php';
 
   if ( isset($_POST['pwd']) ) { 
     if ( ($_POST['pwd']==$pwd) ) {
 
       $handle = fopen($attendees_log, "w");
       fclose($handle);
-      $handle = fopen($beacon_log, "w");
-      fclose($handle);
+#      $handle = fopen($beacon_log, "w");
+#      fclose($handle);
       $handle = fopen($checkIn_log, "w");
       fclose($handle);
       $handle = fopen($imhere_log, "w");
