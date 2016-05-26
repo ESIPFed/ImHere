@@ -1,5 +1,6 @@
 
 config.php
 
-logs
+dan_private_key
 
+logs/*
