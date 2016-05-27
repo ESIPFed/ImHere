@@ -86,21 +86,38 @@ $nameParts = explode(" ",$name);
 $firstName = $nameParts[0];
 $lastName = $nameParts[1];
 
-/*
+# API example in python: curl --data "name=denisehills&email=dhills@gmail.com&check_in=1&public_tag=1&event_id=1" http://54.165.138.137:5000/post/
+
 $curl_handle=curl_init();
-#curl_setopt($curl_handle,CURLOPT_URL,"http://54.165.138.137:5000/p/get/?lastname=$lastName&firstname=$firstName&email=$email");
-# API example: curl --data "name=denisehills&email=dhills@gmail.com&check_in=1&public_tag=1&event_id=1" http://54.165.138.137:5000/post/
-curl_setopt($curl_handle,CURLOPT_URL,--data "name=$name&email=$email&check_in=$checkin&public_tag=1&event_id=$event_number" http://54.165.138.137:5000/post/;
+# Once it's working this is what we want:
+# name=$name&email=$email&check_in=$checkin&public_tag=$locate&event_id=$event_number
+
+#$aaa="http://54.165.138.137:5000/post/?name=denisehills&email=dhills@gmail.com&check_in=1&public_tag=1&event_id=1";
+$aaa="http://54.165.138.137:5000/";
+#$aaa="http://www.google.com";
+curl_setopt($curl_handle,CURLOPT_URL,$aaa);
+
+curl_setopt($curl_handle,CURLOPT_POST, true);
+
+$bbb="name=denisehills&email=dhills@gmail.com&check_in=1&public_tag=1&event_id=1";
+curl_setopt($curl_handle,CURLOPT_POSTFIELDS,$bbb);
+
 curl_setopt($curl_handle,CURLOPT_CONNECTTIMEOUT,2);
 curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
 $buffer = curl_exec($curl_handle);
 curl_close($curl_handle);
 
-if (empty($buffer))
-{print "ResearchBit returned blank profile.<p>";}
-else
-{print $buffer;}
-*/
+if (empty($buffer)) {$buffer="No response from HTTP post call to ResearchBit<br>";}
+echo "$buffer";
+
+   $fh = fopen("./researchBit_response.txt", 'a') or die("In updateCheckIn.php, can't open file: researchBit_response.txt");
+     fwrite($fh, "$buffer\n");
+     fclose($fh);
+
+
+die("Here we are after the cURL...<br>");
+
+
        } # End of Recommendation System post
 
 
@@ -109,5 +126,4 @@ else
      header( "Location: $url" );
      
   } 
-
 ?>

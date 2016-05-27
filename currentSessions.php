@@ -4,7 +4,7 @@
 # 05/17 - Added check for null session date (means it's running every day)
 
   function inRange($month, $day, $year, $sessionDate, $startTime, $endTime, $time) {
- 
+
     $parts = explode("/", $sessionDate);
 
     $match = 0;
@@ -55,6 +55,7 @@
       $name = $sessionArray[$i][3];
 #	  echo "$name $tab $sessionDate $tab $startTime $tab $endTime<br>"; # For debug purposes
       $match = inRange($month, $day, $year, $sessionDate, $startTime, $endTime, $time);
+#	  echo "Match = $match<br>"; # For debug purposes
       if ($match) { $results[] = $name; }
     }
 
