@@ -36,20 +36,19 @@ $lastName = $nameParts[1];
 
 $curl_handle=curl_init();
 
-$abc = "http://54.165.138.137:5000/r/get/?event_id=1&lastname=$lastName&firstname=$firstName&email=$email/recomd.json";
-echo "$abc<br>";
+$abc = "http://54.165.138.137:5000/r/get/?event_id=1&lastname=$lastName&firstname=$firstName&email=$email";
+#echo "$abc<br>"; # For debug purposes
 
-curl_setopt($curl_handle,CURLOPT_URL,"http://54.165.138.137:5000/r/get/?event_id=1&lastname=$lastName&firstname=$firstName&email=$email/recomd.json");
+curl_setopt($curl_handle,CURLOPT_URL,$abc);
 curl_setopt($curl_handle,CURLOPT_CONNECTTIMEOUT,2);
 curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
 $buffer = curl_exec($curl_handle);
 curl_close($curl_handle);
 
 if (empty($buffer))
-{print "ResearchBit returned blank.<p>";}
+{echo "No recommendations.";}
 else
-{print $buffer;}
-
+{echo "$buffer";}
 
 
 echo "<br/>$returnLink";

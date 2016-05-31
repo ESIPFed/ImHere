@@ -27,7 +27,7 @@
        }
 
 # Update the file checkedIn.txt
-   $fh = fopen('./logs/checkedIn.txt', 'a') or die("<br>Can't open checkIn.txt file");
+   $fh = fopen('./logs/checkedIn.txt', 'a') or die("<br>Can't open checkedIn.txt file");
      fwrite($fh, "$name:$email:0:0:$event\n");
      fclose($fh);
 

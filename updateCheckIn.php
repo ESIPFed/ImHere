@@ -94,8 +94,11 @@ $lastName = $nameParts[1];
 
 #$aaa="http://posttestserver.com/post.php/"; # This works
 
-$aaa="http://54.165.138.137:5000/";
-$bbb="name=denisehills&email=dhills@gmail.com&check_in=1&public_tag=1&event_id=1";
+#$aaa="http://54.165.138.137:5000/";
+#$aaa="http://54.165.138.137:5000/post";
+$aaa="http://54.165.138.137:5000/post/";
+#$bbb="name=denisehills&email=dhills@gmail.com&check_in=1&public_tag=1&event_id=1";
+$bbb="name=$name&email=$email&check_in=$checkin&public_tag=$locate&event_id=$event_number";
 
 $curl_handle=curl_init();
 curl_setopt($curl_handle,CURLOPT_URL,$aaa);
@@ -106,16 +109,14 @@ curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
 $buffer = curl_exec($curl_handle);
 curl_close($curl_handle);
 
-if (empty($buffer)) {$buffer="No response from HTTP post call to ResearchBit<br>";}
-echo "$buffer";
+if (empty($buffer)) {$buffer="No response from HTTP post request to ResearchBit";}
 
    $fh = fopen("./researchBit_response.txt", 'a') or die("In updateCheckIn.php, can't open file: researchBit_response.txt");
      fwrite($fh, "$buffer\n");
      fclose($fh);
 
-
-die("Here we are after the cURL...<br>");
-
+#echo "$buffer"; # For debug purposes
+#die("<p>Here we are after the cURL...<br>"); # For debug purposes
 
        } # End of Recommendation System post
 
