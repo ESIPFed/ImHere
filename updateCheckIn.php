@@ -89,30 +89,14 @@
 #$firstName = $nameParts[0];
 #$lastName = $nameParts[1];
 
-echo "1. Name: $name<br>";
-$str = trim($name,"H");
-echo "2. str: $str<br>";
-#$newName = strtolower($name);
-#echo "$newName<br>"; # For debug purposes
-
-$str = "Hello World!";
-echo $str . "<br>";
-echo trim($str,"Hed!");
-
-$str = "Hello World!";
-echo $str . "<br>";
-echo trim($str,"Hed");
-
-die("<p>Here we are after the cURL...<br>"); # For debug purposes
-
+$newName = preg_replace('/\s/', '', $name);
+$newName = strtolower($newName);
 
 $aaa="http://54.165.138.137:5000/post/";
-#$bbb="name=denisehills&email=dhills@gmail.com&check_in=1&public_tag=1&event_id=1";
-$bbb="name=$name&email=$email&check_in=$checkin&public_tag=$locate&event_id=$event_number";
+$bbb="name=$newName&email=$email&check_in=$checkin&public_tag=$locate&event_id=$event_number";
 
-echo "$bbb"; # For debug purposes
-die("<p>Here we are after the cURL...<br>"); # For debug purposes
-
+#echo "$bbb"; # For debug purposes
+#die("<p>Here we are after the POST options setup...<br>"); # For debug purposes
 
 $curl_handle=curl_init();
 curl_setopt($curl_handle,CURLOPT_URL,$aaa);
@@ -126,6 +110,7 @@ curl_close($curl_handle);
 if (empty($buffer)) {$buffer="No response from HTTP post request to ResearchBit";}
 
    $fh = fopen($rb_response, 'a') or die("In updateCheckIn.php, can't open file: rb_response.txt");
+     fwrite($fh, "$aaa . $bbb\n");
      fwrite($fh, "$buffer\n");
      fclose($fh);
 
