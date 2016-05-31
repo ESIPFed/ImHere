@@ -275,40 +275,21 @@
        	}
   # ------------------------------------------------------------
 	   # Display Other Actions
-#       echo "<br/>\n";
        echo "<p style=\"font-weight:bold\">Other Actions:<p>\n";
 
+	   # View profile
+       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event\">View Profile:</a>";
+       echo "<p> $space $space $url<br>";
+	   echo "$space $space $space $space $name ($email)</p>\n";
+
+       # List Event Attendees
        echo "<p>$space $space List Event Attendees</p>\n";
 
-
-
-
-
-
-
-
-
-
-
-
-       # Link to Recommendation System only if flag in event_list file is not null (it's an event ID):
+       # List Recommended Collaborators (only if flag in event_list file is not null (it's an event ID)):
        if ($recommendation_interface) {
-	       $url = "<a href=\"viewRecommendations.php?name=$name&email=$email&event=$event\">List Recommended Collaborators</a>";
+	       $url = "<a href=\"viewRecommendations.php?name=$name&email=$email&event=$event&recommendation_interface=$recommendation_interface\">List Recommended Collaborators</a>";
 	       echo "<p> $space $space $url</p>\n";
        	   }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
        # Check-out-of-this-event (in updateCheckIn.php) 
        $d = $GLOBALS['spoofedDate'];
@@ -316,11 +297,6 @@
 	   #echo "URL prior to checkout: $url";       # For degug purposes
        echo "<p>$space $space <a href=\"$url\">Check Out Of This Event</a></p>\n";
 
-
-	   # View profile
-       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event\">View Profile:</a>";
-       echo "<p> $space $space $url<br>";
-	   echo "$space $space $space $space $name ($email)</p>\n";
 
        
   # ------------------------------------------------------------
