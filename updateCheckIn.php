@@ -83,16 +83,36 @@
      if ($recommendation_interface == "Yes") {
 
 # Post to the Recommendation System
-$nameParts = explode(" ",$name);
-$firstName = $nameParts[0];
-$lastName = $nameParts[1];
 
-# API example in python: curl --data "name=denisehills&email=dhills@gmail.com&check_in=1&public_tag=1&event_id=1" http://54.165.138.137:5000/post/
+# We'e not using this stuff, right?
+#$nameParts = explode(" ",$name);
+#$firstName = $nameParts[0];
+#$lastName = $nameParts[1];
+
+echo "1. Name: $name<br>";
+$str = trim($name,"H");
+echo "2. str: $str<br>";
+#$newName = strtolower($name);
+#echo "$newName<br>"; # For debug purposes
+
+$str = "Hello World!";
+echo $str . "<br>";
+echo trim($str,"Hed!");
+
+$str = "Hello World!";
+echo $str . "<br>";
+echo trim($str,"Hed");
+
+die("<p>Here we are after the cURL...<br>"); # For debug purposes
 
 
 $aaa="http://54.165.138.137:5000/post/";
 #$bbb="name=denisehills&email=dhills@gmail.com&check_in=1&public_tag=1&event_id=1";
 $bbb="name=$name&email=$email&check_in=$checkin&public_tag=$locate&event_id=$event_number";
+
+echo "$bbb"; # For debug purposes
+die("<p>Here we are after the cURL...<br>"); # For debug purposes
+
 
 $curl_handle=curl_init();
 curl_setopt($curl_handle,CURLOPT_URL,$aaa);
