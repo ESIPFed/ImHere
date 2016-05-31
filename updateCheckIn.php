@@ -74,6 +74,7 @@
          $parts = explode(",", $line);
          $line_event = $parts[2];
          if ( ($line_event == $event) ) { 
+			$rb_response = $log_dir . '/' . $parts[3] . '/rb_response.txt';
          	$recommendation_interface = $parts[6];
 			$event_number = $parts[7]; }
        }
@@ -88,14 +89,7 @@ $lastName = $nameParts[1];
 
 # API example in python: curl --data "name=denisehills&email=dhills@gmail.com&check_in=1&public_tag=1&event_id=1" http://54.165.138.137:5000/post/
 
-# Once it's working this is what we want:
-# name=$name&email=$email&check_in=$checkin&public_tag=$locate&event_id=$event_number
 
-
-#$aaa="http://posttestserver.com/post.php/"; # This works
-
-#$aaa="http://54.165.138.137:5000/";
-#$aaa="http://54.165.138.137:5000/post";
 $aaa="http://54.165.138.137:5000/post/";
 #$bbb="name=denisehills&email=dhills@gmail.com&check_in=1&public_tag=1&event_id=1";
 $bbb="name=$name&email=$email&check_in=$checkin&public_tag=$locate&event_id=$event_number";
@@ -111,7 +105,7 @@ curl_close($curl_handle);
 
 if (empty($buffer)) {$buffer="No response from HTTP post request to ResearchBit";}
 
-   $fh = fopen("./researchBit_response.txt", 'a') or die("In updateCheckIn.php, can't open file: researchBit_response.txt");
+   $fh = fopen($rb_response, 'a') or die("In updateCheckIn.php, can't open file: rb_response.txt");
      fwrite($fh, "$buffer\n");
      fclose($fh);
 
