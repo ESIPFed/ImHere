@@ -74,7 +74,7 @@
          $parts = explode(",", $line);
          $line_event = $parts[2];
          if ( ($line_event == $event) ) { 
-			$rb_response = $log_dir . '/' . $parts[3] . '/rb_response.txt';
+			$rb_response = $log_dir . $parts[3] . '/rb_response.txt';
          	$recommendation_interface = $parts[6];
 			$event_number = $parts[7]; }
        }
@@ -83,11 +83,6 @@
      if ($recommendation_interface == "Yes") {
 
 # Post to the Recommendation System
-
-# We'e not using this stuff, right?
-#$nameParts = explode(" ",$name);
-#$firstName = $nameParts[0];
-#$lastName = $nameParts[1];
 
 $newName = preg_replace('/\s/', '', $name);
 $newName = strtolower($newName);
@@ -110,10 +105,12 @@ curl_close($curl_handle);
 if (empty($buffer)) {$buffer="No response from HTTP post request to ResearchBit";}
 
    $fh = fopen($rb_response, 'a') or die("In updateCheckIn.php, can't open file: rb_response.txt");
-     fwrite($fh, "$aaa . $bbb\n");
-     fwrite($fh, "$buffer\n");
+     fwrite($fh, "URL: $aaa\n");
+     fwrite($fh, "POST data: $bbb\n");
+     fwrite($fh, "ResearchBit response: $buffer\n");
      fclose($fh);
 
+#echo "$rb_response<br>"; # For debug purposes
 #echo "$buffer"; # For debug purposes
 #die("<p>Here we are after the cURL...<br>"); # For debug purposes
 
