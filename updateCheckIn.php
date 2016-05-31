@@ -75,12 +75,11 @@
          $line_event = $parts[2];
          if ( ($line_event == $event) ) { 
 			$rb_response = $log_dir . $parts[3] . '/rb_response.txt';
-         	$recommendation_interface = $parts[6];
-			$event_number = $parts[7]; }
+         	$recommendation_interface = $parts[6]; }
        }
        fclose($handle);
      }
-     if ($recommendation_interface == "Yes") {
+     if ($recommendation_interface) {
 
 # Post to the Recommendation System
 
@@ -88,7 +87,7 @@ $newName = preg_replace('/\s/', '', $name);
 $newName = strtolower($newName);
 
 $aaa="http://54.165.138.137:5000/post/";
-$bbb="name=$newName&email=$email&check_in=$checkin&public_tag=$locate&event_id=$event_number";
+$bbb="name=$newName&email=$email&check_in=$checkin&public_tag=$locate&event_id=$recommendation_interface";
 
 #echo "$bbb"; # For debug purposes
 #die("<p>Here we are after the POST options setup...<br>"); # For debug purposes

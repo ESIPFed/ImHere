@@ -24,7 +24,7 @@
   if ( isset($_GET['event']) ) { $event = $_GET['event']; } else { $event = ''; }
   if ( isset($_GET['event_logs']) ) { $event_logs = $_GET['event_logs']; } else { $event_logs = ''; }
   if ( isset($_GET['attendees_log']) ) { $attendees_log = $_GET['attendees_log']; } else { $attendees_log = 'Not_Supposed_to_Happen'; }
-  if ( isset($_GET['recommendation_interface']) ) { $recommendation_interface = $_GET['recommendation_interface']; } else { $recommendation_interface = 'Not_Supposed_to_Happen'; }
+  if ( isset($_GET['recommendation_interface']) ) { $recommendation_interface = $_GET['recommendation_interface']; } else { $recommendation_interface = ''; }
 
   # return link
   $returnLink = "<p><a href=\"imhere.php?name=$name&email=$email&event=$event\">Return to Check-In Menu</a></p>";
@@ -36,7 +36,7 @@ $lastName = $nameParts[1];
 
 $curl_handle=curl_init();
 
-$abc = "http://54.165.138.137:5000/r/get/?event_id=1&lastname=$lastName&firstname=$firstName&email=$email";
+$abc = "http://54.165.138.137:5000/r/get/?event_id=$recommendation_interface&lastname=$lastName&firstname=$firstName&email=$email";
 #echo "$abc<br>"; # For debug purposes
 
 curl_setopt($curl_handle,CURLOPT_URL,$abc);

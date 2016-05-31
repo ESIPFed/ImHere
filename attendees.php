@@ -35,7 +35,7 @@
   if ( isset($_GET['event']) ) { $event = $_GET['event']; } else { $event = ''; }
   if ( isset($_GET['event_logs']) ) { $event_logs = $_GET['event_logs']; } else { $event_logs = ''; }
   if ( isset($_GET['attendees_log']) ) { $attendees_log = $_GET['attendees_log']; } else { $attendees_log = 'Not_Supposed_to_Happen'; }
-  if ( isset($_GET['recommendation_interface']) ) { $recommendation_interface = $_GET['recommendation_interface']; } else { $recommendation_interface = 'Not_Supposed_to_Happen'; }
+  if ( isset($_GET['recommendation_interface']) ) { $recommendation_interface = $_GET['recommendation_interface']; } else { $recommendation_interface = ''; }
 
   # open the attendee log file
 # Watch for errors here. If permissions on the file have changed (like when I download to my Mac) we don't get any warning.

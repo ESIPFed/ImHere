@@ -291,8 +291,8 @@
 
 
 
-       # Link to Recommendation System only if flag in event_list file = Yes:
-       if ($recommendation_interface == "Yes") {
+       # Link to Recommendation System only if flag in event_list file is not null (it's an event ID):
+       if ($recommendation_interface) {
 	       $url = "<a href=\"viewRecommendations.php?name=$name&email=$email&event=$event\">List Recommended Collaborators</a>";
 	       echo "<p> $space $space $url</p>\n";
        	   }
