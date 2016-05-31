@@ -3,4 +3,4 @@ config.php
 
 dan_private_key
 
-/logs/*.*
+logs/*
