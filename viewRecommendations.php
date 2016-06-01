@@ -45,10 +45,50 @@ curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
 $buffer = curl_exec($curl_handle);
 curl_close($curl_handle);
 
+echo "<p>$event...<br>Recommended Collaborators:</p>";
+
 if (empty($buffer))
 {echo "No recommendations.";}
-else
-{echo "$buffer";}
+else {
+	echo "$buffer<br>";
+
+/*
+# We need to...
+# Build an array named $attendees, as name,email,:,status
+
+	# How it's done elsewhere:
+    $attendees = getAttendees($session, $attendees_log); # Returns an array of session attendees as name,email,:,status
+
+	# How we'll do it:
+	# Load buffer contents into an array named $attendees, as name,email,:,status
+
+
+
+
+
+# Then...
+    foreach ($attendees as $key => $value) { 
+       # split value into email 
+       $pp = explode(":", $value);
+       $email = $pp[0];
+       $value = $pp[1];
+
+       # find out if this person is discoverable
+       $discover = isDiscoverable($key, $email); #in checkin.php
+       $parts = explode(":", $discover);
+       $discover = $parts[2];
+
+       # if discover is 1 then the person is ok to list; if discover 0 then not discoverable by others
+       if ($discover) {
+	       $line = "<p>$key <a href=\"viewProfile.php?name=$key&email=$email&event=$event\">View Profile</a></p>";
+	       if ( $value == 1 ) { echo $line; }
+       } # End if discover...
+    } # End for each...
+
+*/
+ } # End of Else not an empty buffer...
+
+
 
 
 echo "<br/>$returnLink";

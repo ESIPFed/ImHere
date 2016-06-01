@@ -118,12 +118,10 @@
 
        # find out if this person is discoverable
        $discover = isDiscoverable($key, $email); #in checkin.php
-#echo "$discover<br>";
        $parts = explode(":", $discover);
        $discover = $parts[2];
-       # if discover is 1 then the person is ok to list
-       # if discover is 0 then the person is not discoverable by others
-  
+
+       # if discover is 1 then the person is ok to list; if discover 0 then not discoverable by others
        if ($discover) {
 
 # Check for ResearchBit interface flag; If YES pull info from there; else get it from RegOnline interests export
