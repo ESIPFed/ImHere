@@ -18,8 +18,9 @@
           if ( ($name == $logName) && ($email == $logEmail) ) { $result = $line; }
        }
        fclose($handle);
-     } else { die("Couldn't open checkedIn.txt"); }
      return $result;
+
+     } else { die("Couldn't open checkedIn.txt"); }
  
    }
 

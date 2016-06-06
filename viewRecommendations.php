@@ -5,6 +5,12 @@
 */
 
   include 'config.php';
+# include needed functions
+  include 'checkin.php'; 
+
+# set some display variables
+  $space = "&nbsp;";
+  $tab = $space . $space . $space . $space . $space;
 
   # setup html
   echo "<!DOCTYPE>\n";
@@ -29,6 +35,8 @@
   # return link
   $returnLink = "<p><a href=\"imhere.php?name=$name&email=$email&event=$event\">Return to Check-In Menu</a></p>";
 
+# ---------------------------------------------------------------------------------------------------------------
+# Send cURL request for recommendations to ResearchBit system...
 
 $nameParts = explode(" ",$name);
 $firstName = $nameParts[0];
@@ -37,7 +45,6 @@ $lastName = $nameParts[1];
 $curl_handle=curl_init();
 
 $abc = "http://54.165.138.137:5000/r/get/?event_id=$recommendation_interface&lastname=$lastName&firstname=$firstName&email=$email";
-#echo "$abc<br>"; # For debug purposes
 
 curl_setopt($curl_handle,CURLOPT_URL,$abc);
 curl_setopt($curl_handle,CURLOPT_CONNECTTIMEOUT,2);
@@ -45,53 +52,49 @@ curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
 $buffer = curl_exec($curl_handle);
 curl_close($curl_handle);
 
-echo "<p>$event...<br>Recommended Collaborators:</p>";
+echo "<p class=\"center\" style=\"font-weight:bold; color:crimson\">$event<br>Recommended Collaborators<br>At This Event</p>";
+echo "<p style=\"font-weight:bold\">For $name:</p>";
+echo "<p>";
 
 if (empty($buffer))
-{echo "No recommendations.";}
+	{echo "No recommendations.";}
+
+# ---------------------------------------------------------------------------------------------------------------
+# Format the response from ResearchBit...
+
 else {
-	echo "$buffer<br>";
+#echo "$buffer<br>";
+	$aaa = explode("|",$buffer); # Builds an array of name,email
+	$n = (sizeof($aaa)-1); # Last one is blank for some reason
 
-/*
-# We need to...
-# Build an array named $attendees, as name,email,:,status
+# For each recommendation, if they checked in as public/discoverable, display name and link to profile...
+	$n1=0;
+	while ($n1<$n) {
+		$bbb = explode (",",$aaa[$n1]); # Results in just one name & email
+		$queryName=$bbb[0];
+		$queryEmail=$bbb[1];
+		$queryEmail=preg_replace('/\s/', '', $queryEmail); # Remove whitespace
 
-	# How it's done elsewhere:
-    $attendees = getAttendees($session, $attendees_log); # Returns an array of session attendees as name,email,:,status
-
-	# How we'll do it:
-	# Load buffer contents into an array named $attendees, as name,email,:,status
-
-
-
-
-
-# Then...
-    foreach ($attendees as $key => $value) { 
-       # split value into email 
-       $pp = explode(":", $value);
-       $email = $pp[0];
-       $value = $pp[1];
-
-       # find out if this person is discoverable
-       $discover = isDiscoverable($key, $email); #in checkin.php
-       $parts = explode(":", $discover);
+# Find out if this person is discoverable
+       $result = isDiscoverable($queryName, $queryEmail); # In checkin.php
+       $parts = explode(":", $result);
        $discover = $parts[2];
-
-       # if discover is 1 then the person is ok to list; if discover 0 then not discoverable by others
        if ($discover) {
-	       $line = "<p>$key <a href=\"viewProfile.php?name=$key&email=$email&event=$event\">View Profile</a></p>";
-	       if ( $value == 1 ) { echo $line; }
-       } # End if discover...
-    } # End for each...
+	       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event&queryName=$queryName&queryEmail=$queryEmail\">$queryName</a>";
+		   echo "$url<br>$tab($queryEmail)<br>\n";
+			}
+		else { echo "$queryName<br>$tab($queryEmail)<br>\n"; } # Comment this line out for live system (Don't display the privates)
+	$n1++;
 
-*/
+	} # End of While loop
+
  } # End of Else not an empty buffer...
 
+echo "</p>";
 
+# ---------------------------------------------------------------------------------------------------------------
 
-
-echo "<br/>$returnLink";
+echo "$returnLink";
 
   # close html
   echo "  </body>\n";

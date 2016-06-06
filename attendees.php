@@ -1,5 +1,7 @@
 <?php 
 
+# 06/06/16 - Added queryName & queryEmail to differentiate between user name/email, and that of the person we're displaying profile info for
+
 /*	Get here from imhere.php...
 		One of three routines can be performed once we're here:
 		If $check='in' - Check attendee in to a session; check them out of whatever they were in before
@@ -113,11 +115,11 @@
     foreach ($attendees as $key => $value) { 
        # split value into email 
        $pp = explode(":", $value);
-       $email = $pp[0];
+       $queryEmail = $pp[0];
        $value = $pp[1];
 
        # find out if this person is discoverable
-       $discover = isDiscoverable($key, $email); #in checkin.php
+       $discover = isDiscoverable($key, $queryEmail); #in checkin.php
        $parts = explode(":", $discover);
        $discover = $parts[2];
 
@@ -126,16 +128,16 @@
 
 # Check for ResearchBit interface flag; If YES pull info from there; else get it from RegOnline interests export
 	if ( $recommendation_interface ) {
-           $line = "<p><a href=\"viewProfile.php?name=$key&email=$email&event=$event\">$key</a></p>";
+           $line = "<p><a href=\"viewProfile.php?name=$name&email=$email&event=$event&queryName=$key&queryEmail=$queryEmail\">$key</a></p>";
 		}
 	
 	else { # Look for this person's interests in the RegOnline export data
 
 #		echo "Attendees.php event_logs = $event_logs<br>"; # For debug purposes
-         $interests = getInterests($key,$email,$event_logs); # in topics.php
+         $interests = getInterests($key,$queryEmail,$event_logs); # in topics.php
          if ( sizeof($interests) > 0 ) { 
 #		echo "<br>Attendees.php: Ready to go...<br>"; # For debug purposes
-           $line = "<p><a href=\"profile.php?name=$key&email=$email&event_logs=$event_logs\">$key</a></p>";
+           $line = "<p><a href=\"profile.php?name=$key&email=$queryEmail&event_logs=$event_logs\">$key</a></p>";
          } else {
            $line = "<p>$key</p>";
          }
