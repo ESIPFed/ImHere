@@ -48,7 +48,6 @@
 
 # ------------------------------------------------------------
 # Look for name & email in GET variables first, then in a cookie...
-
         # Check for spoofed date
         $GLOBALS['spoofedDate'] = '';
         if ( isset($_GET['spoofedDate']) ) { $GLOBALS['spoofedDate'] = $_GET['spoofedDate']; }
@@ -163,7 +162,6 @@
 }     
 
 # If not checked in to an event (or event no longer exists in event_list.csv)...
-
      if ( $checkedIn == '' ) {	# If not checked in to an event...
 
   # Display application name
@@ -219,8 +217,7 @@
 
   # ------------------------------------------------------------
 
-  	}	else	{
-
+  	} else	{
 # ======================================================================================================
 # ======================================================================================================
 # ======================================================================================================
@@ -228,32 +225,15 @@
 # We ARE checked in to an event... 
  	
 	 echo "<p class=\"center\" style=\"font-weight:bold; color:crimson\">$event<br>Check In System</p>\n"; # Display event name
-#	 echo "<p style=\"font-weight:bold\">Last Session Check In:</p>";
-	 if ($event != "ESIP Telecons") { echo "<p style=\"font-weight:bold\">Last Session Check In:</p>"; }
-		else { echo "<p style=\"font-weight:bold\">Last Telecon Check In:</p>"; }
 
        $sessions = readCSV($schedule);	# returns an array of all lines from $schedule
        $cSessions = getCurrentSessions($sessions, $schedule_timezone);	# returns an array of sessions currently running
        
-       $line = getAttendeesByEmail($email, $attendees_log);	# in attendeeLog.php, read $attendees, return last line in the file that matches $email
-       if ( $line != '' ) { # Display session this attendee is currently checked in to and offer to "Check Out"
-         $lineParts = explode(",", $line);
-         $currentSession = $lineParts[2];	# Last session attendee checked-in to
-         $currentStatus = $lineParts[3]; # 1=checked-in; 0=checked-out
-         echo "<p style=\"font-weight:normal\">$currentSession <br> $space $space";
-         if ( $currentStatus ) {	# if still checked in to this session
-            $checkout = "<a href=\"attendees.php?name=$name&email=$email&session=$currentSession&check=out&event=$event&event_logs=$event_logs&attendees_log=$attendees_log&recommendation_interface=$recommendation_interface\">Check Out</a>";
-            echo "$checkout</p>";
-         } else {
-            echo "(Checked out)</p>";
-         }
-       } else { echo "<p style=\"font-style:normal\">$space $space None</p>"; }
   # ------------------------------------------------------------
   # Display Currently Running Sessions
 
-#       echo "<p style=\"font-weight:bold\">Currently Running Sessions:</p>\n";
-	 if ($event != "ESIP Telecons") { echo "<p style=\"font-weight:bold\">Currently Running Sessions:</p>\n"; }
-		else { echo "<p style=\"font-weight:bold\">Currently Running Telecons:</p>\n"; }
+	 if ($event != "ESIP Telecons") { echo "<p> <span style=\"background-color:#80b380; font-weight:bold\">Currently Running Sessions:</p>\n"; }
+		else { echo "<p> <span style=\"background-color:#80b380; font-weight:bold\">Currently Running Telecons:</p>\n"; }
 
        $counter = 1;
 	   #echo "attendees_log: $attendees_log<br>"; # For debug purposes
@@ -270,12 +250,38 @@
          $space $space $checkin $tab $participants</p>\n";
          $counter++;
        }
-       	if ($counter == 1) {
-		echo "<p>$space $space None</p>";
-       	}
+       	if ($counter == 1) { echo "<p>$space $space None</p>"; }
+
+  # ------------------------------------------------------------
+  # Display Last Session/Telecon checked-in to
+
+       $line = getAttendeesByEmail($email, $attendees_log);	# in attendeeLog.php, read $attendees, return last line in the file that matches $email
+
+	   # If we have ever checked in to a session...
+       if ( $line != '' ) { # Display session this attendee is currently checked in to and offer to "Check Out"
+         $lineParts = explode(",", $line);
+         $currentSession = $lineParts[2];	# Last session attendee checked-in to
+         $currentStatus = $lineParts[3]; # 1=checked-in; 0=checked-out
+
+         if ( $currentStatus ) {	# if still checked in to this session
+            $checkout = "<a href=\"attendees.php?name=$name&email=$email&session=$currentSession&check=out&event=$event&event_logs=$event_logs&attendees_log=$attendees_log&recommendation_interface=$recommendation_interface\">Check Out</a>"; }
+         else { $checkout = "(Checked out)"; }
+
+#		 $sessionType = "Session";
+#		 if ($event == "ESIP Telecons") { $sessionType = "Telecon"; }
+# 		 echo "<p> <span style=\"background-color:#80b380; font-weight:bold\">Your Last $sessionType Check In:</p>"; 
+
+ 		 echo "<p> <span style=\"background-color:#80b380; font-weight:bold\">Your Last Check In:</p>"; 
+         echo "<p style=\"font-weight:normal\">$currentSession <br> $space $space";
+         echo "$checkout</p>";
+
+        } # End of If we have ever checked in to a session
+
   # ------------------------------------------------------------
 	   # Display Other Actions
-       echo "<p style=\"font-weight:bold\">Other Actions:<p>\n";
+       echo "<p> <span style=\"background-color:#80b380; font-weight:bold\">Other Actions:<p>\n";
+
+	 if ($event != "ESIP Telecons") { 
 
 	   # View profile
        $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event\">View Profile:</a>";
@@ -290,6 +296,7 @@
 	       $url = "<a href=\"viewRecommendations.php?name=$name&email=$email&event=$event&recommendation_interface=$recommendation_interface\">List Recommended Collaborators</a>";
 	       echo "<p> $space $space $url</p>\n";
        	   }
+		}
 
        # Check-out-of-this-event (in updateCheckIn.php) 
        $d = $GLOBALS['spoofedDate'];
@@ -297,8 +304,6 @@
 	   #echo "URL prior to checkout: $url";       # For degug purposes
        echo "<p>$space $space <a href=\"$url\">Check Out Of This Event</a></p>\n";
 
-
-       
   # ------------------------------------------------------------
    # Write log_line (date,name,email) to $imhere_log
      $fh = fopen($imhere_log, 'a') or die("can't open this file: $imhere_log");
@@ -306,8 +311,9 @@
      fclose($fh);
 
      } # END of ELSE: We ARE checked in
-   # ------------------------------------------------------------
-  } # END of ELSE: Not processing a RESET
+
+   }   # END of ELSE: Not processing a RESET
+
    # ------------------------------------------------------------
   
     } else {	# No $name or $email - make 'em enter it here:
