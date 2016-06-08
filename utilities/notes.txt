@@ -1,0 +1,38 @@
+
+File descriptions & formats
+
+In directory "logs"...
+
+	event_list.csv
+		Fields are comma-separated
+		Start Date, End Date, Event Name, Log Directory, Time Zone, Password, Recommendation System Interface (Event Number)
+
+	checkedIn.txt
+		New line written every time someone checks into or out of an event
+		Fields are colon-separated
+		name:email:check-in(1)/out(0)flag:public(1)/private(0)flag:eventName
+	
+	imhere_log.txt
+		Not sure what this is
+		Fields are comma-separated
+		date&time,name,email,eventName
+
+In event-specific log directory...
+
+	schedule.csv
+		Fields are comma-separated
+		date,startTime,endTime,sessionName
+		(If date is blank, then session runs every day)
+	
+	registration.csv
+		Exported from regonline system
+		Optional file
+	
+	attendees.txt
+		New line written every time someone checks into or out of a session
+		Fields are comma-separated
+		name,email,sessionName,check-in(1)/out(0)flag,date&time
+	
+	rb_response.txt
+		Log file of HTTP Post Requests sent to ResearchBit upon event check-ins & check outs, and the RB response
+		(Used mostly for system testing & debugging)
