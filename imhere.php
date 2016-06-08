@@ -28,16 +28,28 @@
 
   echo "  </head>\n";
 
-  echo "  <body style=\"background-color:darkseagreen;\">\n";
-#  echo "  <body style=\"background-color:skyblue;\">\n";
-#  echo "  <body style=\"background-color:lightblue;\">\n";
-#  echo "  <body style=\"background-color:cadetblue;\">\n";
-#  echo "  <body style=\"background-color:tan;\">\n";
-#
 # set some display variables
   $space = "&nbsp;";
   $tab = $space . $space . $space . $space . $space;
-#
+
+#  $color1 = "skyblue";
+#  $color1 = "lightblue";
+#  $color1 = "cadetblue";
+  $color1 = "darkseagreen";
+
+#  $color2 = "#80b380"; # Slightly darker green
+  $color2 = "darkseagreen";
+
+#  $color3 = "black";
+#  $color3 = "crimson";
+  $color3 = "#b30000";
+
+#  $color4 = "black";
+#  $color4 = "crimson";
+  $color4 = "#b30000";
+
+  echo "  <body style=\"background-color:$color1;\">\n";
+
 # --------------------------------------------------------------------------------------------------------------------
 
  # Start painting the screen
@@ -165,8 +177,8 @@
      if ( $checkedIn == '' ) {	# If not checked in to an event...
 
   # Display application name
-  echo "<p class=\"center\" style=\"font-weight:bold; color:crimson\">ImHere<br>";
-  echo "<class=\"center\" style=\"font-weight:bold; color:crimson\">Event Check In System</p>";
+  echo "<p class=\"center\" style=\"font-weight:bold; color:$color3\">ImHere<br>";
+  echo "<class=\"center\" style=\"font-weight:bold; color:$color3\">Event Check In System</p>";
 
        $d = $GLOBALS['spoofedDate'];
        $url = "updateCheckIn.php?spoofedDate=$d&name=$name&email=$email&checkin=1";
@@ -178,7 +190,8 @@
        $cEvents = getCurrentEvents($allEvents);	# returns an array of events currently running
 #	   $s = sizeof($cEvents);  # For debug purposes
 #	   echo "Size of cEvents: $s<br>"; # For debug purposes
-       echo "<p style=\"font-weight:bold\">Currently Running Event(s):</p>\n";
+
+       echo "<p style=\"font-weight:bold; color:$color4\">Currently Running Event(s):</p>\n";
 
    # Select from the list and check 'em in
        $counter = 1;
@@ -205,7 +218,7 @@
 
   # ------------------------------------------------------------
 	   # Display Other Actions
-       echo "<p style=\"font-weight:bold\"><br>Other Actions:<p>\n";
+       echo "<p style=\"font-weight:bold; color:$color4\"><br>Other Actions:<p>\n";
 
 	   # View profile
        $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event\">View Profile:</a>";
@@ -224,7 +237,7 @@
 
 # We ARE checked in to an event... 
  	
-	 echo "<p class=\"center\" style=\"font-weight:bold; color:crimson\">$event<br>Check In System</p>\n"; # Display event name
+	 echo "<p class=\"center\" style=\"font-weight:bold; color:$color3\">$event<br>Check In System</p>\n"; # Display event name
 
        $sessions = readCSV($schedule);	# returns an array of all lines from $schedule
        $cSessions = getCurrentSessions($sessions, $schedule_timezone);	# returns an array of sessions currently running
@@ -232,8 +245,11 @@
   # ------------------------------------------------------------
   # Display Currently Running Sessions
 
-	 if ($event != "ESIP Telecons") { echo "<p> <span style=\"background-color:#80b380; font-weight:bold\">Currently Running Sessions:</p>\n"; }
-		else { echo "<p> <span style=\"background-color:#80b380; font-weight:bold\">Currently Running Telecons:</p>\n"; }
+		 $sessionType = "Sessions:";
+		 if ($event == "ESIP Telecons") { $sessionType = "Telecons:"; }
+
+		echo "<p> <span style=\"background-color:$color2; color:$color4; font-weight:bold\">Currently Running $sessionType</p>\n";
+
 
        $counter = 1;
 	   #echo "attendees_log: $attendees_log<br>"; # For debug purposes
@@ -269,9 +285,9 @@
 
 #		 $sessionType = "Session";
 #		 if ($event == "ESIP Telecons") { $sessionType = "Telecon"; }
-# 		 echo "<p> <span style=\"background-color:#80b380; font-weight:bold\">Your Last $sessionType Check In:</p>"; 
+# 		 echo "<p> <span style=\"background-color:$color2; font-weight:bold\">Your Last $sessionType Check In:</p>"; 
 
- 		 echo "<p> <span style=\"background-color:#80b380; font-weight:bold\">Your Last Check In:</p>"; 
+ 		 echo "<p> <span style=\"background-color:$color2; color:$color4; font-weight:bold\">Your Last Check In:</p>"; 
          echo "<p style=\"font-weight:normal\">$currentSession <br> $space $space";
          echo "$checkout</p>";
 
@@ -279,7 +295,7 @@
 
   # ------------------------------------------------------------
 	   # Display Other Actions
-       echo "<p> <span style=\"background-color:#80b380; font-weight:bold\">Other Actions:<p>\n";
+       echo "<p> <span style=\"background-color:$color2; color:$color4; font-weight:bold\">Other Actions:<p>\n";
 
 	 if ($event != "ESIP Telecons") { 
 
@@ -317,8 +333,8 @@
    # ------------------------------------------------------------
   
     } else {	# No $name or $email - make 'em enter it here:
-  echo "<p class=\"center\" style=\"font-weight:bold; color:crimson\">ImHere<br>";
-  echo "<class=\"center\" style=\"font-weight:bold; color:crimson\">Event Check In System</p>";
+  echo "<p class=\"center\" style=\"font-weight:bold; color:$color3\">ImHere<br>";
+  echo "<class=\"center\" style=\"font-weight:bold; color:$color3\">Event Check In System</p>";
      $action = htmlspecialchars($_SERVER["PHP_SELF"]);
      echo "<form method=\"GET\" action=\"$action\">\n";
      echo "  <label>Name:</label> <input type=\"text\" name=\"name\" >\n";
