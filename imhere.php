@@ -297,15 +297,15 @@
 	   # Display Other Actions
        echo "<p> <span style=\"background-color:$color2; color:$color4; font-weight:bold\">Other Actions:<p>\n";
 
-	 if ($event != "ESIP Telecons") { 
+	 if ($event != "ESIP Telecons") {
 
-	   # View profile
-       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event\">View Profile:</a>";
+       # Count of Attendees by Session
+	   $url = "<a href=\"test_attendance_summary.php?event=$event\">Count Attendees by Session</a>";
        echo "<p> $space $space $url<br>";
-	   echo "$space $space $space $space $name ($email)</p>\n";
 
        # List Event Attendees
-       echo "<p>$space $space List Event Attendees</p>\n";
+	   $url = "<a href=\"listAttendees.php?name=$name&email=$email&event=$event&event_logs=$event_logs&recommendation_interface=$recommendation_interface\">List Event Attendees</a>";
+       echo "<p> $space $space $url<br>";
 
        # List Recommended Collaborators (only if flag in event_list file is not null (it's an event ID)):
        if ($recommendation_interface) {
@@ -320,6 +320,13 @@
 	   #echo "URL prior to checkout: $url";       # For degug purposes
        echo "<p>$space $space <a href=\"$url\">Check Out Of This Event</a></p>\n";
 
+	 if ($event != "ESIP Telecons") {
+
+	   # View profile
+       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event\">View Profile:</a>";
+       echo "<p> $space $space $url<br>";
+	   echo "$space $space $space $space $name ($email)</p>\n";
+		}
   # ------------------------------------------------------------
    # Write log_line (date,name,email) to $imhere_log
      $fh = fopen($imhere_log, 'a') or die("can't open this file: $imhere_log");

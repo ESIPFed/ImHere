@@ -52,7 +52,7 @@ curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
 $buffer = curl_exec($curl_handle);
 curl_close($curl_handle);
 
-echo "<p class=\"center\" style=\"font-weight:bold; color:crimson\">$event<br>Recommended Collaborators<br>At This Event</p>";
+echo "<p class=\"center\" style=\"font-weight:bold; color:#b30000\">$event<br>Recommended Collaborators<br>At This Event</p>";
 echo "<p style=\"font-weight:bold\">For $name:</p>";
 echo "<p>";
 
