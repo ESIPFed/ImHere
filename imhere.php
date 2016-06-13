@@ -225,6 +225,10 @@
        echo "<p> $space $space $url<br>";
 	   echo "$space $space $space $space $name ($email)</p>\n";
 
+       # Count of Attendees by Session
+	   $url = "<a href=\"test_attendance_summary.php\">Count Attendees by Session</a>";
+       echo "<p> $space $space $url<br>";
+
        # Reset name & email
        echo "<p>$space $space <a href=\"reset.php\">Reset Name & Email</a></p>\n";
 
