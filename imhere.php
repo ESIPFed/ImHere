@@ -226,7 +226,7 @@
 	   echo "$space $space $space $space $name ($email)</p>\n";
 
        # Count of Attendees by Session
-	   $url = "<a href=\"test_attendance_summary.php\">Count Attendees by Session</a>";
+	   $url = "<a href=\"attendance_events.php\">Count Attendees by Session</a>";
        echo "<p> $space $space $url<br>";
 
        # Reset name & email
@@ -304,7 +304,7 @@
 	 if ($event != "ESIP Telecons") {
 
        # Count of Attendees by Session
-	   $url = "<a href=\"test_attendance_summary.php?event=$event\">Count Attendees by Session</a>";
+	   $url = "<a href=\"attendance_summary.php?event=$event\">Count Attendees by Session</a>";
        echo "<p> $space $space $url<br>";
 
        # List Event Attendees
