@@ -7,6 +7,7 @@
   ob_start();
 
   include 'config.php';
+  include 'httpPostRequests.php';
 
   $url = $server . "imhere.php"; # In case something goes wrong, Load imhere.php with no GET variables
 
@@ -79,42 +80,15 @@
        }
        fclose($handle);
      }
+	#------------------------------------------
+	# Post to the Recommendation System
      if ($recommendation_interface) {
-
-# Post to the Recommendation System
-
-$newName = preg_replace('/\s/', '', $name);
-$newName = strtolower($newName);
-
-$aaa="http://54.165.138.137:5000/post/";
-$bbb="name=$newName&email=$email&check_in=$checkin&public_tag=$locate&event_id=$recommendation_interface";
-
-#echo "$bbb"; # For debug purposes
-#die("<p>Here we are after the POST options setup...<br>"); # For debug purposes
-
-$curl_handle=curl_init();
-curl_setopt($curl_handle,CURLOPT_URL,$aaa);
-curl_setopt($curl_handle,CURLOPT_POST, true);
-curl_setopt($curl_handle,CURLOPT_POSTFIELDS,$bbb);
-curl_setopt($curl_handle,CURLOPT_CONNECTTIMEOUT,2);
-curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
-$buffer = curl_exec($curl_handle);
-curl_close($curl_handle);
-
-if (empty($buffer)) {$buffer="No response from HTTP post request to ResearchBit";}
-
-   $fh = fopen($rb_response, 'a') or die("In updateCheckIn.php, can't open file: rb_response.txt");
-     fwrite($fh, "URL: $aaa\n");
-     fwrite($fh, "POST data: $bbb\n");
-     fwrite($fh, "ResearchBit response: $buffer\n");
-     fclose($fh);
-
-#echo "$rb_response<br>"; # For debug purposes
-#echo "$buffer"; # For debug purposes
-#die("<p>Here we are after the cURL...<br>"); # For debug purposes
-
-       } # End of Recommendation System post
-
+		$newName = preg_replace('/\s/', '', $name);
+		$newName = strtolower($newName);
+		$postData="name=$newName&email=$email&check_in=$checkin&public_tag=$locate&event_id=$recommendation_interface&event_name=$event";
+		httpPost($postData, $rb_response); # Call tge function (in httpPostRequests.php)
+     } # End of Recommendation System check out post
+	#------------------------------------------
 
 #----------------------------------------------------------------------------
      while (ob_get_status()) { ob_end_clean(); }

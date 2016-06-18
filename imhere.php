@@ -31,6 +31,7 @@
 # set some display variables
   $space = "&nbsp;";
   $tab = $space . $space . $space . $space . $space;
+  $tab2 = $space . $space;
 
 #  $color1 = "skyblue";
 #  $color1 = "lightblue";
@@ -207,7 +208,7 @@
        $private = "<a href=\"$url&event=$s&locate=0\">Private Check In</a>"; }
 
        # Display the counter and the event name, then public & private check in links
-         echo "<p>$counter. $s <br/> $space $space $space $public $space $space $private</p>\n";
+         echo "<p>$counter. $s <br/> $space $space $space $public $space $space $private</p>\n"; # loads updateCheckIn.php
          $counter++;
        }
        	if ($counter == 1) { echo "None"; }
@@ -244,7 +245,7 @@
 	 echo "<p class=\"center\" style=\"font-weight:bold; color:$color3\">$event<br>Check In System</p>\n"; # Display event name
 
        $sessions = readCSV($schedule);	# returns an array of all lines from $schedule
-       $cSessions = getCurrentSessions($sessions, $schedule_timezone);	# returns an array of sessions currently running
+       $cSessions = getCurrentSessions($sessions, $schedule_timezone);	# in currentSessions.php - returns an array of session names & ID's
        
   # ------------------------------------------------------------
   # Display Currently Running Sessions
@@ -256,18 +257,24 @@
 
 
        $counter = 1;
-	   #echo "attendees_log: $attendees_log<br>"; # For debug purposes
-       foreach($cSessions as $s) {		# cSessions is an array of session names currently running
+       foreach($cSessions as $s) {		# cSessions is an array of currently running session names, ID's
+
+		$parts = explode (",",$s);
       
 		# Set up link to Check In to this session
-         $checkin = "<a href=\"attendees.php?name=$name&email=$email&session=$s&check=in&event=$event&event_logs=$event_logs&attendees_log=$attendees_log&recommendation_interface=$recommendation_interface\">Check In</a>";
+         $checkin = "<a href=\"attendees.php?name=$name&email=$email&session=$parts[0]&check=in&event=$event&event_logs=$event_logs&attendees_log=$attendees_log&recommendation_interface=$recommendation_interface&session_id=$parts[1]\">Check In</a>";
 		# Set up link to List Attendees in this session
-         $participants = "<a href=\"attendees.php?name=$name&email=$email&session=$s&event=$event&event_logs=$event_logs&attendees_log=$attendees_log&recommendation_interface=$recommendation_interface\">List Attendees</a>";
+         $participants = "<a href=\"attendees.php?name=$name&email=$email&session=$parts[0]&event=$event&event_logs=$event_logs&attendees_log=$attendees_log&recommendation_interface=$recommendation_interface&session_id=$parts[1]\">Who's There</a>";
+		# Set up link to List Recommendations in this session
+         $recommendations = "<a href=\"viewRecommendations.php?name=$name&email=$email&event=$event&recommendation_interface=$recommendation_interface&session=$parts[0]&session_id=$parts[1]\">Recommendations</a>";
 
         # Display the counter and the session name
-         echo "<p>$counter. $s 
-         <br/> 
-         $space $space $checkin $tab $participants</p>\n";
+         echo "<p>$counter. $parts[0]<br/>";
+         if (!$recommendation_interface) {echo "$space $space"; }
+		 echo "$checkin";
+         if (!$recommendation_interface) {echo "$tab $participants"; }
+         else {echo "$tab2 $participants $tab2 $recommendations"; }
+		 echo "</p>\n";
          $counter++;
        }
        	if ($counter == 1) { echo "<p>$space $space None</p>"; }
@@ -313,7 +320,7 @@
 
        # List Recommended Collaborators (only if flag in event_list file is not null (it's an event ID)):
        if ($recommendation_interface) {
-	       $url = "<a href=\"viewRecommendations.php?name=$name&email=$email&event=$event&recommendation_interface=$recommendation_interface\">List Recommended Collaborators</a>";
+	       $url = "<a href=\"viewRecommendations.php?name=$name&email=$email&event=$event&recommendation_interface=$recommendation_interface\">List Event Recommendations</a>";
 	       echo "<p> $space $space $url</p>\n";
        	   }
 		}

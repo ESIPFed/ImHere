@@ -41,7 +41,7 @@ $firstName = $nameParts[0];
 $lastName = $nameParts[1];
 
 $curl_handle=curl_init();
-curl_setopt($curl_handle,CURLOPT_URL,"http://54.165.138.137:5000/p/get/?lastname=$lastName&firstname=$firstName&email=$queryEmail");
+curl_setopt($curl_handle,CURLOPT_URL,"http://54.175.39.137:5000/p/get/?lastname=$lastName&firstname=$firstName&email=$queryEmail");
 curl_setopt($curl_handle,CURLOPT_CONNECTTIMEOUT,2);
 curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
 $buffer = curl_exec($curl_handle);

@@ -1,13 +1,11 @@
 <?php 
 
-# 06/06/16 - Added queryName & queryEmail to differentiate between user name/email, and that of the person we're displaying profile info for
-
 /*	Get here from imhere.php...
 		One of three routines can be performed once we're here:
 		If $check='in' - Check attendee in to a session; check them out of whatever they were in before
 		If $check='out' - Check attendee out of a session
 		If $check='' - List attendees in a session
-	We're also (going to) post to the Recommendation System here
+	We're also posting to the Recommendation System here
 */
 
   # include the config file
@@ -18,6 +16,7 @@
   include 'attendeeLog.php';
   include 'readCSV.php';
   include 'topics.php';
+  include 'httpPostRequests.php';
 
   # setup html
   echo "<!DOCTYPE>\n";
@@ -38,18 +37,19 @@
   if ( isset($_GET['event_logs']) ) { $event_logs = $_GET['event_logs']; } else { $event_logs = ''; }
   if ( isset($_GET['attendees_log']) ) { $attendees_log = $_GET['attendees_log']; } else { $attendees_log = 'Not_Supposed_to_Happen'; }
   if ( isset($_GET['recommendation_interface']) ) { $recommendation_interface = $_GET['recommendation_interface']; } else { $recommendation_interface = ''; }
+  if ( isset($_GET['session_id']) ) { $session_id = $_GET['session_id']; } else { $session_id = ''; }
 
   # open the attendee log file
-# Watch for errors here. If permissions on the file have changed (like when I download to my Mac) we don't get any warning.
-#  $log = fopen($attendees_log, 'a');
   $log = fopen($attendees_log, 'a') or die("In attendees.php, can't open file: $attendees_log");
 
   # return link
   $returnLink = "<p><a href=\"imhere.php?name=$name&email=$email&event=$event\">Return to Check-In Menu</a></p>";
 
 #---------------------------------------------------------------------------------------------------
-  # check in
-  if ( $check == 'in' ) { 
+#---------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------
+  # Session check in
+  if ( $check == 'in' ) {
 
     # determine if this person is already checked into a session
     # if yes then automatically check them out
@@ -64,48 +64,86 @@
         $line = $name . ',' . $email . ',' . $currentSession . ',0,' . $date . "\n";
         fwrite($log, $line);
 
-# Post check out of recommendation system here:
-	if ( $recommendation_interface ) {
-	# Do it here	
-		}
+		#------------------------------------------
+		# Post check out to recommendation system:
+/* 
+		Supposedly, we don't need to do this since we're checking right back in to another session
+			if ( $recommendation_interface ) {
+			$discover = isDiscoverable($name, $Email); #in checkin.php, get the public/private status
+			$parts = explode(":", $discover);
+			$discover = $parts[2];
+			$newName = preg_replace('/\s/', '', $name);
+			$newName = strtolower($newName);
+			$postData="name=$newName&email=$email&check_in=1&public_tag=$discover&event_id=$recommendation_interface";
+			$rb_response = $log_dir . $event_logs . '/rb_response.txt'; # Name of event-specific log file
+			httpPost($postData, $rb_response); # Call the function (in httpPostRequests.php)
+		} # End of Recommendation System check out post
+		#------------------------------------------
+*/
       }
     }
 
-# Post check in to recommendation system here:
+	#------------------------------------------
+	# Post session check in to recommendation system:
+	
 	if ( $recommendation_interface ) {
-	# Do it here	
-		}
+		$discover = isDiscoverable($name, $email); #in checkin.php, get the public/private status
+		$parts = explode(":", $discover);
+		$discover = $parts[2];
+		$newName = preg_replace('/\s/', '', $name);
+		$newName = strtolower($newName);
+		$postData="name=$newName&email=$email&check_in=1&public_tag=$discover&event_id=$recommendation_interface&session_id=$session_id&session_name=$session";
+		$rb_response = $log_dir . $event_logs . '/rb_response.txt'; # Name of event-specific log file
+		httpPost($postData, $rb_response); # Call the function (in httpPostRequests.php)
+	} # End of Recommendation System check in post
+	#------------------------------------------
 
-    echo "<p>You have been Checked In to: $session</p>";
-    echo "$returnLink";
     $line = "$name,$email,$session,1,$date\n";
     fwrite($log, $line); # Check them in to this session
+    echo "<p>You have been Checked In to: $session</p>";
+    echo "$returnLink";
 
   }
 
 #---------------------------------------------------------------------------------------------------
-  # check out
+#---------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------
+  # Session check out
   if ( $check == 'out' ) {
 
-# Post check out of recommendation system here:
+	#------------------------------------------
+	# Post session check out to recommendation system:
+	# SESSION check-outs are simply an EVENT check-in, with no session ID arguement
 	if ( $recommendation_interface ) {
-	# Do it here	
-		}
+		$discover = isDiscoverable($name, $email); #in checkin.php, get the public/private status
+		$parts = explode(":", $discover);
+		$discover = $parts[2];
+		$newName = preg_replace('/\s/', '', $name);
+		$newName = strtolower($newName);
+		$postData="name=$newName&email=$email&check_in=1&public_tag=$discover&event_id=$recommendation_interface&event_name=$event";
+		$rb_response = $log_dir . $event_logs . '/rb_response.txt'; # Name of event-specific log file
+		httpPost($postData, $rb_response); # Call the function (in httpPostRequests.php)
+	} # End of Recommendation System check out post
+	#------------------------------------------
 
-    echo "<p>You have been Checked Out of: $session</p>";
-    echo "$returnLink";
     $line = "$name,$email,$session,0,$date\n";
     fwrite($log, $line);
+    echo "<p>You have been Checked Out of: $session</p>";
+    echo "$returnLink";
 
   }
 
+#---------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
   # close the log file
 
   fclose($log);
 
 #---------------------------------------------------------------------------------------------------
-  # list attendees in a session
+#---------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------
+  # List attendees in a session
   if ( $check == '' ) {
 
     $attendees = getAttendees($session, $attendees_log);

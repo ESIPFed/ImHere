@@ -31,6 +31,7 @@
   if ( isset($_GET['event_logs']) ) { $event_logs = $_GET['event_logs']; } else { $event_logs = ''; }
   if ( isset($_GET['attendees_log']) ) { $attendees_log = $_GET['attendees_log']; } else { $attendees_log = 'Not_Supposed_to_Happen'; }
   if ( isset($_GET['recommendation_interface']) ) { $recommendation_interface = $_GET['recommendation_interface']; } else { $recommendation_interface = ''; }
+  if ( isset($_GET['session_id']) ) { $session_id = $_GET['session_id']; } else { $session_id = ''; }
 
   # return link
   $returnLink = "<p><a href=\"imhere.php?name=$name&email=$email&event=$event\">Return to Check-In Menu</a></p>";
@@ -44,15 +45,23 @@ $lastName = $nameParts[1];
 
 $curl_handle=curl_init();
 
-$abc = "http://54.165.138.137:5000/r/get/?event_id=$recommendation_interface&lastname=$lastName&firstname=$firstName&email=$email";
-
+#$abc = "http://54.165.138.137:5000/r/get/?event_id=$recommendation_interface&lastname=$lastName&firstname=$firstName&email=$email";
+if ($session_id == "") {
+	$abc = "http://54.175.39.137:5000/r/get/?event_id=$recommendation_interface&lastname=$lastName&firstname=$firstName&email=$email"; }
+else {
+	$abc = "http://54.175.39.137:5000/r/get/?event_id=$recommendation_interface&session_id=$session_id&lastname=$lastName&firstname=$firstName&email=$email"; }
 curl_setopt($curl_handle,CURLOPT_URL,$abc);
 curl_setopt($curl_handle,CURLOPT_CONNECTTIMEOUT,2);
 curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
 $buffer = curl_exec($curl_handle);
 curl_close($curl_handle);
 
-echo "<p class=\"center\" style=\"font-weight:bold; color:#b30000\">$event<br>Recommended Collaborators<br>At This Event</p>";
+#echo "<p class=\"center\" style=\"font-weight:bold; color:#b30000\">$event<br>Recommended Collaborators<br>At This Event</p>";
+if ($session_id == "") {
+	echo "<p class=\"center\" style=\"font-weight:bold; color:#b30000\">Recommended Collaborators<br>At This Event<br>$event</p>"; }
+else {
+	echo "<p class=\"center\" style=\"font-weight:bold; color:#b30000\">Recommended Collaborators<br>In This Session<br>$session</p>"; }
+
 echo "<p style=\"font-weight:bold\">For $name:</p>";
 echo "<p>";
 

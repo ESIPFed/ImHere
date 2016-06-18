@@ -21,7 +21,7 @@ In event-specific log directory...
 
 	schedule.csv
 		Fields are comma-separated
-		date,startTime,endTime,sessionName
+		date,startTime,endTime,sessionName,sessionID
 		(If date is blank, then session runs every day)
 	
 	registration.csv
@@ -36,3 +36,11 @@ In event-specific log directory...
 	rb_response.txt
 		Log file of HTTP Post Requests sent to ResearchBit upon event check-ins & check outs, and the RB response
 		(Used mostly for system testing & debugging)
+
+Notes on ResearchBit Recommendation System interface...
+
+	The AWS ResearchBit is using sometimes changes it's URL. The URL is hard-coded into the following files:
+		viewProfile.php
+		viewRecommendations.php
+		httpPostRequests.php
+		

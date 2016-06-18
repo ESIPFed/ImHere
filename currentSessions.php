@@ -53,10 +53,14 @@
       $startTime = $sessionArray[$i][1];
       $endTime = $sessionArray[$i][2];
       $name = $sessionArray[$i][3];
-#	  echo "$name $tab $sessionDate $tab $startTime $tab $endTime<br>"; # For debug purposes
+      $id = $sessionArray[$i][4];
+#	  echo "$id $tab $name $tab $sessionDate $tab $startTime $tab $endTime<br>"; # For debug purposes
       $match = inRange($month, $day, $year, $sessionDate, $startTime, $endTime, $time);
 #	  echo "Match = $match<br>"; # For debug purposes
-      if ($match) { $results[] = $name; }
+
+#      if ($match) { $results[] = $name; }
+      $combo = "$name,$id";
+      if ($match) { $results[] = $combo; }
     }
 
     return $results;
