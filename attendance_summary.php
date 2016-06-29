@@ -36,6 +36,10 @@ $sec = "60";
 # get the event from the url
 $event = $_GET['event'];
 
+# json file to write to
+$formatted = str_replace(' ', '_', $event);
+$aLog = './logs/attendance_data_' . $formatted . '.json';
+
 # what page to load (this one, i.e. re-load)
 $page = $_SERVER['PHP_SELF'] . '?event=' . $event;
 
@@ -54,23 +58,10 @@ if ($handle) {
 # we're looking for attendees.txt in this directory 
 $file = $log_dir . $event_logs . '/' . 'attendees.txt';
 
-echo "<html>\n";
-echo "  <head>\n";
-echo "      <meta http-equiv=\"refresh\" content=\"$sec;URL='$page'\">\n";
-echo "      <link rel=\"stylesheet\" href=\"http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\">\n";
-echo "  </head>\n";
-echo " <body>\n";
-echo "    <table class=\"table table-striped\">\n";
-echo "       <thead>\n";
-echo "         <tr>\n";
-echo "           <th>Session</th>\n";
-echo "           <th>Attendance</th>\n";
-echo "         </tr>\n";
-echo "       </thead>\n";
-echo "       <tbody>\n";
-
+# empty array, which will later be filled with results
 $sessions = array();
 
+# read the correct attendees.txt file
 $handle = fopen($file, "r");
 if ($handle) {
     while (($line = fgets($handle)) !== false) {
@@ -90,17 +81,66 @@ if ($handle) {
     fclose($handle);
 } else { die("Couldn't open file... $file"); }
 
+# write to a JSON file
+$size = sizeof($sessions);
+$counter = 0;
+$myfile = fopen($aLog, "w") or die ("Unable to open JSON log file.");
+fwrite($myfile, "{\n");
+fwrite($myfile, " \"name\": \"sessions\",\n");
+fwrite($myfile, " \"children\": [\n");
 foreach ($sessions as $session) {
   $results = peopleStatus($people, $session);
-  $total = sessionTotal($results); 
-  echo "     <tr>\n";
-  echo "       <td>$session</td>\n";
-  echo "       <td>$total</td>\n";
-  echo "     </tr>\n";
+  $total = sessionTotal($results);
+  $line =  "    {\"name\": \"$session\", \"size\": $total}";
+  if ($counter < $size-1) { $line = $line . ",\n"; } else { $line = $line . "\n"; }
+  $counter++;
+  fwrite($myfile, $line);
 }
+fwrite($myfile, "  ]\n");
+fwrite($myfile, "}\n");
+fclose($myfile);
 
-echo "           </tbody>\n";
-echo "        </table>\n";
+echo "<!DOCTYPE html>\n";
+echo "<html>\n";
+echo "  <head>\n";
+echo "      <meta http-equiv=\"refresh\" content=\"$sec;URL='$page'\">\n";
+echo "      <meta charset=\"utf-8\">\n";
+echo "      <link rel=\"stylesheet\" href=\"http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\">\n";
+echo "	    <style>\n";
+echo "         text {	font: 10px sans-serif; } \n";
+echo "         rect.background { fill: white; }\n";
+echo "         .axis { shape-rendering: crispEdges; }\n";
+echo "         .axis path, .axis line {\n";
+echo "            fill: none;\n";
+echo "            stroke: #000;\n";
+echo "         }\n";
+echo "      </style>\n";
+echo "  </head>\n";
+echo "  <body>\n";
+echo "   <h3 style=\"text-align:center\">Attendees</h3>";
+echo "   <script>var aLog = \"$aLog\";</script>\n";
+echo "   <script src=\"http://d3js.org/d3.v3.min.js\"></script>\n";
+echo "   <script src=\"bar_chart.js\"></script>\n";
+#echo "    <table class=\"table table-striped\">\n";
+#echo "       <thead>\n";
+#echo "         <tr>\n";
+#echo "           <th>Session</th>\n";
+#echo "           <th>Attendance</th>\n";
+#echo "         </tr>\n";
+#echo "       </thead>\n";
+#echo "       <tbody>\n";
+
+#foreach ($sessions as $session) {
+#  $results = peopleStatus($people, $session);
+#  $total = sessionTotal($results); 
+#  echo "     <tr>\n";
+#  echo "       <td>$session</td>\n";
+#  echo "       <td>$total</td>\n";
+#  echo "     </tr>\n";
+#}
+
+#echo "           </tbody>\n";
+#echo "        </table>\n";
 echo "   </body>\n";
 echo "</html>";
 
