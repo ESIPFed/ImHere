@@ -1,0 +1,715 @@
+<?xml version="1.0" ?>
+<root>
+	<Information type="dict">
+		<Personal type="dict">
+			<Institution type="str">University Libraries, UNM</Institution>
+			<Name type="dict">
+				<First type="str">karl benedict</First>
+			</Name>
+			<Email type="str">kbene@edac.unm.edu</Email>
+		</Personal>
+		<Conference type="dict">
+			<Posters type="list">
+				<item type="dict">
+					<PosterID type="str">64</PosterID>
+					<PosterInformation type="dict">
+						<Abstract type="str">Rapid access to shared data and information is the key to successful planning and response to disasters. Many of the complex geoinformation (GIS) systems used today exist as standalone islands that were not designed to be interoperable. Thus, many of today's advanced systems do not currently work together from an overall mission or joint perspective. Additionally, despite all the advances in satellite and environmental data acquisition, processing and distribution, the &quot;&quot;last mile&quot;&quot;, getting the data to the end user, is still the hardest part. This poster presents the products of a collaboration between StormCenter Inc. and the Earth Data Analysis Center that was funded through the ESIP Federation's Funding Friday program in which general purpose time-enabled WMS services are packaged in KML for delivery specifically through the Envirocast(R) Vision(TM) Collaboration Module (EVCM) developed by StormCenter Inc., and also more generally through any client application that has implemented support for KML's temporal elements and WMS access model. This project has resulted in:    Increased integration of Earth Science data products into disaster planning and management through expansion of the data and products that may be integrated into the EVCM    Increased system performance in the collaboration environment through the packaging of large data sets (potentially multi-TB in size) into KML with embedded WMS - delivering targeted map images instead of entire data sets    Demonstrated the utility of integrating KML-wrapped WMS into the existing system - increasing the utility of published WMS services coming out of the Earth Science community (e.g. NASA NEO, NOAA NGDC) Submitted by: Karl Benedict, Earth Data Analysis Center, UNM, kbene@edac.unm.edu</Abstract>
+						<Tags type="str">Funding Friday Winner</Tags>
+						<Event type="str">Winter Meeting 2012</Event>
+						<Title type="str">Enhanced Collaborative Disaster Management Through Interoperable Data Visualization</Title>
+					</PosterInformation>
+				</item>
+			</Posters>
+			<MailingList type="list">
+				<item type="str">esip-infoquality</item>
+				<item type="str">esip-gis</item>
+				<item type="str">energy</item>
+				<item type="str">esip-disasters</item>
+				<item type="str">esip-all</item>
+				<item type="str">esip-envirosensing</item>
+				<item type="str">esip-commons</item>
+				<item type="str">esip-assembly</item>
+				<item type="str">esip-preserve</item>
+				<item type="str">esip-visioneers</item>
+				<item type="str">esip-decisions</item>
+				<item type="str">esip-interoperability</item>
+				<item type="str">esip-semanticweb</item>
+				<item type="str">esip-aqcluster</item>
+				<item type="str">esip-board</item>
+				<item type="str">esip-esda</item>
+			</MailingList>
+			<Sessions type="list">
+				<item type="dict">
+					<SessionID type="str">692</SessionID>
+					<SessionInformation type="dict">
+						<Abstract type="str">This half-day session focuses on data management in support of information delivery. The first session highlights Earth Science data management and information delivery technologies, models and strategies. Presentations will focus on the specific models and/or strategies implemented for data management and facilitating access to information based on those data as developed by the member groups. 	Part I - Presentations  The development of  data management and services architecture in support of a geospatial clearinghouse and research data portal. Karl Benedict, Mike Camponovo, Soren Scott, Su Zhang - University of New Mexico   Since the initial release in 2001 of the New Mexico Resource Geographic System (NM RGIS, http://rgis.unm.edu) interactive data portal, the Earth Data Analysis Center has continued to evolve the capabilities of the systems underlying RGIS and other applications in respose to a broadening set of requirements from multiple user communities. The recently released version of EDAC's data management and services platform (Gstore V3), related metadata development and enhancements, and near-term planned expansion of the system all build upon a longstanding emphasis on enabling flexible data discovery, access and information delivery for the diverse data supported by the system. This presentation will define the driving access requirements, describe the tiered architectural model and underlying data management approach, and review the metadata development and improvement strategy developed in support of long term data and information disocvery, access, and use - all in the context of supporting diverse end user applications and use cases.   GeoSearch: A cloud based lightweight brokering middleware for geospatial resources discovery. Phil Yang - George Mason University   Efficient and accurate geospatial resource discovery is a big challenge for earth science research and applications because of the large volume, heterogeneity, complexity, and decentralization of geospatial resources. To address these issues, we developed a lightweight brokering middleware GeoSearch for efficient geospatial resource discovery. GeoSearch is based on Microsoft Azure Cloud platform, GEOSS clearinghouse, and also leverage other existing Geospatial Cyberinfrastructure (GCI) components to reduce integration costs. Specifically, (1) the framework provides integration capability and flexibility by adopting the brokering approach, implementing a 'plug-in'-based framework for metadata processing and proposing a dynamically configurable search workflow; (2) the asynchronous messaging and batch processing-based metadata record retrieval mode enhances the search performance and user interactivity; (3) an embedded semantic support system improves the discovery recall level and precision by providing semantic-based search rule creation and result similarity evaluation functions and (4) the engine assists user decision-making by integrating a service quality monitoring and evaluation system, data/service visualization tools, multiple views and additional information. Experiments and a search example show that the proposed engine helps both scientists and general users search for more accurate results with enhanced performance and user experience through a user-friendly interface.  Common Information Management Principles Among Earth Science and Defense/Intelligence Communities. Stefan Falke - Northrop Grumman Information Systems   Many of the challenges faced in earth science data management are the same challenges faced by the defense and intelligence communities. How to get the right information to the right people at the right time and in the right context is an objective these communities have in common, as both a general vision and in specific aspects of implementation. This objective is pursued by tackling issues in sharing and using information, interoperating across systems, and applying the latest best practices and technologies. This presentation provides an overview of information architectures and infrastructure approaches, strategies, and trends from the defense/intelligence community perspective and relates them to the earth science community perspective.  The Architecture of IOOS: Lessons learned from attempting to implement a data management framework for the ocean observing community. Derrick Snowden - US IOOS Program Office, NOAA   The Integrated Ocean Observing System community recently celebrated a milestone.  Ten years after the organizational beginnings of IOOS, the community gathered to celebrate the accomplishments of the last ten years and lay the groundwork for the next ten years.  A robust data system has always been central to the IOOS mission and is seen as one of the key elements of a strategy that brings activities spread across 17 federal agencies, eleven regional association and an unknown number of commercial entities and local and tribal governments together into a single functioning system of systems.  This presentation will review the current state of the Data Management and Communications (DMAC) subsystem of IOOS, and make some statements about the lessons learned in trying to standardize and harmonize across a diverse community.  Some of these lessons relate to information systems technologies, but the most important ones are focused on the organizational issues inherent in a collaborative system of systems.  The initial capabilities of DMAC exist and have proven successful, but much work remains to solidify the infrastructure and make it an integral component of all relevant steps in the data stewardship and information lifecycle in which the ocean observing community participates. 	Part II - Facilitated Discussion and Development of Data Management for Information Access working group The final session consists of a roundtable discussion focusing on the challenges faced by the models presented earlier, areas of improvement and future work to streamline data management to accelerate and enhance data usability in research, education and decision-making. In addition, the roundtable will include the establishing a Data Management for Information Access working group with the initial goal of developing a white paper for presentation at the Summer 2013 meeting. The white paper will document the experiences and recommendations for data management for information access that other organizations can use a starting point for their own data management and information access implementations.  </Abstract>
+						<Tags type="str">metadata, Data access, data management, data discovery, Actionable Information, CyberGIS, spatial cloud computing, spatial web portal, EarthCube</Tags>
+						<Event type="str">Winter Meeting 2013</Event>
+						<Title type="str">Data Management for Information Access</Title>
+					</SessionInformation>
+				</item>
+				<item type="dict">
+					<SessionID type="str">751</SessionID>
+					<SessionInformation type="dict">
+						<Abstract type="str">Call to Order 		   		Announcement of Election Result 		a. Other Elections 		b. Type Caucuses 		   		Other Business  		Adjourn</Abstract>
+						<Tags type="str"/>
+						<Event type="str">Winter Meeting 2013</Event>
+						<Title type="str">ESIP Annual Business Meeting</Title>
+					</SessionInformation>
+				</item>
+				<item type="dict">
+					<SessionID type="str">448</SessionID>
+					<SessionInformation type="dict">
+						<Abstract type="str">Please join us for this workshop where we will begin the process of defining and developing the high-level guidelines for the governance of the ESIP Commons. Given the diversity of content areas within the Commons, it is envisioned that the guidelines will establish some baseline processes for content management within the Commons while leaving the specific processes for each content area to its community.</Abstract>
+						<Tags type="str"/>
+						<Event type="str">Summer Meeting 2012</Event>
+						<Title type="str">ESIP Commons Workshop</Title>
+					</SessionInformation>
+				</item>
+				<item type="dict">
+					<SessionID type="str">20</SessionID>
+					<SessionInformation type="dict">
+						<Abstract type="str">Panel Discussion/Town Hall on Collaboration &amp; Partnerships     </Abstract>
+						<Tags type="str">Collaboration, NASA, NOAA, USGS, EPA</Tags>
+						<Event type="str">Winter Meeting 2012</Event>
+						<Title type="str">Panel Discussion on Collaboration &amp; Partnerships</Title>
+					</SessionInformation>
+				</item>
+				<item type="dict">
+					<SessionID type="str">717</SessionID>
+					<SessionInformation type="dict">
+						<Abstract type="str">The ESIP Federation has grown its membership during the past several years and has evolved its activities during the same time. For those new to the ESIP Federation or anyone interested in learning more about its activities, join us for an overview presentation that will highlight the history, current activities, opportunities for involvement and how to become a partner.</Abstract>
+						<Tags type="str"/>
+						<Event type="str">Winter Meeting 2013</Event>
+						<Title type="str">ESIP 101 - Introduction to ESIP Activities</Title>
+					</SessionInformation>
+				</item>
+				<item type="dict">
+					<SessionID type="str">758</SessionID>
+					<SessionInformation type="dict">
+						<Abstract type="str">Continuing the conversation on thet ESIP Commons Governance  - Licensing  - Editorial workflow</Abstract>
+						<Tags type="str"/>
+						<Event type="str">Winter Meeting 2013</Event>
+						<Title type="str">ESIP Commons</Title>
+					</SessionInformation>
+				</item>
+				<item type="dict">
+					<SessionID type="str">445</SessionID>
+					<SessionInformation type="dict">
+						<Abstract type="str">The ESIP Federation has grown its membership during the past several years and has evolved its activities during the same time. For those new to the ESIP Federation or anyone interested in learning more about its activities, join us for an overview presentation that will highlight the history, current activities, opportunities for involvement and how to become a partner.</Abstract>
+						<Tags type="str">New Members</Tags>
+						<Event type="str">Summer Meeting 2012</Event>
+						<Title type="str">ESIP 101</Title>
+					</SessionInformation>
+				</item>
+				<item type="dict">
+					<SessionID type="str">444</SessionID>
+					<SessionInformation type="dict">
+						<Abstract type="str">See the wiki for Innovation and ESIP: http://wiki.esipfed.org/index.php/ESIP_and_Innovation Speaker info to be posted shortly. </Abstract>
+						<Tags type="str"/>
+						<Event type="str">Summer Meeting 2012</Event>
+						<Title type="str">Innovators Among Us - Lightning Talks</Title>
+					</SessionInformation>
+				</item>
+				<item type="dict">
+					<SessionID type="str">2407</SessionID>
+					<SessionInformation type="dict">
+						<Abstract type="str">This hands-on workshop highlights how existing GIS metadata, governed by OGC and ISO, can be translated into Linked Open Data that can be automatically discovered, translated, and integrated with biodiversity modeling services. Part I The workshop will commence with a description of popular Linked Open Data ontologies for representing provenance (PROV-O), environmental observations (OBOE), and geospatial data (DCAT). From this basis, the workshop will show how these different ontologies can be assembled to form a unified ontology that adequately describes environmental data sourced as OGC services. Additionally, the workshop will describe how the unique grouping of OGC, ISO, and CF metadata employed at EDAC (http://edac.unm.edu) is mapped to the resulting amalgamated environmental ontology. The first session will conclude with a demo of how EDAC metadata was harvested into LOD and used to drive the generation of biodiversity models supported by Lifemapper (http://lifemapper.org). Part II The workshop will continue by asking participants that currently publish OGC data access services to describe their &quot;&quot;extensional&quot;&quot; metadata standards employed. From this, we can take a poll to understand the metadata &quot;&quot;space&quot;&quot; employed by different DAACs and data providers. Those who employ OGC can register with our system and have their metadata translated to LOD according our Part I ontology. We can then demo how their data can then be automatically discovered and integrated with Lifemapper. The workshop will continue with a discussion of how other centers can leverage the metadata structure employed at EDAC. We can focus on extensions to our ontology and mapping schemes to support other providers who may employ a different set of metadata standards.</Abstract>
+						<Tags type="str"/>
+						<Event type="str">Summer Meeting 2014</Event>
+						<Title type="str">Linked Open Data, Provenance, Metadata and Standards-based Services - Strategies for Discovery, Fusion and Use</Title>
+					</SessionInformation>
+				</item>
+				<item type="dict">
+					<SessionID type="str">1535</SessionID>
+					<SessionInformation type="dict">
+						<Abstract type="str">The National Science Foundation created the Software Institutes for Sustained Innovation (S2I2) program to conceptualize a series of new institutes that can accelerate science and engineering through advances in software.  Scientific advances ranging from modeling climate change to the sequencing of the human genome have been rendered possible in the last few decades due to the massive improvements in the capabilities of computers to process data through software. This pivotal role of software in science is broadly acknowledged, while simultaneously being systematically undervalued through minimal investments in maintenance and innovation.  Scientists rely upon software that is often cobbled together by a string of graduate students with little understanding of software design principles, or upon commercial software that represents an algorithmic black box. As a community, we need to embrace the creation, use, and maintenance of software within science, and address problems such as code complexity, openness, reproducibility, and accessibility.  We also need to fully develop new skills and practices in software engineering as a core competency in our earth science disciplines, starting with undergraduate and graduate education and extending into university and agency professional positions. Panelists will present three strategic planning projects that envision the role of a software institute in enabling science. This will be followed by a moderated discussion to elicit opinions and feedback about these visions from the ESIP community, and to assess the roles and functions that are most important for a software institute in the earth and environmental sciences.   Panelists: ?      Peter Fox, ISEES, (http://isees.nceas.ucsb.edu) ?      Stan Ahalt, WSSI (http://waters2i2.org/) ?      Bryan Heidorn, ELTR (https://sites.google.com/site/ieltrconcept/home)   The panel will be moderated by Matt Jones, NCEAS.   </Abstract>
+						<Tags type="str"/>
+						<Event type="str">Summer Meeting 2013</Event>
+						<Title type="str">Envisioning a Software Institute to Accelerate Environmental Science</Title>
+					</SessionInformation>
+				</item>
+				<item type="dict">
+					<SessionID type="str">7997</SessionID>
+					<SessionInformation type="dict">
+						<Abstract type="str">Many significant efforts are underway to advance data management planning across all levels of geoscience. There is, however, a concomitant need to provide resources or guides for moving beyond data management planning to data management implementation. This session seeks to further that dialogue by identifying resources that could be included in an introductory guide for data management implementation.  	Specifically, presenters will conduct a 'show &amp; tell' for free and open-source services that contribute to implementation of data management best practices. The conveners will also introduce an online resource for attendees or community members to submit additional recommended resources in this domain. The intent is that by identifying and gathering currently available services and tools a resource can be developed for researchers that might otherwise fall into the 'long tail' of data.</Abstract>
+						<Tags type="str"/>
+						<Event type="str">Summer Meeting 2015</Event>
+						<Title type="str">Tools to Wag the Long Tail: Identification of Free and Open-Source Services that Assist with Data Management Implementation</Title>
+					</SessionInformation>
+				</item>
+				<item type="dict">
+					<SessionID type="str">2352</SessionID>
+					<SessionInformation type="dict">
+						<Abstract type="str">Earth Science Data Analytics (ESDA) and the Data Scientist - Agenda   1.  Review Telecon discussions since January Meeting 2.  Discuss Use Cases / Analytics Findings, thus far... and moving forward 4.  Discuss candidate cluster deliverables 4.  Guest Speaker 5.  Discuss next steps...i.e., How do we think it is going?  Course corrections, etc.   For reference, Cluster Objectives:   - Provide a forum for 'Academic' discussions that allow ESIP members to be better educated and on the same page in understanding the various aspects of Data Analytics - Bring in guest speakers to describe overviews of external efforts and further teach us about the broader use of Data Analytics. - Perform activities that:    --- Compile use cases generated from specific community needs to cross analyze heterogeneous data (could be ESIP members or external)    --- Compile experience sources on the use of analytics tools, in particular, to satisfy the needs of the above data users (also, could be ESIP members or external)    --- Examine gaps between needs and expertise    --- Document the specific data analytics expertise needed in above collaborations - Seek graduate data analytics/ Data Science student internship opportunities    </Abstract>
+						<Tags type="str">analytics data-scientist big-data techniques/methodologies</Tags>
+						<Event type="str">Summer Meeting 2014</Event>
+						<Title type="str">Earth Science Data Analytics (ESDA)</Title>
+					</SessionInformation>
+				</item>
+				<item type="dict">
+					<SessionID type="str">7859</SessionID>
+					<SessionInformation type="dict">
+						<Abstract type="str">Two recent developments in ISO Standards bring important new capabilities to the Earth Science Communitiy:  		The ISO Metadata Standard published during 2003 (ISO 19115) was replaced during 2014 by ISO 19115-1  		The data quality section of ISO 19115 was replaced by ISO 19157 The conceptual models for ISO 19115-1 and ISO 19157 are published International Standards and the XML implementations are in the final stages of development. Both will be released during 2015. This session will focus on how these new standards can help the Earth science community by addressing questions like these and others that emerge from the discussion: Can I migrate my existing metadata to 19115-1? I need to unambiguously identify metadata records in multiple repositories I need to track when changes in my metadata happen I have many existing documentation resources that can help users I have many existing web resources that can help users My datasets include measured parameters, reference and quality information My group uses local parameter names but we need standard names to share There are papers and web pages that describe the quality of my data My data quality information exists in databases or web services. Users increase our understanding of data quality. We need to keep them in the loop</Abstract>
+						<Tags type="str">ISO Metadata Data Quality User Usecase</Tags>
+						<Event type="str">Winter Meeting 2015</Event>
+						<Title type="str">New ISO 19115-1 Capabilities</Title>
+					</SessionInformation>
+				</item>
+				<item type="dict">
+					<SessionID type="str">1528</SessionID>
+					<SessionInformation type="dict">
+						<Abstract type="str">ESIP 101 is an introduction to all things ESIP. A quick overview of the organization, its people and ways you can get involved will be highlighted. This session will help you get acquainted with ESIP leaders and the many acronyms used in our dynamic community. Most important, this session is about providing you with a forum to ask questions about the ESIP Federation and to making sure you spend the rest of your week as an ESIP pro.</Abstract>
+						<Tags type="str"/>
+						<Event type="str">Summer Meeting 2013</Event>
+						<Title type="str">ESIP 101</Title>
+					</SessionInformation>
+				</item>
+				<item type="dict">
+					<SessionID type="str">682</SessionID>
+					<SessionInformation type="dict">
+						<Abstract type="str">There have been a number of recent applications, developments and changes in ISO Standards that are relevant to ESIP.  These include implementations of granule metadata production tools by SMAP, ISO lineage implementations for AMSR-E and several changes to standards: the revision of 19115 and support for xml implementations of that revison, the new data quality implementation (19157), and the revision of 19115-2 (acquisition and instruments) which is coming up in the near future.</Abstract>
+						<Tags type="str">ISO</Tags>
+						<Event type="str">Winter Meeting 2013</Event>
+						<Title type="str">Recent Developments in ISOLand</Title>
+					</SessionInformation>
+				</item>
+			</Sessions>
+		</Conference>
+		<Grants type="list">
+			<item type="dict">
+				<GrantInformation type="dict">
+					<Abstract type="str">The expected national transformation of 21st Century science through cyberinfrastructure (CI) depends on adoption of new CI approaches across many science, technology, engineering and mathematics (STEM) domains. For STEM faculty and researchers who are unfamiliar with CI but are otherwise well prepared, the learning curve to adopt new technology is steep and tools are immature and difficult to use. Key issues are the need for 1) effective processes and mechanisms by which STEM professionals can learn to integrate CI into their work, and 2) development of empirically based theories about the diffusion of CI innovation in research settings so that effective processes and mechanisms can be designed and enacted. This project is developing a synergistic environment that will enable the STEM research community, including graduate students, faculty, and researchers, to engage in life-long, life-wide learning about emerging CI. &amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;The goals of the project are to: create a virtual learning environment focused on techniques for data and information acquisition, management, curation, analysis, visualization, provenance, and discovery; engage local, regional, national and international STEM research and education communities in face-to-face and virtual settings; and continue to develop and extend our understanding, theories, concepts, and models of technology adoption and diffusion of CI innovation in interdisciplinary research settings. The project uses four activities to accomplish its goals: 1) collaborative development of a Virtual Learning Commons (VLC); 2) virtual workshops using videoconference technology and the VLC, 3) face-to-face working meetings, and 4) postdoctoral researcher and graduate student mentoring. All activities integrate research with education through problem-based, experiential learning by communities of practice in the context of real problem solving. &amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;Intellectual Merit. This project will contribute new knowledge about virtual, collaborative learning about CI and through CI, developing a new, CI-enabled learning system. It will generate new communities of CI-enabled professional STEM researchers, in particular those working in the areas of data management, geospatial informatics, and visualization. It will generate new understanding of diffusion of existing and emerging CI innovations in the global STEM research community and new models of interdisciplinary, distributed collaboration between CI researchers and STEM researchers at all professional levels - graduate student to highly experienced. The project will provide a better understanding of interactions between virtual learning environments, communities of practice, and life-long, life-wide learning by researchers. &amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;The project involves an experienced team of CI researchers from the University of Texas at &amp;lt;br/&amp;gt;El Paso (UTEP), University of Kansas (KU), and University of New Mexico (UNM) who are partnering with research communities in science and engineering education, geo-epidemiology, and information management at UNM, Los Alamos National Laboratory (LANL), and the National and International Long Term Ecological Research (LTER) Network. The project builds on models of collaborative learning generated from our previous CI-Team Demonstration and Implementation Projects to accomplish the objectives. &amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;Broader Impacts. This project will have broad impacts within multiple STEM communities traditionally underrepresented in high-end scientific computing, as well as involving underrepresented minorities at two Hispanic Serving Institutions. The project will ensure that Hispanic students in STEM disciplines at UTEP receive the knowledge and skills that enable them to become leaders in CI-enabled STEM research, through mentoring Science and Engineering Educators at UTEP as they learn about and use CI within the VLC -- educating the educators. The project provides a model for moving communities to CI-based approaches that can be replicated in any STEM community. It will generate resources for the broad STEM research community to learn about data management - now a requirement for all NSF programs. It will also generate a new virtual space within which an emerging community of practice engaged in CI Workforce Development may begin to share resources and collaborate.</Abstract>
+					<AwardDate type="str">09/15/2011</AwardDate>
+					<Title type="str">Collaborative Research: CI-Team Diff: The Virtual Learning Commons: STEM Research Communities Learning about Data Management, Geospatial Informatics, and Scientific Visualization</Title>
+				</GrantInformation>
+				<GrantID type="str">1135530</GrantID>
+			</item>
+			<item type="dict">
+				<GrantInformation type="dict">
+					<Abstract type="str">Mechanisms responsible for observed and projected hydrologic change in high-elevation catchments are poorly understood, especially with respect to snowpack dynamics, surface-water/groundwater linkages, and interactions with vegetation. Idaho, Nevada, and New Mexico envision a Western Consortium for Watershed Analysis, Visualization, and Exploration (WC-WAVE) whose overarching goal is to advance watershed science, workforce development, and education with cyberinfrastructure (CI)-enabled discovery and innovation. WC-WAVE has three integrated components, with associated goals and approaches:&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;1. Watershed Science: Advance understanding of hydrologic interactions and their impact on ecosystem services using a virtual watershed (VW) framework. Watershed scientists and students parameterize, run, validate, and integrate watershed models; specify VW user requirements; and provide feedback on the evolving CI platform.&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;2. Visualization and Data CI: Accelerate collaborative, interdisciplinary watershed research and discovery through innovative visualization environments and through streamlined data management, discovery, and access. The CI team develops, tests, deploys and integrates the VW data and service platform components. CI advancements provide a user-friendly VW platform that supports advanced analysis, modeling, and visualization activities and is based on robust CI that enables data preservation, data assimilation, and data and model interoperability.&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;3. Workforce Development and Education: Engage university faculty and graduate students in interdisciplinary team-based watershed research, and broaden undergraduate student participation in STEM through modeling and visualization. The Consortium supports: graduate workforce development through a series of institutes and research activities that provide interdisciplinary training and workforce preparation; and two cohorts of diverse undergraduates and their faculty mentors that acquire and use skills in modeling and visualization to create education modules that can be incorporated into curricula.&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;WC-WAVE collaborations and impacts are sustained beyond the award via collaborative research projects; incorporation of data and models in open-community-based data centers and code repositories; and CI adoption by State programs.&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;Intellectual Merit:&amp;lt;br/&amp;gt;Mountain watersheds provide a large proportion of water and ecosystem services to communities in the intermountain west. Climate change impacts affect the ability of watersheds to provide hydrological services such as water storage, flow moderation, and water quality improvement. Interactions among precipitation, vegetation growth, fire regime, soil moisture, runoff, and other landscape properties create systems in which even subtle changes in climate may lead to complex responses and cascading impacts. Integration of creative observation and analytical strategies using advanced modeling approaches and CI made possible in a virtual watershed framework is critical to understanding and predicting complex responses to climate and hydrologic change. WC-WAVE CI enables increased understanding of watershed dynamics in the western US by allowing researchers to: easily acquire and integrate data, use an integrated suite of models to discover processes linking components of the hydrologic cycle, to identify environmental consequences of hydrologic changes, and to visualize and interpret data and model results. The VW framework capabilities will simulate watershed drivers and dynamics and lead to new discoveries.&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;Broader Impacts:&amp;lt;br/&amp;gt;Immersive virtual reality environments provide platforms that foster interdisciplinary discussion and creative insight into complex scientific questions and enable innovations that result in groundbreaking discoveries. Further, developing three-dimensional thinking skills is an important goal for science education. The Workforce Development and Education program focuses on: (1) implementing an NSF IGERT-like program that prepares graduate students to work in collaborative, interdisciplinary teams to effectively address complex scientific issues, (2) promoting undergraduate faculty professional development and preparing diverse undergraduates for future STEM education and/or employment, and (3) developing education modules that can be incorporated in undergraduate curricula. These activities are leading to a workforce that is prepared to tackle STEM challenges requiring interdisciplinary collaboration and computational thinking skills.</Abstract>
+					<Authors type="list">
+						<item type="str">william michener</item>
+						<item type="str">karl benedict</item>
+						<item type="str">mary jo daniel</item>
+						<item type="str">mark stone</item>
+						<item type="str">daniel cadol</item>
+					</Authors>
+					<AwardDate type="str">08/01/2013</AwardDate>
+					<Title type="str">Collaborative Research: The Western Consortium for Watershed Analysis, Visualization, and Exploration (WC-WAVE)</Title>
+				</GrantInformation>
+				<GrantID type="str">1329470</GrantID>
+			</item>
+		</Grants>
+		<Publications type="list">
+			<item type="dict">
+				<PublicationID type="str">IN53D-1595-2013</PublicationID>
+				<PublicationInformation type="dict">
+					<Keywords type="list">
+						<item type="str">Ontologies</item>
+						<item type="str">Semantic web and semantic integration</item>
+						<item type="str">Scientific reasoning/inference</item>
+					</Keywords>
+					<Text type="str">The Earth, Life, and Semantic Web (ELSEWeb) project aims at developing a semantically enabled service-oriented infrastructure that streamlines the flow of geographic, social, and climate data into and across sets of modeling services. The specific models targeted in ELSEWeb serve as part of the University of Kansas’ Lifemapper system, which projects species’ distributions under different models of climate change. Lifemapper models ingest stacks of geospatial data known as “scenario layer sets,” which provide information about existing or hypothetical environments from which to predict where species may thrive. Prior to Lifemapper ingestion, users must discover and transform relevant data that will comprise layer sets, requiring analysis of metadata descriptions across a plethora of standards. The ELSEWeb infrastructure aims at alleviating manual discovery by introducing a semantic metadata registry from which semantic web tools can leverage, including the SADI orchestration framework (Wilkinson 2011), which coordinates transformations of input geospatial data into scenario layer sets and exposes the results for potential further analysis. Populating the semantic registry required translating a family of industry-standard metadata descriptions including: OGC getCapabilities, FGDC, and CF standard names into the semantic registry model. This work reports on the construction and characteristics of our semantic registry, which currently describes over 6500 services providing a wide variety of environmental data. Additionally, we report on the SADI services that leverage the registry to (1) identify relevant environment data (2) aggregate data into layer sets, and (3) reshape data to fit Lifemapper requirements. Given this automation, users can explore a vast model space more easily—a principal central to the Model Web (Geller and Melton 2008).&amp;lt;br /&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;BR&amp;gt;&amp;lt;img border=0 src=&amp;quot;/resources/meetings/fm13/images/IN53D-1595_A.jpg&amp;quot;&amp;gt;&amp;lt;br&amp;gt;
+ELSEWeb Data Flow&amp;lt;br&amp;gt;
+&amp;lt;BR&amp;gt;&amp;lt;img border=0 src=&amp;quot;/resources/meetings/fm13/images/IN53D-1595_B.jpg&amp;quot;&amp;gt;&amp;lt;br&amp;gt;
+Lifemapper Model Result&amp;lt;br&amp;gt;&amp;lt;br&amp;gt;@en</Text>
+					<Year type="str">2013</Year>
+					<Authors type="list">
+						<item type="list">
+							<item type="str">villanueva-rosales, n</item>
+							<item type="str">nvillanuevarosales@utep.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">hudspeth, w</item>
+							<item type="str">bhudspeth@edac.unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">stewart, a</item>
+							<item type="str">astewart@ku.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">grady, c</item>
+							<item type="str">cjgrady@ku.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">benedict, k</item>
+							<item type="str">kbene@edac.unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">scott, s</item>
+							<item type="str">sscott@edac.unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">gandara, a</item>
+							<item type="str">ndel2@miners.utep.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">bohls-graham, e</item>
+							<item type="str">ddpennington@utep.edu</item>
+						</item>
+					</Authors>
+				</PublicationInformation>
+			</item>
+			<item type="dict">
+				<PublicationID type="str">IN23B-3735-2014</PublicationID>
+				<PublicationInformation type="dict">
+					<Keywords type="list">
+						<item type="str">Computational models, algorithms</item>
+						<item type="str">Software tools and services</item>
+						<item type="str">Modeling</item>
+						<item type="str">Software re-use</item>
+					</Keywords>
+					<Text type="str">The NSF, in an effort to support the creation of sustainable science software, funded 16 science software institute conceptualization efforts. The goal of these conceptualization efforts is to explore approaches to creating the institutional, sociological, and physical infrastructures to support sustainable science software. This paper will present the lessons learned from two of these conceptualization efforts, the Institute for Sustainable Earth and Environmental Software (ISEES - http://isees.nceas.ucsb.edu) and the Water Science Software Institute (WSSI - http://waters2i2.org). ISEES is a multi-partner effort led by National Center for Ecological Analysis and Synthesis (NCEAS). WSSI, also a multi-partner effort, is led by the Renaissance Computing Institute (RENCI). The two conceptualization efforts have been collaborating due to the complementarity of their approaches and given the potential synergies of their science focus. ISEES and WSSI have engaged in a number of activities to address the challenges of science software such as workshops, hackathons, and coding efforts. More recently, the two institutes have also collaborated on joint activities including training, proposals, and papers. In addition to presenting lessons learned, this paper will synthesize across the two efforts to project a unified vision for a science software institute.@en</Text>
+					<Year type="str">2014</Year>
+					<Authors type="list">
+						<item type="list">
+							<item type="str">jones, m</item>
+							<item type="str">jones@nceas.ucsb.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">idaszak, r</item>
+							<item type="str">rayi@renci.org</item>
+						</item>
+						<item type="list">
+							<item type="str">benedict, k</item>
+							<item type="str">clenhardt@renci.org</item>
+						</item>
+						<item type="list">
+							<item type="str">ahalt, s</item>
+							<item type="str">ahalt@renci.org</item>
+						</item>
+						<item type="list">
+							<item type="str">slaughter, p</item>
+							<item type="str">mark.schildhauer@gmail.com</item>
+						</item>
+						<item type="list">
+							<item type="str">hampton, s</item>
+							<item type="str">hampton@nceas.ucsb.edu</item>
+						</item>
+					</Authors>
+				</PublicationInformation>
+			</item>
+			<item type="dict">
+				<PublicationID type="str">IN12A-04-2011</PublicationID>
+				<PublicationInformation type="dict">
+					<Keywords type="list">
+						<item type="str">High-performance computing</item>
+						<item type="str">Forecasting</item>
+						<item type="str">Geospatial</item>
+					</Keywords>
+					<Text type="str">Both environmental and human challenges, such as natural disasters, require scientifically sound simulations of physical phenomena to better understand the past and to better predict future trends for improved decision support. However, many scientific simulations cannot be processed using a single computer and require computing capability from many distributed computers. The research will explore how to utilize spatiotemporal patterns of phenomena, models and computing resources to improve the performance of dust storm forecasting. Additionally, the loosely-coupled nesting of two models is proposed to support dust storm forecasting for a large area and high resolution to support geospatial decision-making. Within this approach, a dust storm model (ETA-8bin) performs a quick forecasting with low spatial resolution (50 km) to identify hotspots with high dust concentration. Afterward, a finer model NMM-dust will perform high resolution (3km) forecasting over the hotspot areas in parallel with much smaller size and therefore requiring much less computing power. This research eventually enabled computability of high resolution dust storm forecasting by enabling the interoperable and loosely-coupling nested execution of the two models ETA-8bin and NMM-dust.@en</Text>
+					<Year type="str">2011</Year>
+					<Authors type="list">
+						<item type="list">
+							<item type="str">huang, q</item>
+							<item type="str">qhuang1@gmu.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">benedict, k</item>
+							<item type="str">kbene@edac.unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">yang, c</item>
+							<item type="str">cyang3@gmu.edu</item>
+						</item>
+					</Authors>
+				</PublicationInformation>
+			</item>
+			<item type="dict">
+				<PublicationID type="str">IN31B-1506-2013</PublicationID>
+				<PublicationInformation type="dict">
+					<Keywords type="list">
+						<item type="str">Coupled models of the climate system</item>
+						<item type="str">Monitoring, forecasting, prediction</item>
+						<item type="str">Data assimilation, integration and fusion</item>
+						<item type="str">Aerosols and particles</item>
+					</Keywords>
+					<Text type="str">Dust storm is a meteorological phenomenon with high dust concentration and strong striking force affecting transportation and causing disease. Considering the negative impacts of dust storm, the accuracy of dust storm forecasting is critical for, especially, responding to the emergencies. However, it is challenge to validating the forecasting limited by availability of observation data. The complexity is partially caused by the inconsistency in spatial and temporal resolutions between model simulation and field observation. In addition, the accuracy and reliability of observation data are not guaranteed. Therefore, in order to complement observation data in terms of temporal resolution and enhance the accuracy of observation data, validation methods should be based on data assimilation between satellite and ground-based observations. The dust storm simulation and forecasting model, NMM-dust, coupling Dust Regional Atmospheric Model (DREAM) and Non-hydrostatic Mesoscale Model (NMM) meteorological module, produces higher resolution results for weather forecasting and enabling executability in parallel mode on distributed systems. So far, NMM-dust has been validated in the southwestern US only by comparison with measurement from AIRNOW data and with barely acceptable results. Observation data used for validation includes MODIS and SeaWiFS Deep Blue aerosol products, and ground-based observations from EPA-AQS. Results from comparisons between satellite data and model output show similar dust distribution patterns. Besides, the temporal resolution of satellite data is improved by using both MODIS and SeaWiFS. Quantitative analysis including time-series analysis and diagnose analysis are also examined to investigate the stability and consistency of the model.@en</Text>
+					<Year type="str">2013</Year>
+					<Authors type="list">
+						<item type="list">
+							<item type="str">yu, m</item>
+							<item type="str">myu7@gmu.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">benedict, k</item>
+							<item type="str">kbene@edac.unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">huang, q</item>
+							<item type="str">qhuang1@gmu.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">gui, z</item>
+							<item type="str">Zhipeng.Gui@gmail.com</item>
+						</item>
+						<item type="list">
+							<item type="str">xia, j</item>
+							<item type="str">jxia3@gmu.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">chen, s</item>
+							<item type="str">sqchen@cs.gmu.edu</item>
+						</item>
+					</Authors>
+				</PublicationInformation>
+			</item>
+			<item type="dict">
+				<PublicationID type="str">IN23B-1430-2013</PublicationID>
+				<PublicationInformation type="dict">
+					<Keywords type="list">
+						<item type="str">INFORMATICS</item>
+						<item type="str">Emerging informatics technologies</item>
+						<item type="str">Data and information governance</item>
+						<item type="str">Social networks</item>
+					</Keywords>
+					<Text type="str">A critical part of effective Earth science data and information system interoperability involves collaboration across geographically and temporally distributed communities. The Federation of Earth Science Information Partners (ESIP) is a broad-based, distributed community of science, data and information technology practitioners from across science domains, economic sectors and the data lifecycle. ESIP’s open, participatory structure provides a melting pot for coordinating around common areas of interest, experimenting on innovative ideas and capturing and finding best practices and lessons learned from across the network. Since much of ESIP’s work is distributed, the Foundation for Earth Science was established as a non-profit home for its supportive collaboration infrastructure. The infrastructure leverages the Internet and recent advances in collaboration web services. ESIP provides neutral space for self-governed groups to emerge around common Earth science data and information issues, ebbing and flowing as the need for them arises. As a group emerges, the Foundation quickly equips the virtual workgroup with a set of ‘commodity services’. These services include: web meeting technology (Webex), a wiki and an email listserv. WebEx allows the group to work synchronously, dynamically viewing and discussing shared information in real time. The wiki is the group’s primary workspace and over time creates organizational memory. The listserv provides an inclusive way to email the group and archive all messages for future reference. These three services lower the startup barrier for collaboration and enable automatic content preservation to allow for future work. While many of ESIP’s consensus-building activities are discussion-based, the Foundation supports an ESIP testbed environment for exploring and evaluating prototype standards, services, protocols, and best practices. After community review of testbed proposals, the Foundation provides small seed funding and a toolbox of collaborative development resources including Amazon Web Services to quickly spin-up the testbed instance and a GitHub account for maintaining testbed project code enabling reuse. Recently, the Foundation supported development of the ESIP Commons (http://commons.esipfed.org), a Drupal-based knowledge repository for non-traditional publications to preserve community products and outcomes like white papers, posters and proceedings. The ESIP Commons adds additional structured metadata, provides attribution to contributors and allows those unfamiliar with ESIP a straightforward way to find information. The success of ESIP Federation activities is difficult to measure. The ESIP Commons is a step toward quantifying sponsor return on investment and is one dataset used in network map analysis of the ESIP community network, another success metric. Over the last 15 years, ESIP has continually grown and attracted experts in the Earth science data and informatics field becoming a primary locus of research and development on the application and evolution of Earth science data standards and conventions. As funding agencies push toward a more collaborative approach, the lessons learned from ESIP and the collaboration services themselves are a crucial component of supporting science research.@en</Text>
+					<Year type="str">2013</Year>
+					<Authors type="list">
+						<item type="list">
+							<item type="str">benedict, k</item>
+							<item type="str">kbene@edac.unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">lenhardt, w</item>
+							<item type="str">erinrobinson@esipfed.org</item>
+						</item>
+						<item type="list">
+							<item type="str">meyer, c</item>
+							<item type="str">carolbmeyer@esipfed.org</item>
+						</item>
+					</Authors>
+				</PublicationInformation>
+			</item>
+			<item type="dict">
+				<PublicationID type="str">IN32A-04-2010</PublicationID>
+				<PublicationInformation type="dict">
+					<Keywords type="list">
+						<item type="str">Interoperability</item>
+						<item type="str">Modeling</item>
+						<item type="str">Data assimilation, integration and fusion</item>
+						<item type="str">GIS science</item>
+					</Keywords>
+					<Text type="str">The availability of high-speed research networks such as the US National Lambda Rail and the GÉANT network, scalable on-demand commodity computing resources provided by public and private &amp;quot;cloud&amp;quot; computing systems, and increasing demand for rapid access to the products of environmental models for both research and public policy development contribute to a growing need for the evaluation and development of environmental modeling systems that distribute processing, storage, and data delivery capabilities between network connected systems. In an effort to address the feasibility of developing a standards-based distributed modeling system in which model execution systems are physically separate from data storage and delivery systems, the research project presented in this paper developed a distributed dust forecasting system in which two nested atmospheric dust models are executed at George Mason University (GMU, in Fairfax, VA) while data and model output processing services are hosted at the University of New Mexico (UNM, in Albuquerque, NM). Exchange of model initialization and boundary condition parameters between the servers at UNM and the model execution systems at GMU is accomplished through Open Geospatial Consortium (OGC) Web Coverage Services (WCS) and Web Feature Services (WFS) while model outputs are pushed from GMU systems back to UNM using a REST web service interface. In addition to OGC and non-OGC web services for exchange between UNM and GMU, the servers at UNM also provide access to the input meteorological model products, intermediate and final dust model outputs, and other products derived from model outputs through OGC WCS, WFS, and OGC Web Map Services (WMS). The performance of the nested versus non-nested models is assessed in this research, with the results of the performance analysis providing the core content of the produced feasibility study.&amp;lt;br /&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;BR&amp;gt;&amp;lt;img class=&amp;quot;jpg&amp;quot; border=0 width=600px src=&amp;quot;http://www.agu.org/meetings/fm10/program/images/IN32A-04_A.jpg&amp;quot;&amp;gt;&amp;lt;br&amp;gt;
+System integration diagram illustrating the storage and service platforms hosted at the Earth Data Analysis Center and the modeling systems hosted at George Mason University&amp;lt;br&amp;gt;@en</Text>
+					<Year type="str">2010</Year>
+					<Authors type="list">
+						<item type="list">
+							<item type="str">huang, q</item>
+							<item type="str">qhuang1@gmu.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">benedict, k</item>
+							<item type="str">kbene@edac.unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">yang, c</item>
+							<item type="str">cyang3@gmu.edu</item>
+						</item>
+					</Authors>
+				</PublicationInformation>
+			</item>
+			<item type="dict">
+				<PublicationID type="str">IN13B-1504-2012</PublicationID>
+				<PublicationInformation type="dict">
+					<Keywords type="list">
+						<item type="str">Data management, preservation, rescue</item>
+						<item type="str">Cyberinfrastructure</item>
+						<item type="str">Software tools and services</item>
+						<item type="str">Geospatial</item>
+					</Keywords>
+					<Text type="str">There is no shortage of community-specific and generic data discovery and download platforms and protocols (e.g. CUAHSI HIS, DataONE, GeoNetwork Open Source, GeoPortal, OGC CSW, OAI PMH), documentation standards (e.g. FGDC, ISO 19115, EML, Dublin Core), data access and visualization standards and models (e.g. OGC WxS, OpenDAP), and general-purpose web service models (i.e. REST &amp;amp; SOAP) upon which Geo-informatics cyberinfrastructure (CI) may be built. When attempting to develop a robust platform that may service a wide variety of users and use cases the challenge is one of identifying which existing platform (if any) may support those current needs while also allowing for future expansion for additional capabilities. In the case of the implementation of a data storage, discovery and delivery platform to support the multiple projects at the Earth Data Analysis Center at UNM, no single platform or protocol met the joint requirements of two initial applications (the New Mexico Resource Geographic Information System [http://rgis.unm.edu] and the New Mexico EPSCoR Data Portal [http://nmepscor.org/dataportal]) and furthermore none met anticipated additional requirements as new applications of the platform emerged. As a result of this assessment three years ago EDAC embarked on the development of the Geographic Storage, Transformation, and Retrieval Engine (GSToRE) platform as a general purpose platform upon which n-tiered geospatially enabled data intensive applications could be built. When initially released in 2010 the focus was on the publication of dynamically generated Open Geospatial Consortium services based upon a PostgreSQL/PostGIS backend database. The identification of additional service interface requirements (implementation of the DataONE API and CUAHSI WaterML services), use cases provided by the NM EPSCoR education working group, and expanded metadata publication needs have led to a significant update to the underlying data management tier for GSToRE - the implementation of a hybrid relational (PostgreSQL/PostGIS) and document-based database (MongoDB) model in which core geospatial data (feature geometries) and related metadata are stored within the relational environment and attributes associated with those features are stored within the document-based database. This paper presents the current hybrid data management model and highlights the pros and cons of custom platform development as an alternative to building upon existing systems.@en</Text>
+					<Year type="str">2012</Year>
+					<Authors type="list">
+						<item type="list">
+							<item type="str">scott, s</item>
+							<item type="str">sscott@edac.unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">benedict, k</item>
+							<item type="str">kbene@edac.unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">hudspeth, w</item>
+							<item type="str">bhudspeth@edac.unm.edu</item>
+						</item>
+					</Authors>
+				</PublicationInformation>
+			</item>
+			<item type="dict">
+				<PublicationID type="str">IN33A-1453-2011</PublicationID>
+				<PublicationInformation type="dict">
+					<Keywords type="list">
+						<item type="str">INFORMATICS</item>
+						<item type="str">Data management, preservation, rescue</item>
+						<item type="str">Standards</item>
+						<item type="str">Metadata</item>
+					</Keywords>
+					<Text type="str">The richness and flexibility of the ISO 19115 metadata standard for documenting Earth Science data has the potential to provide support for numeroius applications beyond the traditional discovery and use scenarios commonly associated with metadata. The Tri-State (Nevada, New Mexico, Idaho) NSF EPSCoR project is pursuing such an alternative application of the ISO Metadata content model - one in which targeted data replication between individual data repositories in the three states is enabled through a specifically defined collection and granule metadata content model. The developed metadata model includes specific ISO 19115 elements that enable: - “flagging” of specific collections or granules for replication - documenting lineage (the relationship between “authoritative” source data and data replicas) - verification of data fidelity through standard cryptographic methods - extension of collection and granual metadata to reflect additonal data download and services provided by distributed data replicas While the mechanics of the replication model within each state are dependent upon the specific systems, software, and storage capabilities within the individual repositories, the adoption of a common XML metadata model (ISO 19139) and the use of a broadly supported version control system (Subversion) as the core storage system for the shared metadata provides a long-term platform upon which each state in the consortium can build. This paper presents the preliminary results of the implementation of the system across all three states, and will include a discussion of the specific ISO 19115 elements that contribute to the system, experience in using Subversion as a metadata versioning system, and lessons learned in the development of this loosely-coupled data replication system.&amp;lt;br /&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;BR&amp;gt;&amp;lt;img class=&amp;quot;jpg&amp;quot; border=0 width=600px src=&amp;quot;http://www.agu.org/meetings/fm11/program/images/IN33A-1453_A.jpg&amp;quot;&amp;gt;&amp;lt;br&amp;gt;
+Diagram illustrating the interoperability standards defined as the foci for the Tri-state EPSCoR Consortium.&amp;lt;br&amp;gt;@en</Text>
+					<Year type="str">2011</Year>
+					<Authors type="list">
+						<item type="list">
+							<item type="str">benedict, k</item>
+							<item type="str">kbene@edac.unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">sheneman, l</item>
+							<item type="str">sheneman@uidaho.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">gollberg, g</item>
+							<item type="str">gollberg@uidaho.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">dascalu, s</item>
+							<item type="str">dascalus@cse.unr.edu</item>
+						</item>
+					</Authors>
+				</PublicationInformation>
+			</item>
+			<item type="dict">
+				<PublicationID type="str">IN23B-3731-2014</PublicationID>
+				<PublicationInformation type="dict">
+					<Keywords type="list">
+						<item type="str">Computational models, algorithms</item>
+						<item type="str">Software tools and services</item>
+						<item type="str">Modeling</item>
+						<item type="str">Software re-use</item>
+					</Keywords>
+					<Text type="str">Science software is integral to the scientific process and must be developed and managed in a sustainable manner to ensure future access to scientific data and related resources. Organizations that are part of the scientific enterprise, as well as members of the scientific community who work within these entities, can contribute to the sustainability of science software and to practices that improve scientific community capabilities for science software sustainability. As science becomes increasingly digital and therefore, dependent on software, improving community practices for sustainable science software will contribute to the sustainability of science. Members of the Earth science informatics community, including scientific data producers and distributers, end-user scientists, system and application developers, and data center managers, use science software regularly and face the challenges and the opportunities that science software presents for the sustainability of science. To gain insight on practices needed for the sustainability of science software from the science software experiences of the Earth science informatics community, an interdisciplinary group of 300 community members were asked to engage in simultaneous roundtable discussions and report on their answers to questions about the requirements for improving scientific software sustainability. This paper will present an analysis of the issues reported and the conclusions offered by the participants. These results provide perspectives for science software sustainability practices and have implications for actions that organizations and their leadership can initiate to improve the sustainability of science software.@en</Text>
+					<Year type="str">2014</Year>
+					<Authors type="list">
+						<item type="list">
+							<item type="str">downs, r</item>
+							<item type="str">rdowns@ciesin.columbia.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">benedict, k</item>
+							<item type="str">clenhardt@renci.org</item>
+						</item>
+						<item type="list">
+							<item type="str">keane, c</item>
+							<item type="str">erinrobinson@esipfed.org</item>
+						</item>
+					</Authors>
+				</PublicationInformation>
+			</item>
+			<item type="dict">
+				<PublicationID type="str">IN43B-1519-2012</PublicationID>
+				<PublicationInformation type="dict">
+					<Keywords type="list">
+						<item type="str">Cyberinfrastructure</item>
+						<item type="str">Semantic web and semantic integration</item>
+						<item type="str">Workflow</item>
+					</Keywords>
+					<Text type="str">The Earth Data Analysis Center (EDAC) at the University of New Mexico is partnering with the CYBERShARE and Environmental Health Group from the Center for Environmental Resource Management (CERM), located at the University of Texas, El Paso (UTEP), the Biodiversity Institute at the University of Kansas (KU), and the New Mexico Geo- Epidemiology Research Network (GERN) to provide a technical infrastructure that enables investigation of a variety of climate-driven human/environmental systems. Two significant goals of this NASA-funded project are: a) to increase the use of NASA Earth observational data at EDAC by various modeling communities through enabling better discovery, access, and use of relevant information, and b) to expose these communities to the benefits of provenance for improving understanding and usability of heterogeneous data sources and derived model products. To realize these goals, EDAC has leveraged the core capabilities of its Geographic Storage, Transformation, and Retrieval Engine (Gstore) platform, developed with support of the NSF EPSCoR Program. The Gstore geospatial services platform provides general purpose web services based upon the REST service model, and is capable of data discovery, access, and publication functions, metadata delivery functions, data transformation, and auto-generated OGC services for those data products that can support those services. Central to the NASA ACCESS project is the delivery of geospatial metadata in a variety of formats, including ISO 19115-2/19139, FGDC CSDGM, and the Proof Markup Language (PML). This presentation details the extraction and persistence of relevant metadata in the Gstore data store, and their transformation into multiple metadata formats that are increasingly utilized by the geospatial community to document not only core library catalog elements (e.g. title, abstract, publication data, geographic extent, projection information, and database elements), but also the processing steps used to generate derived modeling products. In particular, we discuss the generation and service delivery of provenance, or trace of data sources and analytical methods used in a scientific analysis, for archived data. We discuss the workflows developed by EDAC to capture end-to-end provenance, the storage model for those data in a delivery format independent data structure, and delivery of PML, ISO, and FGDC documents to clients requesting those products.@en</Text>
+					<Year type="str">2012</Year>
+					<Authors type="list">
+						<item type="list">
+							<item type="str">hudspeth, w</item>
+							<item type="str">bhudspeth@edac.unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">benedict, k</item>
+							<item type="str">kbene@edac.unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">scott, s</item>
+							<item type="str">sscott@edac.unm.edu</item>
+						</item>
+					</Authors>
+				</PublicationInformation>
+			</item>
+			<item type="dict">
+				<PublicationID type="str">IN51C-03-2009</PublicationID>
+				<PublicationInformation type="dict">
+					<Keywords type="list">
+						<item type="str">Interoperability</item>
+						<item type="str">Cyberinfrastructure</item>
+						<item type="str">GIS science</item>
+						<item type="str">Web Services</item>
+					</Keywords>
+					<Text type="str">The rapid growth of geospatial data volume and number of sources has highlighted the need for, and spurred the growth and adoption of interoperable geospatial data services. For nearly a decade the Earth Data Analysis Center at The University of New Mexico has been developing standards-based geospatial data management systems based upon a core collection of Open Source technologies, with the collection of employed technologies contributing to a unified information architecture that is enabled by interoperability standards. These technologies include geodatabases (PostGIS), geospatial data access libraries and associated utility programs (GDAL and OGR), scripting languages that enable automated data processing and management (Python), online mapping servers (MapServer), online mapping (OpenLayers, MapFish, GeoEXT), and desktop GIS applications (uDig, QGIS, and GRASS). The interoperability standards upon which EDAC's geospatial information architectures are built include those coming out of the Open Geospatial Consortium (WMS, WFS, WCS, KML, GML), the World Wide Web Consortium (HTML, CSS, SOAP, XML), and ECMA (ECMAscript AKA Javascript). This paper outlines the complementary roles that these various Open Source applications play in the multi-tiered Services Oriented Architectures developed by EDAC in support of a variety of projects, and provides an illustration of how the capabilities enabled by these technologies are interconnected using well-defined open standards. These capabilities include data ingest and query services that support searching for data content based upon keywords and defined spatial extent. They also include data administration services that support data product ingest and registration, data product modification, and deletion from the data registry. Finally, the system supports dynamic generation of Open Geospatial Consortium services for each geospatial data product in the system, enabling integration of data from the system into a wide variety of desktop and Internet mapping and analysis applications.&amp;lt;br /&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;BR&amp;gt;&amp;lt;img class=&amp;quot;jpg&amp;quot; border=0 width=600px src=&amp;quot;http://www.agu.org/meetings/fm09/program/images/IN51C-03_A.jpg&amp;quot;&amp;gt;&amp;lt;br&amp;gt;
+NM Resource Geographic Information System Spatial Search Interface@en</Text>
+					<Year type="str">2009</Year>
+					<Authors type="list">
+						<item type="list">
+							<item type="str">benedict, k</item>
+							<item type="str">kbene@edac.unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">cavner, j</item>
+							<item type="str">jcavner@edac.unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">sanchez-silva, r</item>
+							<item type="str">renzo@edac.unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">hudspeth, w</item>
+							<item type="str">wbhk@unm.edu</item>
+						</item>
+					</Authors>
+				</PublicationInformation>
+			</item>
+			<item type="dict">
+				<PublicationID type="str">IN53A-1608-2011</PublicationID>
+				<PublicationInformation type="dict">
+					<Keywords type="list">
+						<item type="str">Interoperability</item>
+						<item type="str">Data and information discovery</item>
+						<item type="str">Geospatial</item>
+					</Keywords>
+					<Text type="str">New Mexico EPSCoR (NM EPSCoR) is a multi-faceted program aimed at improving New Mexico’s capacity to carry out scientific research. Funded by the National Science Foundation, the current project focuses on science research into the impacts of climate change on mountain sources of water in northern New Mexico. It does so by investing in the state's research infrastructure, cyber-infrastructure, and human infrastructure. The goal is to provide the tools necessary to a quantitative, science-driven discussion of difficult water policy options facing the state in the future. This report discusses the leadership role taken by the Earth Data Analysis Center, University of New Mexico in developing computational interoperability capacity that will allow for wider use and sharing of climate data. Two linked activities are described. First we evaluate the challenges of integrating a highly diverse collection of climate data, from a variety of researchers in the state, into the Geographic Storage Transformation and Retrieval Engine (GSTORE), a distributed platform aimed to provide large-scale vector and raster data discovery, subsetting, and delivery via web services, mainly based on Open Geospatial Consortium (OGC) and REST web service standards. In the State of New Mexico, the platform has been successfully implemented using a variety of Open Source tools and deployed on multi-terabyte data repositories including the Resource Geographic Information System (RGIS) clearinghouse and the NM ESPCoR/NSF Science data portal. Second, while FGDC compliant metadata is required for every dataset, many datasets for EPSCoR have been created without metadata. We report on the iterative, collaborative steps between various climate researchers and EDAC staff in building metadata templates that can facilitate the rapid ingest of new data into the GSTORE archive.@en</Text>
+					<Year type="str">2011</Year>
+					<Authors type="list">
+						<item type="list">
+							<item type="str">hudspeth, w</item>
+							<item type="str">bhudspeth@edac.unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">sanchez-silva, r</item>
+							<item type="str">renzo@edac.unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">benedict, k</item>
+							<item type="str">kbene@edac.unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">gleasner, l</item>
+							<item type="str">lgleasner@edac.unm.edu</item>
+						</item>
+					</Authors>
+				</PublicationInformation>
+			</item>
+			<item type="dict">
+				<PublicationID type="str">IN34A-03-2013</PublicationID>
+				<PublicationInformation type="dict">
+					<Keywords type="list">
+						<item type="str">Interoperability</item>
+						<item type="str">Standards</item>
+						<item type="str">Geospatial</item>
+						<item type="str">Metadata</item>
+					</Keywords>
+					<Text type="str">While there has been a convergence towards a limited number of standards for representing knowledge (metadata) about geospatial (and other) data objects and collections, there exist a variety of community conventions around the specific use of those standards and within specific data discovery and access systems. This combination of limited (but multiple) standards and conventions creates a challenge for system developers that aspire to participate in multiple data infrastrucutres, each of which may use a different combination of standards and conventions. While Extensible Markup Language (XML) is a shared standard for encoding most metadata, traditional direct XML transformations (XSLT) from one standard to another often result in an imperfect transfer of information due to incomplete mapping from one standard's content model to another. This paper presents the work at the University of New Mexico's Earth Data Analysis Center (EDAC) in which a unified data and metadata management system has been developed in support of the storage, discovery and access of heterogeneous data products. This system, the Geographic Storage, Transformation and Retrieval Engine (GSTORE) platform has adopted a polyglot database model in which a combination of relational and document-based databases are used to store both data and metadata, with some metadata stored in a custom XML schema designed as a superset of the requirements for multiple target metadata standards: ISO 19115-2/19139/19110/19119, FGCD CSDGM (both with and without remote sensing extensions) and Dublin Core. Metadata stored within this schema is complemented by additional service, format and publisher information that is dynamically &amp;quot;injected&amp;quot; into produced metadata documents when they are requested from the system. While mapping from the underlying common metadata schema is relatively straightforward, the generation of valid metadata within each target standard is necessary but not sufficient for integration into multiple data infrastructures, as has been demonstrated through EDAC's testing and deployment of metadata into multiple external systems: Data.Gov, the GEOSS Registry, the DataONE network, the DSpace based institutional repository at UNM and semantic mediation systems developed as part of the NASA ACCESS ELSeWEB project. Each of these systems requires valid metadata as a first step, but to make most effective use of the delivered metadata each also has a set of conventions that are specific to the system. This presentation will provide an overview of the underlying metadata management model, the processes and web services that have been developed to automatically generate metadata in a variety of standard formats and highlight some of the specific modifications made to the output metadata content to support the different conventions used by the multiple metadata integration endpoints.@en</Text>
+					<Year type="str">2013</Year>
+					<Authors type="list">
+						<item type="list">
+							<item type="str">benedict, k</item>
+							<item type="str">kbene@edac.unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">scott, s</item>
+							<item type="str">sscott@edac.unm.edu</item>
+						</item>
+					</Authors>
+				</PublicationInformation>
+			</item>
+			<item type="dict">
+				<PublicationID type="str">IN51B-3779-2014</PublicationID>
+				<PublicationInformation type="dict">
+					<Keywords type="list">
+						<item type="str">Data assimilation, integration and fusion</item>
+						<item type="str">Cyberinfrastructure</item>
+						<item type="str">Machine learning</item>
+						<item type="str">Semantic web and semantic integration</item>
+					</Keywords>
+					<Text type="str">The data life cycle has figured prominently in describing the context of digital scientific data stewardship and cyberinfractructure in support of science. There are many different versions of the data life cycle, but they all follow a similar basic pattern: plan, collect, ingest, asses, preserve, discover, and reuse. The process is often interpreted in a fairly linear fashion despite it being a cycle conceptually. More recently at GeoData 2014 and elsewhere, questions have been raised about the utility of the data life cycle as it is currently represented. We are proposing to the community a re-examination of the data life cycle using an agile lens. Our goal is not to deploy agile methods, but to use agile principles as a heuristic to think about how to incorporate data stewardship across the scientific process from proposal stage to research and beyond. We will present alternative conceptualizations of the data life cycle with a goal to solicit feedback and to develop a new model for conceiving and describing the overall data stewardship process. We seek to re-examine past assumptions and shed new light on the challenges and necessity of data stewardship. The ultimate goal is to support new science through enhanced data interoperability, usability, and preservation.@en</Text>
+					<Year type="str">2014</Year>
+					<Authors type="list">
+						<item type="list">
+							<item type="str">young, j</item>
+							<item type="str">jwyoung@unidata.ucar.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">benedict, k</item>
+							<item type="str">kbene@unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">parsons, m</item>
+							<item type="str">parsom3@rpi.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">benedict, k</item>
+							<item type="str">clenhardt@renci.org</item>
+						</item>
+					</Authors>
+				</PublicationInformation>
+			</item>
+			<item type="dict">
+				<PublicationID type="str">IN51C-1594-2011</PublicationID>
+				<PublicationInformation type="dict">
+					<Keywords type="list">
+						<item type="str">Data management, preservation, rescue</item>
+						<item type="str">Software re-use</item>
+						<item type="str">Modeling</item>
+						<item type="str">Software tools and services</item>
+					</Keywords>
+					<Text type="str">All computation-intensive scientific research uses structured datasets, including hydrology and all other types of climate-related research. When it comes to testing their hypotheses, researchers might use the same dataset differently, and modify, transform, or convert it to meet their research needs. Currently, many researchers spend a good amount of time performing data processing and building tools to speed up this process. They might routinely repeat the same process activities for new research projects, spending precious time that otherwise could be dedicated to analyzing and interpreting the data. Numerous tools are available to run tests on prepared datasets and many of them work with datasets in different formats. However, there is still a significant need for applications that can comprehensively handle data transformation and conversion activities and help prepare the various processed datasets required by the researchers. We propose a web-based application (a software toolkit) that dynamically generates data processors capable of performing data conversions, transformations, and customizations based on user-defined mappings and selections. As a first step, the proposed solution allows the users to define various data structures and, in the next step, can select various file formats and data conversions for their datasets of interest. In a simple scenario, the core of the proposed web-based toolkit allows the users to define direct mappings between input and output data structures. The toolkit will also support defining complex mappings involving the use of pre-defined sets of mathematical, statistical, date/time, and text manipulation functions. Furthermore, the users will be allowed to define logical cases for input data filtering and sampling. At the end of the process, the toolkit is designed to generate reusable source code and executable binary files for download and use by the scientists. The application is also designed to store all data structures and mappings defined by a user (an author), and allow the original author to modify them using standard authoring techniques. The users can change or define new mappings to create new data processors for download and use. In essence, when executed, the generated data processor binary file can take an input data file in a given format and output this data, possibly transformed, in a different file format. If they so desire, the users will be able modify directly the source code in order to define more complex mappings and transformations that are not currently supported by the toolkit. Initially aimed at supporting research in hydrology, the toolkit’s functions and features can be either directly used or easily extended to other areas of climate-related research. The proposed web-based data processing toolkit will be able to generate various custom software processors for data conversion and transformation in a matter of seconds or minutes, saving a significant amount of researchers’ time and allowing them to focus on core research issues.@en</Text>
+					<Year type="str">2011</Year>
+					<Authors type="list">
+						<item type="list">
+							<item type="str">benedict, k</item>
+							<item type="str">kbene@edac.unm.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">patel, j</item>
+							<item type="str">jigar.cse@gmail.com</item>
+						</item>
+						<item type="list">
+							<item type="str">sheneman, l</item>
+							<item type="str">sheneman@uidaho.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">dascalu, s</item>
+							<item type="str">dascalus@cse.unr.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">gollberg, g</item>
+							<item type="str">gollberg@uidaho.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">harris, f</item>
+							<item type="str">fredh@cse.unr.edu</item>
+						</item>
+					</Authors>
+				</PublicationInformation>
+			</item>
+			<item type="dict">
+				<PublicationID type="str">IN51D-1708-2012</PublicationID>
+				<PublicationInformation type="dict">
+					<Keywords type="list">
+						<item type="str">Knowledge representation and knowledge bases</item>
+						<item type="str">GIS science</item>
+						<item type="str">Ontologies</item>
+						<item type="str">Semantic web and semantic integration</item>
+					</Keywords>
+					<Text type="str">There are few data analysis services capable of understanding and consuming data coming from multiple data access services. This lack of interoperability between data access services and data analysis services is indeed a major roadblock for science because it prevents the reuse and repurposing of both data and analytical software to support new scientific discoveries. In this presentation, we discuss this problem in light of the Earth, Life, and Semantic Web (ELSEWEB) project funded through NASA’s ACCESS Program. The project uses the University of Kansas’ Lifemapper system as its analytical Web Service platform, which models potential future species distributions under scenarios of climate change. In an effort to broaden the range of scenarios to include land cover/land use change, ELSEWEB aims to streamline the flow of highly heterogeneous geographic, social, and geological data hosted at UNM’s Earth Data Analysis Center (EDAC) through a collection of OGC Web Coverage Services into Lifemapper. In turn, this integration will enable new modeling of complex factors associated with biotic change such as health and infectious disease, that depend not only on climate change and species distributions, but also on other human/environmental interactions. In this presentation we discuss the integration of Lifemapper and EDAC data and model services, provided by a third party semantic system, known as VisKo, that (1) translates Lifemapper data requirements to EDAC service invocations and (2) pipes the data output from EDAC into Lifemapper. VisKo is supported by a knowledge base of web service descriptions that contains information about interface requirements as well as invocation details, including service parameters. VisKo ontologies are designed to capture the knowledge required by the system to orchestrate and execute service pipelines that perform scientist’s required computation. The ELSEWEB project also aims to expand VisKo’s original goal of building visualization pipelines into a framework that can also handle data analytics. For example, EDAC’s OGC services provide a rich set of information about spatial and temporal coverage, as well as semantic descriptions of the data, such as cloud or aerosol. Because this additional knowledge is relevant when deciding what data can be fed to Lifemapper, VisKo is set to translate OGC service metadata into semantic content that VisKo can use to reason with and match up the right EDAC OGC services with the right Lifemapper modeling services.@en</Text>
+					<Year type="str">2012</Year>
+					<Authors type="list">
+						<item type="list">
+							<item type="str">bohls-graham, e</item>
+							<item type="str">ddpennington@utep.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">pinheiro da silva, p</item>
+							<item type="str">paulo@pnnl.gov</item>
+						</item>
+						<item type="list">
+							<item type="str">gandara, a</item>
+							<item type="str">ndel2@miners.utep.edu</item>
+						</item>
+						<item type="list">
+							<item type="str">benedict, k</item>
+							<item type="str">kbene@edac.unm.edu</item>
+						</item>
+					</Authors>
+				</PublicationInformation>
+			</item>
+		</Publications>
+		<Telecons type="list"/>
+	</Information>
+	<AuthorID type="str">ATT00009</AuthorID>
+</root>
