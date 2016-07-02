@@ -92,7 +92,7 @@ else {
 	       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event&queryName=$queryName&queryEmail=$queryEmail\">$queryName</a>";
 		   echo "$url<br>$tab($queryEmail)<br>\n";
 			}
-		else { echo "$queryName<br>$tab($queryEmail)<br>\n"; } # Comment this line out for live system (Don't display the privates)
+#		else { echo "$queryName<br>$tab($queryEmail)<br>\n"; } # Comment this line out for live system (Don't display the privates)
 	$n1++;
 
 	} # End of While loop

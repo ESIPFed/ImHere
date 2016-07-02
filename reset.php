@@ -1,6 +1,11 @@
 <?php 
 
-/*  Reset the Check In system
+/*  
+Reset the Check In system
+Unset the cookie, if there is one
+Check this person out of the event
+Post this person's checkout to ResearchBit (not yet implemented)
+Set the return URL to imhere.php with no GET variables
 */
 # ------------------------------------------------------------
 # html setup
@@ -26,18 +31,27 @@
        setcookie('esip', false, time()-3600, '/');
        }
 
-# Update the file checkedIn.txt
+# ------------------------------------------------------------
+# Check this person out of the event (Update the file checkedIn.txt)
+
+/* Let's take the check-out logic out for now see what happens. Leaving them checked in let's us build up test data.
+
    $fh = fopen('./logs/checkedIn.txt', 'a') or die("<br>Can't open checkedIn.txt file");
      fwrite($fh, "$name:$email:0:0:$event\n");
      fclose($fh);
 
+# Should probably be updating ResearchBit with check-out info here too...
+
+
+
+*/
+# ------------------------------------------------------------
 # Set the return URL to imhere.php with no GET variables
 	include './config.php';
     $url = $server . "imhere.php";
 	echo "<p>Name & email reset.</p>";
 	echo "<p>Click <a href=\"$url\">here</a> to continue.</p>";
 
- # ------------------------------------------------------------
   # close out the html
   echo "  </body>\n";
   echo "</html>\n";
