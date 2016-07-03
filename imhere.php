@@ -227,7 +227,7 @@
 	   echo "$space $space $space $space $name ($email)</p>\n";
 
        # Count of Attendees by Session
-	   $url = "<a href=\"attendance_events.php\">Count Attendees by Session</a>";
+	   $url = "<a href=\"attendance_events.php\">Real-time Session Attendance Count</a>";
        echo "<p> $space $space $url<br>";
 
        # Reset name & email
@@ -291,6 +291,7 @@
          $currentStatus = $lineParts[3]; # 1=checked-in; 0=checked-out
 
          if ( $currentStatus ) {	# if still checked in to this session
+# We should right here look to see if the session is still running. If not, check them out automatically.
             $checkout = "<a href=\"attendees.php?name=$name&email=$email&session=$currentSession&check=out&event=$event&event_logs=$event_logs&attendees_log=$attendees_log&recommendation_interface=$recommendation_interface\">Check Out</a>"; }
          else { $checkout = "(Checked out)"; }
 
@@ -311,7 +312,7 @@
 	 if ($event != "ESIP Telecons") {
 
        # Count of Attendees by Session
-	   $url = "<a href=\"attendance_summary.php?event=$event\">Count Attendees by Session</a>";
+	   $url = "<a href=\"attendance_summary.php?event=$event\">Real-time Session Attendance Count</a>";
        echo "<p> $space $space $url<br>";
 
        # List Event Attendees

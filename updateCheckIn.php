@@ -33,6 +33,17 @@
          unset($_COOKIE['esip']);
          setcookie('esip', false, time()-3600, '/');
        }
+/* -----
+# We should try to...
+# Check them out of the session they may be checked in to, before checking them out to the event
+# It's not a simple as this - we just copied this from imhere.php as an example:
+$checkout = "<a href=\"attendees.php?name=$name&email=$email&session=$currentSession&check=out&event=$event&event_logs=$event_logs&attendees_log=$attendees_log&recommendation_interface=$recommendation_interface\">Check Out</a>"; }
+# We could instead ...
+
+# think about is some more.
+
+----- */
+
 # Leave them logged in to the app, but checked out of the event:
 #	   $event='';
 #      $url = $server . "imhere.php?name=$name&email=$email&event=$event"; # Load imhere.php with GET variables
