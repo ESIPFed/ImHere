@@ -45,7 +45,6 @@ $lastName = $nameParts[1];
 
 $curl_handle=curl_init();
 
-#$abc = "http://54.165.138.137:5000/r/get/?event_id=$recommendation_interface&lastname=$lastName&firstname=$firstName&email=$email";
 if ($session_id == "") {
 	$abc = "http://54.175.39.137:5000/r/get/?event_id=$recommendation_interface&lastname=$lastName&firstname=$firstName&email=$email"; }
 else {
@@ -56,7 +55,6 @@ curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
 $buffer = curl_exec($curl_handle);
 curl_close($curl_handle);
 
-#echo "<p class=\"center\" style=\"font-weight:bold; color:#b30000\">$event<br>Recommended Collaborators<br>At This Event</p>";
 if ($session_id == "") {
 	echo "<p class=\"center\" style=\"font-weight:bold; color:#b30000\">Recommended Collaborators<br>At This Event<br>$event</p>"; }
 else {
@@ -65,14 +63,13 @@ else {
 echo "<p style=\"font-weight:bold\">For $name:</p>";
 echo "<p>";
 
-if (empty($buffer))
-	{echo "No recommendations.";}
-
 # ---------------------------------------------------------------------------------------------------------------
 # Format the response from ResearchBit...
 
+if (empty($buffer))
+	{echo "No recommendations.";}
 else {
-#echo "$buffer<br>";
+#echo "$buffer<br>"; # For debug purposes
 	$aaa = explode("|",$buffer); # Builds an array of name,email
 	$n = (sizeof($aaa)-1); # Last one is blank for some reason
 
@@ -92,7 +89,7 @@ else {
 	       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event&queryName=$queryName&queryEmail=$queryEmail\">$queryName</a>";
 		   echo "$url<br>$tab($queryEmail)<br>\n";
 			}
-#		else { echo "$queryName<br>$tab($queryEmail)<br>\n"; } # Comment this line out for live system (Don't display the privates)
+	#		else { echo "$queryName<br>$tab($queryEmail)<br>\n"; } # Comment this line out for live system (Don't display the privates)
 	$n1++;
 
 	} # End of While loop
