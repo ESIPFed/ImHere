@@ -1,4 +1,4 @@
-var margin = {top: 50, right: 50, bottom: 0, left: 250},
+var margin = {top: 50, right: 25, bottom: 0, left: 275},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -18,6 +18,7 @@ var partition = d3.layout.partition()
 
 var xAxis = d3.svg.axis()
     .scale(x)
+    .tickFormat(d3.format("d"))
     .orient("top");
 
 var svg = d3.select("body").append("svg")
