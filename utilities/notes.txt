@@ -1,10 +1,12 @@
 
 File descriptions & formats
 
+----------------------------------------------------------------------------------------------------------------------------
 In directory "logs"...
 
 	event_list.csv
 		Fields are comma-separated
+		First line is a header line
 		Start Date, End Date, Event Name, Log Directory, Time Zone, Password, Recommendation System Interface (Event Number)
 
 	checkedIn.txt
@@ -17,10 +19,16 @@ In directory "logs"...
 		Fields are comma-separated
 		date&time,name,email,eventName
 
+	attendance_data_[event_name].json
+		Created new whenever someone calls routing for Real-time Session Attendance Count
+		Updated every 60 seconds thereafter, so long as someone still has that screen/function displayed
+
+----------------------------------------------------------------------------------------------------------------------------
 In event-specific log directory...
 
 	schedule.csv
 		Fields are comma-separated
+		First line is a header line
 		date,startTime,endTime,sessionName,sessionID
 		(If date is blank, then session runs every day)
 	
@@ -37,6 +45,7 @@ In event-specific log directory...
 		Log file of HTTP Post Requests sent to ResearchBit upon event check-ins & check outs, and the RB response
 		(Used mostly for system testing & debugging)
 
+----------------------------------------------------------------------------------------------------------------------------
 Notes on ResearchBit Recommendation System interface...
 
 	The AWS ResearchBit is using sometimes changes it's URL. The URL is hard-coded into the following files:
