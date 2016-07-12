@@ -73,7 +73,7 @@ echo "         .bold { font-weight: bold; }\n";
 echo "      </style>\n";
 echo "    </head>\n";
 echo "    <body style=\"background-color:darkseagreen;\">\n";
-echo "      <div class=\"container\">\n";
+#echo "      <div class=\"container\">\n";
 echo "      <table class=\"table\">";
 echo "        <tbody>\n";
 echo "          <tr>\n";
@@ -124,7 +124,7 @@ foreach ($keys as $k) {
   echo "</tr>\n";
 }
 
-echo "</div>\n";
+#echo "</div>\n";
 echo "</table>\n";
 
 function printSubElements ($childNodes) {
@@ -145,13 +145,12 @@ function returnSubElements ($childNodes) {
 
 ######
 
-echo "<br/>";
-echo "<h3>How useful is this recommendation? <br/>(0=useless/inaccurate, 5=extremely useful/accurate)</h3>";
-echo "<form>";
-echo "  <input type=\"number\" name=\"rating\" value=\"3\" min=\"0\" max=\"5\">";
-echo "  <input type=\"submit\">";
-echo "</form>";
-
+#echo "<br/>";
+#echo "<h3>How useful is this recommendation? <br/>(0=useless/inaccurate, 5=extremely useful/accurate)</h3>";
+#echo "<form>";
+#echo "  <input type=\"number\" name=\"rating\" value=\"3\" min=\"0\" max=\"5\">";
+#echo "  <input type=\"submit\">";
+#echo "</form>";
 
 echo "<br/>$returnLink";
 

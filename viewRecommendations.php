@@ -100,6 +100,12 @@ echo "</p>";
 
 # ---------------------------------------------------------------------------------------------------------------
 
+echo "<h3>How useful is this recommendation?<br/>(0=useless/inaccurate, 5=extremely useful/accurate)</h3>";
+echo "<form>";
+echo "  <input type=\"number\" name=\"rating\" value=\"3\" min=\"0\" max=\"5\">";
+echo "  <input type=\"submit\">";
+echo "</form><br/>";
+
 echo "$returnLink";
 
   # close html
