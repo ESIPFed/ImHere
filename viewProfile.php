@@ -11,14 +11,14 @@
   include 'config.php';
 
   # setup html
-  echo "<!DOCTYPE>\n";
-  echo "<html>\n";
-  echo "  <head>\n";
-  echo "    <link rel=\"stylesheet\" href=\"stylesheet.css\">\n";
-  echo "    <title>Display Attendee Profile</title>";
-  echo "  </head>\n";
-  echo "  <body style=\"background-color:darkseagreen;\">\n";
-  echo "  <body>\n";
+  #echo "<!DOCTYPE>\n";
+  #echo "<html>\n";
+  #echo "  <head>\n";
+  #echo "    <link rel=\"stylesheet\" href=\"stylesheet.css\">\n";
+  #echo "    <title>Display Attendee Profile</title>";
+  #echo "  </head>\n";
+  #echo "  <body style=\"background-color:darkseagreen;\">\n";
+  #echo "  <body>\n";
 
   # look for GET variables
   if ( isset($_GET['name']) ) { $name = $_GET['name']; } else { $name = ''; }
@@ -47,13 +47,106 @@ curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
 $buffer = curl_exec($curl_handle);
 curl_close($curl_handle);
 
-if (empty($buffer))
-{print "ResearchBit returned blank profile.<p>";}
-else
-{print $buffer;}
+#if (empty($buffer))
+#{print "ResearchBit returned blank profile.<p>";}
+#else
+#{print $buffer;}
+
+######
+$xml = new DOMDocument();
+$xml->loadXML($buffer);
+
+$xpath = new DOMXpath($xml);
+$in = $xpath->query("/root/Information/Personal/Institution");
+$name = $xpath->query("/root/Information/Personal/Name/First");
+$email = $xpath->query("/root/Information/Personal/Email");
+$esip = $xpath->query("/root/Information/Conference/MailingList");
+$key = $xpath->query("/root/Information/Publications/item/PublicationInformation/Keywords");
+
+echo "<!DOCTYPE html>\n";
+echo "  <html>\n";
+echo "    <head>\n";
+echo "      <title>Display Attendee Profile</title>\n";
+echo "      <link rel=\"stylesheet\" href=\"http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\">\n";
+echo "      <style>\n";
+echo "         .bold { font-weight: bold; }\n";
+echo "      </style>\n";
+echo "    </head>\n";
+echo "    <body style=\"background-color:darkseagreen;\">\n";
+echo "      <div class=\"container\">\n";
+echo "      <table class=\"table\">";
+echo "        <tbody>\n";
+echo "          <tr>\n";
+echo "            <td class=\"bold\">Name</td>\n";
+echo "            <td>" . $name->item(0)->nodeValue . "</td>\n";
+echo "          </tr>\n";
+echo "          <tr>\n";
+echo "            <td class=\"bold\">Institution</td>\n";
+echo "            <td>" . $in->item(0)->nodeValue . "</td>\n";
+echo "          </tr>\n";
+echo "          <tr>\n";
+echo "            <td class=\"bold\">Email</td>\n";
+echo "            <td>" . $email->item(0)->nodeValue . "</td>\n";
+echo "          </tr>\n";
+
+foreach($esip as $e) {
+   echo "<tr>\n";
+   echo "  <td class=\"bold\">ESIP Mailing Lists</td>\n";
+   echo "  <td></td>\n";
+   echo "</tr>\n";
+   $childNodes = $e->childNodes;
+   $nodes = returnSubElements($childNodes);
+   foreach($nodes as $node) {
+     echo "<tr>\n";
+     echo "  <td></td>\n";
+     echo "  <td>" . $node . "</td>\n";
+     echo "</tr>\n";
+   }
+}
+
+echo "<tr>\n";
+echo "  <td class=\"bold\">Keywords of Interest</td>\n";
+echo "  <td></td>\n";
+echo "</tr>\n";
+$keywords = array();
+foreach($key as $k) {
+   $childNodes = $k->childNodes;
+   foreach ($childNodes as $child) {
+     $value = trim($child->nodeValue);
+     if ($value != '' ) { array_push($keywords, $value); }
+   }
+}
+$keys = array_unique($keywords);
+foreach ($keys as $k) { 
+  echo "<tr>\n";
+  echo "  <td></td>\n";
+  echo "  <td>$k</td>\n"; 
+  echo "</tr>\n";
+}
+
+echo "</div>\n";
+echo "</table>\n";
+
+function printSubElements ($childNodes) {
+   foreach ($childNodes as $child) {
+     $value = trim($child->nodeValue);
+     if ($value != "") { echo "&nbsp;&nbsp; " . $value . "<br/>"; }
+   }
+}
+
+function returnSubElements ($childNodes) {
+   $results = array();
+   foreach ($childNodes as $child) {
+      $value = trim($child->nodeValue);
+      if ($value != "") { array_push($results, $value); }
+   }
+   return $results;
+}
+
+######
 
 echo "<br/>";
-echo "<h3>How useful is this recommendation? (0=useless/inaccurate, 5=extremely useful/accurate)</h3>";
+echo "<h3>How useful is this recommendation? <br/>(0=useless/inaccurate, 5=extremely useful/accurate)</h3>";
 echo "<form>";
 echo "  <input type=\"number\" name=\"rating\" value=\"3\" min=\"0\" max=\"5\">";
 echo "  <input type=\"submit\">";

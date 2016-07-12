@@ -28,7 +28,8 @@ function peopleStatus ($array, $session) {
 }
 
 include 'config.php';
-include 'currentEvents.php';
+include 'readCSV.php';
+include 'currentSessions.php';
 
 # how many seconds before auto-reload
 $sec = "60";
@@ -38,7 +39,7 @@ $event = $_GET['event'];
 
 # json file to write to
 $formatted = str_replace(' ', '_', $event);
-$aLog = './logs/attendance_data_' . $formatted . '.json';
+$aLog = './logs/attendance_cache/attendance_data_' . $formatted . '_' . uniqid() . '.json';
 
 # what page to load (this one, i.e. re-load)
 $page = $_SERVER['PHP_SELF'] . '?event=' . $event;
@@ -54,6 +55,16 @@ if ($handle) {
   }
   fclose($handle);
 } else { die("Couldn't open file: $event_list"); }
+
+# find the currently running sessions
+$sFile = $log_dir . $event_logs . '/' . 'schedule.csv';
+$allSessions = readCSV($sFile);
+$cSessions = getCurrentSessions($allSessions, $schedule_timezone);
+$currentSessions = array();
+foreach($cSessions as $c) { 
+  $parts = explode(",", $c);
+  array_push($currentSessions, $parts[0]); # parts[1] is session ID
+}
 
 # we're looking for attendees.txt in this directory 
 $file = $log_dir . $event_logs . '/' . 'attendees.txt';
@@ -72,11 +83,15 @@ if ($handle) {
        $session = $pieces[2];
        $status = $pieces[3];
 
-       if (!in_array($session, $sessions)) { array_push($sessions, $session); }
+       # if it's a currently running session then add the attendance
+       if ( in_array($session, $currentSessions) ) {
+       
+         if (!in_array($session, $sessions)) { array_push($sessions, $session); }
 
-       # Associative Array
-       $people[$session . ":" .$name] = $status;
-
+         # Associative Array
+         $people[$session . ":" .$name] = $status;
+ 
+       }
     }
     fclose($handle);
 } else { die("Couldn't open file... $file"); }
