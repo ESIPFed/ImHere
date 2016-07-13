@@ -69,7 +69,9 @@ echo "<p>";
 if (empty($buffer))
 	{echo "No recommendations.";}
 else {
+
 #echo "$buffer<br>"; # For debug purposes
+
 	$aaa = explode("|",$buffer); # Builds an array of name,email
 	$n = (sizeof($aaa)-1); # Last one is blank for some reason
 
@@ -79,6 +81,9 @@ else {
 		$bbb = explode (",",$aaa[$n1]); # Results in just one name & email
 		$queryName=$bbb[0];
 		$queryEmail=$bbb[1];
+		$term1=$bbb[2];
+		$term2=$bbb[3];
+		$term3=$bbb[4];
 		$queryEmail=preg_replace('/\s/', '', $queryEmail); # Remove whitespace
 
 # Find out if this person is discoverable
@@ -86,7 +91,7 @@ else {
        $parts = explode(":", $result);
        $discover = $parts[2];
        if ($discover) {
-	       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event&queryName=$queryName&queryEmail=$queryEmail\">$queryName</a>";
+	       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event&queryName=$queryName&queryEmail=$queryEmail&term1=$term1&term2=$term2&term3=$term3\">$queryName</a>";
 		   echo "$url<br>$tab($queryEmail)<br>\n";
 			}
 	#		else { echo "$queryName<br>$tab($queryEmail)<br>\n"; } # Comment this line out for live system (Don't display the privates)
@@ -99,12 +104,6 @@ else {
 echo "</p>";
 
 # ---------------------------------------------------------------------------------------------------------------
-
-echo "<h3>How useful is this recommendation?<br/>(0=useless/inaccurate, 5=extremely useful/accurate)</h3>";
-echo "<form>";
-echo "  <input type=\"number\" name=\"rating\" value=\"3\" min=\"0\" max=\"5\">";
-echo "  <input type=\"submit\">";
-echo "</form><br/>";
 
 echo "$returnLink";
 

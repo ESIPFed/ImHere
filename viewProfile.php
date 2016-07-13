@@ -9,6 +9,7 @@
 */
 
   include 'config.php';
+  $space = "&nbsp;";
 
   # setup html
   #echo "<!DOCTYPE>\n";
@@ -31,9 +32,12 @@
   if ( isset($_GET['event_logs']) ) { $event_logs = $_GET['event_logs']; } else { $event_logs = ''; }
   if ( isset($_GET['attendees_log']) ) { $attendees_log = $_GET['attendees_log']; } else { $attendees_log = 'Not_Supposed_to_Happen'; }
   if ( isset($_GET['recommendation_interface']) ) { $recommendation_interface = $_GET['recommendation_interface']; } else { $recommendation_interface = 'Not_Supposed_to_Happen'; }
+  if ( isset($_GET['term1']) ) { $term1 = $_GET['term1']; } else { $term1 = ''; }
+  if ( isset($_GET['term2']) ) { $term2 = $_GET['term2']; } else { $term2 = ''; }
+  if ( isset($_GET['term3']) ) { $term3 = $_GET['term3']; } else { $term3 = ''; }
 
   # return link
-  $returnLink = "<p><a href=\"imhere.php?name=$name&email=$email&event=$event\">Return to Check-In Menu</a></p>";
+  $returnLink = "<p><a href=\"imhere.php?name=$name&email=$email&event=$event\">$space Return to Check-In Menu</a></p>";
 
 
 $nameParts = explode(" ",$queryName);
@@ -145,14 +149,19 @@ function returnSubElements ($childNodes) {
 
 ######
 
-#echo "<br/>";
-#echo "<h3>How useful is this recommendation? <br/>(0=useless/inaccurate, 5=extremely useful/accurate)</h3>";
-#echo "<form>";
-#echo "  <input type=\"number\" name=\"rating\" value=\"3\" min=\"0\" max=\"5\">";
-#echo "  <input type=\"submit\">";
-#echo "</form>";
+if ($term1) {
+echo "<h3>$space This person was recommended based on<br/>$space terms common to both your profiles:<br/>";
+echo "$space \" $term1, $term2, $term3 \"";
 
-echo "<br/>$returnLink";
+echo "<br/>";
+echo "<h3>$space How useful is this recommendation? <br/>$space (0=useless/inaccurate, 5=extremely useful/accurate)</h3>";
+echo "<form>";
+echo "$space $space <input type=\"number\" name=\"rating\" value=\"3\" min=\"0\" max=\"5\">";
+echo "$space <input type=\"submit\">";
+echo "</form>";
+}
+
+echo "<h3><br/>$returnLink<br><br>";
 
   # close html
   echo "  </body>\n";
