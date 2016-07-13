@@ -77,6 +77,23 @@ echo "         .bold { font-weight: bold; }\n";
 echo "      </style>\n";
 echo "    </head>\n";
 echo "    <body style=\"background-color:darkseagreen;\">\n";
+
+
+
+if ($term1) {
+echo "<h4><br/>$space This recommendation was made based on the<br/>$space three most common terms found in both your profiles:<br/>";
+echo "$space \" $term1, $term2, $term3 \"<br/>";
+
+#echo "<br/>$space Rate this recommendation (0-5):</h4>";
+#echo "<form>";
+#echo "$space $space <input type=\"number\" name=\"rating\" value=\"3\" min=\"0\" max=\"5\">";
+#echo "$space <input type=\"submit\">";
+#echo "</form>";
+}
+echo "		<h3><br/>$space Profile Information for $queryName<br/><br/><h4>";
+
+
+
 #echo "      <div class=\"container\">\n";
 echo "      <table class=\"table\">";
 echo "        <tbody>\n";
@@ -149,15 +166,6 @@ function returnSubElements ($childNodes) {
 
 ######
 
-if ($term1) {
-echo "<h4>$space This person was recommended based on these terms common to both your profiles:<br/>";
-echo "$space \" $term1, $term2, $term3 \"<br/><br/>";
-echo "$space How useful is this recommendation? <br/>$space (0=useless/inaccurate, 5=extremely useful/accurate)</h4>";
-echo "<form>";
-echo "$space $space <input type=\"number\" name=\"rating\" value=\"3\" min=\"0\" max=\"5\">";
-echo "$space <input type=\"submit\">";
-echo "</form>";
-}
 
 echo "<h4><br/>$returnLink<br><br></h4>";
 

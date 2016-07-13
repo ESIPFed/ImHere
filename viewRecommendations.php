@@ -91,8 +91,16 @@ else {
        $parts = explode(":", $result);
        $discover = $parts[2];
        if ($discover) {
-	       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event&queryName=$queryName&queryEmail=$queryEmail&term1=$term1&term2=$term2&term3=$term3\">$queryName</a>";
-		   echo "$url<br>$tab($queryEmail)<br>\n";
+#	       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event&queryName=$queryName&queryEmail=$queryEmail&term1=$term1&term2=$term2&term3=$term3\">$queryName</a>";
+#		   echo "$url<br>$tab($queryEmail)<br>\n";
+	       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event&queryName=$queryName&queryEmail=$queryEmail&term1=$term1&term2=$term2&term3=$term3\">Why?</a>";
+		   echo "$queryName $space $url<br>\n";
+		   echo "$space Rate recommendation (0-5)";
+		   echo "<form>";
+		   echo "<input type=\"number\" name=\"rating\" value=\"3\" min=\"0\" max=\"5\">";
+		   echo "$space <input type=\"submit\">";
+		   echo "</form></h4>";
+
 			}
 	#		else { echo "$queryName<br>$tab($queryEmail)<br>\n"; } # Comment this line out for live system (Don't display the privates)
 	$n1++;
