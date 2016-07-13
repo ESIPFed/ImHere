@@ -150,18 +150,16 @@ function returnSubElements ($childNodes) {
 ######
 
 if ($term1) {
-echo "<h3>$space This person was recommended based on<br/>$space terms common to both your profiles:<br/>";
-echo "$space \" $term1, $term2, $term3 \"";
-
-echo "<br/>";
-echo "<h3>$space How useful is this recommendation? <br/>$space (0=useless/inaccurate, 5=extremely useful/accurate)</h3>";
+echo "<h4>$space This person was recommended based on these terms common to both your profiles:<br/>";
+echo "$space \" $term1, $term2, $term3 \"<br/><br/>";
+echo "$space How useful is this recommendation? <br/>$space (0=useless/inaccurate, 5=extremely useful/accurate)</h4>";
 echo "<form>";
 echo "$space $space <input type=\"number\" name=\"rating\" value=\"3\" min=\"0\" max=\"5\">";
 echo "$space <input type=\"submit\">";
 echo "</form>";
 }
 
-echo "<h3><br/>$returnLink<br><br>";
+echo "<h4><br/>$returnLink<br><br></h4>";
 
   # close html
   echo "  </body>\n";

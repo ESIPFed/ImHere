@@ -242,7 +242,7 @@
 
 # We ARE checked in to an event... 
  	
-	 echo "<p class=\"center\" style=\"font-weight:bold; color:$color3\">$event<br>Check In System</p>\n"; # Display event name
+	 echo "<p class=\"center\" style=\"font-weight:bold; color:$color3\">$event<br>Check In System<br>(Beta version)</p>\n"; # Display event name
 
        $sessions = readCSV($schedule);	# returns an array of all lines from $schedule
        $cSessions = getCurrentSessions($sessions, $schedule_timezone);	# in currentSessions.php - returns an array of session names & ID's
