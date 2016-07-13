@@ -37,7 +37,7 @@
   if ( isset($_GET['term3']) ) { $term3 = $_GET['term3']; } else { $term3 = ''; }
 
   # return link
-  $returnLink = "<p><a href=\"imhere.php?name=$name&email=$email&event=$event\">$space Return to Check-In Menu</a></p>";
+  $returnLink = "<p>$space<a href=\"imhere.php?name=$name&email=$email&event=$event\">Return to Check-In Menu</a></p>";
 
 
 $nameParts = explode(" ",$queryName);
