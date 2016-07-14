@@ -47,7 +47,7 @@ Display three links:
 $url="http://54.175.39.137:5000/reset";
 echo "<p><br><br><a href=$url>Reset ResearchBit Data Files</p></a>";
 
-echo "<p><br><a href=syncResearchBit_post?event=$event>Post event check-in's to ResearchBit</p></a>";
+echo "<p><br><a href=syncResearchBit_post.php?event=$event>Post event check-in's to ResearchBit</p></a>";
 
 echo "<p><br><a href=\"imhere.php\">Back to ImHere System Menu</a></p>";
 
