@@ -44,6 +44,32 @@ $aLog = './logs/attendance_cache/attendance_data_' . $formatted . '_' . uniqid()
 # what page to load (this one, i.e. re-load)
 $page = $_SERVER['PHP_SELF'] . '?event=' . $event;
 
+# Count the number of attendees checked in to the event right now
+$result = array();
+$handle = fopen($checkedIn_log, 'r') or die("In countCheckIns.php, can't open file: $checkedIn_log");
+while (($line = fgets($handle)) !== false) {
+  $line = trim($line);
+  $parts = explode(":", $line);
+  $logName = $parts[0];
+  $logEmail = $parts[1];
+  $checkInFlag = $parts[2];
+  $discoverableFlag = $parts[3];
+  $logEvent = $parts[4];
+  if ($logEvent==$event) {
+     $qn = explode(" ", $logName);
+     $lastName = $qn[1];
+     $result[$logEmail] = $lastName . ":" . $checkInFlag; 
+  }
+}
+fclose($handle);
+
+$in=0;
+foreach ($result as $key => $value) {
+   $parts = explode(":", $value);
+   $InOutFlag = $parts[1]; # lastname : in/out flag
+   if ($InOutFlag) { $in=$in+1; }
+} # End for each...
+
 # find the line in event_list.csv that matches $event
 $handle = fopen($event_list,"r");
 if ($handle) {
@@ -135,6 +161,7 @@ echo "  </head>\n";
 echo "  <body>\n";
 echo "   <h3 style=\"text-align:center\">$event</h3>";
 echo "   <h3 style=\"text-align:center\">Real-time Session Attendance Count</h3>";
+echo "   <h3 style=\"text-align:center\">Current Event Attendance: $in</h3>";
 echo "   <script>var aLog = \"$aLog\";</script>\n";
 echo "   <script src=\"http://d3js.org/d3.v3.min.js\"></script>\n";
 echo "   <script src=\"bar_chart.js\"></script>\n";

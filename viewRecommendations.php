@@ -94,10 +94,10 @@ else {
 #	       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event&queryName=$queryName&queryEmail=$queryEmail&term1=$term1&term2=$term2&term3=$term3\">$queryName</a>";
 #		   echo "$url<br>$tab($queryEmail)<br>\n";
 	       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event&queryName=$queryName&queryEmail=$queryEmail&term1=$term1&term2=$term2&term3=$term3\">Why?</a>";
-		   echo "$queryName $space $url<br>\n";
-		   echo "$space Rate recommendation (0-5)";
+		   echo "<h2>$queryName $space $url</h2>\n";
+		   #echo "$space Rate recommendation (0-5)";
 		   echo "<form>";
-		   echo "<input type=\"number\" name=\"rating\" value=\"3\" min=\"0\" max=\"5\">";
+		   echo "Rate recommendation (0-5) $space $space <input type=\"number\" name=\"rating\" value=\"3\" min=\"0\" max=\"5\">";
 		   echo "$space <input type=\"submit\">";
 		   echo "</form></h4>";
 
