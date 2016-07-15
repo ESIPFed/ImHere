@@ -100,7 +100,7 @@ echo "		<h3><br/>$space Profile Information for $queryName<br/><br/><h4>";
 
 
 
-echo "      <div class=\"container\">\n";
+#echo "      <div class=\"container\">\n";
 echo "      <table class=\"table\">";
 echo "        <tbody>\n";
 echo "          <tr>\n";
@@ -151,7 +151,7 @@ foreach ($keys as $k) {
   echo "</tr>\n";
 }
 
-echo "</div>\n";
+#echo "</div>\n";
 echo "</table>\n";
 
 function printSubElements ($childNodes) {
