@@ -74,6 +74,12 @@ echo "      <title>Display Attendee Profile</title>\n";
 echo "      <link rel=\"stylesheet\" href=\"http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\">\n";
 echo "      <style>\n";
 echo "         .bold { font-weight: bold; }\n";
+########
+### For mobile devices (small screens) 
+echo "         @media screen and (max-width: 980px) {\n";
+echo "            td { font-size: 30px; }\n";
+echo "         }\n";
+######
 echo "      </style>\n";
 echo "    </head>\n";
 echo "    <body style=\"background-color:darkseagreen;\">\n";
@@ -94,7 +100,7 @@ echo "		<h3><br/>$space Profile Information for $queryName<br/><br/><h4>";
 
 
 
-#echo "      <div class=\"container\">\n";
+echo "      <div class=\"container\">\n";
 echo "      <table class=\"table\">";
 echo "        <tbody>\n";
 echo "          <tr>\n";
@@ -145,7 +151,7 @@ foreach ($keys as $k) {
   echo "</tr>\n";
 }
 
-#echo "</div>\n";
+echo "</div>\n";
 echo "</table>\n";
 
 function printSubElements ($childNodes) {

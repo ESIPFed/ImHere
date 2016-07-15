@@ -60,7 +60,7 @@ if ($session_id == "") {
 else {
 	echo "<p class=\"center\" style=\"font-weight:bold; color:#b30000\">Recommended Collaborators<br>In This Session<br>$session</p>"; }
 
-echo "<p style=\"font-weight:bold\">For $name:</p>";
+echo "<p style=\"font-weight:bold;font-size:25px;\">For $name:</p>";
 echo "<p>";
 
 # ---------------------------------------------------------------------------------------------------------------
@@ -93,13 +93,22 @@ else {
        if ($discover) {
 #	       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event&queryName=$queryName&queryEmail=$queryEmail&term1=$term1&term2=$term2&term3=$term3\">$queryName</a>";
 #		   echo "$url<br>$tab($queryEmail)<br>\n";
+           
+                   echo "<div style=\"font-size:25px;\">";
 	       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event&queryName=$queryName&queryEmail=$queryEmail&term1=$term1&term2=$term2&term3=$term3\">Why?</a>";
-		   echo "<h2>$queryName $space $url</h2>\n";
+		   echo "<p>$queryName $space $url</p>\n";
 		   #echo "$space Rate recommendation (0-5)";
-		   echo "<form>";
+		   echo "<form action=\"submitRecommendation.php\" method=\"GET\">";
 		   echo "Rate recommendation (0-5) $space $space <input type=\"number\" name=\"rating\" value=\"3\" min=\"0\" max=\"5\">";
+                   echo "<input type=\"hidden\" value=\"$name\" name=\"name\">";
+                   echo "<input type=\"hidden\" value=\"$email\" name=\"nameEmail\">";
+                   echo "<input type=\"hidden\" value=\"$queryName\" name=\"queryName\">";
+                   echo "<input type=\"hidden\" value=\"$queryEmail\" name=\"queryEmail\">";
+                   echo "<input type=\"hidden\" value=\"$event\" name=\"event\">";
+                   echo "<input type=\"hidden\" value=\"$recommendation_interface\" name=\"rInterface\">";
 		   echo "$space <input type=\"submit\">";
 		   echo "</form></h4>";
+                   echo "</div>";
 
 			}
 	#		else { echo "$queryName<br>$tab($queryEmail)<br>\n"; } # Comment this line out for live system (Don't display the privates)
