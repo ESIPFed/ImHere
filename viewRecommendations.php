@@ -96,18 +96,20 @@ else {
            
                    echo "<div style=\"font-size:25px;\">";
 	       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event&queryName=$queryName&queryEmail=$queryEmail&term1=$term1&term2=$term2&term3=$term3\">Why?</a>";
-		   echo "<p>$queryName $space $url</p>\n";
+		   $text = "$queryName $space $url $space";
 		   #echo "$space Rate recommendation (0-5)";
 		   echo "<form action=\"submitRecommendation.php\" method=\"GET\">";
-		   echo "Rate recommendation (0-5) $space $space <input type=\"number\" name=\"rating\" value=\"3\" min=\"0\" max=\"5\">";
+		   echo "<p style=\"font-size:25px;\">$text <br/>";
+                   echo "Rate recommendation (0-5) $space ";
+                   echo "<input type=\"number\" name=\"rating\" value=\"3\" min=\"0\" max=\"5\"> $space <input type=\"submit\"></p>";
                    echo "<input type=\"hidden\" value=\"$name\" name=\"name\">";
                    echo "<input type=\"hidden\" value=\"$email\" name=\"nameEmail\">";
                    echo "<input type=\"hidden\" value=\"$queryName\" name=\"queryName\">";
                    echo "<input type=\"hidden\" value=\"$queryEmail\" name=\"queryEmail\">";
                    echo "<input type=\"hidden\" value=\"$event\" name=\"event\">";
                    echo "<input type=\"hidden\" value=\"$recommendation_interface\" name=\"rInterface\">";
-		   echo "$space <input type=\"submit\">";
-		   echo "</form></h4>";
+		   #echo "$space <input type=\"submit\">";
+		   echo "</form>";
                    echo "</div>";
 
 			}
