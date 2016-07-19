@@ -77,7 +77,7 @@ if ($handle) {
     $line = trim($line);
     $parts = explode(",", $line);
     $line_event = $parts[2];
-    if ( ($line_event == $event) ) { $event_logs = $parts[3]; }  
+    if ( ($line_event == $event) ) { $event_logs = $parts[3]; $schedule_timezone = $parts[4];}  
   }
   fclose($handle);
 } else { die("Couldn't open file: $event_list"); }
