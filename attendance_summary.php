@@ -15,7 +15,7 @@ function peopleStatus ($array, $session) {
   $results = array();
 
   foreach ($array as $e => $value) { 
-    $parts = explode(":", $e);
+    $parts = explode(";", $e);
     $s = $parts[0];
     $person = $parts[1];
     if ( $s == $session) {
@@ -115,7 +115,7 @@ if ($handle) {
          if (!in_array($session, $sessions)) { array_push($sessions, $session); }
 
          # Associative Array
-         $people[$session . ":" .$name] = $status;
+         $people[$session . ";" .$name] = $status;
  
        }
     }
