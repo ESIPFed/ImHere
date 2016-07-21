@@ -64,9 +64,11 @@ while (($line = fgets($handle)) !== false) {
 fclose($handle);
 
 $in=0;
+$tot=0;
 foreach ($result as $key => $value) {
    $parts = explode(":", $value);
    $InOutFlag = $parts[1]; # lastname : in/out flag
+   $tot=$tot+1;
    if ($InOutFlag) { $in=$in+1; }
 } # End for each...
 
@@ -161,6 +163,7 @@ echo "  </head>\n";
 echo "  <body>\n";
 echo "   <h3 style=\"text-align:center\">$event</h3>";
 echo "   <h3 style=\"text-align:center\">Real-time Session Attendance Count</h3>";
+echo "   <h3 style=\"text-align:center\">Total Event Attendance: $tot</h3>";
 echo "   <h3 style=\"text-align:center\">Current Event Attendance: $in</h3>";
 echo "   <script>var aLog = \"$aLog\";</script>\n";
 echo "   <script src=\"http://d3js.org/d3.v3.min.js\"></script>\n";
