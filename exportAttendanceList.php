@@ -12,12 +12,12 @@ Export an attendance list for all sessions to a spreadsheet-readable .csv file:
   echo "<html>\n";
   echo "  <head>\n";
   echo "    <link rel=\"stylesheet\" href=\"stylesheet.css\">\n";
-  echo "    <title>ImHere Reset</title>\n";
+  echo "    <title>Export Attendance List</title>\n";
   echo "  </head>\n";
   echo "  <body style=\"background-color:darkseagreen;\">\n";
   echo "  <body>\n";
 
-  echo "<p>Exporting session attendance list...<br><br>";
+  echo "<p>Exporting session attendance list...<br>$attendance_export<br>";
 
 include 'config.php';
 include 'readCSV.php';
@@ -49,6 +49,7 @@ $event = $_GET['event'];
 	 $attendance_export = $log_dir . $event_logs . '/' . 'attendance_export.csv';
 	 $export_handle = fopen($attendance_export, 'w') or die("In exportAttendanceList.php, can't open file: attendance_export.csv ($attendance_export)");
 	 fwrite($export_handle, "Session Name,Session Date,Start Time,End Time,Attendee Name,Attendee Email\n");
+	 echo "Export file: $attendance_export<br><br>";
 
 # Read schedule.csv, create an array of session names
 	 $schedule = $log_dir . $event_logs . '/' . 'schedule.csv';
