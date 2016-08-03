@@ -66,7 +66,7 @@ $event = $_GET['event'];
 	$endTime = $sessionList[$i][2];
 	$sessionName = $sessionList[$i][3];
 	if ($sessionDate == "") { $sessionDate = "Every Day"; }
-	echo "$sessionName $sessionDate $startTime $endTime<br>"; # For debug purposes
+	echo "$sessionName,$sessionDate,$startTime,$endTime<br>"; # For debug purposes
 
 	# Read attendees.txt, create an array of checked-in attendees
 	$attendees = getAttendees($sessionName, $attendees_log); # Build an array of session attendees as name,email,:,status
