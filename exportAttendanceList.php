@@ -5,7 +5,13 @@ Export an attendance list for all sessions to a spreadsheet-readable .csv file:
 	Read the schedule.csv file, create a list of all sessions for this event;
 	For each session, create a list of all attendees who checked-in;
 	For each attendee, post a line to the export file, if they were checked in "publicly".
+
+Run this routine at the following URL:
+../exportAttendanceList.php?event=<eventname>&public=<N> 
+where N=0 for a list of private check-ins; 1 for public check ins
+
 */
+
 
 # html setup
   echo "<!DOCTYPE html>\n";
@@ -25,6 +31,7 @@ include 'attendeeLog.php';
 include 'checkin.php';
 
 $event = $_GET['event'];
+$public = $_GET['public'];
 
 # Find the line in event_list.csv that matches $event, pull log directory name
      $event_logs = '';
@@ -83,13 +90,19 @@ $event = $_GET['event'];
 		$discover = isDiscoverable($key, $queryEmail); #in checkin.php
 		$parts = explode(":", $discover);
 		$discover = $parts[2];
-		# echo "Discoverable: $discover<br>"; # For debug purposes
-		if ($discover) { # Add them to the export only if they are discoverable
+		# echo "Public: $public Discoverable: $discover<br>"; # For debug purposes
+		if ($public and $discover) { # Add them to the public export file only if they are discoverable
 			# Add a line to the export file
 			$line = "$sessionName,$sessionDate,$startTime,$endTime,$key,$queryEmail\n";
 			echo "$line<br>";
 			fwrite($export_handle, $line);
-			} # End if discover...
+			} # End if public & discover...
+		if (!$public and !$discover) { # Add them to the private export file only if they are not discoverable
+			# Add a line to the export file
+			$line = "$sessionName,$sessionDate,$startTime,$endTime,$key,$queryEmail\n";
+			echo "$line<br>";
+			fwrite($export_handle, $line);
+			} # End if !public & !discover...
 
 		} # End for each checked-in attendee...
 

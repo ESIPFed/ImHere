@@ -41,6 +41,10 @@ In event-specific log directory...
 		Fields are comma-separated
 		name,email,sessionName,check-in(1)/out(0)flag,date&time
 	
+	attendance_export.csv
+		New .csv file created any time someone runs exportAttendanceList.php?event=<eventname>
+		line format = "sessionName,sessionDate,startTime,endTime,attendeeName,attendeeEmail"
+
 	rb_response.txt
 		Log file of HTTP Post Requests sent to ResearchBit upon event check-ins & check outs, and the RB response
 		(Used mostly for system testing & debugging)
