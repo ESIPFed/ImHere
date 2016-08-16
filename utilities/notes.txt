@@ -50,6 +50,15 @@ In event-specific log directory...
 		(Used mostly for system testing & debugging)
 
 ----------------------------------------------------------------------------------------------------------------------------
+Misc routines that can be run standalone...
+
+exportAttendanceList.php
+	Exports an attendance list for all sessions to a spreadsheet-readable .csv file.
+	Two files actually - attendance_export_public.csv and attendance_export_private.csv.
+	New files created (previous versions deleted) any time someone runs the routine.
+	Run it at the following URL: ../exportAttendanceList.php?event=<eventname>
+
+----------------------------------------------------------------------------------------------------------------------------
 Notes on ResearchBit Recommendation System interface...
 
 	The AWS ResearchBit is using sometimes changes it's URL. The URL is hard-coded into the following files:

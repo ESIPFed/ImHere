@@ -4,11 +4,11 @@
 Export an attendance list for all sessions to a spreadsheet-readable .csv file:
 	Read the schedule.csv file, create a list of all sessions for this event;
 	For each session, create a list of all attendees who checked-in;
-	For each attendee, post a line to the export file, if they were checked in "publicly".
+	For each attendee, post a line to the export file:
+		attendance_export_public.csv if they were checked in "publicly",
+		attendance_export_private.csv if they were checked in "privately".
 
-Run this routine at the following URL:
-../exportAttendanceList.php?event=<eventname>&public=<N> 
-where N=0 for a list of private check-ins; 1 for public check ins
+Run this routine at the following URL: ../exportAttendanceList.php?event=<eventname>
 
 */
 
@@ -31,7 +31,6 @@ include 'attendeeLog.php';
 include 'checkin.php';
 
 $event = $_GET['event'];
-$public = $_GET['public'];
 
 # Find the line in event_list.csv that matches $event, pull log directory name
      $event_logs = '';
@@ -52,11 +51,14 @@ $public = $_GET['public'];
 	 $attendees_log = $log_dir . $event_logs . '/' . 'attendees.txt';
 	 # echo "attendees_log: $attendees_log<br><br>"; # For debug purposes
 
-# Delete & re-create the export file
-	 $attendance_export = $log_dir . $event_logs . '/' . 'attendance_export.csv';
-	 $export_handle = fopen($attendance_export, 'w') or die("In exportAttendanceList.php, can't open file: attendance_export.csv ($attendance_export)");
-	 fwrite($export_handle, "Session Name,Session Date,Start Time,End Time,Attendee Name,Attendee Email\n");
-	 echo "Export file: $attendance_export<br><br>";
+# Delete & re-create the export files
+	 $attendance_export_public = $log_dir . $event_logs . '/' . 'attendance_export_public.csv';
+	 $export_handle_public = fopen($attendance_export_public, 'w') or die("In exportAttendanceList.php, can't open file: attendance_export_public.csv ($attendance_export_public)");
+	 fwrite($export_handle_public, "Session Name,Session Date,Start Time,End Time,Attendee Name,Attendee Email\n");
+	 $attendance_export_private = $log_dir . $event_logs . '/' . 'attendance_export_private.csv';
+	 $export_handle_private = fopen($attendance_export_private, 'w') or die("In exportAttendanceList.php, can't open file: attendance_export_private.csv ($attendance_export_private)");
+	 fwrite($export_handle_private, "Session Name,Session Date,Start Time,End Time,Attendee Name,Attendee Email\n");
+	 echo "Export files: $attendance_export_public, $attendance_export_private<br><br>";
 
 # Read schedule.csv, create an array of session names
 	 $schedule = $log_dir . $event_logs . '/' . 'schedule.csv';
@@ -90,19 +92,11 @@ $public = $_GET['public'];
 		$discover = isDiscoverable($key, $queryEmail); #in checkin.php
 		$parts = explode(":", $discover);
 		$discover = $parts[2];
-		# echo "Public: $public Discoverable: $discover<br>"; # For debug purposes
-		if ($public and $discover) { # Add them to the public export file only if they are discoverable
-			# Add a line to the export file
-			$line = "$sessionName,$sessionDate,$startTime,$endTime,$key,$queryEmail\n";
-			echo "$line<br>";
-			fwrite($export_handle, $line);
-			} # End if public & discover...
-		if (!$public and !$discover) { # Add them to the private export file only if they are not discoverable
-			# Add a line to the export file
-			$line = "$sessionName,$sessionDate,$startTime,$endTime,$key,$queryEmail\n";
-			echo "$line<br>";
-			fwrite($export_handle, $line);
-			} # End if !public & !discover...
+		# echo "Discoverable: $discover<br>"; # For debug purposes
+		$line = "$sessionName,$sessionDate,$startTime,$endTime,$key,$queryEmail\n";
+		echo "$line<br>";
+		if ($discover) { fwrite($export_handle_public, $line); }
+		else { fwrite($export_handle_private, $line); }
 
 		} # End for each checked-in attendee...
 
@@ -114,7 +108,7 @@ $public = $_GET['public'];
 	fclose($export_handle);
 	include './config.php';
     $url = $server . "imhere.php";
-	echo "<p>Session attendance export file created: $attendance_export.</p>";
+	echo "<p>Session attendance export files created:<br>$attendance_export_public<br>$attendance_export_private</p>";
 	echo "<p>Click <a href=\"$url\">here</a> to exit.</p>";
 
   # close out the html
