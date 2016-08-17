@@ -104,12 +104,18 @@ foreach ($result as $key => $value) {
 	if ($InOutFlag) { # If still checked in...
 		if ($discover) { # If checked in "Publicly"...
 			if ( $recommendation_interface ) {
-				$line = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event&queryName=$queryName&queryEmail=$queryEmail\">$queryName</a>";
+				$line = "<a href=\"viewProfile_ResearchBit.php?name=$name&email=$email&event=$event&queryName=$queryName&queryEmail=$queryEmail\">$queryName</a>";
 				} else { # Look for this person's interests in the RegOnline export data
+
+/* This is from when we tried to pull "interests" from the RegOnline export...
 				$interests = getInterests($queryName,$queryEmail,$event_logs); # in topics.php
 				if ( sizeof($interests) > 0 ) { 
 					$line = "<a href=\"profile.php?name=$queryName&email=$queryEmail&event_logs=$event_logs\">$queryName</a>";
 					} else { $line = "$queryName"; }
+*/
+# Here's what we're doing now...
+       $line = "<p><a href=\"viewProfile.php?name=$queryName&email=$queryEmail&event=$event\">$queryName</a>";
+
 				} # End of else no reccomendation interface
 			echo "$line<br>$tab($queryEmail)<br>";
 	       } # End of if discover...

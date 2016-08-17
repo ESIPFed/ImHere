@@ -166,20 +166,24 @@
 
 # Check for ResearchBit interface flag; If YES pull info from there; else get it from RegOnline interests export
 	if ( $recommendation_interface ) {
-           $line = "<p><a href=\"viewProfile.php?name=$name&email=$email&event=$event&queryName=$key&queryEmail=$queryEmail\">$key</a></p>";
+           $line = "<p><a href=\"viewProfile_ResearchBit.php?name=$name&email=$email&event=$event&queryName=$key&queryEmail=$queryEmail\">$key</a></p>";
 		}
 	
 	else { # Look for this person's interests in the RegOnline export data
 
-#		echo "Attendees.php event_logs = $event_logs<br>"; # For debug purposes
+/* This is from when we tried to pull "interests" from the RegOnline export...
          $interests = getInterests($key,$queryEmail,$event_logs); # in topics.php
          if ( sizeof($interests) > 0 ) { 
-#		echo "<br>Attendees.php: Ready to go...<br>"; # For debug purposes
            $line = "<p><a href=\"profile.php?name=$key&email=$queryEmail&event_logs=$event_logs\">$key</a></p>";
          } else {
            $line = "<p>$key</p>";
          }
-		} # End no recommendation interface
+*/
+# Here's what we're doing now...
+       $line = "<p><a href=\"viewProfile.php?name=$key&email=$queryEmail&event=$event\">$key</a></p>";
+
+		} # End else no recommendation interface
+
          if ( $value == 1 ) { echo $line; }
        } # End if discover...
     } # End for each...

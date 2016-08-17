@@ -7,7 +7,7 @@ In directory "logs"...
 	event_list.csv
 		Fields are comma-separated
 		First line is a header line
-		Start Date, End Date, Event Name, Log Directory, Time Zone, Password, Recommendation System Interface (Event Number)
+		Start Date, End Date, Event Name, Log Directory, Time Zone, Password, Recommendation System Interface (Event Number), ORCID Interface (Y, N or blank)
 
 	checkedIn.txt
 		New line written every time someone checks into or out of an event
