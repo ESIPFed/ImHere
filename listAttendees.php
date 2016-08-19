@@ -33,6 +33,7 @@
   # look for GET variables
   if ( isset($_GET['name']) ) { $name = $_GET['name']; } else { $name = ''; }
   if ( isset($_GET['email']) ) { $email = $_GET['email']; } else { $email = ''; }
+  if ( isset($_GET['ORCIDiD']) ) { $ORCIDiD = $_GET['ORCIDiD']; } else { $ORCIDiD = ''; }
   if ( isset($_GET['session']) ) { $session = $_GET['session']; } else { $session = ''; }
   if ( isset($_GET['check']) ) { $check = $_GET['check']; } else { $check = ''; }
   if ( isset($_GET['event']) ) { $event = $_GET['event']; } else { $event = ''; }
@@ -47,10 +48,8 @@
 echo "<p class=\"center\" style=\"font-weight:bold; color:#b30000\">$event<br>Attendees Checked in to This Event</p>";
 echo "<p>";
 
-
-
   # Set return link
-  $returnLink = "<p><a href=\"imhere.php?name=$name&email=$email&event=$event\">Return to Check-In Menu</a></p>";
+  $returnLink = "<p><a href=\"imhere.php?name=$name&email=$email&event=$event&ORCIDiD=$ORCIDiD\">Return to Check-In Menu</a></p>";
 
 #----------------------------------------------------------------
 
@@ -70,6 +69,7 @@ while (($line = fgets($handle)) !== false) {
 	$checkInFlag = $parts[2];
 	$discoverableFlag = $parts[3];
 	$logEvent = $parts[4];
+	$logORCIDiD = $parts[5];
 	if ($logEvent==$event) {
 
 		$qn = explode(" ", $logName);
@@ -99,6 +99,7 @@ foreach ($result as $key => $value) {
 	$queryEmail = $parts[2];
 	$InOutFlag = $parts[3];
 	$discover = $parts[4];
+	$queryORCIDiD = $parts[6];
 
 	# If discover is 1 then the person is ok to list; if discover 0 then not discoverable by others
 	if ($InOutFlag) { # If still checked in...
@@ -114,7 +115,7 @@ foreach ($result as $key => $value) {
 					} else { $line = "$queryName"; }
 */
 # Here's what we're doing now...
-       $line = "<p><a href=\"viewProfile.php?name=$queryName&email=$queryEmail&event=$event\">$queryName</a>";
+       $line = "<p><a href=\"viewProfile.php?name=$queryName&email=$queryEmail&ORCIDiD=$queryORCIDiD&event=$event\">$queryName</a>";
 
 				} # End of else no reccomendation interface
 			echo "$line<br>$tab($queryEmail)<br>";

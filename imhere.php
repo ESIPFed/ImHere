@@ -53,28 +53,27 @@
 
 # --------------------------------------------------------------------------------------------------------------------
 
- # Start painting the screen
+# Start painting the screen
 
-  # Display sponsor logo
-  #  echo "<img class=\"img\" src=\"images/sloan_logo.png\"><br/>";
-  #  echo "<img class=\"img\" src=\"images/sloan_small.png\"><br/>";
-
-# ------------------------------------------------------------
 # Look for name & email in GET variables first, then in a cookie...
         # Check for spoofed date
         $GLOBALS['spoofedDate'] = '';
         if ( isset($_GET['spoofedDate']) ) { $GLOBALS['spoofedDate'] = $_GET['spoofedDate']; }
 
 	# Check for GET variables
+	 $ORCIDiD="";
 	 $event=""; # Set event default
 	 if ( isset($_GET['name']) && isset($_GET['email']) ) {
      $name = $_GET['name'];
      $email = $_GET['email'];
+     if (isset($_GET['ORCIDiD'])) {
+          $ORCIDiD = $_GET['ORCIDiD'];
+     }
      if (isset($_GET['event'])) {
           $event = $_GET['event'];
      }
      $log_line = "$date,$name,$email,$event";
-     #echo "GET variables found: $name, $email, $event <br>"; # For debug purposes
+#     echo "Debug line 1 - GET variables found: $name, $email, $event, $ORCIDiD<br>";
 
   } else { # no GET variables try looking for the esip cookie
      if (isset($_COOKIE["esip"])) {
@@ -83,7 +82,8 @@
        $name = $parts[0];
        $email = $parts[1];
        $event = $parts[2];
-       #echo "Cookie 1 found: $name, $email, $event <br>"; # For debug purposes
+       $ORCIDiD = $parts[3];
+#       echo "Debug line 2 - Cookie found: $name, $email, $event, $ORCIDiD<br>";
      }
   }
 # ------------------------------------------------------------
@@ -92,7 +92,6 @@
   if ( isset($name) && isset($email) ) {	# If we have a name and email...
   
 	# Look for secret RESET option in GET variable...
-	#echo "Name 1: $name<br>"; # For debug purposes
   	if ($name == "reset" || $name == "Reset") {   	# Unset the cookie; Set the return URL to imhere.php with no GET variables
 
      if (isset($_COOKIE["esip"])) {
@@ -101,17 +100,14 @@
        $cname = $parts[0];
        $cemail = $parts[1];
        $cevent = $parts[2];
-       #echo "Cookie 2 found: $cname, $cemail, $cevent<br>"; # For debug purposes
+       $cORCIDiD = $parts[3];
+#       echo "Debug line 3 - Cookie found: $cname, $cemail, $cevent, $cORCIDiD<br>";
 	   unset($_COOKIE['esip']);
        setcookie('esip', false, time()-3600, '/');
        }
 	# Update the file checkedIn.txt
      $fh = fopen($checkedIn_log, 'a') or die("can't open file: $checkIn_log");
-
-# Should we be using cname and cemail here???
-#echo "Name 2: $name<br>";
-#echo "cName: $cname<br>";
-     fwrite($fh, "$name:$email:0:0:$event\n");
+     fwrite($fh, "$name:$email:0:0:$event:$ORCIDiD\n");
      fclose($fh);
 
 	# Set the return URL to imhere.php with no GET variables
@@ -121,15 +117,26 @@
     # ------------------------------------------------------------
      }	else	{	# Not processing a reset...
 
-     # try to set a cookie for this user to expire in 7 days
-     if ( !isset($_COOKIE["esip"]) ) {
-       $cookie_name = "esip";
-       $cookie_value = "$name:$email:$event";
+#     echo "Debug line 4 - Here we are<br>";
+     if (isset($_COOKIE["esip"])) {
+       $cvalue = $_COOKIE["esip"];
+       $parts = explode(":", $cvalue);
+       $cname = $parts[0];
+       $cemail = $parts[1];
+       $cevent = $parts[2];
+       $cORCIDiD = $parts[3];
+#       echo "Debug line 5 - Cookie found: $cname, $cemail, $cevent, $cORCIDiD<br>";
+     }
+
+       else { # No cookie - set one up
        # the cookie spec requires an expiration date
        # also, php's implementation of cookies will auto expire a cookie if 
        # the date is too far into the future
        # to have a "non-expiring" cookie and still conform to the spec
        # we'll set an expiration date of 10 years
+#       echo "Debug line 6 - Here we are<br>";
+       $cookie_name = "esip";
+       $cookie_value = "$name:$email:$event:$ORCIDiD";
        setcookie($cookie_name, $cookie_value, time()+(10*365*24*60*60), "/"); 
      }
 
@@ -143,7 +150,7 @@
 # If we ARE checked in, then see if the event checked in to can be found in the event_list file
 	 if ( $checkedIn != '' ) {
  	
-# Find the line in event_list.csv that matches $event, pull log directory name, timezone, & interface flag
+# Find the line in event_list.csv that matches $event, pull log directory name, timezone, RB interface flag, & ORCID interface flag
 	 $event = $checkedIn;
      $event_logs = '';
      $handle = fopen($event_list,"r");
@@ -155,7 +162,8 @@
          if ( ($line_event == $event) ) { 
          	$event_logs = $parts[3];
          	$schedule_timezone = $parts[4];
-         	$recommendation_interface = $parts[6]; }
+         	$recommendation_interface = $parts[6];
+			$ORCID = $parts[7]; }
        }
        fclose($handle);
      } else { die("Couldn't open file: $event_list"); }
@@ -172,7 +180,7 @@
      $handle = fopen($schedule, "r");
      if ($handle) { fclose($handle); }
      else { $checkedIn = ''; } # Missing file - reset the checkedIn flag
-}     
+}
 
 # If not checked in to an event (or event no longer exists in event_list.csv)...
      if ( $checkedIn == '' ) {	# If not checked in to an event...
@@ -182,7 +190,7 @@
   echo "<class=\"center\" style=\"font-weight:bold; color:$color3\">Event Check In System</p>";
 
        $d = $GLOBALS['spoofedDate'];
-       $url = "updateCheckIn.php?spoofedDate=$d&name=$name&email=$email&checkin=1";
+       $url = "updateCheckIn.php?spoofedDate=$d&name=$name&email=$email&checkin=1&ORCIDiD=$ORCIDiD";
        
   # Display a list of currently running events
        $allEvents = readCSV($event_list);	# returns an array of all lines from $event_list
@@ -221,10 +229,10 @@
 	   # Display Other Actions
        echo "<p style=\"font-weight:bold; color:$color4\"><br>Other Actions:<p>\n";
 
-	   # View profile
-       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event\">View Profile:</a>";
-       echo "<p> $space $space $url<br>";
-	   echo "$space $space $space $space $name ($email)</p>\n";
+	   # View profile - Took this out 08/16 - Profiles are event-specific now and we haven't opened an event yet
+#       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event\">View Profile:</a>";
+#       echo "<p> $space $space $url<br>";
+#		echo "$space $space $space $space $name ($email)</p>\n";
 
        # Count of Attendees by Session
 	   $url = "<a href=\"attendance_events.php\">Real-time Session Attendance Count</a>";
@@ -242,7 +250,7 @@
 
 # We ARE checked in to an event... 
  	
-	 echo "<p class=\"center\" style=\"font-weight:bold; color:$color3\">$event<br>Check In System<br>(Beta version)</p>\n"; # Display event name
+	 echo "<p class=\"center\" style=\"font-weight:bold; color:$color3\">$event<br>Check In System</p>\n"; # Display event name
 
        $sessions = readCSV($schedule);	# returns an array of all lines from $schedule
        $cSessions = getCurrentSessions($sessions, $schedule_timezone);	# in currentSessions.php - returns an array of session names & ID's
@@ -262,11 +270,11 @@
 		$parts = explode (",",$s);
       
 		# Set up link to Check In to this session
-         $checkin = "<a href=\"attendees.php?name=$name&email=$email&session=$parts[0]&check=in&event=$event&event_logs=$event_logs&attendees_log=$attendees_log&recommendation_interface=$recommendation_interface&session_id=$parts[1]\">Check In</a>";
+         $checkin = "<a href=\"attendees.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&session=$parts[0]&check=in&event=$event&event_logs=$event_logs&attendees_log=$attendees_log&recommendation_interface=$recommendation_interface&session_id=$parts[1]\">Check In</a>";
 		# Set up link to List Attendees in this session
-         $participants = "<a href=\"attendees.php?name=$name&email=$email&session=$parts[0]&event=$event&event_logs=$event_logs&attendees_log=$attendees_log&recommendation_interface=$recommendation_interface&session_id=$parts[1]\">Who's There</a>";
+         $participants = "<a href=\"attendees.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&session=$parts[0]&event=$event&event_logs=$event_logs&attendees_log=$attendees_log&recommendation_interface=$recommendation_interface&session_id=$parts[1]\">Who's There</a>";
 		# Set up link to List Recommendations in this session
-         $recommendations = "<a href=\"viewRecommendations.php?name=$name&email=$email&event=$event&recommendation_interface=$recommendation_interface&session=$parts[0]&session_id=$parts[1]\">Recommendations</a>";
+         $recommendations = "<a href=\"viewRecommendations.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event&recommendation_interface=$recommendation_interface&session=$parts[0]&session_id=$parts[1]\">Recommendations</a>";
 
         # Display the counter and the session name
          echo "<p>$counter. $parts[0]<br/>";
@@ -292,7 +300,7 @@
 
          if ( $currentStatus ) {	# if still checked in to this session
 # We should right here look to see if the session is still running. If not, check them out automatically.
-            $checkout = "<a href=\"attendees.php?name=$name&email=$email&session=$currentSession&check=out&event=$event&event_logs=$event_logs&attendees_log=$attendees_log&recommendation_interface=$recommendation_interface\">Check Out</a>"; }
+            $checkout = "<a href=\"attendees.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&session=$currentSession&check=out&event=$event&event_logs=$event_logs&attendees_log=$attendees_log&recommendation_interface=$recommendation_interface\">Check Out</a>"; }
          else { $checkout = "(Checked out)"; }
 
 #		 $sessionType = "Session";
@@ -311,12 +319,14 @@
 
 	 if ($event != "ESIP Telecons") {
 
-       # Count of Attendees by Session
-	   $url = "<a href=\"attendance_summary.php?event=$event\">Real-time Session Attendance Count</a>";
+	   # View profile
+       $url = "<a href=\"viewProfile.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event\">View My Profile</a>";
        echo "<p> $space $space $url<br>";
+	   #echo "$space $space $space $space $name ($email)";
+       #echo "</p>\n";
 
        # List Event Attendees
-	   $url = "<a href=\"listAttendees.php?name=$name&email=$email&event=$event&event_logs=$event_logs&recommendation_interface=$recommendation_interface\">List Event Attendees</a>";
+	   $url = "<a href=\"listAttendees.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event&event_logs=$event_logs&recommendation_interface=$recommendation_interface\">List All Event Attendees</a>";
        echo "<p> $space $space $url<br>";
 
        # List Recommended Collaborators (only if flag in event_list file is not null (it's an event ID)):
@@ -324,20 +334,46 @@
 	       $url = "<a href=\"viewRecommendations.php?name=$name&email=$email&event=$event&recommendation_interface=$recommendation_interface\">List Event Recommendations</a>";
 	       echo "<p> $space $space $url</p>\n";
        	   }
+
+       # Count of Attendees by Session
+	   $url = "<a href=\"attendance_summary.php?event=$event\">Real-time Session Attendance Count</a>";
+       echo "<p> $space $space $url<br>";
 		}
 
        # Check-out-of-this-event (in updateCheckIn.php) 
        $d = $GLOBALS['spoofedDate'];
-       $url = "updateCheckIn.php?spoofedDate=$d&name=$name&email=$email&checkin=0&locate=0&event=$event";
+       $url = "updateCheckIn.php?spoofedDate=$d&name=$name&email=$email&checkin=0&locate=0&event=$event&ORCIDiD=$ORCIDiD";
 	   #echo "URL prior to checkout: $url";       # For degug purposes
        echo "<p>$space $space <a href=\"$url\">Check Out Of This Event</a></p>\n";
 
-	 if ($event != "ESIP Telecons") {
 
-	   # View profile
-       $url = "<a href=\"viewProfile.php?name=$name&email=$email&event=$event\">View Profile:</a>";
-       echo "<p> $space $space $url<br>";
-	   echo "$space $space $space $space $name ($email)</p>\n";
+  # ------------------------------------------------------------
+
+		# If ORCHID Interface flag is turned on, display links:
+		# 	Sign up for new acct
+		#	Enter My ORCID iD
+		#	View My ORCID profile
+		#	Edit My ORCID Profile
+		
+		if ($event != "ESIP Telecons") {
+
+		#if ORCHID interface flag = "Y"
+			{
+			echo "<p> <span style=\"background-color:$color2; color:$color4; font-weight:bold\">ORCID Interface:<p>\n";
+			
+			$url = 'https://orcid.org/register';
+			echo "<p> $space $space <a href=\"$url\" target=\"_blank\">Sign Up New ORCID Account</a></p>\n"; # Opens in new browser tab
+				
+			echo "<p> $space $space <a href=\"reset.php\">Enter My ORCID iD</a></p>\n"; # Load name/email/ORCID iD reset
+			
+			$url = 'http://orcid.org/' . $ORCIDiD;
+			echo "<p> $space $space <a href=\"$url\" target=\"_blank\">View My ORCID Profile</a></p>\n"; # Opens in new browser tab
+				
+			$url = 'https://orcid.org/my-orcid';
+			echo "<p> $space $space <a href=\"$url\" target=\"_blank\">Edit My ORCID profile</a></p>\n"; # Opens in new browser tab
+			
+			echo "<p><br></p>\n";
+			}
 		}
   # ------------------------------------------------------------
    # Write log_line (date,name,email) to $imhere_log
@@ -356,9 +392,11 @@
   echo "<class=\"center\" style=\"font-weight:bold; color:$color3\">Event Check In System</p>";
      $action = htmlspecialchars($_SERVER["PHP_SELF"]);
      echo "<form method=\"GET\" action=\"$action\">\n";
-     echo "  <label>Name:</label> <input type=\"text\" name=\"name\" >\n";
-     echo "$tab <br/><label>Email:</label> <input type=\"text\" name=\"email\" >\n";  
-     echo "$tab <br/><br/><input type=\"submit\">\n";
+     echo "<label>Name:</label> <input type=\"text\" name=\"name\" ><br/>\n";
+     echo "<label>Email:</label> <input type=\"text\" name=\"email\" ><br/><br/>\n";
+     echo "<label>(Optional)</label> <br/>\n";  
+     echo "<label>ORCID ID:</label> <input type=\"text\" name=\"ORCIDiD\" ><br/><br/>\n";
+     echo "<input type=\"submit\">\n";
 
 echo "<p>Enter your name and email address. ";
 echo "Some systems attempt to auto-capitalize when you enter your address. ";

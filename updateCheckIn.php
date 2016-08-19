@@ -1,7 +1,7 @@
 <?php 
 /* 	Logs who checks in/out of the event
 		Updates checkedIn.txt
-		Format: name:email:public(1)/private(0)flag:in(1)/out(0)status:event
+		Format: name:email:public(1)/private(0)flag:in(1)/out(0)status:event:ORCIDiD
 	Also interfaces with ResearchBit Recommendation System	
 */
   ob_start();
@@ -21,7 +21,8 @@
      $email = $_GET['email'];
      $locate = $_GET['locate'];
      $checkin = $_GET['checkin'];
-     $event = $_GET['event'];
+     if ( isset($_GET['event']) ) { $event = $_GET['event']; } else { $event = ''; }
+     if ( isset($_GET['ORCIDiD']) ) { $ORCIDiD = $_GET['ORCIDiD']; } else { $ORCIDiD = ''; }
 
 #----------------------------------------------------------------------------
 # Check Out of this event
@@ -33,21 +34,11 @@
          unset($_COOKIE['esip']);
          setcookie('esip', false, time()-3600, '/');
        }
-/* -----
-# We should try to...
-# Check them out of the session they may be checked in to, before checking them out to the event
-# It's not a simple as this - we just copied this from imhere.php as an example:
-$checkout = "<a href=\"attendees.php?name=$name&email=$email&session=$currentSession&check=out&event=$event&event_logs=$event_logs&attendees_log=$attendees_log&recommendation_interface=$recommendation_interface\">Check Out</a>"; }
-# We could instead ...
-
-# think about is some more.
-
------ */
 
 # Leave them logged in to the app, but checked out of the event:
 #	   $event='';
 #      $url = $server . "imhere.php?name=$name&email=$email&event=$event"; # Load imhere.php with GET variables
-       $url = $server . "imhere.php?spoofedDate=$sdate&name=$name&email=$email"; # Load imhere.php with GET variables
+       $url = $server . "imhere.php?spoofedDate=$sdate&name=$name&email=$email&ORCIDiD=$ORCIDiD"; # Load imhere.php with GET variables
 
 #----------------------------------------------------------------------------
 # Check In to this event
@@ -59,20 +50,20 @@ $checkout = "<a href=\"attendees.php?name=$name&email=$email&session=$currentSes
        $cevent = $parts[2];
 	     if ( $cevent == "" ) {
 	       $cookie_name = "esip";
-	       $cookie_value = "$name:$email:$event";
+	       $cookie_value = "$name:$email:$event:$ORCIDiD";
                # the cookie specification doesn't allow cookies that never expire
                # also, php will automatically expire a cookie if the date is too far in the future
                # we'll use 10 years as a way to not loose cookies and still comply with the spec
 	       setcookie($cookie_name, $cookie_value, time()+(10*365*24*60*60), "/"); 
 	     }       
      }
-       $url = $server . "imhere.php?spoofedDate=$sdate&name=$name&email=$email&event=$event"; # Load imhere.php with GET variables
+       $url = $server . "imhere.php?spoofedDate=$sdate&name=$name&email=$email&event=$event&ORCIDiD=$ORCIDiD"; # Load imhere.php with GET variables
      }
 
 #----------------------------------------------------------------------------
 # Update the file checkedIn.txt
    $fh = fopen($checkedIn_log, 'a') or die("In updateCheckIn.php, can't open file: $checkedIn_log");
-     fwrite($fh, "$name:$email:$locate:$checkin:$event\n");
+     fwrite($fh, "$name:$email:$locate:$checkin:$event:$ORCIDiD\n");
      fclose($fh);
 
 #----------------------------------------------------------------------------

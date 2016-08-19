@@ -31,6 +31,7 @@
   # look for GET variables
   if ( isset($_GET['name']) ) { $name = $_GET['name']; } else { $name = ''; }
   if ( isset($_GET['email']) ) { $email = $_GET['email']; } else { $email = ''; }
+  if ( isset($_GET['ORCIDiD']) ) { $ORCIDiD = $_GET['ORCIDiD']; } else { $ORCIDiD = ''; }
   if ( isset($_GET['session']) ) { $session = $_GET['session']; } else { $session = ''; }
   if ( isset($_GET['check']) ) { $check = $_GET['check']; } else { $check = ''; }
   if ( isset($_GET['event']) ) { $event = $_GET['event']; } else { $event = ''; }
@@ -43,7 +44,7 @@
   $log = fopen($attendees_log, 'a') or die("In attendees.php, can't open file: $attendees_log");
 
   # return link
-  $returnLink = "<p><a href=\"imhere.php?name=$name&email=$email&event=$event\">Return to Check-In Menu</a></p>";
+  $returnLink = "<p><a href=\"imhere.php?name=$name&email=$email&event=$event&ORCIDiD=$ORCIDiD\">Return to Check-In Menu</a></p>";
 
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
@@ -180,7 +181,7 @@
          }
 */
 # Here's what we're doing now...
-       $line = "<p><a href=\"viewProfile.php?name=$key&email=$queryEmail&event=$event\">$key</a></p>";
+       $line = "<p><a href=\"viewProfile.php?name=$key&email=$queryEmail&ORCIDiD=$ORCIDiD&event=$event\">$key</a></p>";
 
 		} # End else no recommendation interface
 

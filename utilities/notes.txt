@@ -7,17 +7,32 @@ In directory "logs"...
 	event_list.csv
 		Fields are comma-separated
 		First line is a header line
-		Start Date, End Date, Event Name, Log Directory, Time Zone, Password, Recommendation System Interface (Event Number), ORCID Interface (Y, N or blank)
+			Start Date
+			End Date
+			Event Name
+			Log Directory
+			Time Zone
+			Password
+			Recommendation System Interface (Event Number)
+			ORCID Interface (Y, N or blank)
 
 	checkedIn.txt
 		New line written every time someone checks into or out of an event
 		Fields are colon-separated
-		name:email:check-in(1)/out(0)flag:public(1)/private(0)flag:eventName
+			name
+			email
+			check-in/out_flag (1=in; 0=out)
+			public/private_flag (1=public; 0=private)
+			eventName
+			ORCIDiD
 	
 	imhere_log.txt
 		Not sure what this is
 		Fields are comma-separated
-		date&time,name,email,eventName
+			date&time
+			name
+			email
+			eventName
 
 	attendance_data_[event_name].json
 		Created new whenever someone calls routing for Real-time Session Attendance Count
@@ -29,8 +44,11 @@ In event-specific log directory...
 	schedule.csv
 		Fields are comma-separated
 		First line is a header line
-		date,startTime,endTime,sessionName,sessionID
-		(If date is blank, then session runs every day)
+			date (if blank, session runs every day)
+			startTime
+			endTime
+			sessionName
+			sessionID
 	
 	registration.csv
 		Exported from regonline system
@@ -39,10 +57,14 @@ In event-specific log directory...
 	attendees.txt
 		New line written every time someone checks into or out of a session
 		Fields are comma-separated
-		name,email,sessionName,check-in(1)/out(0)flag,date&time
+			name
+			email
+			sessionName
+			check-in/out flag (1=in; 0=out)
+			date&time
 	
-	attendance_export.csv
-		New .csv file created any time someone runs exportAttendanceList.php?event=<eventname>
+	attendance_export_public.csv & attendance_export_private.csv
+		New .csv files created any time someone runs exportAttendanceList.php?event=<eventname>
 		line format = "sessionName,sessionDate,startTime,endTime,attendeeName,attendeeEmail"
 
 	rb_response.txt
