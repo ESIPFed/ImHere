@@ -330,6 +330,10 @@
 	   #echo "$space $space $space $space $name ($email)";
        #echo "</p>\n";
 
+       # List all sessions
+       $url = "<a href=\"all_sessions.php?event=$event\">List All Sessions</a>";
+       echo "<p> $space $space $url<br/>";
+
        # List Event Attendees
 	   $url = "<a href=\"listAttendees.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event&event_logs=$event_logs&recommendation_interface=$recommendation_interface\">List All Event Attendees</a>";
        echo "<p> $space $space $url<br>";
