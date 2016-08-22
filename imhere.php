@@ -320,7 +320,12 @@
 	 if ($event != "ESIP Telecons") {
 
 	   # View profile
-       $url = "<a href=\"viewProfile.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event\">View My Profile</a>";
+       if (!$recommendation_interface) {
+	       $url = "<a href=\"viewProfile.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event\">View My Profile</a>";
+       	   }
+       else {
+	       $url = "<a href=\"viewProfile_ResearchBit.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event\">View My Profile</a>";
+           }
        echo "<p> $space $space $url<br>";
 	   #echo "$space $space $space $space $name ($email)";
        #echo "</p>\n";
