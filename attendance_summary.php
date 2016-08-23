@@ -1,5 +1,8 @@
 <?php
 
+# ------------------------------------------------------------------------------------
+# Functions
+
 function sessionTotal ($array) {
 
   $count = 0;
@@ -27,6 +30,9 @@ function peopleStatus ($array, $session) {
 
 }
 
+# ------------------------------------------------------------------------------------
+# Setup
+
 include 'config.php';
 include 'readCSV.php';
 include 'currentSessions.php';
@@ -40,11 +46,16 @@ $event = $_GET['event'];
 # json file to write to
 $formatted = str_replace(' ', '_', $event);
 $aLog = './logs/attendance_cache/attendance_data_' . $formatted . '_' . uniqid() . '.json';
+$aLog2 = './logs/attendance_cache/attendance_data2_' . $formatted . '_' . uniqid() . '.json';
 
 # what page to load (this one, i.e. re-load)
 $page = $_SERVER['PHP_SELF'] . '?event=' . $event;
 
-# Count the number of attendees checked in to the event right now
+# ------------------------------------------------------------------------------------
+# Count the number of attendees checked in to the event
+
+# First build an array of all people who checked in to this event
+
 $result = array();
 $handle = fopen($checkedIn_log, 'r') or die("In countCheckIns.php, can't open file: $checkedIn_log");
 while (($line = fgets($handle)) !== false) {
@@ -63,6 +74,8 @@ while (($line = fgets($handle)) !== false) {
 }
 fclose($handle);
 
+# Then read through the array, count the total, also just those still checked in; save counts for later display
+
 $in=0;
 $tot=0;
 foreach ($result as $key => $value) {
@@ -72,7 +85,9 @@ foreach ($result as $key => $value) {
    if ($InOutFlag) { $in=$in+1; }
 } # End for each...
 
-# find the line in event_list.csv that matches $event
+# ------------------------------------------------------------------------------------
+# Get log directory path and timezone from event_list.csv
+
 $handle = fopen($event_list,"r");
 if ($handle) {
   while (($line = fgets($handle)) !== false) {
@@ -84,7 +99,9 @@ if ($handle) {
   fclose($handle);
 } else { die("Couldn't open file: $event_list"); }
 
-# find the currently running sessions
+# ------------------------------------------------------------------------------------
+# Build an array of currently running sessions, in $currentSessions
+
 $sFile = $log_dir . $event_logs . '/' . 'schedule.csv';
 $allSessions = readCSV($sFile);
 $cSessions = getCurrentSessions($allSessions, $schedule_timezone);
@@ -94,36 +111,45 @@ foreach($cSessions as $c) {
   array_push($currentSessions, $parts[0]); # parts[1] is session ID
 }
 
-# we're looking for attendees.txt in this directory 
+#--------------------------------------------------
+# Read all lines from attendees.txt. For each...
+# If $session from line is found in the array of current sessions, then
+# 	If $session has NOT already been added to $sessions array, push it there
+#	Do something with an associative array
+# Else if $session is NOT found in the array of current sessions, then
+# 	Do the same stuff, just in different arrays
+
+$sessions = array(); # empty array, which will later be filled with results
+$sessions2 = array(); # empty array, which will later be filled with results
+
 $file = $log_dir . $event_logs . '/' . 'attendees.txt';
-
-# empty array, which will later be filled with results
-$sessions = array();
-
-# read the correct attendees.txt file
 $handle = fopen($file, "r");
 if ($handle) {
-    while (($line = fgets($handle)) !== false) {
+    while (($line = fgets($handle)) !== false) { # Read a line from attendees.txt
        $line = trim($line);
        $pieces = explode(",",$line);
-
        $name = $pieces[0];
        $session = $pieces[2];
        $status = $pieces[3];
 
-       # if it's a currently running session then add the attendance
-       if ( in_array($session, $currentSessions) ) {
-       
-         if (!in_array($session, $sessions)) { array_push($sessions, $session); }
-
+       if ( in_array($session, $currentSessions) ) { # if it's a currently running session...
+         if (!in_array($session, $sessions)) { array_push($sessions, $session); } # and it's not already in the $sessions array, put it there
          # Associative Array
          $people[$session . ";" .$name] = $status;
- 
        }
+	   else { # else it's NOT a currently running session...
+         if (!in_array($session, $sessions2)) { array_push($sessions2, $session); } # if it's not already in the $sessions2 array, put it there
+         # Associative Array
+         $people2[$session . ";" .$name] = $status;
+	   }
+
     }
     fclose($handle);
 } else { die("Couldn't open file... $file"); }
 
+# ------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
 # write to a JSON file
 $size = sizeof($sessions);
 $counter = 0;
@@ -143,6 +169,27 @@ fwrite($myfile, "  ]\n");
 fwrite($myfile, "}\n");
 fclose($myfile);
 
+# ------------------------------------------------------------------------------------
+# write to another JSON file
+$size = sizeof($sessions2);
+$counter = 0;
+$myfile = fopen($aLog2, "w") or die ("Unable to open 2nd JSON log file.");
+fwrite($myfile, "{\n");
+fwrite($myfile, " \"name\": \"sessions\",\n");
+fwrite($myfile, " \"children\": [\n");
+foreach ($sessions2 as $session) {
+  $results = peopleStatus($people2, $session);
+  $total = sessionTotal($results);
+  $line =  "    {\"name\": \"$session\", \"size\": $total}";
+  if ($counter < $size-1) { $line = $line . ",\n"; } else { $line = $line . "\n"; }
+  $counter++;
+  fwrite($myfile, $line);
+}
+fwrite($myfile, "  ]\n");
+fwrite($myfile, "}\n");
+fclose($myfile);
+
+# ------------------------------------------------------------------------------------
 echo "<!DOCTYPE html>\n";
 echo "<html>\n";
 echo "  <head>\n";
@@ -165,9 +212,20 @@ echo "   <h3 style=\"text-align:center\">$event</h3>";
 echo "   <h3 style=\"text-align:center\">Real-time Session Attendance Count</h3>";
 echo "   <h3 style=\"text-align:center\">Total Event Attendance: $tot</h3>";
 echo "   <h3 style=\"text-align:center\">Current Event Attendance: $in</h3>";
+
 echo "   <script>var aLog = \"$aLog\";</script>\n";
 echo "   <script src=\"http://d3js.org/d3.v3.min.js\"></script>\n";
 echo "   <script src=\"bar_chart.js\"></script>\n";
+
+echo "   <script>var aLog = \"$aLog2\";</script>\n";
+echo "   <script src=\"http://d3js.org/d3.v3.min.js\"></script>\n";
+echo "   <script src=\"bar_chart.js\"></script>\n";
+
+
+
+
+# Tom's old stuff, we can probably get rid of:
+
 #echo "    <table class=\"table table-striped\">\n";
 #echo "       <thead>\n";
 #echo "         <tr>\n";
@@ -188,6 +246,8 @@ echo "   <script src=\"bar_chart.js\"></script>\n";
 
 #echo "           </tbody>\n";
 #echo "        </table>\n";
+
+
 echo "   </body>\n";
 echo "</html>";
 

@@ -34,7 +34,7 @@ In directory "logs"...
 			email
 			eventName
 
-	attendance_data_[event_name].json
+	attendance_data_[event_name].json & attendance_data2_[event_name].json
 		Created new whenever someone calls routing for Real-time Session Attendance Count
 		Updated every 60 seconds thereafter, so long as someone still has that screen/function displayed
 
