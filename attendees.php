@@ -29,6 +29,8 @@
   echo "  <body>\n";
 
   # look for GET variables
+  if ( isset($_GET['prePost']) ) { $prePost = $_GET['prePost']; } else { $prePost = -999; }
+  if ( isset($_GET['listAll']) ) { $listAll = 1; } else { $listAll = 0; }
   if ( isset($_GET['name']) ) { $name = $_GET['name']; } else { $name = ''; }
   if ( isset($_GET['email']) ) { $email = $_GET['email']; } else { $email = ''; }
   if ( isset($_GET['ORCIDiD']) ) { $ORCIDiD = $_GET['ORCIDiD']; } else { $ORCIDiD = ''; }
@@ -100,6 +102,12 @@
 	#------------------------------------------
 
     $line = "$name,$email,$session,1,$date\n";
+    if ( $prePost != -999 ) {
+      if ($prePost == -1) { $value = 0; } # check in to past event, in/out set to zero
+      if ($prePost == 1) { $value = 0; } # check in to future event, in/out set to zero
+      if ($prePost == 0) { $value = 1; } # checking in to a current event
+      $line = "$name,$email,$session,$value,$date,$prePost\n";
+    }
     fwrite($log, $line); # Check them in to this session
     echo "<p>You have been Checked In to: $session</p>";
     echo "$returnLink";
@@ -185,7 +193,7 @@
 
 		} # End else no recommendation interface
 
-         if ( $value == 1 ) { echo $line; }
+         if ( ($value == 1) || ($listAll == 1)  ) { echo $line; }
        } # End if discover...
     } # End for each...
 
