@@ -219,7 +219,7 @@ echo "   <script src=\"bar_chart.js\"></script>\n";
 
 echo "   <script>var aLog = \"$aLog2\";</script>\n";
 echo "   <script src=\"http://d3js.org/d3.v3.min.js\"></script>\n";
-echo "   <script src=\"bar_chart.js\"></script>\n";
+echo "   <script src=\"bar_chart_2.js\"></script>\n";
 
 
 

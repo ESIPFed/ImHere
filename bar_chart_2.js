@@ -2,17 +2,7 @@ var margin = {top: 50, right: 10, bottom: 0, left: 350},
     width = 960 - margin.left - margin.right,
 
 // Height set to 54 is the start point; Each data line below that takes another 25
-    height = 54 - margin.top - margin.bottom; // Displays header row only
-    height = 79 - margin.top - margin.bottom; // Header plus one data line
-    height = 104 - margin.top - margin.bottom; // Two
-    height = 129 - margin.top - margin.bottom; // Three
-    height = 154 - margin.top - margin.bottom; // Four
-    height = 179 - margin.top - margin.bottom; // Five
-    height = 204 - margin.top - margin.bottom; // Six
-    height = 229 - margin.top - margin.bottom; // Seven
-    height = 254 - margin.top - margin.bottom; // Eight
-    height = 279 - margin.top - margin.bottom; // Nine
-    height = 304 - margin.top - margin.bottom; // Ten
+    height = 2554 - margin.top - margin.bottom; // One hundred
 
 var x = d3.scale.linear()
     .range([0, width]);
