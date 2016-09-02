@@ -89,7 +89,7 @@ asort($result);
 /* For each person in the array, 
 	see if they're still checked in;
 	see if they're checked in publicly;
-	see if we're pulling profile info from ResearchBit, or from registration.csv (RegOnline)
+	see if we're pulling profile info from ResearchBit, from ORCID, or from registration.csv (RegOnline)
 */
 echo "<p>";
 foreach ($result as $key => $value) {
@@ -101,23 +101,19 @@ foreach ($result as $key => $value) {
 	$discover = $parts[4];
 	$queryORCIDiD = $parts[6];
 
-	# If discover is 1 then the person is ok to list; if discover 0 then not discoverable by others
 	if ($InOutFlag) { # If still checked in...
 		if ($discover) { # If checked in "Publicly"...
 			if ( $recommendation_interface ) {
 				$line = "<a href=\"viewProfile_ResearchBit.php?name=$name&email=$email&event=$event&queryName=$queryName&queryEmail=$queryEmail\">$queryName</a>";
-				} else { # Look for this person's interests in the RegOnline export data
-
-/* This is from when we tried to pull "interests" from the RegOnline export...
-				$interests = getInterests($queryName,$queryEmail,$event_logs); # in topics.php
-				if ( sizeof($interests) > 0 ) { 
-					$line = "<a href=\"profile.php?name=$queryName&email=$queryEmail&event_logs=$event_logs\">$queryName</a>";
-					} else { $line = "$queryName"; }
-*/
-# Here's what we're doing now...
-       $line = "<p><a href=\"viewProfile.php?name=$queryName&email=$queryEmail&ORCIDiD=$queryORCIDiD&event=$event\">$queryName</a>";
-
-				} # End of else no reccomendation interface
+			}
+			else if (!$queryORCIDiD) { # View either registration.csv info, or load ORCID profile viewer
+				$line = "<p><a href=\"viewProfile.php?name=$queryName&email=$queryEmail&ORCIDiD=$queryORCIDiD&event=$event\">$queryName</a>";
+			}
+			else { # Load ORCID profile viewer
+				$aaa = 'http://orcid.org/' . $queryORCIDiD;
+				$bbb = "$aaa . target=\"_blank\"";
+				$line = "<p><a href=$bbb>$queryName</a>"; # Opens in new browser tab
+			}
 			echo "$line<br>$tab($queryEmail)<br>";
 	       } # End of if discover...
 		} # End of if still checked in...

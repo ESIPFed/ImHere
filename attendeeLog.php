@@ -1,18 +1,13 @@
 <?php
 
-# DK changes 3/31: Include config.php in a couple of places; set relative rather than static addresses in fopen commands
-
    # attendee log format
-   # name:email:session:status (1 checked in, 0 checked out):time
+   # name:email:session:status (1 checked in, 0 checked out):time:prePost flag:ORCIDId
 
 #----------------------------------------------------------------
    function getAttendeesByEmail($email, $attendees_log) {	# Find last line in attendees.txt that matches email address; return line in $session
 
-# include the config file
   include 'config.php';
 
-#echo "In getAttendeesByEmail, attendees_log = $attendees_log<br>";	# For debug purposes
-	
      $session = '';
      $handle = fopen($attendees_log, "r");
      if ($handle) {
@@ -20,7 +15,6 @@
          $line = trim($line);
          $parts = explode(",", $line);
          $logemail = $parts[1];
-#echo "logemail = $logemail<br>";	# For debug purposes
          if ( ($logemail == $email) ) { $session = $line; }
        }
        fclose($handle);
@@ -30,25 +24,31 @@
    }
 
 #----------------------------------------------------------------
-   function getAttendees($session, $attendees_log) {	# Build an array of session attendees as name,email,:,status
+#----------------------------------------------------------------
+#----------------------------------------------------------------
+   function getAttendees($session, $attendees_log) { # Build an array of session attendees as name,email,:,status
 
      $result = array();
-     $line = readAttendeeLog($session, $attendees_log);
+     $line = readAttendeeLog($session, $attendees_log); # See function below
      foreach($line as $value) {
        $parts = explode(",", $value);
        $name = $parts[0];
        $email = $parts[1];
        $status = $parts[3];
-       $result[$name] = $email . ':' . $status;
+       $ORCIDiD = $parts[6];
+       $result[$name] = $email . ':' . $status . ':' . $ORCIDiD; # Add ORCIDiD to array line
      }
      return $result;
  
    }
 
- #----------------------------------------------------------------
-  function readAttendeeLog($s, $attendees_log) {	# Find all lines in attendees.txt that match $s (the name of a session); return lines in an array
+#----------------------------------------------------------------
+#----------------------------------------------------------------
+#----------------------------------------------------------------
+# Create an array of everyone checked into this session
 
-# include the config file
+  function readAttendeeLog($s, $attendees_log) { # Find all lines in attendees.txt that match $s (the name of a session); return lines in an array
+
   include 'config.php';
 	
       $result = array();

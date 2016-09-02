@@ -235,7 +235,7 @@
 #		echo "$space $space $space $space $name ($email)</p>\n";
 
        # Count of Attendees by Session
-	   $url = "<a href=\"attendance_events.php\">Real-time Session Attendance Count</a>";
+	   $url = "<a href=\"attendance_events.php\">Real-time Attendance Chart</a>";
        echo "<p> $space $space $url<br>";
 
        # Reset name & email
@@ -319,23 +319,12 @@
 
 	 if ($event != "ESIP Telecons") {
 
-	   # View profile
-       if (!$recommendation_interface) {
-	       $url = "<a href=\"viewProfile.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event\">View My Profile</a>";
-       	   }
-       else {
-	       $url = "<a href=\"viewProfile_ResearchBit.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event\">View My Profile</a>";
-           }
-       echo "<p> $space $space $url<br>";
-	   #echo "$space $space $space $space $name ($email)";
-       #echo "</p>\n";
-
        # List all sessions
        $url = "<a href=\"all_sessions.php?name=$name&email=$email&event=$event\">List All Sessions</a>";
        echo "<p> $space $space $url<br/>";
 
        # List Event Attendees
-	   $url = "<a href=\"listAttendees.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event&event_logs=$event_logs&recommendation_interface=$recommendation_interface\">List All Event Attendees</a>";
+	   $url = "<a href=\"listAttendees.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event&event_logs=$event_logs&recommendation_interface=$recommendation_interface\">List All Attendees</a>";
        echo "<p> $space $space $url<br>";
 
        # List Recommended Collaborators (only if flag in event_list file is not null (it's an event ID)):
@@ -344,24 +333,37 @@
 	       echo "<p> $space $space $url</p>\n";
        	   }
 
-       # Count of Attendees by Session
-	   $url = "<a href=\"attendance_summary.php?event=$event\">Real-time Session Attendance Count</a>";
+       # Real-time Attendance Chart
+	   $url = "<a href=\"attendance_summary.php?event=$event\">Real-time Attendance Chart</a>";
        echo "<p> $space $space $url<br>";
-		}
+
+	   # View profile
+       if ($recommendation_interface) { # View ResearchBit profile info
+	       $url = "<a href=\"viewProfile_ResearchBit.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event\">View My Profile</a>";
+           }
+       else if (!$ORCIDiD) { # View either registration.csv info, or load ORCID profile viewer
+	       $url = "<a href=\"viewProfile.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event\">View My Profile</a>";
+       	   }
+			else { # Load ORCID profile viewer
+				$aaa = 'http://orcid.org/' . $ORCIDiD;
+				$bbb = "$aaa . target=\"_blank\"";
+				$url = "<a href=$bbb>View My Profile</a>"; # Opens in new browser tab
+			}
+       echo "<p> $space $space $url<br>";
+
+		} # End if not ESIP Telecons...
 
        # Check-out-of-this-event (in updateCheckIn.php) 
        $d = $GLOBALS['spoofedDate'];
        $url = "updateCheckIn.php?spoofedDate=$d&name=$name&email=$email&checkin=0&locate=0&event=$event&ORCIDiD=$ORCIDiD";
-	   #echo "URL prior to checkout: $url";       # For degug purposes
        echo "<p>$space $space <a href=\"$url\">Check Out Of This Event</a></p>\n";
 
 
   # ------------------------------------------------------------
 
 		# If ORCHID Interface flag is turned on, display links:
-		# 	Sign up for new acct
 		#	Enter My ORCID iD
-		#	View My ORCID profile
+		# 	Sign up for new acct
 		#	Edit My ORCID Profile
 		
 		if ($event != "ESIP Telecons") {
@@ -370,17 +372,16 @@
 			{
 			echo "<p> <span style=\"background-color:$color2; color:$color4; font-weight:bold\">ORCID Interface:<p>\n";
 			
-			$url = 'https://orcid.org/register';
-			echo "<p> $space $space <a href=\"$url\" target=\"_blank\">Sign Up New ORCID Account</a></p>\n"; # Opens in new browser tab
-				
-			echo "<p> $space $space <a href=\"reset.php\">Enter My ORCID iD</a></p>\n"; # Load name/email/ORCID iD reset
+			if (!$ORCIDiD) { # Allow them to enter ORCIDiD if they didn't earlier, or sign up new account
+				echo "<p> $space $space <a href=\"reset.php\">Enter My ORCID iD</a></p>\n"; # Load name/email/ORCID iD reset
+				$url = 'https://orcid.org/register';
+				echo "<p> $space $space <a href=\"$url\" target=\"_blank\">Sign Up New ORCID Account</a></p>\n"; # Opens in new browser tab
+				}
 			
-			$url = 'http://orcid.org/' . $ORCIDiD;
-			echo "<p> $space $space <a href=\"$url\" target=\"_blank\">View My ORCID Profile</a></p>\n"; # Opens in new browser tab
-				
-			$url = 'https://orcid.org/my-orcid';
-			echo "<p> $space $space <a href=\"$url\" target=\"_blank\">Edit My ORCID profile</a></p>\n"; # Opens in new browser tab
-			
+			else {
+				$url = 'https://orcid.org/my-orcid';
+				echo "<p> $space $space <a href=\"$url\" target=\"_blank\">Edit My ORCID profile</a></p>\n"; # Opens in new browser tab
+			}
 			echo "<p><br></p>\n";
 			}
 		}

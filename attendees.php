@@ -1,6 +1,7 @@
 <?php 
 
 /*	Get here from imhere.php...
+	(Maybe someplace else now too - List All Sessions?)
 		One of three routines can be performed once we're here:
 		If $check='in' - Check attendee in to a session; check them out of whatever they were in before
 		If $check='out' - Check attendee out of a session
@@ -67,22 +68,6 @@
         $line = $name . ',' . $email . ',' . $currentSession . ',0,' . $date . "\n";
         fwrite($log, $line);
 
-		#------------------------------------------
-		# Post check out to recommendation system:
-/* 
-		Supposedly, we don't need to do this since we're checking right back in to another session
-			if ( $recommendation_interface ) {
-			$discover = isDiscoverable($name, $Email); #in checkin.php, get the public/private status
-			$parts = explode(":", $discover);
-			$discover = $parts[2];
-			$newName = preg_replace('/\s/', '', $name);
-			$newName = strtolower($newName);
-			$postData="name=$newName&email=$email&check_in=1&public_tag=$discover&event_id=$recommendation_interface";
-			$rb_response = $log_dir . $event_logs . '/rb_response.txt'; # Name of event-specific log file
-			httpPost($postData, $rb_response); # Call the function (in httpPostRequests.php)
-		} # End of Recommendation System check out post
-		#------------------------------------------
-*/
       }
     }
 
@@ -101,12 +86,12 @@
 	} # End of Recommendation System check in post
 	#------------------------------------------
 
-    $line = "$name,$email,$session,1,$date\n";
+    $line = "$name,$email,$session,1,$date,$prePost,$ORCIDiD\n";
     if ( $prePost != -999 ) {
       if ($prePost == -1) { $value = 0; } # check in to past event, in/out set to zero
       if ($prePost == 1) { $value = 0; } # check in to future event, in/out set to zero
       if ($prePost == 0) { $value = 1; } # checking in to a current event
-      $line = "$name,$email,$session,$value,$date,$prePost\n";
+      $line = "$name,$email,$session,$value,$date,$prePost,$ORCIDiD\n";
     }
     fwrite($log, $line); # Check them in to this session
     echo "<p>You have been Checked In to: $session</p>";
@@ -155,15 +140,17 @@
   # List attendees in a session
   if ( $check == '' ) {
 
-    $attendees = getAttendees($session, $attendees_log);
-    echo "<p>$session...<br>Currently Checked-In Attendees:</p>";
+    $attendees = getAttendees($session, $attendees_log); # In attendeeLog.php
+	if ($listAll) { echo "<p>$session...<br>Checked-In Attendees:</p>"; }
+	else { echo "<p>$session...<br>Currently Checked-In Attendees:</p>"; }
 
     # For each attendee in the session...
     foreach ($attendees as $key => $value) { 
        # split value into email 
        $pp = explode(":", $value);
        $queryEmail = $pp[0];
-       $value = $pp[1];
+       $value = $pp[1]; #In/Out status
+       $queryORCIDiD = $pp[2];
 
        # find out if this person is discoverable
        $discover = isDiscoverable($key, $queryEmail); #in checkin.php
@@ -173,28 +160,25 @@
        # if discover is 1 then the person is ok to list; if discover 0 then not discoverable by others
        if ($discover) {
 
-# Check for ResearchBit interface flag; If YES pull info from there; else get it from RegOnline interests export
-	if ( $recommendation_interface ) {
+		# Check for ResearchBit interface flag; If YES pull info from there; else get it from RegOnline interests export
+		if ( $recommendation_interface ) {
            $line = "<p><a href=\"viewProfile_ResearchBit.php?name=$name&email=$email&event=$event&queryName=$key&queryEmail=$queryEmail\">$key</a></p>";
-		}
-	
-	else { # Look for this person's interests in the RegOnline export data
-
-/* This is from when we tried to pull "interests" from the RegOnline export...
-         $interests = getInterests($key,$queryEmail,$event_logs); # in topics.php
-         if ( sizeof($interests) > 0 ) { 
-           $line = "<p><a href=\"profile.php?name=$key&email=$queryEmail&event_logs=$event_logs\">$key</a></p>";
-         } else {
-           $line = "<p>$key</p>";
-         }
-*/
-# Here's what we're doing now...
-       $line = "<p><a href=\"viewProfile.php?name=$key&email=$queryEmail&ORCIDiD=$ORCIDiD&event=$event\">$key</a></p>";
-
-		} # End else no recommendation interface
+			}
+			else { # Not interfacing with ResearchBit
+				if (!$queryORCIDiD) { # If no ORCID iD present, view registration.csv info
+		        $line = "<p><a href=\"viewProfile.php?name=$key&email=$queryEmail&ORCIDiD=$ORCIDiD&event=$event\">$key</a></p>";
+					}
+				else { # Load ORCID profile viewer
+				$aaa = 'http://orcid.org/' . $queryORCIDiD;
+				$bbb = "$aaa . target=\"_blank\"";
+				$line = "<p><a href=$bbb>$key</a></p>"; # Opens in new browser tab
+					}
+				} # End Not interfacing with RB
 
          if ( ($value == 1) || ($listAll == 1)  ) { echo $line; }
+
        } # End if discover...
+
     } # End for each...
 
     echo "<br/>$returnLink";

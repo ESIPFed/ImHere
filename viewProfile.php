@@ -6,10 +6,6 @@
 			imhere.php - For users to view their own profile info
 			attendees.php - For users to view the profile of others
 
-	First we display registration information from the registration.csv file,
-	then we check to see if we're interfacing with ORCID.
-	If YES, then give the user a link(s) to access the ORCID system. 
-
 */
 
   include 'config.php';
@@ -79,16 +75,16 @@ echo "		<h3><br/>$space Registration Information for $name<br/><br/><h4>";
 		echo "$space Organization: $data<br>";
 		$data = ($line[6]);
 		echo "$space Org Type: $data<br>";
-		$data = ($line[7]);
-		echo "$space Address 1: $data<br>";
-		$data = ($line[8]);
-		echo "$space Address 2: $data<br>";
-		$data = ($line[9]);
-		echo "$space City: $data<br>";
-		$data = ($line[10]);
-		echo "$space State: $data<br>";
-		$data = ($line[11]);
-		echo "$space Zip: $data<br>";
+#		$data = ($line[7]);
+#		echo "$space Address 1: $data<br>";
+#		$data = ($line[8]);
+#		echo "$space Address 2: $data<br>";
+#		$data = ($line[9]);
+#		echo "$space City: $data<br>";
+#		$data = ($line[10]);
+#		echo "$space State: $data<br>";
+#		$data = ($line[11]);
+#		echo "$space Zip: $data<br>";
 		$data = ($line[12]);
 		echo "$space Country: $data<br>";
 		$data = ($line[14]);
@@ -102,14 +98,11 @@ echo "		<h3><br/>$space Registration Information for $name<br/><br/><h4>";
 #-------------------------------------------------------------------------------------------------
 # If event is interfacing with ORCID, and this person has an ORCID account...
 
-if ($ORCID == "Y" and $ORCIDiD != "") {
-
-echo "$space ORCID iD = $ORCIDiD<br><br>";
-
-$url = 'http://orcid.org/' . $ORCIDiD;
-echo "$space <a href=\"$url\" target=\"_blank\">View ORCID Profile</a></p>\n"; # Opens in new browser tab
-
-}
+#if ($ORCID == "Y" and $ORCIDiD != "") {
+#echo "$space ORCID iD = $ORCIDiD<br><br>";
+#$url = 'http://orcid.org/' . $ORCIDiD;
+#echo "$space <a href=\"$url\" target=\"_blank\">View ORCID Profile</a></p>\n"; # Opens in new browser tab
+#}
 
 echo "<h4><br/>$returnLink<br><br></h4>";
 
