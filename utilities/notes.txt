@@ -34,7 +34,13 @@ In directory "logs"...
 			email
 			eventName
 
-	attendance_data_[event_name].json & attendance_data2_[event_name].json
+	Directory: attendance_cache
+
+----------------------------------------------------------------------------------------------------------------------------
+In directory "logs/attendance_cache"...
+
+	attendance_data_[event_name]_[uniqid()].json
+	attendance_data2_[event_name]_[uniqid()].json
 		Created new whenever someone calls routing for Real-time Session Attendance Count
 		Updated every 60 seconds thereafter, so long as someone still has that screen/function displayed
 
@@ -62,8 +68,11 @@ In event-specific log directory...
 			sessionName
 			check-in/out flag (1=in; 0=out)
 			date&time
+			$prePost flag (???)
+			ORCID iD
 	
-	attendance_export_public.csv & attendance_export_private.csv
+	attendance_export_public.csv
+	attendance_export_private.csv
 		New .csv files created any time someone runs exportAttendanceList.php?event=<eventname>
 		line format = "sessionName,sessionDate,startTime,endTime,attendeeName,attendeeEmail"
 

@@ -35,15 +35,12 @@ Set the return URL to imhere.php with no GET variables
 # ------------------------------------------------------------
 # Check this person out of the event (Update the file checkedIn.txt)
 
-/* Let's take the check-out logic out for now see what happens. Leaving them checked in let's us build up test data.
-
    $fh = fopen('./logs/checkedIn.txt', 'a') or die("<br>Can't open checkedIn.txt file");
      fwrite($fh, "$name:$email:0:0:$event\n");
      fclose($fh);
 
 # Should probably be updating ResearchBit with check-out info here too...
 
-*/
 # ------------------------------------------------------------
 # Set the return URL to imhere.php with no GET variables
 	include './config.php';
