@@ -94,23 +94,27 @@ echo "  <head>\n";
 echo "      <meta http-equiv=\"refresh\" content=\"$sec;URL='$page'\">\n";
 echo "      <meta charset=\"utf-8\">\n";
 echo "      <link rel=\"stylesheet\" href=\"http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\">\n";
+echo "      <link rel=\"stylesheet\" href=\"stylesheet.css\">\n";
 echo "	    <style>\n";
 echo "         body { background-color:darkseagreen; }\n";
-echo "         text {	font: 15px sans-serif; } \n";
 echo "      </style>\n";
 echo "  </head>\n";
 echo "  <body>\n";
 echo "   <h3 style=\"text-align:center\">$event</h3>";
+echo "   <h3 style=\"text-align:center\">List All Sessions</h3>";
 $size = sizeOf($sessions);
 for ($i=0; $i<$size; $i++) {
-  echo " <p>&nbsp;&nbsp;$dates[$i], $startTimes[$i] to  $endTimes[$i]<br/>";
-  echo " &nbsp;&nbsp;$sessions[$i]<br/>";
+  echo "<p>&nbsp;&nbsp;$sessions[$i]<br/>";
+  if ($dates[$i] == '') { $d = 'All Days'; } else { $d = $dates[$i]; }
+  if ($startTimes[$i] == '') { $s = 'All Times'; } else { $s = $startTimes[$i]; }
+  if ($endTimes[$i] == '') { $e = 'All Times'; } else { $e = $endTimes[$i]; }
+  echo "&nbsp;&nbsp;$d, $s, $e<br/>";
   $r = compareDateTime($dateTime[0], $dateTime[1], $dateTime[2], $dates[$i], $startTimes[$i], $endTimes[$i], $dateTime[3]);
   $logFile = $log_dir . $event_logs . '/attendees.txt';
   $url1 = "<a href=\"attendees.php?check=in&name=$name&email=$email&session=$sessions[$i]&event=$event&attendees_log=$logFile&prePost=$r\">Check In</a>";
   $url2 = "<a href=\"attendees.php?name=$name&email=$email&session=$sessions[$i]&event=$event&attendees_log=$logFile\">Who's There Now</a>";
   $url3 = "<a href=\"attendees.php?listAll=1&name=$name&email=$email&session=$sessions[$i]&event=$event&attendees_log=$logFile\">List All Check-ins</a>";
-  echo "&nbsp;&nbsp;$url1, $url2, $url3</p>";
+  echo "&nbsp;&nbsp;$url1, $url3</p><br/>";
 }
 echo "   </body>\n";
 echo "</html>";
