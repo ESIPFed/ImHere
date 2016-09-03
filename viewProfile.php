@@ -5,7 +5,6 @@
 		This routine called from...
 			imhere.php - For users to view their own profile info
 			attendees.php - For users to view the profile of others
-
 */
 
   include 'config.php';
@@ -20,23 +19,19 @@
 
   $returnLink = "<p>$space<a href=\"imhere.php?name=$name&email=$email&event=$event&ORCIDiD=$ORCIDiD\">Return to Check-In Menu</a></p>";
 
+  # setup html
+  echo "<!DOCTYPE>\n";
+  echo "<html>\n";
+  echo "  <head>\n";
+  echo "    <link rel=\"stylesheet\" href=\"stylesheet.css\">\n";
+  echo "    <title>Display Attendee Profile</title>";
+  echo "  </head>\n";
+  echo "  <body style=\"background-color:darkseagreen;\">\n";
+  echo "  <body>\n";
 
-echo "<!DOCTYPE html>\n";
-echo "  <html>\n";
-echo "    <head>\n";
-echo "      <title>Display Attendee Profile</title>\n";
-echo "      <link rel=\"stylesheet\" href=\"http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\">\n";
-echo "      <style>\n";
-echo "         .bold { font-weight: bold; }\n";
-###### For mobile devices (small screens) 
-echo "         @media screen and (max-width: 980px) {\n";
-echo "            td { font-size: 30px; }\n";
-echo "         }\n";
-######
-echo "      </style>\n";
-echo "    </head>\n";
-echo "    <body style=\"background-color:darkseagreen;\">\n";
-echo "		<h3><br/>$space Registration Information for $name<br/><br/><h4>";
+  # Display header:
+  echo "<p class=\"center\" style=\"font-weight:bold; color:#b30000\">$event<br>Attendee Registration Information</p>";
+  echo "<p>";
 
 #-------------------------------------------------------------------------------------------------
 # Pull $event_logs and the ORCID Interface flag from event_list.csv

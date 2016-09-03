@@ -56,6 +56,7 @@ function getCurrentDateTime( $schedule_timezone ) {
 $event = $_GET['event'];
 $name = $_GET['name'];
 $email = $_GET['email'];
+$ORCIDiD = $_GET['ORCIDiD'];
 
 # find the line in event_list.csv that matches $event
 $handle = fopen($event_list,"r");
@@ -100,21 +101,30 @@ echo "         body { background-color:darkseagreen; }\n";
 echo "      </style>\n";
 echo "  </head>\n";
 echo "  <body>\n";
-echo "   <h3 style=\"text-align:center\">$event</h3>";
-echo "   <h3 style=\"text-align:center\">List All Sessions</h3>";
+
+# The h3 style is not working on smartphone screens...
+#echo "   <h3 style=\"text-align:center\">$event</h3>";
+#echo "   <h3 style=\"text-align:center\">List All Sessions</h3>";
+#echo "   <h3 style=\"text-align:center; font-weight:bold; color:#b30000\">$event<br>List All Sessions</h3>";
+echo "<p class=\"center\" style=\"font-weight:bold; color:#b30000\">$event<br>List All Sessions</p>";
+
 $size = sizeOf($sessions);
 for ($i=0; $i<$size; $i++) {
-  echo "<p>&nbsp;&nbsp;$sessions[$i]<br/>";
-  if ($dates[$i] == '') { $d = 'All Days'; } else { $d = $dates[$i]; }
-  if ($startTimes[$i] == '') { $s = 'All Times'; } else { $s = $startTimes[$i]; }
-  if ($endTimes[$i] == '') { $e = 'All Times'; } else { $e = $endTimes[$i]; }
-  echo "&nbsp;&nbsp;$d, $s, $e<br/>";
-  $r = compareDateTime($dateTime[0], $dateTime[1], $dateTime[2], $dates[$i], $startTimes[$i], $endTimes[$i], $dateTime[3]);
-  $logFile = $log_dir . $event_logs . '/attendees.txt';
-  $url1 = "<a href=\"attendees.php?check=in&name=$name&email=$email&session=$sessions[$i]&event=$event&attendees_log=$logFile&prePost=$r\">Check In</a>";
-  $url2 = "<a href=\"attendees.php?name=$name&email=$email&session=$sessions[$i]&event=$event&attendees_log=$logFile\">Who's There Now</a>";
-  $url3 = "<a href=\"attendees.php?listAll=1&name=$name&email=$email&session=$sessions[$i]&event=$event&attendees_log=$logFile\">List All Check-ins</a>";
-  echo "&nbsp;&nbsp;$url1, $url3</p><br/>";
+
+  if ($sessions[$i]!="Title") { # Skip the header line, if there is one
+  echo "<p><b>&nbsp;&nbsp;$sessions[$i]</b><br/>";
+	  if ($dates[$i] == '') { $d = 'All Days'; } else { $d = $dates[$i]; }
+	  if ($startTimes[$i] == '') { $s = 'All Times'; } else { $s = $startTimes[$i]; }
+	  if ($endTimes[$i] == '') { $e = 'All Times'; } else { $e = $endTimes[$i]; }
+	  echo "&nbsp;&nbsp;$d, $s - $e<br/>";
+	  $r = compareDateTime($dateTime[0], $dateTime[1], $dateTime[2], $dates[$i], $startTimes[$i], $endTimes[$i], $dateTime[3]);
+	  $logFile = $log_dir . $event_logs . '/attendees.txt';
+	  $url1 = "<a href=\"attendees.php?check=in&name=$name&email=$email&ORCIDiD=$ORCIDiD&session=$sessions[$i]&event=$event&attendees_log=$logFile&prePost=$r\">Check In</a>";
+	  $url2 = "<a href=\"attendees.php?name=$name&email=$email&ORCIDCiD=$ORCIDiD&session=$sessions[$i]&event=$event&attendees_log=$logFile\">Who's There Now</a>";
+	  $url3 = "<a href=\"attendees.php?listAll=1&name=$name&email=$email&ORCIDiD=$ORCIDiD&session=$sessions[$i]&event=$event&attendees_log=$logFile\">List Attendees</a>";
+	  echo "&nbsp;&nbsp;$url1, $url3</p><br/>";
+  }
+
 }
 echo "   </body>\n";
 echo "</html>";

@@ -320,7 +320,7 @@
 	 if ($event != "ESIP Telecons") {
 
        # List all sessions
-       $url = "<a href=\"all_sessions.php?name=$name&email=$email&event=$event\">List All Sessions</a>";
+       $url = "<a href=\"all_sessions.php?name=$name&email=$email&event=$event&ORCIDiD=$ORCIDiD\">List All Sessions</a>";
        echo "<p> $space $space $url<br/>";
 
        # List Event Attendees
