@@ -342,7 +342,7 @@
 	       $url = "<a href=\"viewProfile_ResearchBit.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event\">View My Profile</a>";
            }
        else if (!$ORCIDiD) { # View either registration.csv info, or load ORCID profile viewer
-	       $url = "<a href=\"viewProfile.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event\">View My Profile</a>";
+	       $url = "<a href=\"viewProfile.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event&queryName=$name&queryEmail=$email\">View My Profile</a>";
        	   }
 			else { # Load ORCID profile viewer
 				$aaa = 'http://orcid.org/' . $ORCIDiD;
@@ -355,20 +355,20 @@
 
        # Check-out-of-this-event (in updateCheckIn.php) 
        $d = $GLOBALS['spoofedDate'];
-       $url = "updateCheckIn.php?spoofedDate=$d&name=$name&email=$email&checkin=0&locate=0&event=$event&ORCIDiD=$ORCIDiD";
+       $url = "updateCheckIn.php?spoofedDate=$d&name=$name&email=$email&checkin=0&locate=0&event=$event&ORCIDiD=$ORCIDiD&attendees_log=$attendees_log";
        echo "<p>$space $space <a href=\"$url\">Check Out Of This Event</a></p>\n";
 
 
   # ------------------------------------------------------------
 
-		# If ORCHID Interface flag is turned on, display links:
+		# If ORCID Interface flag is turned on, display links:
 		#	Enter My ORCID iD
 		# 	Sign up for new acct
 		#	Edit My ORCID Profile
 		
 		if ($event != "ESIP Telecons") {
 
-		#if ORCHID interface flag = "Y"
+		#if ORCID interface flag = "Y"
 			{
 			echo "<p> <span style=\"background-color:$color2; color:$color4; font-weight:bold\">ORCID Interface:<p>\n";
 			

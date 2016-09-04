@@ -13,6 +13,16 @@ function sessionTotal ($array) {
 
 }
 
+function sessionTotal2 ($array) {
+
+  $count = 0;
+  foreach ($array as $person => $status) {
+    $count++;
+  }
+  return $count;
+
+}
+
 function peopleStatus ($array, $session) {
 
   $results = array();
@@ -159,6 +169,16 @@ fwrite($myfile, " \"name\": \"sessions\",\n");
 fwrite($myfile, " \"children\": [\n");
 foreach ($sessions as $session) {
   $results = peopleStatus($people, $session);
+
+
+
+
+$aaa=sizeof($sessions);
+
+
+
+
+
   $total = sessionTotal($results);
   $line =  "    {\"name\": \"$session\", \"size\": $total}";
   if ($counter < $size-1) { $line = $line . ",\n"; } else { $line = $line . "\n"; }
@@ -179,7 +199,24 @@ fwrite($myfile, " \"name\": \"sessions\",\n");
 fwrite($myfile, " \"children\": [\n");
 foreach ($sessions2 as $session) {
   $results = peopleStatus($people2, $session);
-  $total = sessionTotal($results);
+
+
+
+
+
+
+
+$bbb=sizeof($sessions2);
+  $total = sessionTotal2($results);
+
+
+
+
+
+
+
+
+
   $line =  "    {\"name\": \"$session\", \"size\": $total}";
   if ($counter < $size-1) { $line = $line . ",\n"; } else { $line = $line . "\n"; }
   $counter++;
@@ -212,6 +249,13 @@ echo "   <h3 style=\"text-align:center\">$event</h3>";
 echo "   <h3 style=\"text-align:center\">Real-time Session Attendance Count</h3>";
 echo "   <h3 style=\"text-align:center\">Total Event Attendance: $tot</h3>";
 echo "   <h3 style=\"text-align:center\">Current Event Attendance: $in</h3>";
+
+
+
+echo "aaa: $aaa<br>";
+echo "bbb: $bbb<br>";
+
+
 
 echo "   <script>var aLog = \"$aLog\";</script>\n";
 echo "   <script src=\"http://d3js.org/d3.v3.min.js\"></script>\n";

@@ -107,7 +107,7 @@ foreach ($result as $key => $value) {
 				$line = "<a href=\"viewProfile_ResearchBit.php?name=$name&email=$email&event=$event&queryName=$queryName&queryEmail=$queryEmail\">$queryName</a>";
 			}
 			else if (!$queryORCIDiD) { # View either registration.csv info, or load ORCID profile viewer
-				$line = "<p><a href=\"viewProfile.php?name=$queryName&email=$queryEmail&ORCIDiD=$queryORCIDiD&event=$event\">$queryName</a>";
+				$line = "<p><a href=\"viewProfile.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event&queryName=$queryName&queryEmail=$queryEmail\">$queryName</a>";
 			}
 			else { # Load ORCID profile viewer
 				$aaa = 'http://orcid.org/' . $queryORCIDiD;

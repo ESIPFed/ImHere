@@ -1,7 +1,7 @@
 <?php 
 
 /*	Get here from imhere.php...
-	(Maybe someplace else now too - List All Sessions?)
+	Also now from all_sessions.php.
 		One of three routines can be performed once we're here:
 		If $check='in' - Check attendee in to a session; check them out of whatever they were in before
 		If $check='out' - Check attendee out of a session
@@ -65,7 +65,7 @@
       $currentSession = $lineParts[2];
       $currentStatus = $lineParts[3];
       if ( $currentStatus ) { # If currently checked in to a session, check them out
-        $line = $name . ',' . $email . ',' . $currentSession . ',0,' . $date . "\n";
+        $line = $name . ',' . $email . ',' . $currentSession . ',0,' . $date . ',0,' . $ORCIDiD . "\n";
         fwrite($log, $line);
 
       }
@@ -120,7 +120,7 @@
 	} # End of Recommendation System check out post
 	#------------------------------------------
 
-    $line = "$name,$email,$session,0,$date\n";
+    $line = "$name,$email,$session,0,$date,0,$ORCIDiD\n";
     fwrite($log, $line);
     echo "<p>You have been Checked Out of: $session</p>";
     echo "$returnLink";
@@ -141,7 +141,7 @@
   if ( $check == '' ) {
 
     $attendees = getAttendees($session, $attendees_log); # In attendeeLog.php
-	if ($listAll) { echo "<p>$session...<br>Checked-In Attendees:</p>"; }
+	if ($listAll) { echo "<p>$session...<br>Attendees:</p>"; }
 	else { echo "<p>$session...<br>Currently Checked-In Attendees:</p>"; }
 
     # For each attendee in the session...
@@ -166,7 +166,7 @@
 			}
 			else { # Not interfacing with ResearchBit
 				if (!$queryORCIDiD) { # If no ORCID iD present, view registration.csv info
-		        $line = "<p><a href=\"viewProfile.php?name=$key&email=$queryEmail&ORCIDiD=$ORCIDiD&event=$event\">$key</a></p>";
+		        $line = "<p><a href=\"viewProfile.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&queryName=$key&queryEmail=$queryEmail&event=$event\">$key</a></p>";
 					}
 				else { # Load ORCID profile viewer
 				$aaa = 'http://orcid.org/' . $queryORCIDiD;

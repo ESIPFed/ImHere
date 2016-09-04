@@ -1,15 +1,17 @@
 <?php 
 /* 	Logs who checks in/out of the event
-		Updates checkedIn.txt
+		Updates checkedIn.txt (event check-ins)
 		Format: name:email:public(1)/private(0)flag:in(1)/out(0)status:event:ORCIDiD
+		Also update attendees.txt (session check-ins)
 	Also interfaces with ResearchBit Recommendation System	
 */
   ob_start();
 
   include 'config.php';
   include 'httpPostRequests.php';
+  include 'attendeeLog.php';
 
-  $url = $server . "imhere.php"; # In case something goes wrong, Load imhere.php with no GET variables
+  $url = $server . "imhere.php"; # In case something goes wrong, load imhere.php with no GET variables
 
   # check for spoofed date
   $sdate = $_GET['spoofedDate'];
@@ -21,6 +23,7 @@
      $email = $_GET['email'];
      $locate = $_GET['locate'];
      $checkin = $_GET['checkin'];
+     $attendees_log = $_GET['attendees_log'];
      if ( isset($_GET['event']) ) { $event = $_GET['event']; } else { $event = ''; }
      if ( isset($_GET['ORCIDiD']) ) { $ORCIDiD = $_GET['ORCIDiD']; } else { $ORCIDiD = ''; }
 
@@ -34,6 +37,21 @@
          unset($_COOKIE['esip']);
          setcookie('esip', false, time()-3600, '/');
        }
+
+# Check them out of any session they might be checked in to:
+
+    $line = getAttendeesByEmail($email, $attendees_log); # In attendeeLog.php, determine the session this attendee is currently checked in to 
+    if ( $line != '' ) {
+      $lineParts = explode(",", $line);
+      $currentSession = $lineParts[2];
+      $currentStatus = $lineParts[3];
+      if ( $currentStatus ) { # If currently checked in to a session, check them out
+        $line = $name . ',' . $email . ',' . $currentSession . ',0,' . $date . ',0,' . $ORCIDiD . "\n";
+		$log = fopen($attendees_log, 'a') or die("In updateCheckIn.php, can't open file: $attendees_log");
+        fwrite($log, $line);
+		fclose($log);
+      }
+    }
 
 # Leave them logged in to the app, but checked out of the event:
 #	   $event='';
