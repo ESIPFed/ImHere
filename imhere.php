@@ -263,7 +263,6 @@
 
 		echo "<p> <span style=\"background-color:$color2; color:$color4; font-weight:bold\">Currently Running $sessionType</p>\n";
 
-
        $counter = 1;
        foreach($cSessions as $s) {		# cSessions is an array of currently running session names, ID's
 
@@ -297,15 +296,29 @@
          $lineParts = explode(",", $line);
          $currentSession = $lineParts[2];	# Last session attendee checked-in to
          $currentStatus = $lineParts[3]; # 1=checked-in; 0=checked-out
+		 $checkout = "(Checked out)"; # Default is "Checked Out"
 
-         if ( $currentStatus ) {	# if still checked in to this session
-# We should right here look to see if the session is still running. If not, check them out automatically.
-            $checkout = "<a href=\"attendees.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&session=$currentSession&check=out&event=$event&event_logs=$event_logs&attendees_log=$attendees_log&recommendation_interface=$recommendation_interface\">Check Out</a>"; }
-         else { $checkout = "(Checked out)"; }
+         if ( $currentStatus ) {	# If still checked in to this session
 
-#		 $sessionType = "Session";
-#		 if ($event == "ESIP Telecons") { $sessionType = "Telecon"; }
-# 		 echo "<p> <span style=\"background-color:$color2; font-weight:bold\">Your Last $sessionType Check In:</p>"; 
+			# Look to see if the session is still running. If not, check them out automatically.
+
+			$match=0 ; # Set to no match
+			foreach($cSessions as $s) {	# cSessions is an array of currently running session names, ID's
+			$parts = explode (",",$s);
+			if ($currentSession==$parts[0]) { $match=1; }
+			} # End For each...
+
+			if ($match==0) { # Check them out of this session
+			        $line = $name . ',' . $email . ',' . $currentSession . ',0,' . $date . ',0,' . $ORCIDiD . "\n";
+					$log = fopen($attendees_log, 'a') or die("In imhere.php, can't open file: $attendees_log");
+			        fwrite($log, $line);
+					fclose($log);
+			}
+			else { # Still checked in and session still running...
+	            $checkout = "<a href=\"attendees.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&session=$currentSession&check=out&event=$event&event_logs=$event_logs&attendees_log=$attendees_log&recommendation_interface=$recommendation_interface\">Check Out</a>";
+			}
+
+         } # End If still checked into this session
 
  		 echo "<p> <span style=\"background-color:$color2; color:$color4; font-weight:bold\">Your Last Check In:</p>"; 
          echo "<p style=\"font-weight:normal\">$currentSession <br> $space $space";
