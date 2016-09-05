@@ -1,7 +1,6 @@
 <?php 
 
-/*	Get here from imhere.php...
-	Also now from all_sessions.php.
+/*	Get here from imhere.php..., Also now from all_sessions.php.
 		One of three routines can be performed once we're here:
 		If $check='in' - Check attendee in to a session; check them out of whatever they were in before
 		If $check='out' - Check attendee out of a session
@@ -86,8 +85,8 @@
 	} # End of Recommendation System check in post
 	#------------------------------------------
 
-    $line = "$name,$email,$session,1,$date,$prePost,$ORCIDiD\n";
-    if ( $prePost != -999 ) {
+    $line = "$name,$email,$session,1,$date,0,$ORCIDiD\n";
+    if ( $prePost != -999 ) { # If we're coming from all_session.php, where prePost varialbe was set...
       if ($prePost == -1) { $value = 0; } # check in to past event, in/out set to zero
       if ($prePost == 1) { $value = 0; } # check in to future event, in/out set to zero
       if ($prePost == 0) { $value = 1; } # checking in to a current event

@@ -346,8 +346,8 @@
 	       echo "<p> $space $space $url</p>\n";
        	   }
 
-       # Real-time Attendance Chart
-	   $url = "<a href=\"attendance_summary.php?event=$event\">Real-time Attendance Chart</a>";
+       # Real-time Check-In Count
+	   $url = "<a href=\"attendance_summary.php?event=$event\">Real-time Check-In Count</a>";
        echo "<p> $space $space $url<br>";
 
 	   # View profile

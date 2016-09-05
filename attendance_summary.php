@@ -4,29 +4,27 @@
 # Functions
 
 function sessionTotal ($array) {
-
   $count = 0;
   foreach ($array as $person => $status) {
     if ( $status == 1 ) { $count++; }
   }
   return $count;
-
 }
 
-function sessionTotal2 ($array) {
+#----------
 
+function sessionTotal2 ($array) {
   $count = 0;
   foreach ($array as $person => $status) {
     $count++;
   }
   return $count;
-
 }
 
+#----------
+
 function peopleStatus ($array, $session) {
-
   $results = array();
-
   foreach ($array as $e => $value) { 
     $parts = explode(";", $e);
     $s = $parts[0];
@@ -35,9 +33,7 @@ function peopleStatus ($array, $session) {
       $results[$person] = $value;
     }
   }
-
   return $results;
-
 }
 
 # ------------------------------------------------------------------------------------
@@ -84,7 +80,7 @@ while (($line = fgets($handle)) !== false) {
 }
 fclose($handle);
 
-# Then read through the array, count the total, also just those still checked in; save counts for later display
+# Read through the array, count the total as well as just those still checked in; save counts for later display
 
 $in=0;
 $tot=0;
@@ -132,6 +128,9 @@ foreach($cSessions as $c) {
 $sessions = array(); # empty array, which will later be filled with results
 $sessions2 = array(); # empty array, which will later be filled with results
 
+$people = array(); # empty array, which will later be filled with results
+$people2 = array(); # empty array, which will later be filled with results
+
 $file = $log_dir . $event_logs . '/' . 'attendees.txt';
 $handle = fopen($file, "r");
 if ($handle) {
@@ -145,12 +144,16 @@ if ($handle) {
        if ( in_array($session, $currentSessions) ) { # if it's a currently running session...
          if (!in_array($session, $sessions)) { array_push($sessions, $session); } # and it's not already in the $sessions array, put it there
          # Associative Array
-         $people[$session . ";" .$name] = $status;
+         # Let's count everybody, not just those still checked-in
+         # $people[$session . ";" .$name] = $status;
+         $people[$session . ";" .$name] = 1;
        }
 	   else { # else it's NOT a currently running session...
          if (!in_array($session, $sessions2)) { array_push($sessions2, $session); } # if it's not already in the $sessions2 array, put it there
          # Associative Array
-         $people2[$session . ";" .$name] = $status;
+         # Let's count everybody, not just those still checked-in
+         # $people2[$session . ";" .$name] = $status;
+         $people2[$session . ";" .$name] = 1;
 	   }
 
     }
@@ -169,16 +172,6 @@ fwrite($myfile, " \"name\": \"sessions\",\n");
 fwrite($myfile, " \"children\": [\n");
 foreach ($sessions as $session) {
   $results = peopleStatus($people, $session);
-
-
-
-
-$aaa=sizeof($sessions);
-
-
-
-
-
   $total = sessionTotal($results);
   $line =  "    {\"name\": \"$session\", \"size\": $total}";
   if ($counter < $size-1) { $line = $line . ",\n"; } else { $line = $line . "\n"; }
@@ -188,6 +181,7 @@ $aaa=sizeof($sessions);
 fwrite($myfile, "  ]\n");
 fwrite($myfile, "}\n");
 fclose($myfile);
+$aaa=sizeof($sessions);
 
 # ------------------------------------------------------------------------------------
 # write to another JSON file
@@ -199,24 +193,7 @@ fwrite($myfile, " \"name\": \"sessions\",\n");
 fwrite($myfile, " \"children\": [\n");
 foreach ($sessions2 as $session) {
   $results = peopleStatus($people2, $session);
-
-
-
-
-
-
-
-$bbb=sizeof($sessions2);
   $total = sessionTotal2($results);
-
-
-
-
-
-
-
-
-
   $line =  "    {\"name\": \"$session\", \"size\": $total}";
   if ($counter < $size-1) { $line = $line . ",\n"; } else { $line = $line . "\n"; }
   $counter++;
@@ -225,6 +202,7 @@ $bbb=sizeof($sessions2);
 fwrite($myfile, "  ]\n");
 fwrite($myfile, "}\n");
 fclose($myfile);
+$bbb=sizeof($sessions2);
 
 # ------------------------------------------------------------------------------------
 echo "<!DOCTYPE html>\n";
@@ -245,52 +223,31 @@ echo "         }\n";
 echo "      </style>\n";
 echo "  </head>\n";
 echo "  <body>\n";
+
+$space = "&nbsp;";
 echo "   <h3 style=\"text-align:center\">$event</h3>";
-echo "   <h3 style=\"text-align:center\">Real-time Session Attendance Count</h3>";
-echo "   <h3 style=\"text-align:center\">Total Event Attendance: $tot</h3>";
-echo "   <h3 style=\"text-align:center\">Current Event Attendance: $in</h3>";
+echo "   <h3 style=\"text-align:center\">Real-time Check-In Count</h3>";
+echo "   <h3 style=\"text-align:center\">Total Event Check-Ins: $tot $space Still Checked-In: $in</h3>";
 
-
-
-echo "aaa: $aaa<br>";
-echo "bbb: $bbb<br>";
-
-
-
+#----------
+if ($aaa!=0) { # If any current sessions to display...
+echo "<br>$space $space Current Sessions ($aaa):<br>";
 echo "   <script>var aLog = \"$aLog\";</script>\n";
 echo "   <script src=\"http://d3js.org/d3.v3.min.js\"></script>\n";
 echo "   <script src=\"bar_chart.js\"></script>\n";
+}
+#----------
+if ($bbb!=0) { # If any non-current sessions to display...
+echo "<br>$space $space Non-current Sessions ($bbb):<br>";
 
+# If I leave this bit of code out, then the upper chart works fine.
+# If I put this code in, then the lower chart seems to work, but data in the upper chart disappears.
+# On rare occaisions, like 1 out of 100, both the upper and lower charts both display data.
 echo "   <script>var aLog = \"$aLog2\";</script>\n";
 echo "   <script src=\"http://d3js.org/d3.v3.min.js\"></script>\n";
 echo "   <script src=\"bar_chart_2.js\"></script>\n";
-
-
-
-
-# Tom's old stuff, we can probably get rid of:
-
-#echo "    <table class=\"table table-striped\">\n";
-#echo "       <thead>\n";
-#echo "         <tr>\n";
-#echo "           <th>Session</th>\n";
-#echo "           <th>Attendance</th>\n";
-#echo "         </tr>\n";
-#echo "       </thead>\n";
-#echo "       <tbody>\n";
-
-#foreach ($sessions as $session) {
-#  $results = peopleStatus($people, $session);
-#  $total = sessionTotal($results); 
-#  echo "     <tr>\n";
-#  echo "       <td>$session</td>\n";
-#  echo "       <td>$total</td>\n";
-#  echo "     </tr>\n";
-#}
-
-#echo "           </tbody>\n";
-#echo "        </table>\n";
-
+}
+#----------
 
 echo "   </body>\n";
 echo "</html>";
