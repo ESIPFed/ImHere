@@ -63,7 +63,7 @@
 	$lastName = ($line[2]);
 	$lineName = ($firstName . ' ' . $lastName);
     $lineName = strtolower($lineName);
-    $lineEmail = trim($line[13]);
+    $lineEmail = trim($line[14]);
     $person = strtolower($queryName);
     if ( ($lineName == $person) && ($lineEmail == $queryEmail) ) { # If this is the right person...
 		echo "$space Name: $queryName<br>";
@@ -76,9 +76,9 @@
 		echo "$space Org Type: $data<br>";
 		$data = ($line[12]);
 		echo "$space Country: $data<br>";
-		$data = ($line[14]);
-		echo "$space Email 2: $data<br>";
 		$data = ($line[15]);
+		echo "$space Email 2: $data<br>";
+		$data = ($line[16]);
 		echo "$space Twitter: $data<br>";
 		$found = 1;
     }  
