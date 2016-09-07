@@ -50,7 +50,7 @@ svg.append("g")
   .append("line")
     .attr("y1", "100%");
 
-d3.json(aLog, function(error, root) {
+d3.json(aLog2, function(error, root) {
   if (error) throw error;
 
   partition.nodes(root);

@@ -243,7 +243,7 @@ echo "<br>$space $space Non-current Sessions ($bbb):<br>";
 # If I leave this bit of code out, then the upper chart works fine.
 # If I put this code in, then the lower chart seems to work, but data in the upper chart disappears.
 # On rare occaisions, like 1 out of 100, both the upper and lower charts both display data.
-echo "   <script>var aLog = \"$aLog2\";</script>\n";
+echo "   <script>var aLog2 = \"$aLog2\";</script>\n";
 echo "   <script src=\"http://d3js.org/d3.v3.min.js\"></script>\n";
 echo "   <script src=\"bar_chart_2.js\"></script>\n";
 }
