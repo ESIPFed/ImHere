@@ -14,7 +14,7 @@ $currentSessionsLog = $_GET['currentSessionsLog'];
 $page = $server . "attendance_summary.php?event=$event&email=$email";
 
 # How many seconds before auto-reload
-$sec = "5";
+$sec = "10";
 
 echo "<!DOCTYPE html>\n";
 echo "<html>\n";

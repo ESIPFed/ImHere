@@ -212,7 +212,7 @@ $page = $server . "attendance_summary.php?event=$event&email=$email";
 if ($aaa!=0) { $page = $server . "attendance_summary2.php?event=$event&email=$email&tot=$tot&in=$in&aaa=$aaa&currentSessionsLog=$currentSessionsLog"; }
 
 # How many seconds before auto-reload
-$sec = "5";
+$sec = "10";
 
 echo "<!DOCTYPE html>\n";
 echo "<html>\n";
