@@ -3,6 +3,8 @@
 include 'config.php';
 include 'currentEvents.php';
 
+$email = $_GET['email'];
+
 $events = array();
 
 # read event_list.csv 
@@ -41,7 +43,7 @@ echo "       <tbody>\n";
 $lnk = $server . 'attendance_summary.php?event=';
 
 foreach ($events as $event) {
-  $link = $lnk . $event;  
+  $link = $lnk . $event . '&email=' . $email;
   echo "     <tr>\n";
   echo "       <td>$event</td>\n";
   echo "       <td><a href=\"$link\">Event Attendance</a></td>\n";

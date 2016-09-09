@@ -43,13 +43,16 @@ include 'config.php';
 include 'readCSV.php';
 include 'currentSessions.php';
 
-# get the event from the url
+# get the event & email from the url
 $event = $_GET['event'];
+$email = $_GET['email'];
 
 # json file to write to
 $formatted = str_replace(' ', '_', $event);
-$aLog = './logs/attendance_cache/attendance_data_' . $formatted . '_' . uniqid() . '.json';
-$aLog2 = './logs/attendance_cache/attendance_data2_' . $formatted . '_' . uniqid() . '.json';
+#$aLog = './logs/attendance_cache/attendance_data_' . $formatted . '_' . uniqid() . '.json';
+#$aLog2 = './logs/attendance_cache/attendance_data2_' . $formatted . '_' . uniqid() . '.json';
+$currentSessionsLog = './logs/attendance_cache/' . $formatted . '_current_sessions_' . $email . '.json';
+$allSessionsLog = './logs/attendance_cache/' . $formatted . '_all_sessions_' . $email . '.json';
 
 # ------------------------------------------------------------------------------------
 # Count the number of attendees checked in to the event
@@ -161,7 +164,7 @@ if ($handle) {
 # write to a JSON file
 $size = sizeof($sessions);
 $counter = 0;
-$myfile = fopen($aLog, "w") or die ("Unable to open JSON log file.");
+$myfile = fopen($currentSessionsLog, "w") or die ("Unable to open JSON log file.");
 fwrite($myfile, "{\n");
 fwrite($myfile, " \"name\": \"sessions\",\n");
 fwrite($myfile, " \"children\": [\n");
@@ -182,7 +185,7 @@ $aaa=sizeof($sessions);
 # write to another JSON file
 $size = sizeof($sessions2);
 $counter = 0;
-$myfile = fopen($aLog2, "w") or die ("Unable to open 2nd JSON log file.");
+$myfile = fopen($allSessionsLog, "w") or die ("Unable to open 2nd JSON log file.");
 fwrite($myfile, "{\n");
 fwrite($myfile, " \"name\": \"sessions\",\n");
 fwrite($myfile, " \"children\": [\n");
@@ -202,13 +205,14 @@ $bbb=sizeof($sessions2);
 # ------------------------------------------------------------------------------------
 
 # Set URL of page name to reload. (Default is this one.)
-$page = $_SERVER['PHP_SELF'] . '?event=' . $event;
+#$page = $_SERVER['PHP_SELF'] . '?event=' . $event;
+$page = $server . "attendance_summary.php?event=$event&email=$email";
 
 # If there are sessions currently running, we load a different page instead:
-if ($aaa!=0) { $page = $server . "attendance_summary2.php?event=$event&tot=$tot&in=$in&aaa=$aaa&aLog=$aLog"; }
+if ($aaa!=0) { $page = $server . "attendance_summary2.php?event=$event&email=$email&tot=$tot&in=$in&aaa=$aaa&currentSessionsLog=$currentSessionsLog"; }
 
 # How many seconds before auto-reload
-$sec = "10";
+$sec = "5";
 
 echo "<!DOCTYPE html>\n";
 echo "<html>\n";
@@ -233,16 +237,16 @@ echo "  <body>\n";
 
 $space = "&nbsp;";
 echo "   <h3 style=\"text-align:center\">$event</h3>";
-echo "   <h3 style=\"text-align:center\">Real-time Check-In Count</h3>";
-echo "   <h3 style=\"text-align:center\">Total Event Check-Ins: $tot $space Still Checked-In: $in</h3>";
+#echo "   <h3 style=\"text-align:center\">Total Event Attendees: $tot $space Still Checked-In: $in</h3>";
+echo "   <h3 style=\"text-align:center\">Total Event Attendees: $tot</h3>";
+echo "   <h3 style=\"text-align:center\">Attendee Count by Session";
 
 #----------
 
-
 if ($bbb!=0) # If any non-current sessions to display...
 	{
-	echo "<br>$space $space All Sessions ($bbb):<br>";
-	echo "   <script>var aLog2 = \"$aLog2\";</script>\n";
+	echo " - All Sessions</h3>";
+	echo "   <script>var aLog2 = \"$allSessionsLog\";</script>\n";
 	echo "   <script src=\"http://d3js.org/d3.v3.min.js\"></script>\n";
 	echo "   <script src=\"bar_chart_2.js\"></script>\n";
 	}
@@ -250,13 +254,13 @@ else
 	{
 	if ($aaa!=0) # If any current sessions to display...
 		{
-		echo "<br>$space $space Current Sessions ($aaa):<br>";
-		echo "   <script>var aLog = \"$aLog\";</script>\n";
+		echo " - Current Sessions</h3>";
+		echo "   <script>var aLog = \"$currentSessionsLog\";</script>\n";
 		echo "   <script src=\"http://d3js.org/d3.v3.min.js\"></script>\n";
 		echo "   <script src=\"bar_chart.js\"></script>\n";
 		}
 		else
-			{ echo "$space No session data to display<br>"; }
+			{ echo "</h3><h3 style=\"text-align:center\">No session data to display</h3>"; }
 	}
 
 

@@ -235,7 +235,7 @@
 #		echo "$space $space $space $space $name ($email)</p>\n";
 
        # Count of Attendees by Session
-	   $url = "<a href=\"attendance_events.php\">Real-time Attendance Chart</a>";
+	   $url = "<a href=\"attendance_events.php?email=$email\">Attendee Count by Session</a>";
        echo "<p> $space $space $url<br>";
 
        # Reset name & email
@@ -347,7 +347,7 @@
        	   }
 
        # Real-time Check-In Count
-	   $url = "<a href=\"attendance_summary.php?event=$event\">Real-time Check-In Count</a>";
+	   $url = "<a href=\"attendance_summary.php?event=$event&email=$email\">Attendee Count by Session</a>";
        echo "<p> $space $space $url<br>";
 
 	   # View profile
