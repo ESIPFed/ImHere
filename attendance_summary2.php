@@ -1,51 +1,14 @@
 <?php
 
 # ------------------------------------------------------------------------------------
-# Functions
-
-function sessionTotal ($array) {
-  $count = 0;
-  foreach ($array as $person => $status) {
-    if ( $status == 1 ) { $count++; }
-  }
-  return $count;
-}
-
-#----------
-
-function sessionTotal2 ($array) {
-  $count = 0;
-  foreach ($array as $person => $status) {
-    $count++;
-  }
-  return $count;
-}
-
-#----------
-
-function peopleStatus ($array, $session) {
-  $results = array();
-  foreach ($array as $e => $value) { 
-    $parts = explode(";", $e);
-    $s = $parts[0];
-    $person = $parts[1];
-    if ( $s == $session) {
-      $results[$person] = $value;
-    }
-  }
-  return $results;
-}
-
-# ------------------------------------------------------------------------------------
-# Setup
-
-include 'config.php';
-include 'readCSV.php';
-include 'currentSessions.php';
-
-# get the event from the url
+# Get variables from the url
 $event = $_GET['event'];
+$tot = $_GET['tot'];
+$in = $_GET['in'];
+$aaa = $_GET['aaa'];
+$aLog = $_GET['aLog'];
 
+/*
 # json file to write to
 $formatted = str_replace(' ', '_', $event);
 $aLog = './logs/attendance_cache/attendance_data_' . $formatted . '_' . uniqid() . '.json';
@@ -135,21 +98,20 @@ if ($handle) {
        $session = $pieces[2];
        $status = $pieces[3];
 
-       if ( in_array($session, $currentSessions) ) # if it's a currently running session...
-		 { 
+       if ( in_array($session, $currentSessions) ) { # if it's a currently running session...
          if (!in_array($session, $sessions)) { array_push($sessions, $session); } # and it's not already in the $sessions array, put it there
          # Associative Array
          # Let's count everybody, not just those still checked-in
          # $people[$session . ";" .$name] = $status;
          $people[$session . ";" .$name] = 1;
-         }
-# Remove the ELSE here. Let's make it an ALL SESSIONS array instead of just NON_CURRENT sessions
-#	     else # else it's NOT a currently running session... 
-		 {
+       }
+	   else { # else it's NOT a currently running session...
          if (!in_array($session, $sessions2)) { array_push($sessions2, $session); } # if it's not already in the $sessions2 array, put it there
          # Associative Array
+         # Let's count everybody, not just those still checked-in
+         # $people2[$session . ";" .$name] = $status;
          $people2[$session . ";" .$name] = 1;
-	     }
+	   }
 
     }
     fclose($handle);
@@ -199,13 +161,11 @@ fwrite($myfile, "}\n");
 fclose($myfile);
 $bbb=sizeof($sessions2);
 
+*/
+
 # ------------------------------------------------------------------------------------
-
-# Set URL of page name to reload. (Default is this one.)
-$page = $_SERVER['PHP_SELF'] . '?event=' . $event;
-
-# If there are sessions currently running, we load a different page instead:
-if ($aaa!=0) { $page = $server . "attendance_summary2.php?event=$event&tot=$tot&in=$in&aaa=$aaa&aLog=$aLog"; }
+# Set URL of page name to reload
+$page = $server . "attendance_summary.php?event=$event";
 
 # How many seconds before auto-reload
 $sec = "10";
@@ -238,27 +198,10 @@ echo "   <h3 style=\"text-align:center\">Total Event Check-Ins: $tot $space Stil
 
 #----------
 
-
-if ($bbb!=0) # If any non-current sessions to display...
-	{
-	echo "<br>$space $space All Sessions ($bbb):<br>";
-	echo "   <script>var aLog2 = \"$aLog2\";</script>\n";
-	echo "   <script src=\"http://d3js.org/d3.v3.min.js\"></script>\n";
-	echo "   <script src=\"bar_chart_2.js\"></script>\n";
-	}
-else 
-	{
-	if ($aaa!=0) # If any current sessions to display...
-		{
-		echo "<br>$space $space Current Sessions ($aaa):<br>";
-		echo "   <script>var aLog = \"$aLog\";</script>\n";
-		echo "   <script src=\"http://d3js.org/d3.v3.min.js\"></script>\n";
-		echo "   <script src=\"bar_chart.js\"></script>\n";
-		}
-		else
-			{ echo "$space No session data to display<br>"; }
-	}
-
+echo "<br>$space $space Current Sessions ($aaa):<br>";
+echo "   <script>var aLog = \"$aLog\";</script>\n";
+echo "   <script src=\"http://d3js.org/d3.v3.min.js\"></script>\n";
+echo "   <script src=\"bar_chart.js\"></script>\n";
 
 #----------
 
