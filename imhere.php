@@ -426,16 +426,15 @@
      echo "<form method=\"GET\" action=\"$action\">\n";
      echo "<label>Name:</label> <input type=\"text\" name=\"name\" ><br/>\n";
      echo "<label>Email:</label> <input type=\"text\" name=\"email\" ><br/><br/>\n";
+
+     echo "<p>IMPORTANT: You must enter the same name and email address you used to register for the event. ";
+     echo "</p>";
+
      echo "<label>(Optional)</label> <br/>\n";  
      echo "<label>ORCID ID:</label> <input type=\"text\" name=\"ORCIDiD\" ><br/><br/>\n";
+     echo "<p>Entering your ORCID ID will allow other attendees to access your ORCID profile, to view information on your publications and other public content.</p>";
+
      echo "<input type=\"submit\">\n";
-
-echo "<p>Enter the name and email address you used to register for the event. ";
-#echo "Some systems attempt to auto-capitalize when you enter your address. ";
-#echo "Please verify that the capitalization is correct in your address.";
-echo "</p>";
-
-echo "<p>Entering your ORCID ID will allow other attendees to access your ORCID profile, to view information on your publications and other public content.</p>";
 
      echo "</form>\n";
 	  }
