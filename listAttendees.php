@@ -106,6 +106,10 @@ foreach ($result as $key => $value) {
 			if ( $recommendation_interface ) {
 				$line = "<a href=\"viewProfile_ResearchBit.php?name=$name&email=$email&event=$event&queryName=$queryName&queryEmail=$queryEmail\">$queryName</a>";
 			}
+
+
+
+/* Put this in if we want to go dorectly to the ORCHID profile display and bypass viewPrifile.php:
 			else if (!$queryORCIDiD) { # View either registration.csv info, or load ORCID profile viewer
 				$line = "<p><a href=\"viewProfile.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event&queryName=$queryName&queryEmail=$queryEmail\">$queryName</a>";
 			}
@@ -114,6 +118,18 @@ foreach ($result as $key => $value) {
 				$bbb = "$aaa . target=\"_blank\"";
 				$line = "<p><a href=$bbb>$queryName</a>"; # Opens in new browser tab
 			}
+*/
+
+/* Take this out if we're linking to ORCID through veiwPROFILE.PHP:
+*/
+			else
+			{
+				$line = "<p><a href=\"viewProfile.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event&queryName=$queryName&queryEmail=$queryEmail&queryORCIDiD=$queryORCIDiD\">$queryName</a>";
+			}
+
+
+
+
 			echo "$line<br>$tab($queryEmail)<br>";
 	       } # End of if discover...
 		} # End of if still checked in...

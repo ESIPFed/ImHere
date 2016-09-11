@@ -354,6 +354,7 @@
        if ($recommendation_interface) { # View ResearchBit profile info
 	       $url = "<a href=\"viewProfile_ResearchBit.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event\">View My Profile</a>";
            }
+/*
        else if (!$ORCIDiD) { # View either registration.csv info, or load ORCID profile viewer
 	       $url = "<a href=\"viewProfile.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event&queryName=$name&queryEmail=$email\">View My Profile</a>";
        	   }
@@ -362,6 +363,13 @@
 				$bbb = "$aaa . target=\"_blank\"";
 				$url = "<a href=$bbb>View My Profile</a>"; # Opens in new browser tab
 			}
+*/
+
+			else
+			{
+				$url = "<a href=\"viewProfile.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&event=$event&queryName=$name&queryEmail=$email&queryORCIDiD=$ORCIDiD\">View My Profile</a>";
+			}
+
        echo "<p> $space $space $url<br>";
 
 		} # End if not ESIP Telecons...
@@ -389,6 +397,7 @@
 				echo "<p> $space $space <a href=\"reset.php\">Enter My ORCID iD</a></p>\n"; # Load name/email/ORCID iD reset
 				$url = 'https://orcid.org/register';
 				echo "<p> $space $space <a href=\"$url\" target=\"_blank\">Sign Up New ORCID Account</a></p>\n"; # Opens in new browser tab
+				echo "<p> $space $space Entering your ORCID ID will allow other attendees to access your ORCID profile, to view information on your publications and other public content.</p>";
 				}
 			
 			else {
@@ -421,10 +430,12 @@
      echo "<label>ORCID ID:</label> <input type=\"text\" name=\"ORCIDiD\" ><br/><br/>\n";
      echo "<input type=\"submit\">\n";
 
-echo "<p>Enter your name and email address. ";
-echo "Some systems attempt to auto-capitalize when you enter your address. ";
-echo "Please verify that the capitalization is correct in your address.</p>";
+echo "<p>Enter the name and email address you used to register for the event. ";
+#echo "Some systems attempt to auto-capitalize when you enter your address. ";
+#echo "Please verify that the capitalization is correct in your address.";
+echo "</p>";
 
+echo "<p>Entering your ORCID ID will allow other attendees to access your ORCID profile, to view information on your publications and other public content.</p>";
 
      echo "</form>\n";
 	  }

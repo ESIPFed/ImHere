@@ -19,6 +19,7 @@
   if ( isset($_GET['ORCIDiD']) ) { $ORCIDiD = $_GET['ORCIDiD']; } else { $ORCIDiD = ''; }
   if ( isset($_GET['queryName']) ) { $queryName = $_GET['queryName']; } else { $queryName = ''; }
   if ( isset($_GET['queryEmail']) ) { $queryEmail = $_GET['queryEmail']; } else { $queryEmail = ''; }
+  if ( isset($_GET['queryORCIDiD']) ) { $queryORCIDiD = $_GET['queryORCIDiD']; } else { $queryORCIDiD = ''; }
 
   $returnLink = "<p>$space<a href=\"imhere.php?name=$name&email=$email&event=$event&ORCIDiD=$ORCIDiD\">Return to Check-In Menu</a></p>";
 
@@ -87,7 +88,13 @@
 
 #-------------------------------------------------------------------------------------------------
 
-#echo "<h4><br/>$returnLink<br><br></h4>";
+if ($queryORCIDiD) {
+	$aaa = 'http://orcid.org/' . $queryORCIDiD;
+	$bbb = "$aaa . target=\"_blank\"";
+	$url = "<a href=$bbb>View ORCID profile</a>"; # Opens in new browser tab
+	echo "<p> $space $url<br>";
+}
+
 echo "<br/>$returnLink<br><br>";
 
   # close html

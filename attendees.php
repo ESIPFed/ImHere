@@ -138,7 +138,6 @@
 #---------------------------------------------------------------------------------------------------
   # List attendees in a session
   if ( $check == '' ) {
-
     $attendees = getAttendees($session, $attendees_log); # In attendeeLog.php
 	if ($listAll) { echo "<p>$session...<br>Attendees:</p>"; }
 	else { echo "<p>$session...<br>Currently Checked-In Attendees:</p>"; }
@@ -150,7 +149,6 @@
        $queryEmail = $pp[0];
        $value = $pp[1]; #In/Out status
        $queryORCIDiD = $pp[2];
-
        # find out if this person is discoverable
        $discover = isDiscoverable($key, $queryEmail); #in checkin.php
        $parts = explode(":", $discover);
@@ -164,6 +162,12 @@
            $line = "<p><a href=\"viewProfile_ResearchBit.php?name=$name&email=$email&event=$event&queryName=$key&queryEmail=$queryEmail\">$key</a></p>";
 			}
 			else { # Not interfacing with ResearchBit
+
+/* Put this in if we're linking to ORCID through veiwPROFILE.PHP:
+*/
+				$line = "<p><a href=\"viewProfile.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&queryName=$key&queryEmail=$queryEmail&queryORCIDiD=$queryORCIDiD&event=$event\">$key</a>";
+
+/* Put this in if we want to go directly to the ORCHID profile display and bypass viewPrifile.php:
 				if (!$queryORCIDiD) { # If no ORCID iD present, view registration.csv info
 		        $line = "<p><a href=\"viewProfile.php?name=$name&email=$email&ORCIDiD=$ORCIDiD&queryName=$key&queryEmail=$queryEmail&event=$event\">$key</a></p>";
 					}
@@ -172,6 +176,7 @@
 				$bbb = "$aaa . target=\"_blank\"";
 				$line = "<p><a href=$bbb>$key</a></p>"; # Opens in new browser tab
 					}
+*/
 				} # End Not interfacing with RB
 
          if ( ($value == 1) || ($listAll == 1)  ) { echo $line; }
