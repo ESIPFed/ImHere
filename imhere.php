@@ -427,7 +427,7 @@
      echo "<label>Name:</label> <input type=\"text\" name=\"name\" ><br/>\n";
      echo "<label>Email:</label> <input type=\"text\" name=\"email\" ><br/><br/>\n";
 
-     echo "<p>IMPORTANT: You must enter the same name and email address you used to register for the event. ";
+     echo "<p>IMPORTANT: You must enter the same name and email address you used to register for the event, and both are case-sensitive.";
      echo "</p>";
 
      echo "<label>(Optional)</label> <br/>\n";  
