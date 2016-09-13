@@ -66,9 +66,15 @@
     $lineName = strtolower($lineName);
     $lineEmail = trim($line[14]);
     $person = strtolower($queryName);
-    if ( ($lineName == $person) && ($lineEmail == $queryEmail) ) { # If this is the right person...
+	$lowerQueryEmail = strtolower($queryEmail);
+
+    if ($lineName == $person) {
+		if (($lineEmail == $queryEmail)||($lineEmail == $lowerQueryEmail)) {
 		echo "$space Name: $queryName<br>";
-		echo "$space Email: $queryEmail<br>";
+		if ($queryEmail==$lineEmail) {
+			echo "$space Email: $queryEmail<br>"; }
+		else {
+			echo "$space Check-In Email: $queryEmail<br>$space Registration Email: $lineEmail<br>"; }
 		$data = ($line[4]);
 		echo "$space Title: $data<br>";
 		$data = ($line[5]);
@@ -82,9 +88,10 @@
 		$data = ($line[16]);
 		echo "$space Twitter: $data<br>";
 		$found = 1;
-    }  
-  }
-	if ($found == 0) {echo "$space No registration info for $queryName"; }
+     } # End if emails match
+    } # End if names match 
+  } # End for each...
+	if ($found == 0) {echo "$space Cannot find registration info for $queryName<br> $space ($queryEmail)"; }
 
 #-------------------------------------------------------------------------------------------------
 
