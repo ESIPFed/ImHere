@@ -76,22 +76,22 @@
 		else {
 			echo "$space Check-In Email: $queryEmail<br>$space Registration Email: $lineEmail<br>"; }
 		$data = ($line[4]);
-		echo "$space Title: $data<br>";
+		if ($data) {echo "$space Title: $data<br>";}
 		$data = ($line[5]);
 		echo "$space Organization: $data<br>";
 		$data = ($line[6]);
-		echo "$space Org Type: $data<br>";
+		if ($data) {echo "$space Org Type: $data<br>";}
 		$data = ($line[12]);
 		echo "$space Country: $data<br>";
 		$data = ($line[15]);
-		echo "$space Email 2: $data<br>";
+		if ($data) {echo "$space Email 2: $data<br>";}
 		$data = ($line[16]);
-		echo "$space Twitter: $data<br>";
+		if ($data) {echo "$space Twitter: $data<br>";}
 		$found = 1;
      } # End if emails match
     } # End if names match 
   } # End for each...
-	if ($found == 0) {echo "$space Cannot find registration info for $queryName<br> $space ($queryEmail)"; }
+	if ($found == 0) {echo "$space No registration info for...<br> $space $queryName <br> $space $queryEmail<br>"; }
 
 #-------------------------------------------------------------------------------------------------
 
@@ -99,6 +99,7 @@ if ($queryORCIDiD) {
 	$aaa = 'http://orcid.org/' . $queryORCIDiD;
 	$bbb = "$aaa . target=\"_blank\"";
 	$url = "<a href=$bbb>View ORCID profile</a>"; # Opens in new browser tab
+	echo "<br>$space ORCID ID: $queryORCIDiD<br>";
 	echo "<p> $space $url<br>";
 }
 
