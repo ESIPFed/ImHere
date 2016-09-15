@@ -13,6 +13,7 @@ var margin = {top: 50, right: 10, bottom: 0, left: 350},
     height = 254 - margin.top - margin.bottom; // Eight
     height = 279 - margin.top - margin.bottom; // Nine
     height = 304 - margin.top - margin.bottom; // Ten
+    height = 354 - margin.top - margin.bottom; // Twelve
 
 var x = d3.scale.linear()
     .range([0, width]);
