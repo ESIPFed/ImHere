@@ -3,6 +3,7 @@ var margin = {top: 50, right: 10, bottom: 0, left: 350},
 
 // Height set to 54 is the start point; Each data line below that takes another 25
     height = 2554 - margin.top - margin.bottom; // One hundred
+    height = 2604 - margin.top - margin.bottom; // One hundred
 
 var x = d3.scale.linear()
     .range([0, width]);
