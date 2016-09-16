@@ -209,7 +209,7 @@ $bbb=sizeof($sessions2);
 $page = $server . "attendance_summary.php?event=$event&email=$email";
 
 # If there are sessions currently running, we load a different page instead:
-if ($aaa!=0) { $page = $server . "attendance_summary2.php?event=$event&email=$email&tot=$tot&in=$in&aaa=$aaa&currentSessionsLog=$currentSessionsLog"; }
+if ($aaa!=0) { $page = $server . "attendance_summary2.php?event_logs=$event_logs&event=$event&email=$email&regCount=$regCount&tot=$tot&pct=$pct&in=$in&aaa=$aaa&currentSessionsLog=$currentSessionsLog"; }
 
 # How many seconds before auto-reload
 $sec = "10";
@@ -235,11 +235,16 @@ echo "  <body>\n";
 
 #----------
 
+$regFile = $log_dir . $event_logs . '/' . 'registration.csv';
+$regCount = count(file($regFile));
+
+$pct = ($tot/$regCount) * 100;
+$pct = number_format($pct, 0);
+
 $space = "&nbsp;";
 echo "   <h3 style=\"text-align:center\">$event</h3>";
-#echo "   <h3 style=\"text-align:center\">Total Event Attendees: $tot $space Still Checked-In: $in</h3>";
-echo "   <h3 style=\"text-align:center\">Total Event Attendees: $tot</h3>";
-echo "   <h3 style=\"text-align:center\">Attendee Count by Session";
+echo "   <h3 style=\"text-align:center\">Registrations: $regCount $space Event Check-Ins: $tot $space ($pct%)</h3>";
+echo "   <h3 style=\"text-align:center\">Check-Ins by Session";
 
 #----------
 
