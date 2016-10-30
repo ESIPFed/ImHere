@@ -347,8 +347,13 @@
        	   }
 
        # Real-time Check-In Count
-	   $url = "<a href=\"attendance_summary.php?event=$event&email=$email\">Attendee Count by Session</a>";
-       echo "<p> $space $space $url<br>";
+/* Can't seem to make this work...
+		$aaa = "attendance_summary.php?event=$event&email=$email";
+		$bbb = "$aaa . target=\"_blank\"";
+		$url = "<a href=$bbb>Attendee Count by Session</a>"; # Opens in new browser tab
+*/
+		$url = "<a href=\"attendance_summary.php?event=$event&email=$email\">Attendee Count by Session</a>";
+		echo "<p> $space $space $url<br>";
 
 	   # View profile
        if ($recommendation_interface) { # View ResearchBit profile info

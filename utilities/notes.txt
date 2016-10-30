@@ -39,10 +39,11 @@ In directory "logs"...
 ----------------------------------------------------------------------------------------------------------------------------
 In directory "logs/attendance_cache"...
 
-	attendance_data_[event_name]_[uniqid()].json
-	attendance_data2_[event_name]_[uniqid()].json
+	[event_name]_all_sessions_[email_address].json
+	[event_name]_current_sessions_[email_address].json
 		Created new whenever someone calls routing for Real-time Session Attendance Count
-		Updated every 60 seconds thereafter, so long as someone still has that screen/function displayed
+		One of each file for each user (email address) who initiates the function
+		Updated every 60 seconds thereafter, so long as user still has that screen/function displayed
 
 ----------------------------------------------------------------------------------------------------------------------------
 In event-specific log directory...
