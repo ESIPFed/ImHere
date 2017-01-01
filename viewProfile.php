@@ -61,10 +61,10 @@
   $found = 0;
   foreach( $results as $line ) { # For each person in the registration.csv file
 	$firstName = ($line[0]);
-	$lastName = ($line[2]);
+	$lastName = ($line[1]);
 	$lineName = ($firstName . ' ' . $lastName);
     $lineName = strtolower($lineName);
-    $lineEmail = trim($line[14]);
+    $lineEmail = trim($line[2]);
     $person = strtolower($queryName);
 	$lowerQueryEmail = strtolower($queryEmail);
 
@@ -77,16 +77,14 @@
 			echo "$space Check-In Email: $queryEmail<br>$space Registration Email: $lineEmail<br>"; }
 		$data = ($line[4]);
 		if ($data) {echo "$space Title: $data<br>";}
-		$data = ($line[5]);
+		$data = ($line[3]);
 		echo "$space Organization: $data<br>";
-		$data = ($line[6]);
-		if ($data) {echo "$space Org Type: $data<br>";}
-		$data = ($line[12]);
-		echo "$space Country: $data<br>";
-		$data = ($line[15]);
+		$data = ($line[5]);
 		if ($data) {echo "$space Email 2: $data<br>";}
-		$data = ($line[16]);
+		$data = ($line[6]);
 		if ($data) {echo "$space Twitter: $data<br>";}
+		$data = ($line[7]);
+		if ($data) {echo "$space Orcid ID: $data<br>";}
 		$found = 1;
      } # End if emails match
     } # End if names match 

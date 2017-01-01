@@ -58,8 +58,16 @@ In event-specific log directory...
 			sessionID
 	
 	registration.csv
-		Exported from regonline system
-		Optional file
+		Exported from RegOnline system
+		Optional file (but Profile Display will show "No Registration Info for..."
+			first name
+			last name
+			email
+			company
+			title
+			secondary email
+			twitter handle
+			Orcid ID
 	
 	attendees.txt
 		New line written every time someone checks into or out of a session
