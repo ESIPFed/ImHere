@@ -398,11 +398,33 @@
 			{
 			echo "<p> <span style=\"background-color:$color2; color:$color4; font-weight:bold\">ORCID Interface:<p>\n";
 			
-			if (!$ORCIDiD) { # Allow them to enter ORCIDiD if they didn't earlier, or sign up new account
+	# If they didn't enter an ORCID ID at sign-in then let's see if we can find one in the registration file
+	if (!$ORCIDiD) {
+	  $file = $log_dir . $event_logs . '/' . 'registration.csv';
+	  $results = readCSV( $file ); # Build an array of all attendees from registration.csv
+	  foreach( $results as $line ) { # For each person in the registration.csv file
+		$firstName = ($line[0]);
+		$lastName = ($line[1]);
+		$lineName = ($firstName . ' ' . $lastName);
+	    $lineName = strtolower($lineName);
+	    $lineEmail = trim($line[2]);
+	    $person = strtolower($name);
+		$lowerEmail = strtolower($email);
+
+	    if ($lineName == $person) {
+			if (($lineEmail == $email)||($lineEmail == $lowerEmail)) {
+			$ORCIDiD = ($line[7]);
+	     } # End if emails match
+	    } # End if names match 
+	  } # End for each...
+	} # End if no ORCID ID entered
+
+		# In no ORCHID ID in registration file, or entered at sign-in, allow them to enter it now or sign up for new account
+			if (!$ORCIDiD) { 
 				echo "<p> $space $space <a href=\"reset.php\">Enter My ORCID iD</a></p>\n"; # Load name/email/ORCID iD reset
 				$url = 'https://orcid.org/register';
 				echo "<p> $space $space <a href=\"$url\" target=\"_blank\">Sign Up New ORCID Account</a></p>\n"; # Opens in new browser tab
-				echo "<p> $space $space Entering your ORCID ID will allow other attendees to access your ORCID profile, to view information on your publications and other public content.</p>";
+				echo "<p> $space $space Entering your ORCID ID will allow other attendees to access your ORCID profile.</p>";
 				}
 			
 			else {
@@ -425,23 +447,24 @@
    # ------------------------------------------------------------
   
     } else {	# No $name or $email - make 'em enter it here:
-  echo "<p class=\"center\" style=\"font-weight:bold; color:$color3\">ImHere<br>";
-  echo "<class=\"center\" style=\"font-weight:bold; color:$color3\">Event Check In System</p>";
+	 echo "<p class=\"center\" style=\"font-weight:bold; color:$color3\">ImHere<br>";
+	 echo "<class=\"center\" style=\"font-weight:bold; color:$color3\">Event Check In System</p>";
+
+     echo "<p>Please enter the same name and email address you used to register for the event. Both are case-sensitive.</p>";
+
      $action = htmlspecialchars($_SERVER["PHP_SELF"]);
      echo "<form method=\"GET\" action=\"$action\">\n";
      echo "<label>Name:</label> <input type=\"text\" name=\"name\" ><br/>\n";
      echo "<label>Email:</label> <input type=\"text\" name=\"email\" ><br/><br/>\n";
 
-     echo "<p>IMPORTANT: You must enter the same name and email address you used to register for the event, and both are case-sensitive.";
-     echo "</p>";
+     echo "<p>Optional: Entering your ORCID ID will allow other attendees to access your ORCID profile. If you entered and ORCID ID when registering for the event you do not need to enter it here.</p>";
 
-     echo "<label>(Optional)</label> <br/>\n";  
      echo "<label>ORCID ID:</label> <input type=\"text\" name=\"ORCIDiD\" ><br/><br/>\n";
-     echo "<p>Entering your ORCID ID will allow other attendees to access your ORCID profile, to view information on your publications and other public content.</p>";
 
      echo "<input type=\"submit\">\n";
 
      echo "</form>\n";
+
 	  }
     # ------------------------------------------------------------
   

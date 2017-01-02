@@ -59,6 +59,7 @@
   $file = $log_dir . $event_logs . '/' . 'registration.csv';
   $results = readCSV( $file ); # Build an array of all attendees from registration.csv
   $found = 0;
+  $regORCIDiD = "";
   foreach( $results as $line ) { # For each person in the registration.csv file
 	$firstName = ($line[0]);
 	$lastName = ($line[1]);
@@ -83,8 +84,7 @@
 		if ($data) {echo "$space Email 2: $data<br>";}
 		$data = ($line[6]);
 		if ($data) {echo "$space Twitter: $data<br>";}
-		$data = ($line[7]);
-		if ($data) {echo "$space Orcid ID: $data<br>";}
+		$regORCIDiD = ($line[7]);
 		$found = 1;
      } # End if emails match
     } # End if names match 
@@ -93,11 +93,15 @@
 
 #-------------------------------------------------------------------------------------------------
 
+if (!$queryORCIDiD) {$queryORCIDiD = $regORCIDiD;}
+
 if ($queryORCIDiD) {
 	$aaa = 'http://orcid.org/' . $queryORCIDiD;
 	$bbb = "$aaa . target=\"_blank\"";
 	$url = "<a href=$bbb>View ORCID profile</a>"; # Opens in new browser tab
+
 	echo "<br>$space ORCID ID: $queryORCIDiD<br>";
+
 	echo "<p> $space $url<br>";
 }
 
